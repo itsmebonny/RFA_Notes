@@ -1,0 +1,395 @@
+
+\section{AC and BV functions}
+
+Consider \(f \in L^1\left([a,b]\right)\). We can define the \textbf{integral function}
+\[F(x) = \int_{[a,b]} f d\lambda = \int_a^b f(t)dt , \quad x \in [a,b]\]
+
+If \(f \in \mathcal{C}\left(\left[a, b\right]\right)\), then \(F\) is differentiable on \(\left[a, b\right]\), and \(F'(x)=f(x)\)
+
+What happens if \(f \in L^1([a, b])\)?
+
+
+
+\begin{definition}
+    Given \(f \in L^1([a,b])\). We say that \(x \in [a,b]\) is a \textbf{Lebesgue point} for \(f\) if 
+    \[
+        \lim_{h \to 0} \frac{1}{h} \int_x^{x+h} \abs{f(t) - f(x)} \, dt = 0
+    \]
+    If \(x=a\) or \(x=b\), this is the left/right \(\lim\).
+\end{definition}
+\begin{remark}
+    A point \(x\) is called a Lebesgue point for \(f\) if \(f\) `does not oscillate too much' close to \(x\):
+    \begin{itemize}
+        \item \(f\) \(\mathcal{C}([a,b]) \to \text{ every } x \in [a,b]\) is a Lebesgue point.
+        \item \[
+            f(x) = \begin{cases}
+                1  & x > 0 \\
+            0 & x < 0
+            \end{cases}
+        \]
+        \[
+            \lim_{h \to 0} \frac{1}{h} \int_0^{h} \abs{f(t) - f(0)} \, dt = \lim_{h \to 0} \frac{1}{\abs{h}} \int_0^{h} \abs{0 - 1} \, dt = 0
+        \]
+    \end{itemize}
+\end{remark}
+\begin{theorem}[Lebesgue]
+    If \(f \in L^1([a.b])\) then a.e. \(x \in [a,b]\) is a Lebesgue point for \(f\)
+\end{theorem}
+\begin{remark}
+    In the definition of Lebesgue point, the pointwise values of \(f\) are relevant 
+    \[
+        f = g \in L^1 \Leftrightarrow f = g \text{ a.e.}
+    \]
+    Then the Lebesgue point of \(f\) could be different from the one of \(g\).  
+    This is not a big problem if \(f = g\) a.e. on \([a,b] \Rightarrow f = g \in [a,b]\setminus N\) where \(\lambda(N) = 0\); \(x\) is a Lebesgue point for \(f\), \(\forall \; x \in \left[a, b\right] \setminus M, \ \lambda(M)=0\) \\
+    \(\Rightarrow x \) is a Lebesgue point for \(g\), \(\ \forall x \in \left[a, b\right] \setminus (M \cup N)\) \\
+    \(\left[a, b\right] \setminus (M \cup N)\) is a set of full measure of Lebesgue points for \(f\) and \(g\).
+\end{remark}
+To speak about Lebesgue points, one has to choose a specific representative \(f \in L^1([a,b])\). If you change representative, you obtain the same set of Lebesgue points up to sets with \(0\)-measure.
+
+\begin{theorem}[First fundamental theorem of calculus]
+Given \(f \in L^1([a,b]),\ F(x) = \int_a^xf(t) \, dt\) \\
+Then \(f\) is differentiable a.e. on \([a,b]\) and \(F'(x) = f(x) \text{ a.e. in } [a,b]\)    
+\end{theorem}
+\begin{proof}
+    Let \(x \in [a,b]\) for any Lebesgue point for \(f\) (a.e. \(x \in [a,b]\) is fine). Consider
+    \[
+        \left|{\frac{F(x+h)-F(x)}{h} - f(x)}\right| = \abs{\frac{1}{h} \int_x^{x+h} (f(t) - f(x)) \,dt } \leq \frac{1}{h} \int_x^{x+h} |f(t) - f(x)| \,dt \to 0 
+    \]
+    Since \(x\) is a Lebesgue point.
+\end{proof}
+\begin{definition}
+    Given \(f : I \to \real\) is called \textbf{absolutely continuous} in \(I\), \(f \in AC(I)\), if \(\forall \; \epsilon >0 \; \exists \; \delta >0\)  
+    s.t. 
+    \[
+        \bigcup_{k=1}^n [a_k, b_k] \subseteq I \text{ with disjoint interiors}
+    \] 
+    \[
+        \lambda(\bigcup_{k=1}^n [a_k, b_k]) = \sum_{k=1}^n (b_k -a_k) < \delta
+    \]
+    \[
+        \Rightarrow \sum_{k=1}^n \abs{f(b_k)-f(a_k)} < \epsilon
+    \]
+\end{definition}
+\begin{remark}
+    \(f\) is uniformly continuous on \([a,b]\) if \(\forall \; \epsilon > 0\) \(\exists \; \delta > 0\) s.t. 
+    \[
+        \abs{t - \tau} < \delta \Rightarrow \abs{f(t)-f(\tau)} < \epsilon
+    \]
+    An absolutely continuous function is also uniformly continuous. \\
+    But the converse is false.
+\end{remark}
+
+\begin{itemize}
+    \item If \(f\) is Lipschitz on \([a,b] \Rightarrow f \in \text{AC}([a,b])\) 
+\end{itemize}
+Recall that \(f \in \mbox{Lip}([a,b])\) if \(\exists \; L > 0\) s.t. 
+\[
+    \abs{f(x) - f(y)} \leq L\abs{x-y} \qquad \forall x, y \in \left[a, b\right]
+\]
+\noindent\underline{Check}: For any \(\epsilon > 0\), and consider 
+\[
+    \sum_{k=1}^n \abs{f(b_k)-f(a_k)} \leq \sum_{k=1}^n L(b_k-a_k) = L \sum_{k=1}^n (b_k-a_k)
+\]
+If we take \(\delta = \delta(\epsilon) = \frac{\epsilon}{L}\), then 
+\[
+    \sum_{k=1}^n (b_x, a_x) < \delta \Rightarrow \sum_{k=1}^n \abs{f(b_k)-f(a_k) } \leq L \sum_{k=1}^n (b_k-a_k)
+\]
+\qed
+\[
+    \mbox{Lip}([a,b]) \subsetneqq \mbox{AC}([a,b]) \subsetneqq \mbox{UC}([a,b])
+\]
+\begin{theorem}[Regularity of integral functions]
+    Given \(f \in L^1([a,b]), F(x) = \int_a^xf(t) \, dt\), then \(F \in \mbox{AC}([a,b])\)
+\end{theorem}
+To prove the theorem we need the
+\begin{theorem}[Absolute continuity of the integral]
+    Given \(f \in L^1(X, \mathcal{M}, \mu)\). Then \(\forall \; \epsilon >0 \) \(\exists \; \delta > 0\) s.t.     
+    \[
+        \begin{array}{l}
+            E \in \mathcal{M} \\
+            \mu(E) < \delta
+        \end{array} 
+        \Rightarrow \int_E \abs{f} \, d\mu < \epsilon
+    \]
+\end{theorem}
+\begin{proof}
+    We fix \(\epsilon > 0\). Let \(F_n := \left\{ \abs{f} < n \right\}\), \(n \in \mathbb{N}\). Also \(F_n \in \mathcal{M}\; \forall \; n\), \(F_n \subseteq F_{n+1}\) and 
+    \[
+        \bigcup_{n=1}^{\infty} F_n = \left\{ \abs{f} < \infty \right\} =: F
+    \]
+    \(f \in L^1 \Rightarrow \abs{f}\) is finite a.e.: \(\mu(X \setminus F) =0\).
+    Therefore:
+    \[
+        \int_X \abs{f} \, d\mu = \int_{X \setminus F} \abs{f} \, d\mu + \int_F \abs{f} \, d\mu 
+        = \lim_{n \to\infty} \int_{F_n} \abs{f} \, d\mu
+    \]
+    \[
+        \lim_{n\to\infty} \int_X \abs{f} \left( \chi_{F_n^C} \right) \, d\mu =0
+    \]
+    \(\forall \; \epsilon >0 \; \exists \; \bar{n} \in \mathbb{N}\) s.t. 
+    \[
+        n > \bar{n} \Rightarrow \abs{\int_X \abs{f} \chi_{F_n^C} \, d\mu} < \frac{\epsilon}{2}
+    \]
+    Now, fix \(\epsilon >0 \), and take \(n > \bar{n}(\epsilon)\). If \(E \in \mathcal{M}\), then
+    \[
+        \int_E \abs{f} \, d\mu = \int_{E \cap F_n} \abs{f} \, d\mu + \int_{E \cap F_n^C} \abs{f} \, d\mu
+        \leq n \int_E 1 \, d\mu + \int_{F_n^C} \abs{f} \, d\mu 
+    \]
+    If we suppose that \(\mu(E) < \frac{\epsilon}{2n} =: \delta(\epsilon)\), we deduce that
+    \[
+        n \int_E 1 \, d\mu = n \mu(E) < \frac{\epsilon}{2}
+    \]
+    Also, since \(n > \bar{n}\)
+    \[
+        \int_{F_n^C} \abs{f} \, d\mu < \frac{\epsilon}{2}
+    \]
+    \[
+        \Rightarrow \int_E \abs{f} \, d\mu < \epsilon \]
+\end{proof}
+\begin{proof}[Proof - Regularity of integral functions]
+    Let \(\epsilon > 0\), and \(\delta = \delta(\epsilon) > 0\) be the value given by the absolute continuity of \(\int \abs{f} \, d\mu\). 
+    Take 
+    \[
+        E = \bigcup_{k=1}^n \left[ a_k, b_k \right] \qquad E \subseteq \left[a, b\right]
+    \]
+    If \(\lambda(E) < \delta\), then
+    \[
+        \sum_{k=1}^n \abs{F(b_k) - F(a_k)} = \sum_{k=1}^n \abs{\int_{a_k}^{b_k} f(t)\, dt} 
+        \leq \sum_{k=1}^n \int_{a_k}^{b_k} \abs{f(t)}\, dt
+        = \int_E \abs{f} \, d\lambda < \epsilon
+    \]
+    by absolute continuity of \(\int\) 
+\end{proof}
+\begin{remark}
+    \(\sqrt{x}\) is AC\((\left[0, 1\right])\), but is not Lip\((\left[0, 1\right])\).
+    \[
+        \sqrt{x} = \int_0^x \frac{1}{2\sqrt{t}} \, dt
+    \]
+    \(\Rightarrow \sqrt{x}\) is the \(\int\) function of a \(L^1\) function \\
+    \(\Rightarrow \sqrt{x} \in \text{AC}(\left[0, 1\right])\)
+\end{remark}
+
+To sum up: the \(\int \) function of a \(L^1\) function is AC, it is differentiable a.e., and 
+\[
+    F(x) - F(a) = \int_a^x F'(t) \, dt \tag*{FC}
+\]
+
+Suppose \(G\) is differentiable a.e. on \(\left[a, b\right]\) and FC holds for \(G\):
+\[
+    G(x) - G(a) = \int_a^x G'(t) \, dt
+\]
+What can we say about \(G\)?
+\begin{remark}
+    If \(G\) \(\in \mathcal{C}^1(\left[a, b\right]) \Rightarrow\) FC holds. \\
+    If FC holds, then \(G' \in L^1(\left[a, b\right]) \) (necessary condition).
+    \noindent
+    Is the necessary condition also sufficient? In general not. 
+    Take \(v(x)\), the Vital Cantor function: \(v \in \mathcal{C}([0,1]), v(0)=0, v(1)=1\). \(v\) is differentiable a.e. on \([0,1]\) but the calculus formula doesn't hold!
+\end{remark}
+\begin{remark}
+    A function which is differentiable a.e. on an interval can behave very badly
+\end{remark}
+\begin{theorem}
+    \(G \in \text{AC}([a, b])\). Then \(G\) is differentiable a.e. on \([a, b]\), \(G' \in L^1([a, b])\), and FC holds.
+\end{theorem}
+\begin{remark}
+    These theorems say that AC function are precisely the ones for which FC holds:
+    \begin{itemize}
+        \item \(G \in \) AC \(\Rightarrow\) FC holds. 
+        \item If FC holds, then \(G' \in L^1 ([a, b])\) 
+    \end{itemize}
+    \(\Rightarrow \int_a^x G'(t) \, dt \in \) AC \\
+    \(\Rightarrow G(x) - G(a) = \int_a^x G'(t) \, dt \in \) AC   
+\end{remark}
+\begin{remark}
+    \(v \in \) UC\(([0, 1])\) by continuity and Heine Cantor, but \(v \notin \) AC\(([0, 1])\) because FC does not hold.
+\end{remark}
+
+The proof of the second fundamental theorem of calculus is divided into two steps. 
+\begin{lemma}
+    The second fundamental theorem hold under the additional assumption that \(G\) is monotone.
+\end{lemma}
+Second step: to get rid of the monotonicity. \\
+For step 2, is it useful to give the
+\begin{definition}
+    \(\left[a, b\right] \subset \mathbb{R}\). Let 
+    \[
+        \mathcal{P}_{\left[a, b\right]} := \lbrace (x_0, x_1, \dots, x_n): n \in \mathbb{N} \text{ and } a=x_0 < x_1 < x_2 < \dots < x_n = b \rbrace
+    \]
+    For \(P \in \mathcal{P}_{\left[a, b\right]}\) and \(f: [a, b] \to \barreal\), define
+    \[
+        v_a^b(f, P) := \sum_{k=1}^n \abs{f(x_k) - f(x_{k-1})}
+    \]
+    The total variation of \(f \) on \([a, b]\) is 
+    \[
+        V_a^b (f) := \sup_{P \in \mathcal{P}_{\left[a, b\right]}} v_a^b (f, P)
+        = \sup \lbrace \sum_{k=1}^n \abs{f(x_k)-f(x_{k-1})}:n \in \mathbb{N}, a=x_0 < x_1 < \dots <x_n = b \rbrace
+    \]
+\end{definition}
+If \(V_a^b(f) < \infty\), we say that \(f\) is a function with \textbf{bounded variation}, \(f \in \) BV \(([a, b])\)
+\begin{theorem}[The \(2^{nd}\) fundamental theorem of calculus.]
+    \(G \in \mbox{AC}([a,b]) \Leftrightarrow\) \(G\) is differentiable a.e. on \([a,b]\), \(G' \in L^1([a,b])\), and (FC) holds.
+\end{theorem}
+
+Example and comments:
+\begin{itemize}
+    \item If \(f\) is bounded and monotone \(\Rightarrow\) \(f \in \mbox{BV}\)
+    \[
+        V_a^b (f) = \abs{f(b) - f(a)}
+    \]
+    Note that \(f\) may not be continuous
+    \[
+        f(x) = \begin{cases}
+            1 & x \geq 0 \\
+            0 & x < 0
+        \end{cases}
+        \Rightarrow f \in \mbox{BV}([-1,1])
+    \]
+    \item \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is bounded. Indeed
+    \[
+        \sup_{x \in [a,b]} \abs{f(x)} \leq \abs{f(x)} + V_a^b(f) \overset{f \in \text{BV}}{<} +\infty
+    \]
+    \item \(f\) is continuous on \([a,b]\), or even if  \(f\) is differentiable everywhere in \([a,b]\) \(\nRightarrow f \in \mbox{BV}([a,b])\)
+    \[
+        f(x) = \begin{cases}
+            x^2\cos{\frac{2\pi}{x^2}} & x \in (0,1] \\
+            0 & x = 0
+        \end{cases}
+    \]
+    It is continuous in \([0,1]\), but \(f \notin \mbox{BV}([0,1])\)
+    \item \(f \in \mbox{BV}([a,b]) \cap \mbox{UC}([a,b])  \nRightarrow f \in \mbox{AC}([a,b])\)
+    \[\begin{array}{l}
+        v \mbox{ a Vitali-Cantor function} \\ v \mbox{ is bounded and monotone} \\ 
+        v \in \mbox{UC}([0,1]) \\ 
+        
+    \end{array}
+    \Rightarrow v \in \mbox{BV}([0,1]) 
+    \]
+    But \(v \not \in \mbox{AC}([0,1])\)
+    \item If \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is differentiable a.e. on \([a,b]\), and \(f' \in L^1([a,b])\)
+\end{itemize}
+We can now come back to the proof of Lemma 1 of the last lesson.
+
+\noindent\underline{Preliminary result}: \(A \in \real\) open. Then 
+\[
+    A = \bigcup_{n=1}^{\infty}(a_n, b_n) \mbox{ disjoint}
+\]
+    any open set of \(\real\) is the (at most) countable union of open disjoint intervals.
+
+\noindent\underline{Preliminary result (equivalent definition for AC)}: \(f \in \mbox{AC}([a,b]) \Leftrightarrow \forall \; \epsilon > 0 \exists \; \delta > 0\) depending on \(\epsilon\) s.t. 
+\[
+    \forall \; \bigcup_{n=1}^{\infty} [a_n, b_n], \quad [a_n, b_n] \mbox{ have disjoint interiors}
+\]
+\[
+    \sum_{n=1}^{\infty} (b_n -a_n) < \delta \Rightarrow \sum_{n=1}^{\infty} \abs{f(b_n) - f(a_n)} < \epsilon
+\]
+\begin{proof}
+    We defined \(\lambda\) starting from two properties
+    \begin{itemize}
+        \item invariance under translations
+        \item \(\lambda((x,y)) = y - x \quad \forall \; a \leq  y \leq b\)
+    \end{itemize}
+    Now, \(G\) is monotone, say \(G\) increasing (if \(G \searrow\), take \(-G\)). We can repeat the construction of \(\lambda\) in order to obtain a measure \(\mu\) s.t. 
+    \begin{itemize}
+        \item \(\mu\) is invariant under translations
+        \item \(\mu((x,y)) = \underbrace{G(y) - G(x)}_{\geq 0}\) \(\forall \; a \leq x < y \leq b\) (for \(\lambda\), take \(G(t) = t\))
+    \end{itemize}
+It can be proved that we obtain a measure on \((\real, \mathcal{L}(\real))\), complete.
+
+On \((\real, \mathcal{L}(\real))\) we have two measures: \(\lambda \mbox{ and } \mu\).
+
+\noindent\underline{Idea}: We take these measures on \(([a,b], \mathcal{L}([a,b]))\), and we want to show that \(\exists \; \frac{d\mu}{d\Lambda}\) (Radon-Nikodym)
+
+We can check the hypothesis of the Radon-Nikodym theorem:
+\begin{itemize}
+    \item \(\lambda\) is \(\sigma\)-finite: \(\lambda([a,b]) = b-a < +\infty\)
+    \item \(\mu << \lambda\): \(E \in \mathcal{L}([a,b])\), \(\lambda(E) = 0 \Rightarrow \mu(E) = 0\)
+\end{itemize}
+Assume \(\lambda(E) = 0\). \(G\) is \(\mbox{AC}([a,b])\): then \(\forall \; \epsilon > 0\) \(\exists \; \delta = \delta(\epsilon) > 0\) s.t. 
+\[
+    \forall \; \bigcup_{n=1}^{\infty} [a_n, b_n], \quad [a_n, b_n] \mbox{ have disjoint interiors}
+\]
+\[
+    \lambda\left(\bigcup_{n=1}^{\infty} [a_n, b_n]\right) < \delta \Rightarrow \sum_{n=1}^{\infty} \abs{G(b_n) - G(a_n)} < \epsilon
+\]
+Take this \(\delta\). By regularity of \(\lambda\), \(\exists \; A \) open set of \(\left[a, b\right]\)s.t. \(A \supset E\) and \(\lambda(A) < \delta\)
+\[
+    A \mbox{ is open} \Rightarrow A = \left( \bigcup_{n=1}^{\infty} I_n \symbolfootnotemark[2]{\mbox{open intervals } = (x, y)} \right), \mbox{ disjoint}
+    \symbolfootnotetext[2]{open intervals = \((x_n, y_n)\)}
+\] 
+it is a countable union of open intervals (maybe two of them contains \(a\) or \(b\))
+\[
+    \lambda(A) < \delta \Leftrightarrow \sum_{n=1}^{\infty} (y_n - x_n) < \delta
+\]
+But then, since \(\mu\) is a measure it is countably additive
+\[
+    \mu (E) \leq \mu(A) = \sum_n \mu (I_n) = \sum_n G(y_n) - G(x_n) < \epsilon
+\]
+by the choice of \(\delta \) and the fact that \(G \in\) AC.
+We proved that 
+\[
+    \lambda(E) = 0 \Rightarrow \forall \; \epsilon >0 : \, \mu(E) < \epsilon \Rightarrow \mu(E) =0
+\]
+So \(\mu << \lambda\). We can apply Radon Nikodym \(\exists \; \oldphi : \left[ a, b\right] \to \left[0, \infty\right]\) s.t. 
+\[
+    G(x) - G(a) = \int_a^x \oldphi \, d\lambda
+\]
+Since \(G\) is bounded, then \(\oldphi \in L^1(\left[a, b\right])\)
+\[
+    G(x)=G(a) + \int_a^x \oldphi(t) \, dt
+\]
+By the first fundamental theorem of calculus, this is differentiable a.e. 
+\[
+    \Rightarrow G'(x) = \oldphi(x) \text{ a.e. on } \left[a, b\right]
+\]
+\[
+    \Rightarrow G'(x) = G(a) + \int_a^x G'(t) \, dt
+\]
+\end{proof}
+Now we want to get rid of the additional assumption (monotonicity).
+
+\noindent\underline{Preliminary result}: \(f \in \mbox{BV}([a,b])\). Then
+\[
+    \phi(x) = V_a^x(f), \quad \forall \, x \in [a,b] 
+\]
+is an increasing function.
+\begin{proof}
+    By \(a \leq x < y \leq b\). Then
+    \[
+        V_a^y (f) = V_a^x (f) + \underbrace{V_x^y(f)}_{\geq 0} \geq V_a^x(f)
+    \]
+\end{proof}
+\noindent\underline{Preliminary result}: If \(G \in \mbox{AC}([a,b])\), then \(G \in \mbox{BV}([a,b])\), and moreover 
+\[
+    \phi(x) = V_a^x(G) \mbox{ is in AC}([a,b])
+\]
+\begin{proof}[Proof of the second fundamental theorem of calculus in the general case]\(G \in \mbox{AC}([a,b])\)
+
+
+    We want to write \(G= G_1 + G_2\) where \(G_1 \nearrow \) and \(G_2 \searrow\), both AC. 
+
+    Then the second fundamental theorem holds for \(G_1 \) and \(G_2\) so it holds for \(G\) by linearity of the integral. 
+    
+    We pose:
+    \[
+        G_1(x) = \frac{G(x) + V_a^x(G)}{2}
+    \]
+    \[
+        G_2(x) = \frac{G(x) - V_a^x(G)}{2}
+    \]
+    Clearly, \(G_1+G_2 = G\), \(G_1, G_2\) are AC, by the last preliminary result.
+
+    \noindent\underline{\(G_1 \nearrow\)}: Let \(a \leq x < y \leq b\)
+    \[
+        \abs{G(y) - G(x)} \leq V_x^y(G)
+    \]
+    Therefore, 
+    \[
+        G_1 (y) - G_1(x) = \frac{1}{2} (\underbrace{G(y) - G(x)}_{\begin{array}{l}\geq - \abs{G(y) - G(x)} \\ \geq - V_x^y(G)\end{array}} + V_a^y(G) + V_a^x(G))  \geq \frac{1}{2}(-V_x^y(G) + V_x^y(G)) = 0
+    \]
+    
+       
+    
+    So \(G_1\) is decreasing. In an analogue way, we can prove that \(G_2\) is decreasing.
+\end{proof}

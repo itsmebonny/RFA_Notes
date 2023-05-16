@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hhline}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond,aspect = 2, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\usepackage{newunicodechar}
+\newunicodechar{≠}{\ensuremath{\not =}}
+\usepackage{textcomp}
+\usepackage[makeroom]{cancel}
+
+\newlength\mylength
+\setlength\mylength{0.1cm}
+\newcolumntype{Y}{>{\Centering\arraybackslash}X}
+
+\AtBeginEnvironment{array}{\everymath{\displaystyle}}
+\newtheoremstyle{break}
+  {\partopsep}{\topsep}%  
+  {\normalfont}{}
+  {\bfseries}{}%
+  {\newline}{}%
+  \theoremstyle{break}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}[section]{Remark}
+\newtheorem{lemma}{Lemma}[section]
+\renewcommand*{\proofname}{\textbf{Proof}}
+\renewcommand\qedsymbol{$\bigstar$}
+\newtheorem{definition}{Definition}[section]
+\renewcommand\labelenumi{(\theenumi)}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\newcommand{\ind}{\perp\!\!\!\!\perp} 
+\newcommand{\measurespace}{(X, \mathcal{M}, \mu)}
+\newcommand{\sigalg}{\sigma\mbox{-algebra}}
+\newcommand{\boreal}{\mathcal{B}(\mathbb{R})}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\xdownarrow}[1]{%
+  {\left\downarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+\newcommand{\xuparrow}[1]{%
+  {\left\uparrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+\newcommand{\arrvline}{\hfil\kern\arraycolsep\vline\kern-\arraycolsep\hfilneg}
+
+\long\def\symbolfootnotemark[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnotetext[#1]{#2}\footnotemark[#1]\endgroup}
+
+\long\def\symbolfootnotetext[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnotetext[#1]{#2}\endgroup}
+
+
+\numberwithin{equation}{section}
+
+
+
+
+
+

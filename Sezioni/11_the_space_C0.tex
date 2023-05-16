@@ -1,0 +1,21 @@
+\section{The space \texorpdfstring{\(\mathcal{C}^0\)}{C0}}
+\begin{definition}
+    \(\{f_n\}\) sequence in \(\mathcal{C}^0(\left[a, b\right])\). 
+    We say that \(\{f_n\}\) is \textbf{uniformly equicontinuous} in \([a, b]\) if \(\forall \; \epsilon >0 \; \exists \; \delta >0 \) depending only on \(\epsilon \) s.t. 
+    \[
+        |t-\tau| < \delta \Rightarrow \| f_n(t) - f_n(\tau) \| < \epsilon \qquad \forall \; n
+    \]
+\end{definition}
+
+\begin{remark}
+    With respect to the uniform continuity, in this case \(\delta\) does not depend on \(f\). \(\delta\) is the same for all the \(f_n\) s
+\end{remark}
+
+\begin{theorem}[Ascolì Arzelà]
+    \(\{f_n\} \subseteq \mathcal{C}^0(\left[a, b\right])\). Suppose that:
+    \begin{itemize}
+        \item \(\{f_n\}\) is uniformly equi-continuous
+        \item \(\{f_n\}\) is equi-bounded: \(\exists \; M>0\) s.t. \(\norm{f_n}_\infty <M \qquad \forall \; n\)
+    \end{itemize}
+    Then \(\exists\) a subsequence \(\{f_{n_k}\}\) and \(f \in \mathcal{C}^0(\left[a, b\right])\) s.t. \(f_{n_k} \rightarrow f \) uniformly.
+\end{theorem}

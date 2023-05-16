@@ -1,0 +1,180 @@
+\section*{Real Analysis}
+\section{Set Theory}
+
+\subsection{Collections and sequences of sets}
+Let \(X\) be a set. Then 
+\[
+    \mathcal{P}(X) = \left\lbrace Y \; | \; Y \subseteq X \right\rbrace \tag{{Power Set}}
+\]
+Let \(I \subseteq \mathbb{R}\) be a set of indexes. A family of sets induced by \(I\) is 
+\[
+    \left\lbrace E_i \right\rbrace_{i \in I}, \quad E_i \subseteq X  \tag{{Family/Collection}}
+\]
+If \(I = \mathbb{N} \) is called a 
+\[
+    \left\lbrace E_n \right\rbrace_{n \in \mathbb{N}} \tag{{Sequence}}
+\]
+\begin{definition}
+    \( \left\lbrace E_n \right\rbrace \subseteq \mathcal{P}(X) \) is monotone increasing (resp. decreasing) if 
+    \[
+        E_n \subseteq E_{n+1} \,\forall n \qquad (\mbox{resp. } E_n \supseteq E_{n+1} \, \forall n)
+    \]
+    and is written as 
+    \[
+        \left\lbrace E_n \right\rbrace \nearrow \qquad (\mbox{resp. }\left\lbrace E_n \right\rbrace \searrow)
+    \]
+\end{definition}
+Given a family of sets \(\left\lbrace E_i \right\rbrace_{i \in I} \subseteq \mathcal{P}(X)\), will be often considered
+\[
+    \bigcup_{i \in I} E_i = \left\lbrace x \in X : \exists \; i \in I \, s.t. \, x \in E_i \right\rbrace 
+\]
+\[
+    \bigcap_{i \in I} E_i = \left\lbrace x \in X : x \in E_i, \, \forall i \in I \right\rbrace
+\]
+\(\left\lbrace E_i \right\rbrace\) is said to be \textbf{disjoint} if \(E_i \cap E_j = \emptyset \; \forall i \not = j\).
+
+Examples:
+\[
+    [a,b] = \bigcap_{n = 1}^{\infty} (a - \frac{1}{n}, b + \frac{1}{n}) 
+\]
+\[
+    (a,b) = \bigcup_{n = 1}^{\infty}[a + \frac{1}{n}, b - \frac{1}{n}]
+\]
+\subsection{lim inf, lim sup}
+    \begin{definition}
+        \(\left\lbrace E_n \right\rbrace \subseteq \mathcal{P}(X)\). We define 
+        \[
+            \limsup_{n} E_n := \bigcap_{k = 1}^{\infty} \left(\bigcup_{n = k}^{\infty} E_n\right)
+        \qquad
+            \liminf_{n} E_n := \bigcup_{k = 1}^{\infty} \left(\bigcap_{n = k}^{\infty} E_n\right)
+        \]
+        If these two sets are equal, then 
+        \[
+            \lim_n E_n = \limsup_n E_n = \liminf_n E_n
+        \]
+        which is the limit of the succession.
+    \end{definition}
+\subsection{lim of sequences of sets}
+\begin{proposition}
+    Some limits are:
+    \begin{itemize}
+        \item \(\limsup_n E_n = \left\lbrace x \in X :\, x \in E_n \; \mbox{for }\infty-\mbox{many indexes }n \right\rbrace\)
+        \item \(\liminf_n E_n = \left\lbrace x \in X :\, x \in E_n \; \mbox{for all but finitely many indexes }n \right\rbrace\)
+        \item \(\liminf_n E_n \subseteq \limsup_n E_n\)
+        \item \(\left( \liminf_n E_n\right)^C = \limsup_n E_n^C\) 
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    We can define:
+    \[
+    \begin{array}{ccl}
+        x \in \limsup_n E_n & \Leftrightarrow & x \in \bigcap_{k = 1}^{\infty} \left(\bigcup_{n = k}^{\infty} E_n\right) \\
+        & \Leftrightarrow & \forall k \in \mathbb{N} \, : \; \bigcup_{n = k}^{\infty} E_n \\
+        & \Leftrightarrow &  \forall k \in \mathbb{N} \; \exists n_k \geq k \, \text{ s.t. } \, x \in E_{n_k}
+        
+    \end{array}
+\]
+So \(x \in \limsup_n E_n \; \Rightarrow\) \(\begin{array}[t]{l}
+    \exists m_1 = n_1 \, \text{ s.t. } \, x \in E_{n_1} \\
+    \exists m_2 := n_{m_1 + 1} \geq m_1 + 1 \, \text{ s.t. } \, x \in E_{n_2} \\
+    \vdots \\
+    \exists m_k := n_{m_{k-1} + 1} \geq m_{k-1} + 1 \, \text{ s.t. } \, x \in E_{n_k} \\
+    \vdots \\
+    x \in E_{m_1}, \ldots, E_{m_k}, \ldots 
+\end{array}
+\)
+
+On the other hand, assume that \(x \in E_n\) for \(\infty\)-many indexes.
+We claim that \(\forall k \in \mathbb{N} \), \( \exists n_k \geq k \) s.t. \( x \in E_{n_k} \, \Leftrightarrow \, x \in \limsup_n E_n\). 
+If that claim is not true, then \(\exists \, \bar{k} \) s.t. \( x \not \in E_n \quad \forall n > \bar{k} \Rightarrow x\) belongs at most to \(E_1, \ldots, E_{\bar{k}}\), a contradiction. 
+\end{proof}
+
+\subsection{Cover and subcover of a set}
+\begin{definition}
+    \(\left\lbrace E_i \right\rbrace_{i \in I}\) is a \textbf{covering} of \(X\) if 
+    \[
+        X \subseteq \bigcup_{i \in I} E_i
+    \]
+A subfamily of \(E_i\) that is still a covering is called a \textbf{subcovering}
+\end{definition}
+\subsection{Characteristic function of a set}
+\begin{definition}
+    Let \(E \subseteq X\). The function \(\chi_E \, : X \rightarrow \mathbb{R}\) 
+    \[
+        \chi_E (x):= \begin{cases}
+            1 & \mbox{if } x \in E \\
+            0 & \mbox{if } x \in X\setminus E
+        \end{cases}
+    \]
+    is called \textbf{characteristic function} of \(E\)
+\end{definition}
+Let \(E_1, E_2\) be sets:
+\[
+    \chi_{E_1 \cap E_2} = \chi_{E_1} \cdot \chi_{E_2}
+\]
+\[
+    \chi_{E_1 \cup E_2} = \chi_{E_1} + \chi_{E_2} - \chi_{E_1 \cap E_2} 
+\]
+\[
+    \left\lbrace E_n \right\rbrace \subseteq \mathcal{P}(X), \mbox{ disjoint}, E = \bigcup_{n = 1}^{\infty} E_n \Rightarrow \mathcal{X_E} = \sum_{n = 1}^{\infty} \chi_{E_n}
+\]
+\[
+    \left\lbrace E_n \right\rbrace \subseteq \mathcal{P}, P = \liminf_n E_n, Q = \limsup_n E_n \Rightarrow \chi_P = \liminf \chi_{E_n}, \chi_Q = \limsup_n \chi_{E_n}
+\]
+Recall that \(\limsup_n a_n = \lim_{k \to \infty} \sup_{n \geq k} a_n\) and \(\liminf_n a_n = \lim_{k \to \infty} \inf_{n \geq k} a_n\)
+
+
+Let's also check that \(\chi_Q = \limsup_n \chi_{E_n}\)
+\[
+    \begin{array}{ccl}   
+    x \in \limsup_n E_n & \Leftrightarrow & \chi_Q(x) = 1 \\
+    & \Leftrightarrow & \forall \, k \in \mathbb{N} \, \exists \, n_k \geq k \; s.t. \; x \in E_{n_k}
+    \end{array}
+    \]
+If we fix \(k\) then 
+\[
+    \begin{array}{c}
+        \sup_{n \geq k} \chi_{E_n}(x) = \chi_{E_{n_k}}(x) = 1 \\
+        \lim_{k \to \infty} \sup_{n \geq k} \chi_{E_n}(x) = \limsup_n \chi_{E_n}(x) = 1
+    \end{array}
+\]
+    Let now \(x \not \in \limsup E_n \Leftrightarrow \chi_Q(x) = 0\).
+    Then \(x\) belongs at most to finitely many \(E_n\) \(\Rightarrow \exists \, \bar{k}\; s.t. \; x \not \in E_n, \forall n \geq \bar{k}\)
+    
+    If \(k \geq \bar{k}\), then \(\sup_{n \geq k} \chi_{E_n} (x) = 0 \Rightarrow \lim_{k \to \infty} \sup_{n \geq k} \chi_{E_n}(x) = \limsup_n \chi_{E_n} (x) = 0\)
+
+\subsection{Equivalence relations}
+    Given \(X, Y\) sets, is called a \textbf{relation} of \(X\) and \(Y\) a subset of \(X \times Y\)
+    \[
+        R \subseteq X + Y \quad R = \left\lbrace (x,y) \, : \, x \in X, y \in Y \right\rbrace
+    \]
+    \[
+        (x,y) \in R \Leftrightarrow xRy
+    \]
+    \[
+        X = \left\lbrace 0,1,2,3 \right\rbrace \quad R = \left\lbrace (0,1), (1,2), (2,1) \right\rbrace \mbox{ is a relation in } X
+    \]
+\begin{definition}
+    A \textbf{function} from \(X\) to \(Y\) is a relation \(R\) s.t. for any element \(x\) of \(X\) \(\exists !\) element \(y\) of \(Y\) s.t. \(xRy\)
+\end{definition}
+\begin{definition}
+    \(R\) on \(X\) is an \textbf{equivalence relation} if 
+    \begin{enumerate}
+        \item \(xRx\) \(\forall \; x \in X\) (\(R\) is \textbf{reflexive})
+        \item \(xRy \Rightarrow yRx\) (\(R\) is \textbf{symmetric})
+        \item \(xRy, yRz \Rightarrow xRz\) (\(R\) is \textbf{transitive})
+    \end{enumerate}
+    If \(R\) is an equivalence relation, the set 
+    \(
+        E_X := \left\lbrace y \in X \, : \, yRx \right\rbrace, \; x \in X
+    \)
+    is called the \textbf{equivalence class} of \(X\)
+\end{definition}
+\begin{definition}
+    \(\frac{X}{R} := \left\lbrace E_X \, : \, x \in X \right\rbrace\) is the \textbf{quotient set}
+\end{definition}
+Ex: \(X = \mathbb{Z}\), let's say that \(nRm\) if \(n-m\) is even. This is an equivalence relation.
+\[
+    E_n = \left\lbrace \ldots, n-4, n-2, n, n+2, n+4, \ldots \right\rbrace
+\]
+in this case if \(n\) is even, \(E_n = \left\lbrace \mbox{even numbers} \right\rbrace\) and if \(n\) is odd, \(E_n = \left\lbrace \mbox{odd numbers} \right\rbrace\)

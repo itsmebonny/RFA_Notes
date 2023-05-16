@@ -1,0 +1,193 @@
+\section{Types of convergence}
+\subsection{Various types of convergence}
+\(\left\lbrace f_n \right\rbrace\) sequence of measurable functions \(X \to \barreal\)
+\begin{itemize}
+    \item \(f_n \to f\) pointwise (everywhere) on \(X\) if \(f_n(x) \overset{n \to \infty}{\to} f(x) \; \forall \; x \in X\)
+    \item \(f_n \to f\) uniformly on \(X\) if \(\sup_{x \in X} \abs{f_n(x) - f(x)} \overset{n \to \infty}{\to} 0\)
+    \item \(f_n \to f\) a.e. on \(X\) if 
+    \[
+        \begin{array}{c}
+            \mu\left(\left\{ x \in X : \lim_n f_n(x) \neq f(x) \mbox{ or does not exist} \right\}\right) = 0 \\
+            \Updownarrow \\
+            f_n(x) \to f(x) \mbox{ for a.e } x \in X
+        \end{array}
+    \]
+    \item \underline{Convergence in \(L^1(X)\)}: \(f_n \to f\) in \(L^1(X)\) if 
+    \[
+        \int_X \stackbelow{\abs{f_n - f}}{d_1(f_n, f)} \, d\mu \overset{n\to \infty}{\to} 0
+    \]
+    \item \underline{Convergence in measure/probability}: \(f_n \to f\) in measure if \(\forall \, \alpha > 0\)
+    \[
+        \lim_{n\to \infty} \mu\left(\left\{ \abs{f_n - f} \geq \alpha \right\}\right) = 0
+    \]
+\end{itemize}
+\noindent\underline{Basic facts}: uniformly convergence \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) pointwise \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) a.e. convergence.
+
+\noindent\underline{Ex:} \(f_n (x) = \exp{-nx}, x \in [0,1]\)
+\[
+    f(x) = 0, \quad g(x) = \begin{cases}
+        0 & x \in (0, 1]\\ 1 & x = 0
+    \end{cases}
+\]
+Then \(f_n \to g\) pointwise, \(g = f\) a.e. \(\Rightarrow f_n \to f\) a.e. on \([0,1]\). But \(f(0) \neq g(0) \Rightarrow f_n \to f\) pointwise. 
+
+\(f_n \nrightarrow g\) uniformly on \([0,1]\) \(\bigg\lvert \begin{array}{l}
+    f_n \in \mathcal{C}([0,1]) \\ f_n \to g \Rightarrow g \in \mathcal{C}([0,1])
+\end{array}\)
+
+a.e. \(\nRightarrow\) uniform, but not all is lost...
+\subsection{Egorov's theorem}
+\begin{theorem}[Egorov]
+    Let \(\mu(X) < +\infty\), and suppose that \(f_n \to f\) a.e. on \(X\). Then, \(\forall \; \epsilon > 0, \exists \; X_{\epsilon} \subset X\), measurable, s.t. 
+    \[
+        \mu(X \setminus X_{\epsilon}) < \epsilon
+    \]
+    and \(f_n \to f\) uniformly on \(X_{\epsilon}\)
+\end{theorem}
+\noindent\underline{Ex}: in an example \(f_n \to 0\) a.e., \(f_n \to 0\) uniformly on \([0,1]\), but \(f_n \to 0\) uniformly on \([\epsilon, 1]\).
+
+Regarding a.e. convergence and in measure convergence there is the following theorem
+\begin{theorem}
+    If \(\mu(X) < +\infty\) and \(f_n \to f\) a.e. on \(X\) \(\Rightarrow f_n \to f\) in measure on \(X\)
+\end{theorem}
+\begin{proof}
+    Let \(\alpha > 0\). We want to show that \(\forall \; \epsilon > 0\) \(\exists \; \bar{n} \in \mathbb{N}\) s.t. 
+    \[
+        n > \bar{n} \Rightarrow \mu(\left\lbrace \abs{f_n -f} \geq \alpha\right\rbrace) <\epsilon
+    \]
+    \(f_n \to f\) a.e. on \(X\), \(\mu(X) < +\infty\) \(\overset{\text{Egorov}}{\Rightarrow} \exists \; X_{\epsilon} \subseteq X\) s.t. \(\mu(X \setminus X_{\epsilon}) < \epsilon\) and \(f_n \to f\) uniformly on \(X_{\epsilon}\) \(\Leftrightarrow \sup_{X_{\epsilon}} \abs{f_n - f} \overset{n\to \infty}{\to} 0\).
+
+    In particular, this means that \(\exists \; \bar{n} \in \mathbb{N}\) s.t. \(n > \bar{n} \Rightarrow \abs{f_n -f} < \alpha\) on \(X_{\epsilon}\).
+
+    Therefore 
+    \[
+        \left\{ \abs{f_n -f} \geq \alpha \right\} \cap  X_{\epsilon} = \emptyset \Rightarrow \left\{ \abs{f_n -f} \geq \alpha \right\} \subseteq X \setminus X_{\epsilon} \qquad \text{for } n> \bar{n} 
+    \]
+    By monotonicity of \(\mu\), we deduce that
+    \[
+        \mu\left(\left\{ \abs{f_n -f} \geq \alpha \right\}\right) \leq \mu(X \setminus X_{\epsilon}) < \epsilon \quad \mbox{for }n> \bar{n}
+    \]
+    Namely, \(f_n \to f\) in measure.
+\end{proof}
+\begin{remark}
+    \(\mu(X) < +\infty\) is essential
+\end{remark}
+For example, in \((\mathbb{R}, \mathcal{L}(\mathbb{R}), \lambda)\) consider
+\[
+    f_n (x) = \chi_{[n, n+1)}(x)
+\]
+\(f_n(x) \to 0\) for every \(x \in \mathbb{R}\). However, \(\lambda(\left\lbrace \vert f_n \vert \geq \frac{1}{2}\right\rbrace) = \lambda([n, n+1)) = 1\) not \(0\)
+\subsection{The typewriter sequence}
+\begin{remark}
+    Convergence in measure \(\Rightarrow\) a.e convergence?
+
+    No, not even if \(\mu(X) < +\infty\).
+
+    Consider \(\chi_{n,k} = \chi_{[\frac{k-1}{n}, \frac{k}{n}]}\) with \(n \in \mathbb{N}, k = 1, \ldots, n\)
+    \[
+        \begin{array}{ccc}
+            \chi_{1,1}(x) = \chi_{[0, 1]}(x) & & \\
+            \chi_{2,1}(x) = \chi_{[0, \frac{1}{2}]}(x) & \chi_{2,2}(x) = \chi_{[\frac{1}{2}, 1]}(x) & \\
+            \chi_{3,1}(x) = \chi_{[0, \frac{1}{3}]}(x) & \chi_{3,2}(x) = \chi_{[\frac{1}{3}, \frac{2}{3}]}(x) &\chi_{3,3}(x) = \chi_{[\frac{2}{3}, 1]}(x) \\
+        \end{array}
+    \]
+    For \(n\) fixed and \(k\) variable, we move the \(\chi\) from the left to right. When the \(\chi\) reaches \(1\), we switch \(n\), and \(\chi\) reappear from the left, being thinner. 
+    \[
+        \begin{array}{cc}
+            \int_{[0,1]} \chi_{n,k} \, d\lambda = \frac{1}{n} & \int_{[0,1]} \chi_{n+1, k} \, d\lambda = \frac{1}{n+1}
+        \end{array}
+    \]
+    We can order the elements of \(\chi_{n,k}\) in a sequence, letting
+    \(f_p = \chi_{n,k}\) for \(p=1+2+\ldots+(n-1)+k\). We will prove that \(\left\{ f_p \right\}\) converges in measure, but not a.e. 
+
+    This is the \textbf{typewriter sequence} (\(p(n,k)\)). For every \(x \in [0,1]\) there are \(\infty\) many indexes s.t. \(f_p(x) = 1\) and \(\infty\) many indexes s.t. \(f_p(x) = 0\), meaning that \(\nexists \; \lim_{p\to \infty} f_p(x)\)
+    \( f_p \nrightarrow 0 \) a.e. on \(\left[ 0, 1\right]\).
+
+    But we do have convergence in measure to \(0\): \(\alpha \in (0,1)\)
+    \[
+        \lambda\left(\left\{ \abs{f_{p(n,k)}} \geq \alpha \right\}\right) = \lambda \left(\left[ \frac{k-1}{n}, \frac{k}{n} \right]\right) = \frac{1}{n} \to 0 \mbox{ as } \begin{array}{l}
+            n\to \infty \\
+            \updownarrow \\
+            p \to \infty        
+        \end{array}
+    \]
+\end{remark}
+\begin{remark}
+    So, \(f_p \nrightarrow 0\) a.e. on \([0,1]\). But consider \( \{ f_{p(n,1)}: n \in \mathbb{N} \} \). 
+    This is a subsequence and, by definition 
+    \[ 
+        f_{p(n, 1)}(x) = \chi_{n, 1}(x)= \chi_{\left[0, \frac{0}{n} \right]}(x) 
+    \] 
+    For this subsequence, we have \( f_{p(n,1)}(x) \rightarrow 0 \) as \( n \to\infty \; \forall x \in (0, 1] \), then a.e. on \(\left[0, 1\right]\)
+    
+    This is not random!
+
+\end{remark}
+
+\begin{proposition}
+    If \(\mu(X) < \infty \) and \(f_n \rightarrow f \) in measure, then \(\exists\) a subsequence \(\{f_{n_k} \}\) s.t. \(f_{n_k} \to f \) a.e. on \(X\).
+\end{proposition}
+Now we analize the relation between convergence in \(L^1(X)\) and the other convergences.
+
+\begin{theorem}
+    \( \{f_n\} \subset L^1(X), f \in L^1(X) \). If \(f_n \rightarrow f \) in \(L^1(X)\) then \(f_n \rightarrow f \) in measure on \(X\)
+\end{theorem}
+\begin{proof}
+    By contradiction. Suppose that \(f_n \nrightarrow f \) in measure on X: 
+    \( \exists \; \bar{\alpha} > 0 \) s.t. 
+    \[ 
+        \limsup_{n\to\infty} \mu(\{ |f_n-f| \geq \bar{\alpha} \}) > 0 
+    \]
+    \(\Rightarrow \exists \; \bar{\epsilon}\) and a subsequence \( \{ f_{n_k} \} \) s.t.
+    \[ 
+        \mu(\{ |f_{n_k}-f| \geq \bar{\alpha} \}) > \bar{\epsilon} 
+    \]
+    Consider then 
+    \[  
+        \begin{array}{l}
+        d_1(f_{n_k}, f) 
+        = \int_X |f_{n_k} - f| \, d\mu  
+        \overset{\text{monot. } \int}{\geq} \int_{\left\{|f_{n_k}-f|\geq \bar{\alpha}  \right\}} \abs{f_{n_k} -f} \, d\mu  \geq\\
+        \geq \int_{\left\{|f_{n_k}-f|\geq \bar{\alpha}  \right\}} \bar{\alpha} \, d\mu 
+        = \bar{\alpha} \; \mu (\{|f_{n_k } - f| \geq \bar{\alpha}\}) 
+        > \bar{\alpha} \; \bar{\epsilon}    
+        \end{array}
+    \]
+    But, by assumption, \(d_1(f_n, f) \rightarrow 0\)
+    \[ 
+        \Rightarrow d_1(f_{n_k}, f) \rightarrow 0 
+    \] 
+    Contradiction.
+\end{proof}
+
+\begin{remark}
+    The convergence in measure doesn't imply the convergence in \(L^1\). \\ For example, consider 
+    \[ 
+        f_n (x) = n \chi_{\left[0, \frac{1}{n} \right]}(x) 
+    \]
+    \( \underbrace{\mu \left( \left\{ |f_n| \geq \alpha \right\}\right)}_{= \frac{1}{n}} \to 0 \) for every \(\alpha\) \\
+    On the other hand 
+    \[ 
+        \int _{\left[0, 1\right]} n \chi_{\left[0, \frac{1}{n} \right]} \, d\lambda 
+        = \int_{\left[0, \frac{1}{n}\right]} n \, d\lambda 
+        = n \frac{1}{n} = 1
+    \]
+    \( f_n \nrightarrow 0\) in \(L^1\) 
+\end{remark}
+
+Convergence a.e. \(\nRightarrow\) convergence in \(L^1\): \\
+Use the same example above, \(f_n \rightarrow 0\) a.e. on \([0, 1] \nRightarrow f_n \rightarrow 0\) in \(L^1\)
+
+Convergence in \(L^1\) \(\nRightarrow\) convergence a.e.: \\
+Consider the typewriter sequence: \( d_1(f_{p(n, k)}, 0) \to 0\) when \( p \to\infty\) \\
+But we don't have a.e. convergence. \\
+However, recall the dominated convergence theorem: (DOM)
+\[ 
+    f_n \rightarrow f \text{ a.e. } + \exists \text{ of a dominating function } \Rightarrow d(f_n, f)\rightarrow 0 
+\]
+It is also possible to show a reverse DOM: \\
+If \(f_n \to f \) in \(L^1(X)\), then \(\exists\) a subsequence \(\left\{f_{n_k}\right\}\) and \(w \in L^1(X)\) s.t. 
+\begin{enumerate}
+    \item \(f_{n_k} \rightarrow f\) a.e. on X
+    \item \( \abs{f_{n_k}(x)} \leq w(x) \) for a.e. \(x \in X\)
+\end{enumerate}

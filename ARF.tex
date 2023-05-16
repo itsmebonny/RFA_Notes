@@ -1,0 +1,130 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hhline}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{amsthm}
+
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{textcomp}
+
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\usepackage{xcolor}
+
+
+\tcbuselibrary{theorems}
+
+
+\setlength\parindent{0pt}
+
+\newlength\mylength
+\setlength\mylength{0.1cm}
+\newcolumntype{Y}{>{\Centering\arraybackslash}X}
+
+\AtBeginEnvironment{array}{\everymath{\displaystyle}}
+\newtheoremstyle{break}
+  {\partopsep}{\topsep}%  
+  {\normalfont}{}
+  {\bfseries}{}%
+  {\newline}{}%
+  \theoremstyle{break}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{lemma}{Lemma}[section]
+\renewcommand*{\proofname}{\textbf{Proof}}
+\renewcommand\qedsymbol{$\bigstar$}
+\newtheorem{definition}{Definition}[section]
+\renewcommand\labelenumi{(\theenumi)}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\let\oldepsilon\epsilon
+\let\epsilon\varepsilon
+\let\oldphi\phi
+\let\phi\varphi
+
+
+
+\newcommand{\ind}{\perp\!\!\!\!\perp} 
+\newcommand{\measurespace}{(X, \mathcal{M}, \mu)}
+\newcommand{\sigalg}{\sigma\mbox{-algebra}}
+\newcommand{\boreal}{\mathcal{B}(\mathbb{R})}
+\renewcommand{\real}{\mathbb{R}}
+\renewcommand{\natural}{\mathbb{N}}
+\newcommand{\barreal}{\overline{\mathbb{R}}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\xdownarrow}[1]{%
+  {\left\downarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+\newcommand{\xuparrow}[1]{%
+  {\left\uparrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+\newcommand{\arrvline}{\hfil\kern\arraycolsep\vline\kern-\arraycolsep\hfilneg}
+\newcommand{\esssup}{\text{ess}\, \text{sup}}
+\newcommand{\normdot}{\norm{\cdot}}
+\newcommand{\scalardot}{
+  \langle \cdot,\cdot \rangle}
+
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+\def\stackbelow#1#2{\underset{\displaystyle\overset{\displaystyle\shortparallel}{#2}}{#1}}
+\def\stackbelowlittle#1#2{\underset{\textstyle\overset{\textstyle\shortparallel}{#2}}{#1}}
+
+
+
+\long\def\symbolfootnotemark[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnotetext[#1]{#2}\footnotemark[#1]\endgroup}
+
+\long\def\symbolfootnotetext[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnotetext[#1]{#2}\endgroup}
+
+
+\newmdenv[backgroundcolor=blue!20]{background}
+\tcbset{colback=red!5!white,colframe=red!75!black}
+
+\newtcolorbox[auto counter,number within=section]{colordef}{%
+  colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries}
+
+
+
+\begin{document}
+\title{Real and Functional Analysis}
+\author{Ilaria Bonfanti \& Andrea Bonifacio}
+\date{\today}
+\maketitle
+\newpage
+
+
+
+  
+
+\input{Sezioni/1_set_theory.tex}
+\input{Sezioni/2_measure_space.tex}
+\input{Sezioni/3_measurable_functions.tex}
+\input{Sezioni/4_the_lebesgue_integral.tex}
+\input{Sezioni/5_types_of_convergence.tex}
+\input{Sezioni/6_derivative_of_measure.tex}
+\input{Sezioni/7_product_measure.tex}
+\input{Sezioni/8_Absolutely_Continuous_Functions_and_Functions_of_Bounded_Variations.tex}
+\input{Sezioni/9_review_on_metric_spaces.tex}
+\input{Sezioni/10_banach_spaces.tex}
+\input{Sezioni/11_the_space_C0.tex}
+\input{Sezioni/12_Lebesgue_spaces.tex}
+\input{Sezioni/13_Linear_operators.tex}
+\input{Sezioni/14_duality_and_reflexivity.tex}
+\input{Sezioni/15_weak_convergence.tex}
+\input{Sezioni/16_compact_operators.tex}
+\input{Sezioni/17_Hilbert_spaces.tex}
+\input{Sezioni/18_linear_operator_on_h_spaces.tex}
+\end{document}
+
