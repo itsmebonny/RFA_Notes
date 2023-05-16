@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1684260256 "/home/bonni/Documents/ARF/Appunti/ARF.tex" "ARF.pdf" "ARF" 1684260259
+["pdflatex"] 1684260549 "/home/bonni/Documents/ARF/Appunti/ARF.tex" "ARF.pdf" "ARF" 1684260551
   "/etc/texmf/web2c/texmf.cnf" 1663235487 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/bonni/Documents/ARF/Appunti/ARF.tex" 1680690488 3607 d5cf2dc85c7c63ec3ee0b3b8275f58c2 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -205,8 +205,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1683288490 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1683288530 2799656 66c921ca166ab01ae14356c32e2b598c ""
-  "ARF.aux" 1684260259 10485 66a639b5ebc72ac54ed4fe41ebca3ad4 "pdflatex"
-  "ARF.out" 1684260259 13640 ae1ab76aa62cb1395004842a2d2a1fa2 "pdflatex"
+  "ARF.aux" 1684260551 10753 06b4a2897d884c1f29d1cbe8aeca2d6e "pdflatex"
+  "ARF.out" 1684260551 14031 7d556ab45c994580d16e32e9044ae1fd "pdflatex"
   "ARF.tex" 1680690488 3607 d5cf2dc85c7c63ec3ee0b3b8275f58c2 ""
   "Sezioni/10_banach_spaces.tex" 1677075115 9860 08deb1bafce9aea2f3f5452eee0b49a7 ""
   "Sezioni/11_the_space_C0.tex" 1677075115 1078 3139e53b6869415da1fa9e392ace77e4 ""
@@ -224,7 +224,7 @@
   "Sezioni/5_types_of_convergence.tex" 1684259176 9376 bfd2a883cfc43af7e7158537eb68c2f3 ""
   "Sezioni/6_derivative_of_measure.tex" 1684259361 2690 5f0bfeb869f2ed27dd835678a8807305 ""
   "Sezioni/7_product_measure.tex" 1684260254 7271 0fe15007439efe76b6b6bb61e9458774 ""
-  "Sezioni/8_Absolutely_Continuous_Functions_and_Functions_of_Bounded_Variations.tex" 1677075216 16791 e619fa80b7853b9876b453a4dc48b4b6 ""
+  "Sezioni/8_Absolutely_Continuous_Functions_and_Functions_of_Bounded_Variations.tex" 1684260546 16869 afa475d70c812e76ef389860ce44659a ""
   "Sezioni/9_review_on_metric_spaces.tex" 1677075115 2380 79cce1162ac99937d28f9fed2c188f60 ""
   (generated)
   "ARF.aux"
