@@ -14,10 +14,13 @@
 \usepackage{physics}
 \usepackage{textcomp}
 
-\usepackage{tcolorbox}
 \usepackage{mdframed}
 \usepackage{xcolor}
 
+\usepackage[makeroom]{cancel}
+\usepackage{mathrsfs}
+
+\usepackage[many]{tcolorbox}
 
 \tcbuselibrary{theorems}
 
@@ -43,6 +46,8 @@
 \renewcommand*{\proofname}{\textbf{Proof}}
 \renewcommand\qedsymbol{$\bigstar$}
 \newtheorem{definition}{Definition}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
 \renewcommand\labelenumi{(\theenumi)}
 
 \let\oldemptyset\emptyset
@@ -89,20 +94,99 @@
 \def\thefootnote{\fnsymbol{footnote}}\footnotetext[#1]{#2}\endgroup}
 
 
-\newmdenv[backgroundcolor=blue!20]{background}
-\tcbset{colback=red!5!white,colframe=red!75!black}
 
-\newtcolorbox[auto counter,number within=section]{colordef}{%
-  colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries}
+\tcolorboxenvironment{theorem}{
+  breakable,
+  colback=blue!15!white,
+  boxrule=0pt,
+  boxsep=1pt,
+  left=2pt,right=2pt,top=5pt,bottom=5pt,
+  oversize=2pt,
+  before skip=\topsep,
+  after skip=\topsep,
+}
+\tcolorboxenvironment{corollary}{
+  breakable,
+  colback=blue!20!white,
+  boxrule=0pt,
+  boxsep=1pt,
+  left=2pt,right=2pt,top=2pt,bottom=2pt,
+  oversize=2pt,
+  before skip=\topsep,
+  after skip=\topsep,
+}
+\tcolorboxenvironment{proposition}{
+  breakable,
+  colback=blue!25!white,
+  boxrule=0pt,
+  boxsep=1pt,
+  left=2pt,right=2pt,top=2pt,bottom=2pt,
+  oversize=2pt,
+  before skip=\topsep,
+  after skip=\topsep,
+}
+\tcolorboxenvironment{lemma}{
+  breakable,
+  colback=blue!30!white,
+  boxrule=0pt,
+  boxsep=1pt,
+  left=2pt,right=2pt,top=2pt,bottom=2pt,
+  oversize=2pt,
+  before skip=\topsep,
+  after skip=\topsep,
+}
+\tcolorboxenvironment{remark}{
+  breakable,
+    blanker,
+    before skip=6pt,after skip=6pt,
+    boxsep=1pt,
+    left=5pt,right=2pt,top=2pt,bottom=2pt,
+    borderline west={1mm}{0pt}{blue!35}
+}
+\tcolorboxenvironment{notation}{
+  breakable,
+  colback=blue!15!white,
+  boxrule=0pt,
+  boxsep=1pt,
+  left=2pt,right=2pt,top=2pt,bottom=2pt,
+  oversize=2pt,
+  before skip=\topsep,
+  after skip=\topsep,
+}
+\tcolorboxenvironment{definition}{
+  breakable,
+  colback=blue!40!white,
+  boxrule=0pt,
+  boxsep=1pt,
+  left=2pt,right=2pt,top=2pt,bottom=2pt,
+  oversize=2pt,
+  before skip=\topsep,
+  after skip=\topsep,
+}
 
+\tcolorboxenvironment{proof}{
+  breakable,
+  blanker,
+  before skip=6pt,after skip=6pt,
+  boxsep=1pt,
+  left=5pt,right=2pt,top=2pt,bottom=2pt,
+  borderline west={1mm}{0pt}{black}}
+\tcolorboxenvironment{example}{
+    breakable,
+    blanker,
+    before skip=6pt,after skip=6pt,
+    boxsep=1pt,
+    left=5pt,right=2pt,top=2pt,bottom=2pt,
+    borderline west={1mm}{0pt}{blue}}
+  
 
 
 \begin{document}
-\title{Real and Functional Analysis}
+\title{Real and Functional Analysis \\ \small{Notes from the lectures of Prof. Soave}}
 \author{Ilaria Bonfanti \& Andrea Bonifacio}
 \date{\today}
 \maketitle
-\newpage
+
 
 
 

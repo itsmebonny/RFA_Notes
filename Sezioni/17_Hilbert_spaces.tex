@@ -1,4 +1,4 @@
-
+\newpage
 \section{Hilbert Spaces}
 
 \begin{definition}
@@ -26,25 +26,25 @@ Notation: \(p(x, y) = \langle x, y \rangle = (x, y) = x \cdot y\)
     \end{itemize}
 \end{proposition}
 
-\((H, \scalardot \) pre Hilbert \(\to (H, \normdot)\) normed space \(\to (H, d)\) metric space where \(d(x, y) = \norm{x-y}\)
-
+\((H, \scalardot)\) pre Hilbert \(\to (H, \normdot)\) normed space \(\to (H, d)\) metric space where \(d(x, y) = \norm{x-y}\)
+\subsection{Hilbert spaces}
 \begin{definition}
     We say that \((H, \scalardot)\) is a Hilbert space if \((H, \normdot)\) is a Banach space. (namely, if \((H, d)\) is a complete metric space)
 \end{definition}
-
-Examples:
-\begin{itemize}
-    \item \(\real^n\), \(\langle x, y\rangle = \sum_{i=1}^n x_i y_i\)
-    \item \(L^2(X, \mathcal{M}, \mu)\) \((X, \mathcal{M}, \mu)\) complete measure space. 
-    
-    \(\langle f, g\rangle = \int_X fg \, d\mu\). \(\norm{f} = (\int_X f^2 \, d\mu)^\frac{1}{2} = \norm{f}_2\). \((L^2(X), \normdot_2)\) is a Banach space \(\Rightarrow (L^2(X), \scalardot)\) is a Hilbert space.
-    \item \(l^2\) is a Hilbert space. \(\langle x, y\rangle = \sum_{k=1}^\infty x^{(k)} y^{(k)}\), \(x = (x^{(k)})\), \(y = (y^{(k)})\)
-    \item \((\mathcal{C}^0([a, b]), \scalardot )\) is a pre Hilbertian space. \((\mathcal{C}^0([a, b]), \normdot_2 )\) is not a Banach space. 
-\end{itemize}
-
+\begin{example}
+    \begin{itemize}
+        \item \(\real^n\), \(\langle x, y\rangle = \sum_{i=1}^n x_i y_i\)
+        \item \(L^2(X, \mathcal{M}, \mu)\) \((X, \mathcal{M}, \mu)\) complete measure space. 
+        
+        \(\langle f, g\rangle = \int_X fg \, d\mu\). \(\norm{f} = (\int_X f^2 \, d\mu)^\frac{1}{2} = \norm{f}_2\). \((L^2(X), \normdot_2)\) is a Banach space \(\Rightarrow (L^2(X), \scalardot)\) is a Hilbert space.
+        \item \(l^2\) is a Hilbert space. \(\langle x, y\rangle = \sum_{k=1}^\infty x^{(k)} y^{(k)}\), \(x = (x^{(k)})\), \(y = (y^{(k)})\)
+        \item \((\mathcal{C}^0([a, b]), \scalardot )\) is a pre Hilbertian space. \((\mathcal{C}^0([a, b]), \normdot_2 )\) is not a Banach space. 
+    \end{itemize}
+\end{example}
 \begin{definition}
     \(x, y\) are orthogonal if \(\langle x, y \rangle=0\). We write \(x \perp y\)
 \end{definition}
+\subsection{Parallelogram identity}
 \begin{remark}
     Hilbert spaces are particular cases of Banach spaces. The converse is not true. In any Hilbert space, the norm induced by \(\scalardot\) must satisfy the parallelogram rule
     \[
@@ -62,7 +62,7 @@ Examples:
 Consequence: we can check that a Banach space is not a Hilbert space by showing that (PR) does not hold.
 Ex: \((L^p, \normdot_p)\) is not a Hilbert space \(\forall\; p \neq 2\). The same for \((\mathcal{C}^0([a, b]), \normdot_\infty )\)
 
-\subsection*{Orthogonal projection}
+\subsection{Orthogonal projections}
 
 Recall:
 \begin{definition}
@@ -73,7 +73,7 @@ Recall:
 \end{definition}
 
 \begin{theorem}[projection on closed convex sets]
-    \(H\) Hilbert space. Let \(S \subseteq H\) non empty, closed, convex. Then \(\forall \; f \in H \quad \exists! \; h \in S\) s.t. 
+    \(H\) Hilbert space. Let \(S \subseteq H\) non-empty, closed, convex. Then \(\forall \; f \in H \quad \exists! \; h \in S\) s.t. 
     \[
         \norm{f-h} = dist (f, S) = \min_{g \in S} \norm{f-g} \tag*{1}
     \]
@@ -96,7 +96,7 @@ Recall:
     \[
         \norm{f - \frac{v_m + v_n}{2}} \geq d \Rightarrow \norm{2f - (v_m + v_n)} \geq 2d \tag*{2}
     \]
-    By the (PR), with with \(x=f-v_n\), \(x=v_m-f\)
+    By the (PR), with \(x=f-v_n\), \(x=v_m-f\)
     \[
         \norm{v_m - v_n}^2 
         = \norm{v_m \pm f - v_n}^2 
@@ -113,10 +113,10 @@ Recall:
             \Rightarrow \norm{v_n - f}^2 < (d+\epsilon)^2 & \norm{v_m - f}^2 < (d+\epsilon)^2
         \end{array}
     \]
-    Coming back to \((*)< 4((d+\epsilon)^2 -d^2)\), provided that \(n, m > \overline{n}\). Since \(\epsilon\) was arbitrarily chosen, the right hand side can be made arbitrary small (it tends to 0 if \(\epsilon \to 0\)). 
+    Coming back to \((*)< 4((d+\epsilon)^2 -d^2)\), provided that \(n, m > \overline{n}\). Since \(\epsilon\) was arbitrarily chosen, the right-hand side can be made arbitrary small (it tends to 0 if \(\epsilon \to 0\)). 
     We proved that we can make \(\norm{v_n - v_m}^2\) arbitrarily small, provided that \(n, m\) are sufficiently large.
     
-    Namely \(\{v_n\}\) is Cauchy. Since \((H, \normdot)\) is Banach, \(\exists \; v \in H\) s.t. \(v_n \to v\). \(v \in S\), since \(S\) is closed. And, by continuity, 
+    Namely, \(\{v_n\}\) is Cauchy. Since \((H, \normdot)\) is Banach, \(\exists \; v \in H\) s.t. \(v_n \to v\). \(v \in S\), since \(S\) is closed. And, by continuity, 
     \[
         \norm{f-v} = \lim_n \norm{f - v_n} = d
     \]
@@ -141,15 +141,19 @@ Recall:
     \]
 \end{remark}
 
-\(H\) Hilbert space. 
+
 \begin{definition}
-    \(S \subset H\) subset. We define the \textbf{orthogonal complement} of \(S\) as 
+    \(H\) Hilbert space. \(S \subset H\) subset. We define the \textbf{orthogonal complement} of \(S\) as 
     \[
         S^\perp = \{ x \in H:  \langle x, y\rangle = 0 \quad \forall\; y \in S\}
     \]
 \end{definition}
-Ex: \(S^\perp \) is always a closed subspace of \(H\)
-Ex: if \(S\) is a subspace, then \(S \cap S^\perp = \{0\}\)
+\begin{example}
+    \(S^\perp \) is always a closed subspace of \(H\)
+\end{example}
+\begin{example}
+    If \(S\) is a subspace, then \(S \cap S^\perp = \{0\}\)
+\end{example}
 
 \begin{definition}
     \(V, W\) subspace of \(H\), orthogonal one to each other:
@@ -161,7 +165,9 @@ Ex: if \(S\) is a subspace, then \(S \cap S^\perp = \{0\}\)
         V \oplus W = \{ v+w : v \in V, w \in W \}
     \]
 \end{definition}
-Ex: if \(x \in V \oplus W \Rightarrow \exists! \; (v, w) \in V \times W\) s.t. \(x=v+w\)
+\begin{example}
+    If \(x \in V \oplus W \Rightarrow \exists! \; (v, w) \in V \times W\) s.t. \(x=v+w\)
+\end{example}
 
 \begin{theorem}
     \(H\) Hilbert space. Let \(V \subseteq H\) be a closed subspace. Then 
@@ -181,8 +187,10 @@ Ex: if \(x \in V \oplus W \Rightarrow \exists! \; (v, w) \in V \times W\) s.t. \
         \end{array}
     \]
 \end{definition}
-Ex: \(P_v \) and \(P_{v^\perp}\) are linear bounded operators, with norms 1.
-\subsection*{Dual space of a Hilbert space}
+\begin{example}
+    \(P_v \) and \(P_{v^\perp}\) are linear bounded operators, with norms 1.
+\end{example}
+\subsection{Dual space of a Hilbert space}
 Observe that, if \(y \in H\), then we can define \(\Lambda_y : H \to \real\) as
 \[
     \Lambda_y x = \langle y, x\rangle  
@@ -210,7 +218,7 @@ Thus \( \norm{\Lambda_y}_* = \norm{y}\), and the map
 is an isometry from \(H\) into \(i(H) \subset {H^*}\).
 
 Are there other elements in \(H^*\)?
-
+\subsection{Riesz's representation theorem}
 \begin{theorem}[Riesz Representation Theorem]
     \(\forall \; \Lambda \in H^* \) \(\exists! \; y \in H\) s.t. \(\Lambda = \Lambda_y\), namely
     \[
@@ -250,7 +258,7 @@ Both strategies can be adopted in both contexts.
         \[
             \langle z, x - \frac{\Lambda x}{\Lambda z} z\rangle   = 0 \qquad \forall\; x \in H
         \] 
-        \(\scalardot  \) is bilinear: the left hand side is 
+        \(\scalardot  \) is bilinear: the left-hand side is 
         \[
             \langle z, x\rangle   - \frac{\Lambda x}{\Lambda z} \norm{z}^2 \Rightarrow \langle z, x\rangle   = \frac{\Lambda x}{\Lambda z} 
         \]
@@ -269,7 +277,7 @@ Both strategies can be adopted in both contexts.
         \]
     \end{itemize}
 \end{proof}
-
+\subsection{Convergences}
 Consequence: \(H\) Hilbert space.
 \[
     x_n \rightharpoonup x \text{ weakly in } H \Leftrightarrow \langle x_n, y\rangle   \to \langle x, y\rangle   \quad \forall\; y \in H
@@ -288,7 +296,7 @@ Sometimes weak convergence + something else \(\Rightarrow\) strong convergence. 
     \]
 \end{proof}
 
-\subsection*{Orthonormal Basis}
+\subsection{Orthonormal Basis}
 
 In \(\real^n\), we have the canonical basis
 \[
@@ -318,38 +326,37 @@ In particular, \(v=0 \Leftrightarrow \langle v, e_i\rangle  = 0\) \(\forall\; i\
     \end{itemize}
 \end{definition}
 \begin{definition}
-    An orthonormal set is an Hilbert Basis (or is \textbf{complete}) if \(S^\perp = \{0\}\), namely if 
+    An orthonormal set is a Hilbert Basis (or is \textbf{complete}) if \(S^\perp = \{0\}\), namely if 
     \[
         \langle u, x\rangle   = 0 \quad \forall x \in S \Rightarrow u=0
     \]
 \end{definition}
 \begin{theorem}
-    \(H\) Hilbert space, \(H \neq \{0\}\). Then \(H\) has an Hilbert basis.
+    \(H\) Hilbert space, \(H \neq \{0\}\). Then \(H\) has a Hilbert basis.
 
 \noindent Moreover, \(H\) is a separable Hilbert space \(\Leftrightarrow \) it has a finite and countable Hilbert basis.
 \end{theorem}
-
-Example:
-\begin{itemize}
-    \item \(H = l^2\). \(H\) is separable
+\begin{example}
+    \begin{itemize}
+        \item \(H = l^2\). \(H\) is separable
+        
+        An Hilbert basis is \(\{e_n\}_{n \in \natural}\) defined By
+        \[
+            e_n^{(k)} = 
+            \begin{cases}
+                1 & k=n \\
+                0 & k \neq n
+            \end{cases}
+        \]
     
-    An Hilbert basis is \(\{e_n\}_{n \in \natural}\) defined By
-    \[
-        e_n^{(k)} = 
-        \begin{cases}
-            1 & k=n \\
-            0 & k \neq n
-        \end{cases}
-    \]
-
-    \item \(H = L^2([-\pi, \pi])\)
-    
-    An Hilbert basis is
-    \[
-        \lbrace \frac{1}{\sqrt{2\pi}}, \frac{\sin(nx)}{\sqrt{\pi}}, \frac{cos(nx)}{\sqrt{\pi}} \rbrace \quad n \in \natural
-    \]
-\end{itemize}
-
+        \item \(H = L^2([-\pi, \pi])\)
+        
+        An Hilbert basis is
+        \[
+            \lbrace \frac{1}{\sqrt{2\pi}}, \frac{\sin(nx)}{\sqrt{\pi}}, \frac{cos(nx)}{\sqrt{\pi}} \rbrace \quad n \in \natural
+        \]
+    \end{itemize}
+\end{example}
 \begin{remark}
     Hamel basis \(\neq\) Hilbert basis.
 
@@ -359,7 +366,7 @@ Example:
 \end{remark}
 
 The usefulness of Hilbert basis stays in the fact that they allow us to reason component by component.
-
+\subsection{Bessel inequality}
 \begin{theorem}[Bessel inequality]
     \(H\) separable Hilbert space. \(\{u_n\}_{n \in \natural}\) orthonormal set. Then \(\forall \; x \in H\):
     \[
@@ -381,6 +388,7 @@ The usefulness of Hilbert basis stays in the fact that they allow us to reason c
         \norm{x}^2 = \sum_{n=1}^\infty (\langle x, u_n\rangle  )^2 \tag*{Parseval identity}
     \]
 \end{theorem}
+\subsection{Riesz-Fisher theorem}
 \begin{theorem}
     \(H\) separable Hilbert space. Then \(H\) is isomorphic to \(l^2\) as Hilbert space: namely \(\exists\) an isomorphism \(\phi: H \to l^2\) s.t.
     \[
@@ -419,17 +427,19 @@ The usefulness of Hilbert basis stays in the fact that they allow us to reason c
     By Riesz, this means that \(u_n \rightharpoonup 0\) in \(H\)
 \end{proof}
 
-Ex: \(H = L^2([-\pi, \pi])\). Then the previous corollary tells that (Riemann - Lebesgue lemma)
-\[
-    \int_{-\pi}^\pi f(x) \sin (nx) \, dx \to 0 \text{ as } n \to \infty
-\]                
-\(\sin(nx) \rightharpoonup 0\) in \(L^2([-\pi, \pi])\) as \(n \to \infty\). Note that \(\{sin(nx)\}_{n \in \natural}\) does not converge for a.e. \(x\).
-
-Weak convergence in \(L^2\) and pointwise or a.e. convergence are not related.
-
-\(\{sin(nx)\}\) does not converge a.e. on \([-\pi, \pi]\), not even up to subsequences. 
-The same is true in \(L^p\), \(p \neq 2\). Even in this case
-\[
-    \sin(nx) \rightharpoonup 0 \text{ weakly in } L^p([a,b]) \quad (p \in [1, \infty)
-\] 
-but we don't have a.e. convergence.
+\begin{example}
+    \(H = L^2([-\pi, \pi])\). Then the previous corollary tells that (Riemann - Lebesgue lemma)
+    \[
+        \int_{-\pi}^\pi f(x) \sin (nx) \, dx \to 0 \text{ as } n \to \infty
+    \]                
+    \(\sin(nx) \rightharpoonup 0\) in \(L^2([-\pi, \pi])\) as \(n \to \infty\). Note that \(\{sin(nx)\}_{n \in \natural}\) does not converge for a.e. \(x\).
+    
+    Weak convergence in \(L^2\) and point wise or a.e. convergence are not related.
+    
+    \(\{sin(nx)\}\) does not converge a.e. on \([-\pi, \pi]\), not even up to subsequences. 
+    The same is true in \(L^p\), \(p \neq 2\). Even in this case
+    \[
+        \sin(nx) \rightharpoonup 0 \text{ weakly in } L^p([a,b]) \quad (p \in [1, \infty),
+    \] 
+    but we don't have a.e. convergence.
+\end{example}

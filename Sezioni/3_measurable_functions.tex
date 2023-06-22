@@ -1,7 +1,7 @@
 \section{Measurable functions}
 \subsection{Definition of measurable functions}
 \begin{definition}
-    \(f:X \to Y\), then it is well defined the counterimage 
+    \(f:X \to Y\), then it is well-defined the counterimage 
     \[
         f^{-1} : \mathcal{P}(Y) \to \mathcal{P}(X)
     \]
@@ -52,7 +52,7 @@ We will mainly focus on 2 situations:
         open \(\Rightarrow\) \(f^{-1}(A) \in \mathcal{B}(Y) \; \forall \; A \subset Y\) open.
         Since \(\mathcal{B}(Y) = \sigma_0 \; (\mbox{open sets})\) by proposition \((1)\) this implies that \(f\) is Borel measurable
         \item \(f\) is continuous \(\overset{(1)}{\Rightarrow}\) \(f\) is Borel measurable.
-        \(f^{-1}(A) \in \mathcal{B}(\real^n) \subseteq \mathcal{L}(\real^n) \forall \; A \in \mathcal{B}(Y)\). Namely \(f\) is Lebesgue measurable
+        \(f^{-1}(A) \in \mathcal{B}(\real^n) \subseteq \mathcal{L}(\real^n) \forall \; A \in \mathcal{B}(Y)\). Namely, \(f\) is Lebesgue measurable
     \end{enumerate}
 \end{proof}
 \begin{proposition}
@@ -60,7 +60,7 @@ We will mainly focus on 2 situations:
     If \(f: X \to Y\) is \((\mathcal{M}, \mathcal{B}(Y))\)-measurable and \(g : Y \to Z\) is continuous \(\Rightarrow\) \(g \circ f : x \to Z\) is \((\mathcal{M}, \mathcal{B}(Y))\)-measurable
 \end{proposition}
 \begin{proposition}
-    \((X, \mathcal{M})\) measurable space , \(u,v : X \to  \real\) measurable functions.
+    \((X, \mathcal{M})\) measurable space, \(u,v : X \to  \real\) measurable functions.
     Let \(\Phi : \mathbb{R}^2 \to Y\) be continuous where \((Y, d_Y)\) is a metric space. Then \(h: X\to Y\) defined by \(h(x) = \Phi(u(x), v(x))\) is \((\mathcal{M}, \mathcal{B}(Y))\)-measurable.
 \end{proposition}
 \subsection{Measurability of composition}
@@ -96,7 +96,7 @@ Recall that \(u = u^+ - u^-\)
         \end{cases}
     \]
 \end{remark}
-Most of the times we will work with functions \(f: X \to \real\) or \(f: X \to \underbrace{\barreal}_{\real \cup \left\{\pm \infty \right\}}\) 
+Most of the time we will work with functions \(f: X \to \real\) or \(f: X \to \underbrace{\barreal}_{\real \cup \left\{\pm \infty \right\}}\) 
 \((X,\mathcal{M})\) measurable space, then such a  function \(f\) is measurable iff
 \[
     f^{-1}((a, +\infty)]\symbolfootnotemark[2]{We use ) if \(f\) takes values in \(\real\) and ] if \(f\) takes values in \(\barreal\)}) \in \mathcal{M} \quad \forall a \in \real
@@ -121,10 +121,10 @@ Let now \(\left\lbrace f_n \right\rbrace\) be a sequence of measurable functions
 \[
     (\lim_n f_n)(x) = \lim_n f_n(x) \quad \mbox{if the limit exists}
 \]
-\subsection{Measurability of limits for real valued fucntions}
+\subsection{Measurability of limits for real valued functions}
 \begin{proposition}
     \((X, \mathcal{M})\) measurable space, \(f_n : X \to \barreal\) measurable, then 
-    \[\sup_n f_n \; \inf_n f_n \; \liminf_n f_n \; \limsup_n f_n\] are measurable, in particular if \(\lim_n f_n\) is well defined, then \(f\) is measurable
+    \[\sup_n f_n \; \inf_n f_n \; \liminf_n f_n \; \limsup_n f_n\] are measurable, in particular if \(\lim_n f_n\) is well-defined, then \(f\) is measurable
 \end{proposition}
 \begin{proof}
     \((\sup f_n)^{-1} ((a, \infty]) = \lbrace x \in X : \underset{\begin{array}{c}
@@ -156,7 +156,9 @@ If we write \(g_n(x) = \sup_{k \geq n} f_k(x)\), then
     \]
     where \(E_n\) is a measurable set, \(E_n = \left\{ x \in X : s(X) = a_n \right\}\), and \(E_i \cap E_j = \emptyset\) for \(i \not = j\), and \(\bigcup_{n = 1}^N E_n = X\).
 \end{definition}
-\noindent\underline{Particular case}: if \(s: \mathbb{R} \to \barreal\), and each \(E_n\) is a finite union of intervals, then \(s\) is said to be a \textbf{step} function.
+\begin{example}
+    If \(s: \mathbb{R} \to \barreal\), and each \(E_n\) is a finite union of intervals, then \(s\) is said to be a \textbf{step} function.
+\end{example}
 \subsection{Simple approximation theorem}
 The idea is to approximate arbitrary measurable functions with simple functions.
 \begin{theorem}
@@ -166,7 +168,7 @@ The idea is to approximate arbitrary measurable functions with simple functions.
     \]
     and \(s_n(x) \to f(x) \quad \forall \; x \in X \mbox{ as }n \to \infty\).
 
-Moreover if f is bounded then \(s_n \to f\) uniformly on \(X\) as \(n \to \infty\)
+Moreover, if f is bounded then \(s_n \to f\) uniformly on \(X\) as \(n \to \infty\)
 \end{theorem}
 
 \begin{proof}[Proof - For \(f\) bounded]
@@ -182,7 +184,7 @@ Moreover if f is bounded then \(s_n \to f\) uniformly on \(X\) as \(n \to \infty
     \]
 
     \noindent
-    Namely we define the simple function \(s_n\) as
+    Namely, we define the simple function \(s_n\) as
     \[
     s_n (x) = n\chi_{E_0}(X) + \sum_{j =1}^{n \cdot 2^n} a_j \chi_{E_j}(x)    
     \]
@@ -219,22 +221,23 @@ Moreover if f is bounded then \(s_n \to f\) uniformly on \(X\) as \(n \to \infty
 \]
 \(P(x)\) is true \(\underset{(\mu-\text{a.e.})}{\mbox{a.e.}}\) on \(X\).    
 \end{definition}
-
-\noindent\underline{Ex}: \((\real, \mathcal{L}(\real), \lambda)\), \(f(x) = x^2\).  
-Then \(f(x) > 0\) a.e. on \(\real\) (for a.e. \(x\)):
-\[
-    \left\{ f(x) \leq 0 \right\} = \left\{ 0 \right\}, \mbox{ and } \lambda(\left\{ 0 \right\}) = 0
-\]
-\((\real, \mathcal{P}(\real), \mu_C)\) with \(\mu_C\) counting measure. Then it is not true that \(f(x) > 0\) \(\mu_C\)-a.e. 
-\[
-    \mu_C \left(\left\{ 0 \right\}\right) = 1
-\]
-It will be useful to consider sequences converging a.e.: 
-\[
-    f_n \to f \qquad \mbox{a.e. on }X
-\]
-if \(\mu\left( \left\{ x \in X : \lim_n f_n(x) \neq f(x), \mbox{ or does not exist} \right\}\right) = 0\)
-
+\begin{example}
+    \((\real, \mathcal{L}(\real), \lambda)\), \(f(x) = x^2\).  
+    Then \(f(x) > 0\) a.e. on \(\real\) (for a.e. \(x\)):
+    \[
+        \left\{ f(x) \leq 0 \right\} = \left\{ 0 \right\}, \mbox{ and } \lambda(\left\{ 0 \right\}) = 0
+    \]
+    \((\real, \mathcal{P}(\real), \mu_C)\) with \(\mu_C\) counting measure. Then it is not true that \(f(x) > 0\) \(\mu_C\)-a.e. 
+    \[
+        \mu_C \left(\left\{ 0 \right\}\right) = 1
+    \]
+    It will be useful to consider sequences converging a.e.: 
+    \[
+        f_n \to f \qquad \mbox{a.e. on }X
+    \]
+    if \(\mu\left( \left\{ x \in X : \lim_n f_n(x) \neq f(x), \mbox{ or does not exist} \right\}\right) = 0\)
+    
+\end{example}
 \begin{proposition}
     \((X, \mathcal{M}, \mu)\) complete measure space. 
     \begin{enumerate}

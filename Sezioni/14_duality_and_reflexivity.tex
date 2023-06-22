@@ -1,4 +1,6 @@
+\newpage
 \section{Duality and reflexivity}
+\subsection{Dual space of a normed space}
 \(X\) normed space: 
 \[
     X^* = \mathcal{L}(X, \real) \mbox{ is called \textbf{dual space of} }X
@@ -41,7 +43,7 @@ Since \(\real\) is a Banach space, the dual space \(X^*\) is a Banach space with
     \[
         L_g f := \int_X fg \, d\mu \qquad \forall \; f \in L^p(\Omega)
     \]
-    This is well defined, by the Holder inequality:
+    This is well-defined, by the Holder inequality:
     \[
         \abs{\int_X fg \, d\mu } \leq \int_X \abs{fg} \, d\mu = \norm{fg}_1 \leq \norm{g}_{p'} \norm{f}_p \tag*{*} 
     \]
@@ -112,7 +114,7 @@ Question: are there functional in \((L^p)^*\)?
     \end{itemize}
 \end{proof}
 
-\subsubsection*{Hahn Banach}
+\subsubsection{Hahn-Banach theorem}
 
 \begin{definition}
     \(X\) vector space. A map \(p: X \to \real\) is called \textbf{sublinear functional} if 
@@ -194,7 +196,7 @@ For simplicity, we consider \((X, \mathcal{M}, \mu) = ([-1, 1], \mathcal{L}([-1,
 \[
     \Lambda f = f(0) \quad \forall \; f \in Y
 \]
-We can do it since \(f \in \mathcal{C}^0([-1,1])\) (for elements in \(L^\infty\) we cannot speak about pointwise values!). 
+We can do it since \(f \in \mathcal{C}^0([-1,1])\) (for elements in \(L^\infty\) we cannot speak about point wise values!). 
 
 \(\Lambda\) is linear:
 \[
@@ -295,11 +297,11 @@ In conclusion, there is no \(g \in L^!([-1,1])\) s.t.
 
     Then \(\exists \; L \in X^*\) s.t. \(L\vert_Y = 0\) and \(L{x_0} \neq 0\)
 \end{corollary}
-\subsection*{Reflexive spaces}
+\subsection{Bidual spaces}
 \(X\) Banach space, \(X^*\) dual space.
-
-\noindent \underline{Notation}: \(L \in X^*: Lx = L(x) = \langle L,x \rangle = \underset{X^*}{\langle}L,x\underset{X}{\rangle}\)
-
+\begin{notation}
+\[L \in X^*: Lx = L(x) = \langle L,x \rangle = {}_{X^*}\langle L,x\rangle_X\]
+\end{notation}
 \((X^*)^*\) dual space of \(X^*\) is called the \textbf{bidual} of \(X\), denoted by \(X^*\)
 \[
     X^{**} = \mathcal{L}(X^*, \real)
@@ -308,7 +310,7 @@ We can describe many elements of \(X^{**}\) in the following way: for \(x \in X\
 \[
     \begin{array}{ll}
         \Lambda: & X^* \to \real \\
-        & L \mapsto Lx = \underset{X^*}{\langle}L,x\underset{X}{\rangle}
+        & L \mapsto Lx = {}_{X^*}\langle L,x \rangle_{X}
     \end{array}
 \]
 (\(\Lambda_x\) evaluates functionals in \(X^*\) in the point \(x\)).
@@ -335,6 +337,7 @@ We claim that \(\norm{\Lambda_x}_{\mathcal{L}} = \norm{x}_X\). Indeed, by the fi
 \[
     \Rightarrow \norm{\Lambda_x}_{X^{**}} = \norm{x}_X
 \]
+\subsection{Canonical Map}
 \begin{theorem}
     \(\exists\) a map 
     \[
@@ -345,6 +348,7 @@ We claim that \(\norm{\Lambda_x}_{\mathcal{L}} = \norm{x}_X\). Indeed, by the fi
     \tag*{(Canonical Map)}\]
     which is linear, continuous and an isometry. Namely, the canonical map is an isometric isomorphism from \(X\) into \(\tau(X) \subseteq X^{**}\)
 \end{theorem}
+\subsection{Reflexive spaces}
 \noindent\underline{Question}: are there other elements in \(X^{**}\)?
 \begin{definition}
     If the canonical map is surjective, then we say that \(X\) is \textbf{reflexive}, \(X \approxeq X^{**}\). Otherwise, \(\tau(X)\) will be a strict close subspace of \(X\).
@@ -395,7 +399,7 @@ Roughly speaking, \(X\) is uniformly convex if \(\overline{B_1(0)}\) is strictly
 \[
     \forall \; x \in X \; \exists \; \Lambda_x : X^* \to \real \mbox{ defined by } \Lambda_x(L) = Lx \quad \forall \; L \in X^*
 \]
-We proved that \(\Lambda_x \in X^{**}\). Thus we can define the \textbf{canonical map}:
+We proved that \(\Lambda_x \in X^{**}\). Thus, we can define the \textbf{canonical map}:
 \[
         \begin{array}{lc}
             \tau : & X \to X^{**} \\
@@ -422,7 +426,7 @@ We stated that \(\tau\) is an isometric isomorphism from \(X\) into \(\tau(X)\).
 
         \noindent \(x \neq y \Rightarrow\) by the second corollary to Hahn-Banach \(\exists\; L \in X^*\) s.t. \(Lx \neq Ly\).
         \[
-            \underset{X^{**}}{\langle}\tau(x), L \underset{X^*}{\rangle} = \Lambda_x(L) = Lx \neq Ly = \Lambda_y(L) = \underset{X^{**}}{\langle}\tau(x), L \underset{X^*}{\rangle}
+            {}_{X^{**}}\langle \tau(x), L \rangle_{X^*} = \Lambda_x(L) = Lx \neq Ly = \Lambda_y(L) = {}_{X^{**}}\langle\tau(x), L\rangle_{X^*}
         \]
         Then, \(\tau(x) \neq \tau(y)\) and \(\tau\) is injective.
         \item Let now \(\tau\) be surjective. Then \(\tau \in \mathcal{L}(x, X^{**})\) and is bijective \(\Rightarrow\) by a corollary of the open map theorem, \(\tau^{-1} \in \mathcal{L}(X^{**}, X)\)
@@ -476,7 +480,7 @@ We formally mentioned that
 \end{proof}
 \(L^1(X) \text{ and } L^\infty(X)\) are not uniformly convex, and not reflexive.
 
-\subsection*{Dual space of \(L^p\)}
+\subsection{Riesz representation theorem}
 
 \begin{theorem}[Riesz representation theorem]
     \((X, \mathcal{M}, \mu)\) complete measure space, \(p \in (1, \infty)\). Then 
@@ -512,7 +516,7 @@ We formally mentioned that
     \[
         \int_X hg \, d\mu =0 \quad \forall \; g \in L^{p'}(X)
     \]
-    Take \(g = \abs{h}^{p-2}h\). Therefore
+    Take \(g = \abs{h}^{p-2}h\). Therefore,
     \[
         0 = \int_X hg \, d\mu = \int_X h \abs{h}^{p-2} h \, d\mu = \int_X \abs{h}^p \, d\mu \Rightarrow h=0 \in L^p
     \]

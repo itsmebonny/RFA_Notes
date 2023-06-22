@@ -1,3 +1,4 @@
+\newpage
 \section*{Real Analysis}
 \section{Set Theory}
 
@@ -24,7 +25,7 @@ If \(I = \mathbb{N} \) is called a
         \left\lbrace E_n \right\rbrace \nearrow \qquad (\mbox{resp. }\left\lbrace E_n \right\rbrace \searrow)
     \]
 \end{definition}
-Given a family of sets \(\left\lbrace E_i \right\rbrace_{i \in I} \subseteq \mathcal{P}(X)\), will be often considered
+Given a family of sets \(\left\lbrace E_i \right\rbrace_{i \in I} \subseteq \mathcal{P}(X)\), will often be considered
 \[
     \bigcup_{i \in I} E_i = \left\lbrace x \in X : \exists \; i \in I \, s.t. \, x \in E_i \right\rbrace 
 \]
@@ -33,13 +34,12 @@ Given a family of sets \(\left\lbrace E_i \right\rbrace_{i \in I} \subseteq \mat
 \]
 \(\left\lbrace E_i \right\rbrace\) is said to be \textbf{disjoint} if \(E_i \cap E_j = \emptyset \; \forall i \not = j\).
 
-Examples:
-\[
-    [a,b] = \bigcap_{n = 1}^{\infty} (a - \frac{1}{n}, b + \frac{1}{n}) 
-\]
-\[
-    (a,b) = \bigcup_{n = 1}^{\infty}[a + \frac{1}{n}, b - \frac{1}{n}]
-\]
+\begin{example}
+    \begin{align*}
+            [a,b] &= \bigcap_{n = 1}^{\infty} (a - \frac{1}{n}, b + \frac{1}{n}) \\
+            (a,b) &= \bigcup_{n = 1}^{\infty}[a + \frac{1}{n}, b - \frac{1}{n}]
+    \end{align*}
+\end{example}
 \subsection{lim inf, lim sup}
     \begin{definition}
         \(\left\lbrace E_n \right\rbrace \subseteq \mathcal{P}(X)\). We define 
@@ -173,8 +173,10 @@ If we fix \(k\) then
 \begin{definition}
     \(\frac{X}{R} := \left\lbrace E_X \, : \, x \in X \right\rbrace\) is the \textbf{quotient set}
 \end{definition}
-Ex: \(X = \mathbb{Z}\), let's say that \(nRm\) if \(n-m\) is even. This is an equivalence relation.
-\[
-    E_n = \left\lbrace \ldots, n-4, n-2, n, n+2, n+4, \ldots \right\rbrace
-\]
-in this case if \(n\) is even, \(E_n = \left\lbrace \mbox{even numbers} \right\rbrace\) and if \(n\) is odd, \(E_n = \left\lbrace \mbox{odd numbers} \right\rbrace\)
+\begin{example}
+    \(X = \mathbb{Z}\), let's say that \(nRm\) if \(n-m\) is even. This is an equivalence relation.
+    \[
+        E_n = \left\lbrace \ldots, n-4, n-2, n, n+2, n+4, \ldots \right\rbrace
+    \]
+    in this case if \(n\) is even, \(E_n = \left\lbrace \mbox{even numbers} \right\rbrace\) and if \(n\) is odd, \(E_n = \left\lbrace \mbox{odd numbers} \right\rbrace\)
+\end{example}

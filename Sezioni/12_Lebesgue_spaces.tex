@@ -1,6 +1,8 @@
+\newpage
 \section{Lebesgue spaces} 
+\subsection{The sets \texorpdfstring{\(\mathcal{L}^p\)}{Lp} and \texorpdfstring{\(L^p\)}{Lp}}
 \((X, \mathcal{M}, \mu)\) measure space, \(p \in \left[1, \infty\right]\). We defined \(L^1(X)\) and \(L^\infty(X)\). 
-In a similar way, we define \(L^p(X)\) \(\forall \; p \in \left[1, \infty\right]\)
+Similarly, we define \(L^p(X)\) \(\forall \; p \in \left[1, \infty\right]\)
 \[
     \mathcal{L}^p (X, \mathcal{M}, \mu) := \{ f: X \rightarrow \barreal \text{ measurable s.t. } \int_X |f|^p \, d\mu < \infty\}
 \]
@@ -21,8 +23,8 @@ We want to show that this is a normed space with
     \end{cases}
 \]
 
-The fact that \(L^p\) is a vector space is easy to prove. The only non trivial part is that \(f, g \in L^p \Rightarrow f+g \in L^p\).
-
+The fact that \(L^p\) is a vector space is easy to prove. The only non-trivial part is that \(f, g \in L^p \Rightarrow f+g \in L^p\).
+\subsection{\texorpdfstring{\(L^p\)}{Lp} is a vector space}
 This comes directly from the 
 \begin{lemma}
     \(p \in [1, \infty), \ a, b \geq 0\). Then 
@@ -48,12 +50,12 @@ This comes directly from the
     \Rightarrow f+g \in L^\infty
 \]
 \(L^\infty\) is a vector space. 
-
+\subsection{\texorpdfstring{\(\ell^p\)}{Lp} spaces}
 \begin{remark}
-    \(l^p := L^p (\mathbb{N}, \mathcal{P}(\mathbb{N}), \mu_c )\). \(l^p\) is a particular case of \(L^p\)
+    \(\ell^p := L^p (\mathbb{N}, \mathcal{P}(\mathbb{N}), \mu_c )\). \(\ell^p\) is a particular case of \(L^p\)
     \[
     \begin{array}{ll}
-        l^p = \{ x = \left(x^{(k)}\right)_{k \in \mathbb{N}} : \sum_{k=1}^\infty |x^{(k)}|^p < \infty \} 
+        \ell^p = \{ x = \left(x^{(k)}\right)_{k \in \mathbb{N}} : \sum_{k=1}^\infty |x^{(k)}|^p < \infty \} 
         & \norm{x}_p = \left( \sum_{k=1}^\infty |x^{(k)}|^p \right)^{\frac{1}{p}} \quad p \in [1, \infty)
         \\ l^\infty = \{ x = \left(x^{(k)}\right)_{k \in \mathbb{N}} : \sup_{k \in \mathbb{N}} |x^{(k)}| < \infty \} 
         & \norm{x}_\infty = \sup_{k \in \mathbb{N}} |x^{(k)}|
@@ -70,7 +72,7 @@ Properties 1 and 2 of the norm are immediate to check:
     \item Obvious, by linearity
     \item About triangle inequality? We need some preliminaries
 \end{enumerate}
-
+\subsection{Young's inequality}
 \begin{theorem}[Young's Inequality]
     Let \(p \in (1, \infty)\), \(a, b \geq 0\). We say that \(q\) is the conjugate exponent of p if 
     \[
@@ -103,7 +105,7 @@ Properties 1 and 2 of the norm are immediate to check:
     \]
     \(x = \log{a^p}\), \(y= \log{b^q}\) \(\qquad 1-t = \frac{1}{p}\), \(t=\frac{1}{q}\)
 \end{proof}
-
+\subsection{Holders's inequality}
 \begin{theorem}[Holder's Inequality]
     \(\left(X, \mathcal{M}, \mu \right)\) measure space. \(f, g\) measurable functions. \(p, q \in [1, \infty]\) conjugate exponents.
 
@@ -136,6 +138,7 @@ Properties 1 and 2 of the norm are immediate to check:
     \]
     Case \(p=1\), \(q= \infty\). Exercise 
 \end{proof}
+\subsection{Minkowski's inequality}
 \begin{theorem}[Minkowski Inequality]
     \(f, g \in L^p(X, \mathcal{M}, \mu)\), \(p \in [1, \infty]\). Then 
     \[
@@ -159,7 +162,7 @@ Properties 1 and 2 of the norm are immediate to check:
     \[
         = \norm{f}_p \norm{f+g}^{p-1}_p + \norm{g}_p \norm{f+g}_p^{p-1}
     \]
-    We divide left hand side and right hand side by \(\norm{f+g}_p^{p-1}\):
+    We divide left-hand side and right-hand side by \(\norm{f+g}_p^{p-1}\):
     \[
         \norm{f+g}_p \leq \norm{f}_p + \norm{g}_p
     \]
@@ -171,7 +174,7 @@ We introduced \(L^p(X, \mathcal{M}, \mu)\), and we proved that this is a normed 
         \underset{X}{\esssup}\abs{f} & \text{if } p = +\infty
     \end{cases}
 \]
-\subsection*{Inclusion of \(L^p\) spaces}
+\subsection{Inclusion of \texorpdfstring{\(L^p\)}{Lp} spaces}
 \begin{theorem}
     Suppose that \(\mu(X) < +\infty\). Then 
     \[
@@ -208,13 +211,14 @@ The assumption \(\mu(X)< \infty\) is essential. For example, in \(X = [1, \infty
     \frac{1}{x} \notin L^1 ([1, \infty]) \Leftrightarrow \int_1^\infty \frac{dx}{x} = \infty
 \]
 
-In particular, the previous theorem is false for \(l^p\)-spaces
+In particular, the previous theorem is false for \(\ell^p\)-spaces
 \[
-    l^p = L^p(\natural, \mathcal{P}(\natural), \mu_C)
+    \ell^p = L^p(\natural, \mathcal{P}(\natural), \mu_C)
 \]
 \[
-    1 \leq p \leq q \leq \infty \Rightarrow l^p \subseteq l^q \text{, and } \exists \; C>0 \text{ s.t. } \norm{x}_q \leq C \norm{x}_p \quad \forall\; x \in l^p
+    1 \leq p \leq q \leq \infty \Rightarrow \ell^p \subseteq l^q \text{, and } \exists \; C>0 \text{ s.t. } \norm{x}_q \leq C \norm{x}_p \quad \forall\; x \in \ell^p
 \]
+\subsection{Interpolation inequality}
 Without assumptions on \(\mu(X)\), in general one has the interpolation inequality.
 \begin{theorem}
     \((X, \mathcal{M}, \mu)\) measure space. 
@@ -232,7 +236,7 @@ Without assumptions on \(\mu(X)\), in general one has the interpolation inequali
     For exercise. Use Holder
 \end{proof}
 
-\subsection*{Completeness and Separability}
+\subsection{\texorpdfstring{\(L^p\)}{Lp} is a Banach space}
 \begin{theorem}
     For \(1 \leq p \leq \infty\), \(L^p(X, \mathcal{M}, \mu)\) is a Banach space (with reference to \(\normdot_p\))
 \end{theorem}
@@ -254,7 +258,7 @@ Without assumptions on \(\mu(X)\), in general one has the interpolation inequali
     By Minkowski, \(\norm{g_n}_p \leq \sum_{k=1}^n \norm{f_k}_p \leq M < \infty\). 
     Moreover, for every \(x \in X\) fixed, \(\{g_n(x)\}\) is increasing \(\Rightarrow g_n(x) \to g(x)\) as \(n \to \infty\), \(\forall\; x \in X\)
     \[
-        \int_X \abs{g}^p \, d\mu \overset{\text{\tiny{Monot conv}}}{=} \lim_n \int_X \abs{g_n}^p \leq M^p < \infty \Rightarrow g \in L^p(X)
+        \int_X \abs{g}^p \, d\mu \overset{\text{\tiny{Monot. conv.}}}{=} \lim_n \int_X \abs{g_n}^p \leq M^p < \infty \Rightarrow g \in L^p(X)
     \]
     \(\Rightarrow \abs{g}^p \) is finite a.e.:
     \[
@@ -263,7 +267,7 @@ Without assumptions on \(\mu(X)\), in general one has the interpolation inequali
     \[
         \Rightarrow \sum_{k=1}^\infty f_k(x) \text{ is convergent a.e. to a limit } s(x)
     \]
-    Thus, we proved that \(s_n(x) = \sum_{k=1}^n f_k(x) \to s(x)\) a.e. in \(X\). Namely \(\abs{s_n - s }^p \to 0\) a.e. in \(X\). To find a dominating function for \(\abs{s_n -s}^p\), we start by observing that
+    Thus, we proved that \(s_n(x) = \sum_{k=1}^n f_k(x) \to s(x)\) a.e. in \(X\). Namely, \(\abs{s_n - s }^p \to 0\) a.e. in \(X\). To find a dominating function for \(\abs{s_n -s}^p\), we start by observing that
     \[
         \abs{s_n(x)} = \abs{\sum_{k=1}^n f_k(x)} \leq \sum_{k=1}^n \abs{f_k(x)} = g_n(x) \leq g(x) \text{ for a.e. } x \in X
     \]
@@ -290,6 +294,7 @@ To speak about separability, we give a
         \mathcal{C}^0_C = \left\{ f \in \mathcal{C}^0\left( \Omega \right) : \mbox{supp} \, f \mbox{ is compact in } \Omega\right\} = \mathcal{C}^0_O(\Omega) = \mathcal{C}_C(\Omega)
     \]
 \end{definition}
+\subsection{Lusin's theorem}
 \begin{theorem}[Lusin Theorem]
     \(\Omega \in \mathcal{L}(\real), \lambda(\real) < +\infty\). Let also \(f : \real \to \real\) measurable, s.t. \(f\equiv 0\) in \(\Omega^C\).
 
@@ -319,6 +324,7 @@ To speak about separability, we give a
 
     \(\tilde{\mathcal{S}}(\real)\) is the set of integrable simple functions.
 \end{definition}
+\subsection{\texorpdfstring{\(\mathcal{S}(\real)\)}{Sr} is dense in \texorpdfstring{\(L^p\)}{Lp}}
 \begin{theorem}
     \(\tilde{\mathcal{S}}(\real)\) is dense in \(L^p\), \(\forall \; p \in (1, +\infty)\)
 \end{theorem}
@@ -328,9 +334,9 @@ To speak about separability, we give a
 
     We want to show that \(\exists \; \left\{ s_n \right\} \subseteq \tilde{\mathcal{S}}(\real)\) s.t. \(\norm{s_n - f}_p \to 0\).
 
-    By the simple approximation theorem, \(\exists \; \left\{ s_n \right\}\) of simple functions s.t. \(\left\{ s_n(x) \right\}\) is increasing, for every \(x\), and \(s_n \to f\) pointwise in \(\real\).
+    By the simple approximation theorem, \(\exists \; \left\{ s_n \right\}\) of simple functions s.t. \(\left\{ s_n(x) \right\}\) is increasing, for every \(x\), and \(s_n \to f\) point wise in \(\real\).
 
-    Since \(\abs{s_n}^p \leq f^p \Rightarrow s_n \in L^p\) for every n \(\Rightarrow \left\{ s_n \right\} \subseteq \tilde{\mathcal{S}}(\real)\). Moreover
+    Since \(\abs{s_n}^p \leq f^p \Rightarrow s_n \in L^p\) for every n \(\Rightarrow \left\{ s_n \right\} \subseteq \tilde{\mathcal{S}}(\real)\). Moreover,
     \[
         \abs{s_n -f}^p \to 0 \qquad \text{a.e. in } \real
     \]
@@ -343,12 +349,12 @@ To speak about separability, we give a
     \]
     If \(f\) is sign changing, then \(f = f^+ - f^-\)  and argue as before on \(f^+\) and \(f^-\)
 \end{proof}
-
+\subsection{Separability of \texorpdfstring{\(L^p\)}{Lp}}
 \begin{theorem}
     \( \forall p \in [1, \infty)\), the space \(L^p(\real)\) is separable. 
 \end{theorem}
-\begin{proof}
-    \noindent\underline{sketch}
+\begin{proof}[Sketch of the proof]
+    Here we'll outline a sketch of the proof:
     \begin{itemize}
         \item Step 1: \(\mathcal{C}_C^0(\real) \) is dense in \(L^p(\real )\), \(\forall \; \leq p \leq \infty\).
         
@@ -357,7 +363,7 @@ To speak about separability, we give a
 
         \item Step 2: 
         
-        By Stone Weierstrass, the set of polinomials \(\mathcal{P}(\real)\) is dense in \(\mathcal{C}_C^0(\real)\) with the \(\normdot_\infty\) norm. 
+        By Stone Weierstrass, the set of polynomials \(\mathcal{P}(\real)\) is dense in \(\mathcal{C}_C^0(\real)\) with the \(\normdot_\infty\) norm. 
         Since we work with functions with compact support, this implies that \(\mathcal{P}(\real)\) is dense in \(\mathcal{C}_C^0(\real)\) also with respect to \(\normdot_p\)
         \[
             \int_{-M}^M \abs{f - p_n }^p \, d\lambda \leq \norm{f - p_n }^p_\infty 2M \to 0

@@ -1,4 +1,4 @@
-
+\newpage
 \section{AC and BV functions}
 \subsection{Lebesgue points}
 Consider \(f \in L^1\left([a,b]\right)\). We can define the \textbf{integral function}
@@ -36,7 +36,7 @@ What happens if \(f \in L^1([a, b])\)?
     If \(f \in L^1([a.b])\) then a.e. \(x \in [a,b]\) is a Lebesgue point for \(f\)
 \end{theorem}
 \begin{remark}
-    In the definition of Lebesgue point, the pointwise values of \(f\) are relevant 
+    In the definition of Lebesgue point, the point wise values of \(f\) are relevant 
     \[
         f = g \in L^1 \Leftrightarrow f = g \text{ a.e.}
     \]
@@ -58,8 +58,9 @@ Then \(f\) is differentiable a.e. on \([a,b]\) and \(F'(x) = f(x) \text{ a.e. in
     \]
     Since \(x\) is a Lebesgue point.
 \end{proof}
+\subsection{AC functions}
 \begin{definition}
-    Given \(f : I \to \real\) is called \textbf{absolutely continuous} in \(I\), \(f \in AC(I)\), if \(\forall \; \epsilon >0 \; \exists \; \delta >0\)  
+    Given \(f : I \to \real\) is called \textbf{absolutely continuous} (AC) in \(I\), \(f \in AC(I)\), if \(\forall \; \epsilon >0 \; \exists \; \delta >0\)  
     s.t. 
     \[
         \bigcup_{k=1}^n [a_k, b_k] \subseteq I \text{ with disjoint interiors}
@@ -102,6 +103,7 @@ If we take \(\delta = \delta(\epsilon) = \frac{\epsilon}{L}\), then
 \begin{theorem}[Regularity of integral functions]
     Given \(f \in L^1([a,b]), F(x) = \int_a^xf(t) \, dt\), then \(F \in \mbox{AC}([a,b])\)
 \end{theorem}
+\subsection{Absolute continuity of the integral}
 To prove the theorem we need the
 \begin{theorem}[Absolute continuity of the integral]
     Given \(f \in L^1(X, \mathcal{M}, \mu)\). Then \(\forall \; \epsilon >0 \) \(\exists \; \delta > 0\) s.t.     
@@ -114,7 +116,7 @@ To prove the theorem we need the
     \]
 \end{theorem}
 \begin{proof}
-    We fix \(\epsilon > 0\). Let \(F_n := \left\{ \abs{f} < n \right\}\), \(n \in \mathbb{N}\). Also \(F_n \in \mathcal{M}\; \forall \; n\), \(F_n \subseteq F_{n+1}\) and 
+    We fix \(\epsilon > 0\). Let \(F_n := \left\{ \abs{f} < n \right\}\), \(n \in \mathbb{N}\). Also, \(F_n \in \mathcal{M}\; \forall \; n\), \(F_n \subseteq F_{n+1}\) and 
     \[
         \bigcup_{n=1}^{\infty} F_n = \left\{ \abs{f} < \infty \right\} =: F
     \]
@@ -166,11 +168,11 @@ To prove the theorem we need the
     \[
         \sqrt{x} = \int_0^x \frac{1}{2\sqrt{t}} \, dt
     \]
-    \(\Rightarrow \sqrt{x}\) is the \(\int\) function of a \(L^1\) function \\
+    \(\Rightarrow \sqrt{x}\) is the \(\int\) function of an \(L^1\) function \\
     \(\Rightarrow \sqrt{x} \in \text{AC}(\left[0, 1\right])\)
 \end{remark}
 
-To sum up: the \(\int \) function of a \(L^1\) function is AC, it is differentiable a.e., and 
+To sum up: the \(\int \) function of an \(L^1\) function is AC, it is differentiable a.e., and 
 \[
     F(x) - F(a) = \int_a^x F'(t) \, dt \tag*{FC}
 \]
@@ -185,7 +187,7 @@ What can we say about \(G\)?
     If FC holds, then \(G' \in L^1(\left[a, b\right]) \) (necessary condition).
     \noindent
     Is the necessary condition also sufficient? In general not. 
-    Take \(v(x)\), the Vital Cantor function: \(v \in \mathcal{C}([0,1]), v(0)=0, v(1)=1\). \(v\) is differentiable a.e. on \([0,1]\) but the calculus formula doesn't hold!
+    Take \(v(x)\), the Vital Cantor function: \(v \in \mathcal{C}([0,1]), v(0)=0, v(1)=1\). \(v\) is differentiable a.e. on \([0,1]\), but the calculus formula doesn't hold!
 \end{remark}
 \begin{remark}
     A function which is differentiable a.e. on an interval can behave very badly
@@ -210,7 +212,8 @@ The proof of the second fundamental theorem of calculus is divided into two step
 \begin{lemma}
     The second fundamental theorem hold under the additional assumption that \(G\) is monotone.
 \end{lemma}
-Second step: to get rid of the monotonicity. \\
+Second step: to get rid of the monotonicity. 
+\subsection{Functions of bounded variation}
 For step 2, is it useful to give the
 \begin{definition}
     \(\left[a, b\right] \subset \mathbb{R}\). Let 
@@ -228,6 +231,7 @@ For step 2, is it useful to give the
     \]
 \end{definition}
 If \(V_a^b(f) < \infty\), we say that \(f\) is a function with \textbf{bounded variation}, \(f \in \) BV \(([a, b])\)
+\subsection{The \texorpdfstring{\(2^{nd}\)}{2nd} fundamental theorem of calculus}
 \begin{theorem}[The \(2^{nd}\) fundamental theorem of calculus.]
     \(G \in \mbox{AC}([a,b]) \Leftrightarrow\) \(G\) is differentiable a.e. on \([a,b]\), \(G' \in L^1([a,b])\), and (FC) holds.
 \end{theorem}
@@ -246,7 +250,7 @@ Example and comments:
         \end{cases}
         \Rightarrow f \in \mbox{BV}([-1,1])
     \]
-    \item \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is bounded. Indeed
+    \item \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is bounded. Indeed,
     \[
         \sup_{x \in [a,b]} \abs{f(x)} \leq \abs{f(x)} + V_a^b(f) \overset{f \in \text{BV}}{<} +\infty
     \]
@@ -299,9 +303,9 @@ It can be proved that we obtain a measure on \((\real, \mathcal{L}(\real))\), co
 
 On \((\real, \mathcal{L}(\real))\) we have two measures: \(\lambda \mbox{ and } \mu\).
 
-\noindent\underline{Idea}: We take these measures on \(([a,b], \mathcal{L}([a,b]))\), and we want to show that \(\exists \; \frac{d\mu}{d\Lambda}\) (Radon-Nikodym)
+\noindent\underline{Idea}: We take these measures on \(([a,b], \mathcal{L}([a,b]))\), and we want to show that \(\exists \; \frac{d\mu}{d\Lambda}\) (Radon-Nykodym)
 
-We can check the hypothesis of the Radon-Nikodym theorem:
+We can check the hypothesis of the Radon-Nykodym theorem:
 \begin{itemize}
     \item \(\lambda\) is \(\sigma\)-finite: \(\lambda([a,b]) = b-a < +\infty\)
     \item \(\mu << \lambda\): \(E \in \mathcal{L}([a,b])\), \(\lambda(E) = 0 \Rightarrow \mu(E) = 0\)
@@ -331,7 +335,7 @@ We proved that
 \[
     \lambda(E) = 0 \Rightarrow \forall \; \epsilon >0 : \, \mu(E) < \epsilon \Rightarrow \mu(E) =0
 \]
-So \(\mu << \lambda\). We can apply Radon Nikodym \(\exists \; \oldphi : \left[ a, b\right] \to \left[0, \infty\right]\) s.t. 
+So \(\mu << \lambda\). We can apply Radon Nykodym \(\exists \; \oldphi : \left[ a, b\right] \to \left[0, \infty\right]\) s.t. 
 \[
     G(x) - G(a) = \int_a^x \oldphi \, d\lambda
 \]
@@ -369,7 +373,7 @@ is an increasing function.
 
     We want to write \(G= G_1 + G_2\) where \(G_1 \nearrow \) and \(G_2 \searrow\), both AC. 
 
-    Then the second fundamental theorem holds for \(G_1 \) and \(G_2\) so it holds for \(G\) by linearity of the integral. 
+    Then the second fundamental theorem holds for \(G_1 \) and \(G_2\), so it holds for \(G\) by linearity of the integral. 
     
     We pose:
     \[

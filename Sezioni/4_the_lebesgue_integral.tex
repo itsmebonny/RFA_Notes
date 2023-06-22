@@ -1,27 +1,29 @@
 
 \section{The Lebesgue integral}
-\noindent\underline{Notation}: \[
-    \begin{array}{c}
-        \left\{ x \in X : f(x) \geq 0 \right\} = \left\{ f \geq 0 \right\} \\
-        \left\{ x \in X : f(x) > 0 \right\} = \left\{ f > 0 \right\}   \\
-        \vdots
-    \end{array}
-    \]
-\((X, \mathcal{M}, \mu)\) complete measure space.
-We consider measurable functions \(f: X \to [0, +\infty]\)
+\begin{notation}
+    \[
+        \begin{array}{c}
+            \left\{ x \in X : f(x) \geq 0 \right\} = \left\{ f \geq 0 \right\} \\
+            \left\{ x \in X : f(x) > 0 \right\} = \left\{ f > 0 \right\}   \\
+            \vdots
+        \end{array}
+        \]
+    \((X, \mathcal{M}, \mu)\) complete measure space.
+    We consider measurable functions \(f: X \to [0, +\infty]\)
 
-\underline{Convention}: we define 
-\[
-    \begin{array}{l}
-        a + \infty = +\infty \quad \forall \; a \in \real \\
-        a \cdot (+\infty) = \begin{cases}
-            +\infty & \mbox{if } a \neq 0, a > 0 \\
-            0 & \mbox{if } a = 0
-        \end{cases}        
-    \end{array}
-\]
-With this convention, \(+ \) and \( \cdot\) of measurable functions are measurable functions.
-\subsection{Integral of nonnegative simple functions}
+    \underline{Convention}: we define 
+    \[
+        \begin{array}{l}
+            a + \infty = +\infty \quad \forall \; a \in \real \\
+            a \cdot (+\infty) = \begin{cases}
+                +\infty & \mbox{if } a \neq 0, a > 0 \\
+                0 & \mbox{if } a = 0
+            \end{cases}        
+        \end{array}
+    \]
+    With this convention, \(+ \) and \( \cdot\) of measurable functions are measurable functions.
+\end{notation}
+\subsection{Integral of non-negative simple functions}
 \begin{definition}
     Let \(s: X \to [0, +\infty]\) be a measurable simple function, 
     \[
@@ -51,7 +53,7 @@ With this convention, \(+ \) and \( \cdot\) of measurable functions are measurab
         \item \(s\chi_E = \sum_{n=1}^m a_n\chi_{D_n \cap E} \Rightarrow \int_E s\, d\mu = \int_X s\chi_E \, d\mu\)
     \end{itemize}
 \end{remark}
-\subsection{Integral of nonnegative measurable functions}
+\subsection{Integral of non-negative measurable functions}
 \begin{definition}
     \(f:X \to [0, +\infty]\) measurable, \(E \in \mathcal{M}\). The \textbf{Lebesgue integral} of \(f\) on \(E\), with respect to (w.r.t.) \(\mu\), is 
     \[
@@ -94,13 +96,13 @@ Let \(f, g : X \to \left[0, \infty\right]\) measurable. \(E, F \in \mathcal{M}, 
 \begin{theorem}
     \(s : X \to \left[0, \infty\right]\) simple. Define \(\phi : \mathcal{M} \to \left[0, \infty\right] \\ \phi(E) = \int_E s \, d\mu \\ \Rightarrow \phi \) is a measure. 
 \end{theorem}
-
+\begin{definition}[sigma additivity]
+    \(\{E_n \subset \mathcal{M}\}\) disjoint, and let \(E = \bigcup_{n=1}^\infty E_n \Rightarrow s = \sum_{k=1}^m a_k \chi_{D_k} \; D_k \in \mathcal{M}
+    \)
+\end{definition}
 \begin{proof}
     \(\mu(\emptyset) =0 \Rightarrow \phi(\emptyset)=0 \) by definition. 
-    \begin{definition}[sigma additivity]
-        \(\{E_n \subset \mathcal{M}\}\) disjoint, and let \(E = \bigcup_{n=1}^\infty E_n \Rightarrow s = \sum_{k=1}^m a_k \chi_{D_k} \; D_k \in \mathcal{M}
-        \)
-    \end{definition}
+
     Then, by definition and since \(\mu\) is a measure and \(E \cap D_k = \bigcup_n (E_n \cap D_k)  \) 
     \[
         \phi(E) = \sum_{k=1}^m a_k \mu(D_k \cap E) = 
@@ -122,7 +124,7 @@ Let \(f, g : X \to \left[0, \infty\right]\) measurable. \(E, F \in \mathcal{M}, 
     \( \Leftarrow \) easy \\
     \( \Rightarrow \) Consider \( E \cap \{f >0\} = \bigcup_{n=1}^\infty \underbrace{\left(E \cap \{ f \geq \frac{1}{n} \} \right)}_{=:E_n} \) 
     
-    Then \(\{E_n\}\) is an increasing sequence. By Chebyshev 
+    Then \(\{E_n\}\) is an increasing sequence. By Chebychev 
     \[
         \mu (E_n) \leq \frac{1}{\frac{1}{n}} \int_E f \, d\mu =0 \quad \forall \; n \Rightarrow \mu(E_n)=0 \quad \forall \; n 
     \]
@@ -145,7 +147,7 @@ The \(\int\) does not see sets with 0 measure.
 \end{theorem}
 \begin{proof}
     Part 1. \\
-    Assume that the two hypotesis hold everywhere. First, if \(f\) is measurable 
+    Assume that the two hypothesis hold everywhere. First, if \(f\) is measurable 
     \[
         \int_X f_n \, d\mu \nearrow \quad \Rightarrow \exists \; \alpha = \lim_n \int_X f_n \, d\mu
     \]
@@ -170,7 +172,7 @@ The \(\int\) does not see sets with 0 measure.
     \]
     \(\forall \; n, \ \forall \; 0 \leq s \leq f, \forall \; c \in \left[0, 1\right]\quad \phi(E_n) = \int_{E_n} s \, d\mu\). 
     \(\phi\) is a measure, and \(\{E_n\} \nearrow\) \\
-    Therefore, taking the lim when \(n \to \infty\) by continuity 
+    Therefore, taking the limit when \(n \to \infty\) by continuity 
     \[
         \alpha \geq \lim_n c \int_{E_n} s \, d\mu = c \int_X s \, d\mu \; \quad \forall c \in \left[0, 1\right]
     \]
@@ -178,7 +180,7 @@ The \(\int\) does not see sets with 0 measure.
     Take the sup over s: \(\alpha \geq \int_X f \, d\mu \).
     We proved both inequalities, so the thesis holds. \\
     Part 2. \\
-    Note that \(\{x \in X: \text{assumptions of the theorem do not hold}\}\) is a set of zero measure. Take \(F. \ X = E \cup F \) since we have the assumpion on \(E\) and \(\mu (F)=0\). \\ 
+    Note that \(\{x \in X: \text{assumptions of the theorem do not hold}\}\) is a set of zero measure. Take \(F. \ X = E \cup F \) since we have the assumption on \(E\) and \(\mu (F)=0\). \\ 
     Then, by the Vanishing Lemma, since \((f - f \chi_E)=0\) a.e. and \((f_n - f_n \chi_E)=0\) we have that 
     \[ 
         \int_X f \, d\mu = \int_E f \, d\mu = \lim_n \int_E f_n \, d\mu = \lim_n \int_X f_n \, d\mu 
@@ -195,7 +197,7 @@ The \(\int\) does not see sets with 0 measure.
 \begin{theorem}[Approximation with simple functions]
     Given \((X, \mathcal{M})\) measure space, \(f: X \to [0, +\infty]\) measurable, then \(\exists\) a sequence \(\left\{ s_n \right\}\) of simple functions s.t. 
     \[
-        0 \leq s_1 \leq \ldots \leq s_n \leq \ldots \leq f \qquad \text{pointwise } \forall \; x \in X
+        0 \leq s_1 \leq \ldots \leq s_n \leq \ldots \leq f \qquad \text{point wise } \forall \; x \in X
     \]
     and 
     \[
@@ -215,10 +217,12 @@ But let \(\left\{ s_n \right\}\) be the sequence given by the simple approximati
 \[
     \int_X f \, d\mu = \lim_n \int_X s_n \, d\mu
 \]
-Ex: \(f, g : X \to [0, +\infty]\). Then 
-\[
-    \int_X (f+g) \, d\mu = \int_X f \, d\mu + \int_X g \, d\mu
-\]
+\begin{example}
+    \(f, g : X \to [0, +\infty]\). Then 
+    \[
+        \int_X (f+g) \, d\mu = \int_X f \, d\mu + \int_X g \, d\mu
+    \]
+\end{example}
 \subsection{Fatou's Lemma}
 \begin{lemma}[Fatou's Lemma]
     Given \(f_n: X \to [0, +\infty]\) measurable \(\forall \, n\). Then 
@@ -242,7 +246,7 @@ Ex: \(f, g : X \to [0, +\infty]\). Then
     \]
     Now, note that \[g_n (x) = \inf_{k\geq n} f_k(x) \leq f_n(x) \leq \liminf_n \int_X f_n \, d\mu\]
 \end{proof}
-\subsection{Integration of series of nonnegative functions}
+\subsection{Integration of series of non-negative functions}
 \begin{theorem}[\(\sigma\)-additivity of \(\int\)]
     Given \((X, \mathcal{M}, \mu)\) measure space, \(\oldphi : X \to [0, +\infty]\). Define \(\nu(E) = \int_E \oldphi \, d\mu\), with \(E \in \mathcal{M}\). 
     \(\nu : \mathcal{M} \to [0, +\infty]\) is a measure. Moreover, let \(f:X \to [0, +\infty]\) measurable
@@ -256,8 +260,8 @@ Ex: \(f, g : X \to [0, +\infty]\). Then
     \(\nu(\emptyset) = 0\), since \(\mu(\emptyset) = 0\). 
     Now, let \(E = \bigcup_{k=1}^{\infty} E_k\), \(\left\{ E_k \right\}\) disjoint. Then 
     \[
-        \nu(E) = \int_X \oldphi\chi_{E} \, d\mu = \int_X \oldphi\sum_n \chi_{E_n} \, d\mu \underset{\begin{array}{l} \text{\scriptsize{monot. conv.}} \\ 
-            \text{\scriptsize{for }}\textstyle\sum\end{array}}{=}  \sum_n \int_X \oldphi \chi_{E_n} \, d\mu = \sum_n \int_{E_n} \oldphi \, d\mu = \sum_n \nu(E_n) 
+        \nu(E) = \int_X \oldphi\chi_{E} \, d\mu = \int_X \oldphi\sum_n \chi_{E_n} \, d\mu \underset{\substack{\text{\scriptsize{monot. conv.}} \\ 
+            \text{\scriptsize{for }}\textstyle\sum}}{=}  \sum_n \int_X \oldphi \chi_{E_n} \, d\mu = \sum_n \int_{E_n} \oldphi \, d\mu = \sum_n \nu(E_n) 
     \]
     We have proven \(\sigma\) additivity, so \(\nu\) is a measure.
 
@@ -283,13 +287,13 @@ Ex: \(f, g : X \to [0, +\infty]\). Then
 \end{remark}
 
 
-\subsection{Integrable functionss}
+\subsection{Integrable functions}
 \(X, \mathcal{M}, \mu\) complete measure space. \\
 \(f: X \to \barreal = [-\infty, \infty]\) measurable. Recall \(f= f^+ - f^- \) where \(f^+ = \max{\{f, 0\}}\), \(f^- = -\min{\{f, 0\}} \) and \(|f|= f^+ + f^-\). 
 Note that both are positive and measurable. 
 
 \begin{definition}
-    we say that \(f:X \to \barreal\) measurable is integrable on \(X\) if 
+    We say that \(f:X \to \barreal\) measurable is integrable on \(X\) if 
     \[
         \int_X |f| \, d\mu < \infty
     \]
@@ -313,7 +317,7 @@ If \(E \in \mathcal{M}\), we define
 \]
 
 \begin{remark}
-    \(f \in \mathcal{L}^1(X) \Rightarrow \int_X f \, d\mu \in \real\). Indeed \(0 \leq f^\pm \leq |f|\)
+    \(f \in \mathcal{L}^1(X) \Rightarrow \int_X f \, d\mu \in \real\). Indeed, \(0 \leq f^\pm \leq |f|\)
     \[
         \Rightarrow 0 \leq \int_X f^+ \, d\mu ,\ \int_X f^- \, d\mu \leq \int_X |f| \, d\mu < \infty 
     \] 
@@ -348,7 +352,7 @@ If \(E \in \mathcal{M}\), we define
     by linearity of the integrals.
 \end{proposition}
 
-Many results can be extended from non negative functions to general functions.
+Many results can be extended from non-negative functions to general functions.
 
 \begin{theorem}
     \((X, \mathcal{M}, \mu)\) complete measure space. \(f\), \(g \in \mathcal{L}^1\). Then
@@ -371,7 +375,7 @@ The most relevant theorem for convergence is the following
     \]
 \end{theorem}
 \begin{proof}
-    Note that \(f_n \in \mathcal{L}^1\) \(\forall \; n\), since \(|f_n| \leq g\) and we have the monotonicity of \(\int\) for non negative functions
+    Note that \(f_n \in \mathcal{L}^1\) \(\forall \; n\), since \(|f_n| \leq g\) and we have the monotonicity of \(\int\) for non-negative functions
     \[
         |f_n(x)| \leq g(x) \quad
         n \to \infty \qquad
@@ -415,7 +419,9 @@ Let \(f : I \subset \real \to \real\), \(I\) interval, be bounded. Assume also t
 \begin{theorem}
     \(f \in R(I) \Leftrightarrow f\) is continuous on \(x\), for a.e. \(x \in I\).
 \end{theorem}
-\underline{Ex}: \(\chi_{\mathbb{Q}}\) on \([0,1]\) is not Riemann integrable, because it is discontinuous at any point. Note that, instead, \(\chi_{\mathbb{Q}} = 0\) a.e. on \([0,1]\) \(\Rightarrow \int_{[0,1]} \chi_{\mathbb{Q}} \, d\lambda = 0\)
+\begin{example}
+    \(\chi_{\mathbb{Q}}\) on \([0,1]\) is not Riemann integrable, because it is discontinuous at any point. Note that, instead, \(\chi_{\mathbb{Q}} = 0\) a.e. on \([0,1]\) \(\Rightarrow \int_{[0,1]} \chi_{\mathbb{Q}} \, d\lambda = 0\).
+\end{example}
 Let \(f \not \in R(I)\). Is it true that \(\exists \; g \in R(I)\) s.t. \(g = f\) a.e. on \(I\)? No.
 
 For instance, consider \(T_{\mathcal{E}}\), the generalized Cantor set (\(\lambda(T_{\mathcal{E}}) = 0\)) and then consider \(\chi_{T_{\mathcal{E}}}\). \\
@@ -438,7 +444,7 @@ Regarding generalized integrals we have
     \[
         R^g([a,b]) = \left\lbrace \mbox{Riemann-int functions on }[a,b]\mbox{ in the generalized sense} \right\rbrace
     \]
-    Then, \(f\) is \(([a,b], \mathcal{L}([a,b]))\)-measurable. Moreover
+    Then, \(f\) is \(([a,b], \mathcal{L}([a,b]))\)-measurable. Moreover,
     \begin{enumerate}
         \item \(f \geq 0\) on \([a,b] \Rightarrow f \in \mathcal{L}^1([a,b])\)
         \item \(\vert f \vert \in R^g([a,b]) \Rightarrow f \in \mathcal{L}^1 ([a,b])\)
@@ -449,17 +455,16 @@ Regarding generalized integrals we have
     \]
     If \(f\) is in \(R^g([a,b])\), but \(\vert f\vert \not \in R^g([a,b])\), then the two notions of \(\int\) are not really related
 \end{theorem}
-
-Ex:
-\(f(x) = \frac{\sin x}{x},  x \in [1, \infty]\)
-\[
-    \int_1^{\infty} \vert f(x) \vert dx = +\infty \Rightarrow f \not \in \mathcal{L}^1([1, +\infty])
-\]
-But on the other hand
-\[
-    \int_1^{\infty} \frac{\sin x}{x} dx = \lim_{\omega \to \infty} \int_1^{\omega} \frac{\sin x}{x} dx = \frac{\pi}{2}
-\]
-
+\begin{example}
+    \(f(x) = \frac{\sin x}{x},  x \in [1, \infty]\)
+    \[
+        \int_1^{\infty} \vert f(x) \vert dx = +\infty \Rightarrow f \not \in \mathcal{L}^1([1, +\infty])
+    \]
+    But on the other hand
+    \[
+        \int_1^{\infty} \frac{\sin x}{x} dx = \lim_{\omega \to \infty} \int_1^{\omega} \frac{\sin x}{x} dx = \frac{\pi}{2}
+    \]
+\end{example}
 \begin{proposition}
     \((X, \mathcal{M}, \mu)\) complete measure space. Let \(\{f_n\} \subseteq \mathcal{L}^1(X, \mathcal{M}, \mu)\). 
     
@@ -509,7 +514,7 @@ We define
 \[
     d_1([f], [g]) = 0 \Leftrightarrow \int_X |[f]-[g]|\, d\mu =0 \Leftrightarrow [f]= [g] \text{ a.e. } \Leftrightarrow f=g \text{ a.e. }
 \]
-To simplify the notations, the elements of \(L^1(X)\) are called functions, and one writes \(f \in L^1(X)\). With this, we means that we choose a representative in \([f]\), and f denotes both the representative and the equivalence class. The representative can be arbitrarily modified on any set with \(0\) measure.
+To simplify the notations, the elements of \(L^1(X)\) are called functions, and one writes \(f \in L^1(X)\). With this, we mean that we choose a representative in \([f]\), and f denotes both the representative and the equivalence class. The representative can be arbitrarily modified on any set with \(0\) measure.
 
 Another relevant space of measurable functions is the space of \textbf{essentially bounded} functions.
 \begin{definition}
@@ -518,17 +523,18 @@ Another relevant space of measurable functions is the space of \textbf{essential
         \mu(\left\lbrace x \in X : \vert f(x) \vert \geq M \right\rbrace) = 0
     \]
 \end{definition}
-Ex: 
-\[f(x) = \begin{cases}
-    1 & x > 0 \\
-+\infty & x = 0 \\
-0 & x < 0 \\
-\end{cases}
-\] 
+\begin{example}
+    \[f(x) = \begin{cases}
+        1 & x > 0 \\
+    +\infty & x = 0 \\
+    0 & x < 0 \\
+    \end{cases}
+    \]
+\end{example} 
 For \(M > 1\), \(\lambda(\left\lbrace x \in \mathbb{R} : \vert f(x) \vert > M\right\rbrace) = \lambda(\left\lbrace 0 \right\rbrace) = 0 \Rightarrow f\mbox{ is essentially bounded}\).
 
 
-If \(f\) is essentially bounded, it is well defined the \textbf{essential supremum} of \(f\).
+If \(f\) is essentially bounded, it is well-defined the \textbf{essential supremum} of \(f\).
 \[
     \underset{X}{\esssup} f := \inf \left\lbrace M > 0 \mbox{ s.t. } f \leq M \mbox{ a.e. on }X\right\rbrace = \inf \left\lbrace M > 0 \mbox{ s.t. } \mu(\{f \geq M \})=0 \right\rbrace
 \]

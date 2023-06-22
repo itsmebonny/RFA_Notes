@@ -41,7 +41,7 @@ The goal is to define a measure space on \(X \times Y\)
     \end{enumerate}
 \end{theorem}
 
-Using the fact that \(\mu \) and \(\nu\) are measures, and that \(\int\) of non negative function is a measure, we deduce the following
+Using the fact that \(\mu \) and \(\nu\) are measures, and that \(\int\) of non-negative function is a measure, we deduce the following
 
 \begin{theorem}[Iterated integrals for characteristic functions]
     \(\mu \otimes \nu : \mathcal{M} \otimes \mathcal{N} \rightarrow \mathbb{R} \) defined by
@@ -52,10 +52,12 @@ Using the fact that \(\mu \) and \(\nu\) are measures, and that \(\int\) of non 
 \begin{remark}[On the complection of product measure spaces] 
     \(\left(X, \mathcal{M}, \mu \right), \left(Y, \mathcal{N}, \nu \right)\) complete measures spaces. 
     
-    In general it is not true that \((X \times Y, \mathcal{M} \otimes \mathcal{N}, \mu \otimes \nu)\) is complete.
+    In general, it is not true that \((X \times Y, \mathcal{M} \otimes \mathcal{N}, \mu \otimes \nu)\) is complete.
 \end{remark}
-\noindent\underline{Example}: \(X = Y = \real\), \(\mathcal{M} = \mathcal{N} = \mathcal{L}(\real), \mu = \nu = \lambda\).
-
+\begin{example}
+    \(X = Y = \real\), \(\mathcal{M} = \mathcal{N} = \mathcal{L}(\real), \mu = \nu = \lambda\).
+    
+\end{example}
 Given \(A \mbox{ non meas. set }, A \subseteq [0,1], B = \left\{ y_0 \right\}, E = A \times B\). 
 If \(E\) were measurable, then its sections must be measurable. But \(E_{y_0} = A\) which is not measurable.
 
@@ -69,9 +71,9 @@ Then \((\lambda \otimes \lambda)\) is not complete
 \]
 \begin{theorem}
     Let \(\lambda_n\) be the Lebesgue measure in \(\mathbb{R}^n\). 
-    If \(n= K+m\), then \(\left(\mathbb{R}^n, \mathcal{L}(\mathbb{R}^n), \lambda_n \right)\) is the complection of \( ( \real^k \times \real^m, \mathcal{L}(\real^k) \otimes \mathcal{L}(\real^m),\lambda_k \otimes \lambda_m )\)
+    If \(n= K+m\), then \(\left(\mathbb{R}^n, \mathcal{L}(\mathbb{R}^n), \lambda_n \right)\) is the completion of \( ( \real^k \times \real^m, \mathcal{L}(\real^k) \otimes \mathcal{L}(\real^m),\lambda_k \otimes \lambda_m )\)
 \end{theorem}
-\subsubsection*{Integration on product spaces}
+\subsection{Integration on product spaces}
 \((X, \mathcal{M}, \mu), (Y, \mathcal{N},\nu)\) measure spaces. \(f : X \times Y \to \barreal\) measurable.
 
 If \(f \geq 0\), then 
@@ -118,7 +120,7 @@ Goal: obtain a formula of iterated integral like the one in Analysis 2.
     \]
 \end{theorem}
 \begin{remark}
-    The double integral can be reduced to single integrals, iterated. Moreover we can always change the order of the integrals.
+    The double integral can be reduced to single integrals, iterated. Moreover, we can always change the order of the integrals.
     For sign changing functions the situation is more involved.
 \end{remark}
 \begin{theorem}[Fubini's theorem]
@@ -143,4 +145,6 @@ If \(\iint_{X \times Y} \vert f \vert d\mu \otimes d\nu < \infty\) then we can a
 \begin{remark}
     Sometimes double integrals are very useful to compute single integrals.
 \end{remark}
-Ex: \(\int_{-\infty}^{+\infty}e^{-x^2} = \sqrt{\pi}\)
+\begin{example}    
+    \[\int_{-\infty}^{+\infty}e^{-x^2} = \sqrt{\pi}\]
+\end{example}

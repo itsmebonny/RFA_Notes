@@ -2,7 +2,7 @@
 \subsection{Various types of convergence}
 \(\left\lbrace f_n \right\rbrace\) sequence of measurable functions \(X \to \barreal\)
 \begin{itemize}
-    \item \(f_n \to f\) pointwise (everywhere) on \(X\) if \(f_n(x) \overset{n \to \infty}{\to} f(x) \; \forall \; x \in X\)
+    \item \(f_n \to f\) point wise (everywhere) on \(X\) if \(f_n(x) \overset{n \to \infty}{\to} f(x) \; \forall \; x \in X\)
     \item \(f_n \to f\) uniformly on \(X\) if \(\sup_{x \in X} \abs{f_n(x) - f(x)} \overset{n \to \infty}{\to} 0\)
     \item \(f_n \to f\) a.e. on \(X\) if 
     \[
@@ -21,21 +21,23 @@
         \lim_{n\to \infty} \mu\left(\left\{ \abs{f_n - f} \geq \alpha \right\}\right) = 0
     \]
 \end{itemize}
-\noindent\underline{Basic facts}: uniformly convergence \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) pointwise \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) a.e. convergence.
+\noindent\underline{Basic facts}: uniformly convergence \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) point wise \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) a.e. convergence.
 
-\noindent\underline{Ex:} \(f_n (x) = \exp{-nx}, x \in [0,1]\)
-\[
-    f(x) = 0, \quad g(x) = \begin{cases}
-        0 & x \in (0, 1]\\ 1 & x = 0
-    \end{cases}
-\]
-Then \(f_n \to g\) pointwise, \(g = f\) a.e. \(\Rightarrow f_n \to f\) a.e. on \([0,1]\). But \(f(0) \neq g(0) \Rightarrow f_n \to f\) pointwise. 
-
-\(f_n \nrightarrow g\) uniformly on \([0,1]\) \(\bigg\lvert \begin{array}{l}
-    f_n \in \mathcal{C}([0,1]) \\ f_n \to g \Rightarrow g \in \mathcal{C}([0,1])
-\end{array}\)
-
-a.e. \(\nRightarrow\) uniform, but not all is lost...
+\begin{example}
+    \(f_n (x) = \exp{-nx}, x \in [0,1]\)
+    \[
+        f(x) = 0, \quad g(x) = \begin{cases}
+            0 & x \in (0, 1]\\ 1 & x = 0
+        \end{cases}
+    \]
+    Then \(f_n \to g\) point wise, \(g = f\) a.e. \(\Rightarrow f_n \to f\) a.e. on \([0,1]\). But \(f(0) \neq g(0) \Rightarrow f_n \to f\) point wise. 
+    
+    \(f_n \nrightarrow g\) uniformly on \([0,1]\) \(\bigg\lvert \begin{array}{l}
+        f_n \in \mathcal{C}([0,1]) \\ f_n \to g \Rightarrow g \in \mathcal{C}([0,1])
+    \end{array}\)
+    
+    a.e. \(\nRightarrow\) uniform, but not all is lost...
+\end{example}
 \subsection{Egorov's theorem}
 \begin{theorem}[Egorov]
     Let \(\mu(X) < +\infty\), and suppose that \(f_n \to f\) a.e. on \(X\). Then, \(\forall \; \epsilon > 0, \exists \; X_{\epsilon} \subset X\), measurable, s.t. 
@@ -59,7 +61,7 @@ Regarding a.e. convergence and in measure convergence there is the following the
 
     In particular, this means that \(\exists \; \bar{n} \in \mathbb{N}\) s.t. \(n > \bar{n} \Rightarrow \abs{f_n -f} < \alpha\) on \(X_{\epsilon}\).
 
-    Therefore 
+    Therefore, 
     \[
         \left\{ \abs{f_n -f} \geq \alpha \right\} \cap  X_{\epsilon} = \emptyset \Rightarrow \left\{ \abs{f_n -f} \geq \alpha \right\} \subseteq X \setminus X_{\epsilon} \qquad \text{for } n> \bar{n} 
     \]
@@ -127,7 +129,7 @@ For example, in \((\mathbb{R}, \mathcal{L}(\mathbb{R}), \lambda)\) consider
 \begin{proposition}
     If \(\mu(X) < \infty \) and \(f_n \rightarrow f \) in measure, then \(\exists\) a subsequence \(\{f_{n_k} \}\) s.t. \(f_{n_k} \to f \) a.e. on \(X\).
 \end{proposition}
-Now we analize the relation between convergence in \(L^1(X)\) and the other convergences.
+Now we analyze the relation between convergence in \(L^1(X)\) and the other convergences.
 
 \begin{theorem}
     \( \{f_n\} \subset L^1(X), f \in L^1(X) \). If \(f_n \rightarrow f \) in \(L^1(X)\) then \(f_n \rightarrow f \) in measure on \(X\)

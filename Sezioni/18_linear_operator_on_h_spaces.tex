@@ -1,3 +1,4 @@
+\newpage
 \section{Linear operator on Hilbert spaces}
 \begin{proposition}
     \(p \in [1, \infty)\). Suppose that \(f_n \rightharpoonup f\) in \(L^p(X)\), and that \(f_n \to g\) a.e. in \(X\). Then \(f=g\) a.e.
@@ -43,6 +44,7 @@ Some useful facts on bounded operators in Hilbert Spaces.
         \norm{T}_{\mathcal{L}(H)} = \sup_{\norm{x}=\norm{y}=1} \abs{\langle Tx, y\rangle  }
     \]
 \end{proposition}
+\subsection{Symmetric operators}
 \begin{definition}
     \(T \) is called \textbf{symmetric} (or self adjoint) if 
     \[
@@ -62,7 +64,7 @@ Example: \(K \in L^2([0, 1]x[0, 1])\). Let \(T: L^2([0, 1]) \to L^2([0, 1])\) be
 \]
 \(T \in \mathcal{L}(L^2([0, 1]))\). It is symmetric \(\Leftrightarrow K(s, t) = K(t, s)\) \(\forall \; s, t\)
 
-\subsection*{Spectral Theory}
+\subsection{Spectral Theory}
 In what follows, \(E\) is a Banach space and \(T \in \mathcal{L}(E)\).
 
 \begin{definition}
@@ -105,29 +107,32 @@ Basic fact:
     \]
 \end{theorem}
 
-In general we cannot say much more.
-
-Ex: in \(l^2\), consider the left shift:
-\[
-    T_l(x^{(0)}, x^{(1)}, x^{(2)},... x^{(n)},...) = (x^{(1)}, x^{(2)}, x^{(3)},... x^{(n+1)},...)
-\]
-\(T_l \in \mathcal{L}(l^2)\), \(\norm{T_l}=1\). \(EV(T_l)=?\). We have to solve
-\[
-    T_l x = \lambda x \qquad \text{ for some } \lambda \in \real, x \in l^2 \setminus \{0\}
-\]
-\(\Rightarrow x^{(1)}=\lambda x^{(0)}\). \(x^{(n+1)} = \lambda x^{(n)} = \lambda^{n+1} x^{(0)}\). \(\forall \; \lambda \in \real\), the sequence
-\[
-    x = x^{(0)} \left(1, \lambda,\lambda^2, ..., \lambda^n, ...\right)
-\]
-is a solution of \(T_l x = \lambda x\).
-\[
-    x \in l^2 \Leftrightarrow \sum_{n=0}^\infty (\lambda^n)^2 < \infty \Leftrightarrow \sum_{n=0}^\infty (\lambda^2)^n < \infty \Leftrightarrow \abs{\lambda} < 1
-\]
-Any \(\lambda \in (-1, 1)\) is an e.v. of \(T_l\). Moreover, \(\sigma(T_l)\) is a compact set which is included in \([-1, 1]\) and contains \(EV(T_l) =(-1, 1)\)
-\[
-    \Rightarrow \sigma(T) = [-1, 1]
-\]
-
+In general, we cannot say much more.
+\begin{example}
+    
+    In \(l^2\), consider the left shift:
+    \[
+        T_l(x^{(0)}, x^{(1)}, x^{(2)},... x^{(n)},...) = (x^{(1)}, x^{(2)}, x^{(3)},... x^{(n+1)},...)
+    \]
+    \(T_l \in \mathcal{L}(l^2)\), \(\norm{T_l}=1\). \(EV(T_l)=?\). We have to solve
+    \[
+        T_l x = \lambda x \qquad \text{ for some } \lambda \in \real, x \in l^2 \setminus \{0\}
+    \]
+    \(\Rightarrow x^{(1)}=\lambda x^{(0)}\). \(x^{(n+1)} = \lambda x^{(n)} = \lambda^{n+1} x^{(0)}\). \(\forall \; \lambda \in \real\), the sequence
+    \[
+        x = x^{(0)} \left(1, \lambda,\lambda^2, ..., \lambda^n, ...\right)
+    \]
+    is a solution of \(T_l x = \lambda x\).
+    \[
+        x \in l^2 \Leftrightarrow \sum_{n=0}^\infty (\lambda^n)^2 < \infty \Leftrightarrow \sum_{n=0}^\infty (\lambda^2)^n < \infty \Leftrightarrow \abs{\lambda} < 1
+    \]
+    Any \(\lambda \in (-1, 1)\) is an e.v. of \(T_l\). Moreover, \(\sigma(T_l)\) is a compact set which is included in \([-1, 1]\) and contains \(EV(T_l) =(-1, 1)\)
+    \[
+        \Rightarrow \sigma(T) = [-1, 1]
+    \]
+    
+    
+\end{example}
 We focus in what follows on the following case: \(H\) separable Hilbert space, \(T \in \mathcal{K}(H)\) and symmetric.
 
 \begin{proposition}
@@ -218,6 +223,7 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\) weakly \(\Rightarrow
 \end{theorem}
 
 \begin{remark}
+    Given:
     \begin{itemize}
         \item \(\forall\) symmetric matrix \(A\), \(n x n \), \(\exists\) an orthonormal basis of \(\real^n\) of eigenvectors
         \item If \(T \in \mathcal{K}(E)\), \(E\) Banach, we can still say that \(0 \in \sigma(T)\) (if \(E\) has \(\infty\) dimension), that \(EV(T) \setminus \{0\} = \sigma(T) \setminus \{0\}\) and that either there are finitely many distinct eigenvectors, or \(EV(T) \setminus \{0\}\) is a sequence tending to \(0\)
@@ -303,8 +309,8 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\) weakly \(\Rightarrow
         and once again we can consider a basis of eigenvectors.
     \end{itemize}
 \end{proof}
-
-\begin{corollary}[Fredholm Alternative]
+\subsection{Fredholm's alternative}
+\begin{corollary}[Fredholm's alternative]
     \(H\) separable Hilbert space, \(T \in \mathcal{K}(H) \) and symmetric. Then:
     \begin{enumerate}
         \item either \(\forall\; y \in H\) the equation
@@ -317,8 +323,9 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\) weakly \(\Rightarrow
 \end{corollary}
 
 \begin{remark}
+    Also:
     \begin{itemize}
-        \item Rouché Capelli: \(Ax = y\). \(A\) matrix. Either \(\det A \neq 0\), and then \(\forall\; y \in \real^n \quad \exists!\; \) solution; or \(Ax = y\) can have \(0\) or \(\infty \) many solution.
+        \item Rouché Capelli: \(Ax = y\). \(A\) matrix. Either \(\det A \neq 0\), and then \(\forall\; y \in \real^n \quad \exists!\; \) solution; or \(Ax = y\) can have \(0\) or \(\infty \) many solutions.
         \item \(T\) symmetric is not necessary, and the corollary also holds in Banach spaces. 
         \item The corollary is very useful to treat integral equations:
         \[

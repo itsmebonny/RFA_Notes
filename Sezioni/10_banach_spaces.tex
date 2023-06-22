@@ -1,4 +1,26 @@
-\section*{Banach Spaces}
+\newpage
+\section{Banach Spaces}
+\subsection{Normed spaces}
+\begin{definition}
+    Given \(X\) vector space, a norm on \(X\) is a function \(\norm{\cdot} : X \to [0, \infty)\) s.t.
+    \begin{itemize}
+        \item \(\norm{x} = 0 \Leftrightarrow x = 0\)
+        \item \(\forall \; \alpha \in \real, \forall \; x \in X\) : 
+        \[
+            \norm{\alpha x} = \abs{\alpha}\norm{x}  \tag*{(positive homogeneity)}
+        \]
+        \item \(\forall \; x,y \in X\): 
+        \[
+            \norm{x+y} \leq \norm{x} + \norm{y} \tag*{(triangle inequality)}
+        \]
+    \end{itemize}
+    Then, \((X, \normdot)\) is called a \textbf{normed space}
+\end{definition}
+\begin{example}
+    \(\abs{\norm{x} - \norm{y}} \leq \norm{x - y}\) \(\forall \; x,y \in X\)
+    
+\end{example}
+\subsection{Banach spaces}
 \begin{definition}
     \((X, \normdot)\) is called a \textbf{Banach space} if \((X, d)\) is complete, namely if any Cauchy sequence in \((X, d)\) is convergent.
 \end{definition}
@@ -16,13 +38,13 @@ In general, in normed spaces
 \[
     \sum_{n=1}^{\infty} \norm{x_n} < +\infty \nRightarrow \sum_{n=1}^{\infty} x_n \mbox{ is convergent}
 \]
-\subsubsection*{Characterization}
+\subsection{Equivalent norms}
 \((X, \normdot)\) is a Banach space \(\Leftrightarrow\) every series s.t. \(\sum \norm{x_n} < +\infty\) is also s.t. \(\sum x_n\) is convergent.
 
 
 \((X, \norm{\cdot}) \to (X, d) \to \) open sets, closed sets, bounded sets....
 
-In \(\real^n\) we are used to work with \(\norm{\cdot}_2\), but we could have many different norms.
+In \(\real^n\) we are used to working with \(\norm{\cdot}_2\), but we could have many norms.
 \begin{definition}
     Let \(\normdot\) and \(\normdot_2\) be two norms on the same vector space \(X\). We say that these norms are \textbf{equivalent} if \(\exists \; m, M >0\) s.t. 
     \[
@@ -53,7 +75,7 @@ It can be proved that if two norms are equivalent they lead to different metric 
     \[
         \norm{x}_* \leq M \norm{x}_1 \quad \forall \; x \in X \tag{1}
     \]
-    Note that this proves that \(\phi(x) = \norm{x}_*\) is continuous in (\(X, d\)). Indeed 
+    Note that this proves that \(\phi(x) = \norm{x}_*\) is continuous in (\(X, d\)). Indeed, 
     \[
         x_n \to x \Leftrightarrow d_1(x_n, x) \to 0
     \]
@@ -72,7 +94,7 @@ It can be proved that if two norms are equivalent they lead to different metric 
     \]
     We claim that \(m>0\). If \(m=0\) then \(\norm{x_0}_* = 0 \Rightarrow x_0  = 0\) that is impossible, since \(x_0 \in S_1\).
 
-    Thus \(m>0\). Let now \(y \in \real^n, y \neq 0\). Then 
+    Thus, \(m>0\). Let now \(y \in \real^n, y \neq 0\). Then 
     \[
         \frac{y}{\norm{y}_1} \in S_1 
         \Rightarrow \norm{\frac{y}{\norm{y}_1}}_* \geq m 
@@ -82,33 +104,18 @@ It can be proved that if two norms are equivalent they lead to different metric 
 \end{proof}
 If \(\dim X = +\infty\), then there are many non-equivalent norms.
 
-\noindent\underline{Ex}: In \(\mathcal{C}^0([a,b])\), we can define \(\normdot_{\infty}\) and \(\norm{f}_1 = \int_a^b\abs{f(t)} \, dt\).
-
+\begin{example}
+    In \(\mathcal{C}^0([a,b])\), we can define \(\normdot_{\infty}\) and \(\norm{f}_1 = \int_a^b\abs{f(t)} \, dt\).
+\end{example}
 This is a norm in \(\mathcal{C}^0\), but these norms are not equivalent. 
 
-
-\subsection*{Separability}
+\subsection{Separable spaces}
 \((X, d)\) metric space. 
 \begin{definition}
     We say that \(X\) is separable if \(\exists \; A \subset X\) which is dense (\(\bar{A} = X\)) and countable 
 \end{definition}
-In \(\real^n\), \(\mathbb{Q}^n\) which is dense and countable. In \(\infty-\dim\) we can have separable spaces or not. 
-
-For instance, \((L^{\infty}, \normdot_{\infty})\) is not separable. Instead \((\mathcal{C}^0([a,b]), \normdot_{\infty})\) is a separable space. 
-
-\begin{proof}[Sketch of the proof]
-    We will use the \textbf{Stone-Weierstrass theorem}.
-
-    The set of polynomials is dense on \(\mathcal{C}^0([a,b])\) and is an uncountable set. 
-    However it can be proved that the set of polynomials with coefficients in \(\mathbb{Q}\) is dense in the set of all polynomials
-
-    Moreover this set is countable. Then, by Stone-Weierstrass this is a countable dense set in \(\mathcal{C}^0([a,b])\)
-\end{proof}
-\begin{remark}
-    One can show that \(\mathcal{C}^0(K)\) is separable whenever \(K\) is a compact set of a metric space \((X,d)\)
-\end{remark}
-
-\subsection*{Compactness}
+In \(\real^n\), \(\mathbb{Q}^n\) is dense and countable, while in \(\infty-\dim\) we can have separable spaces or not. 
+\subsection{Compactness}
 In finite dimension (in \(\real^n\)), one has that
 \[
     E \subset X \mbox{ is compact } \Leftrightarrow E \mbox{ is closed and bounded}
@@ -117,6 +124,7 @@ If \(\dim X = \infty\), then only `\(\Rightarrow\)' is true. In finite dimension
 \[
     \bar{B}_1(0) = \left\{ x \in \real^n : \norm{x} \leq 1\right\}
 \]
+\subsection{Riesz's theorem and quasi-orthogonality lemma}
 What happens now if \((X, \normdot)\) is on \(\infty-\dim\) normed space?
 \begin{theorem}[Riesz's theorem]
     \(X\) normed space, \(\dim X = +\infty\) \(\Rightarrow \overline{B_1(0)}\) is not compact

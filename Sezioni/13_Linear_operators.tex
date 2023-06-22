@@ -1,4 +1,6 @@
+\newpage
 \section{Linear operators}
+\subsection{Linear and bounded operator}
 \((X, \normdot_X)\), \((Y, \normdot_Y)\) normed spaces.
 \begin{definition}
     \(T : D(T) \subseteq X \to Y\) is a \textbf{linear operator} (or map) if 
@@ -17,33 +19,35 @@
         \forall \; \left\{ x_n \right\} \subset X, x_n \overset{X}{\to} x_0 \Rightarrow Tx_n \overset{Y}{\to} Tx_0
     \]
 \end{definition}
-\noindent\underline{Ex}:
-\begin{itemize}
-    \item \(L: \real^n \to \real\)  is a linear functional . Then \(\exists \; y \in \real^n\) s.t. 
-    \[
-        Lx = \langle y, x \rangle = (y, x) = y \cdot x
-    \]
-    In particular, then \(L\) is continuous on \(\real^n\) and bounded:
-    \[
-        \abs{L_X} < \abs{\langle y,x \rangle} \overset{\text{\tiny{Cauchy-Schwarz}}}{\leq} \norm{y} \norm{x} \qquad \forall\; x \in \real^n
-    \]
-    So \(L\) is bounded with \(M=\norm{y}\).
-
-    \item Linear operators in \(\infty\)-dim may not be defined everywhere, and many may not be continuous:
-    \((X, \normdot_X) = (Y, \normdot_Y) = (\mathcal{C}([0, 1]), \normdot_\infty)\).
+\begin{example}
+    \begin{itemize}
+        \item \(L: \real^n \to \real\)  is a linear functional. Then \(\exists \; y \in \real^n\) s.t. 
+        \[
+            Lx = \langle y, x \rangle = (y, x) = y \cdot x
+        \]
+        In particular, then \(L\) is continuous on \(\real^n\) and bounded:
+        \[
+            \abs{L_X} < \abs{\langle y,x \rangle} \overset{\text{\tiny{Cauchy-Schwarz}}}{\leq} \norm{y} \norm{x} \qquad \forall\; x \in \real^n
+        \]
+        So \(L\) is bounded with \(M=\norm{y}\).
     
-    Consider 
-    \[
-        \begin{array}{cc}
-            \frac{d}{dx}: \mathcal{C}'([0,1]) \subseteq X \to Y & \frac{d}{dx}(\alpha f + \beta g) = \alpha \frac{d}{dx}f + \beta \frac{d}{dx} g \\
-            f \mapsto f'
-        \end{array}
-    \]
-    This is not continuous or bounded. For example, take \(f_n(x) = \frac{1}{n} \sin{2\pi n x}\). \(\norm{f_n}_\infty \to 0\) but \(\norm{f_n'}_\infty =1\)
-
-    In this case \(f_n \to 0 \nRightarrow \frac{d}{dx} f_n \to 0\), then \(\frac{d}{dx} \) is not bounded as well.
-    \item Let \((X, \normdot_X)\) be a normed space. If \(\dim X = 0\), is it possible to find linear functionals which are not bounded? Yes.
-\end{itemize}
+        \item Linear operators in \(\infty\)-dim may not be defined everywhere, and many may not be continuous:
+        \((X, \normdot_X) = (Y, \normdot_Y) = (\mathcal{C}([0, 1]), \normdot_\infty)\).
+        
+        Consider 
+        \[
+            \begin{array}{cc}
+                \frac{d}{dx}: \mathcal{C}'([0,1]) \subseteq X \to Y & \frac{d}{dx}(\alpha f + \beta g) = \alpha \frac{d}{dx}f + \beta \frac{d}{dx} g \\
+                f \mapsto f'
+            \end{array}
+        \]
+        This is not continuous or bounded. For example, take \(f_n(x) = \frac{1}{n} \sin{2\pi n x}\). \(\norm{f_n}_\infty \to 0\) but \(\norm{f_n'}_\infty =1\)
+    
+        In this case \(f_n \to 0 \nRightarrow \frac{d}{dx} f_n \to 0\), then \(\frac{d}{dx} \) is not bounded as well.
+        \item Let \((X, \normdot_X)\) be a normed space. If \(\dim X = 0\), is it possible to find linear functionals which are not bounded? Yes.
+    \end{itemize}
+    
+\end{example}\subsection{Hamel basis}
 \begin{definition}
     A subset \(\left\{ e_i \right\}_{i \in I}\) is called \textbf{Hamel basis} of \(X\) if 
     \[
@@ -93,7 +97,7 @@ For linear operators, boundedness and continuity are equivalent.
     \end{enumerate}
 \end{theorem}
 \begin{remark}
-    \(T\) linear \(\Rightarrow T0 = 0\). Indeed
+    \(T\) linear \(\Rightarrow T0 = 0\). Indeed,
     \[
         T0 = T(0x) =  0 Tx = 0
     \]
@@ -131,7 +135,7 @@ For linear operators, boundedness and continuity are equivalent.
         namely \(Tx_n \to Tx \) in \(Y\). This is the continuity.
     \end{itemize}
 \end{proof}
-
+\subsection{\texorpdfstring{\(\mathcal{L}(X,Y)\)}{L(X,Y)}}
 \begin{definition}
     The set of linear operators \(T : X \to Y\) which are also bounded (continuous) is denoted by \(\mathcal{L}(X, Y)\).    If \(Y=X\), one simply writes \(\mathcal{L}(X)\)
 \end{definition}
@@ -148,7 +152,7 @@ Also,
 \[
     \norm{T}_{\mathcal{L}(X, Y)} = \sup_{\norm{x}_X = 1} \norm{Tx}_Y = \sup_{x \neq 0} \frac{\norm{Tx}_Y}{\norm{x}_X} = \inf{M >0 \text{ s.t. } \norm{Tx}_Y \leq M \norm{x}_X \quad \forall \; x \in X}
 \]
-
+\subsection{When \texorpdfstring{\(\mathcal{L}(X,Y)\)}{L(X,Y)} is a Banach space}
 \begin{theorem}
     \(X\) normed space, \(Y\) Banach space. Then \((\mathcal{L}(X, Y), \normdot_{\mathcal{L}(X, Y)})\) is a Banach space.
 \end{theorem}
@@ -231,12 +235,13 @@ This is a vector subspace of \(X\).
     then we say that \(J\) is an embedding of \(X\) into \(Y\), and we write \(X \hookrightarrow Y\)
 \end{definition}
 
-\noindent\underline{Ex}: \(\mu(X) < \infty \), \(1 \leq p < q \leq \infty\)
-\[
-    L^q(X) \hookrightarrow L^p(X) \tag*{(inclusion of \(L^p\) spaces)}
-\]
+\begin{example}
+    \(\mu(X) < \infty \), \(1 \leq p < q \leq \infty\)
+    \[
+        L^q(X) \hookrightarrow L^p(X) \tag*{(inclusion of \(L^p\) spaces)}
+    \]
+\end{example}
 
-\subsection*{Some fundamentals theorems on linear operators}
 \begin{definition}
     \((X, d)\) metric space. \(A \subset X\). \(x \in X \) is an \textbf{adherence point} of \(A\) if \(\forall \; r>0: B_r(x) \cap A \neq \emptyset\)
     \[
@@ -247,18 +252,23 @@ This is a vector subspace of \(X\).
     \(A \subset X\) is \textbf{dense} in \(X\) if \(\bar{A} = X\).
 \end{definition}
 For example, \(\mathbb{Q}\) is dense in \(\real\), and \((a, b)\) is dense in \([a, b]\).
+\subsection{Nowhere dense sets}
 \begin{definition}
     \(A \subset X\) is \textbf{nowhere dense} if the interior of the closure of \(A\) is empty, namely
     \[
        \text{int} (\bar{A}) = \interior{\bar{A}} = \emptyset  
     \]
 \end{definition}
-
-Ex: \(\interior{\bar{\{x\}}} = \interior{\{x\}} = \emptyset\)
-
-\(\mathbb{Z} \subset \real\): \(\interior{\bar{\mathbb{Z}}}=\interior{\mathbb{Z}} = \emptyset\)
-
-\(\mathbb{Q} \) is not nowhere dense: \(\interior{(\bar{\mathbb{Q}})} = \interior{(\mathbb{R})} = \real \)
+\begin{example}
+    \begin{itemize}
+        \item \(\interior{\bar{\{x\}}} = \interior{\{x\}} = \emptyset\)
+        
+        \item \(\mathbb{Z} \subset \real\): \(\interior{\bar{\mathbb{Z}}}=\interior{\mathbb{Z}} = \emptyset\)
+        
+        \item \(\mathbb{Q} \) is not nowhere dense: \(\interior{(\bar{\mathbb{Q}})} = \interior{(\mathbb{R})} = \real \)
+        
+    \end{itemize}
+\end{example}
 \begin{definition}
     \(A \subset X\) is called \textbf{of first category} (or \textbf{meager set}) in \(X\) if \(A\) is the (at most) countable union of nowhere dense sets. 
 \end{definition}
@@ -270,7 +280,8 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
 \begin{definition}
     \(A \subset X\) is of second category if it is not of first category.
 \end{definition}
-\begin{theorem}[Baire category theory]
+\subsection{Baire's category theorem}
+\begin{theorem}[Baire's category theory]
     \((X, d)\) complete metric space. Then 
     \begin{itemize}
         \item \(\{U_n\}_{n=0}^\infty\) is a sequence of open and dense sets in \(X\) \(\Rightarrow \cap_{n=0}^\infty U_n\) is dense in \(X\).
@@ -287,7 +298,7 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
 
 \begin{proof} Here's the proof of the two parts of the theorem:
     \begin{itemize}
-        \item[(a)] Thanks to the first preliminary, we show that \(\forall \; W \subset X\) open and non empty we have \((\cap_n U_n) \cap W \neq \emptyset\)
+        \item[(a)] Thanks to the first preliminary, we show that \(\forall \; W \subset X\) open and non-empty we have \((\cap_n U_n) \cap W \neq \emptyset\)
         
         \[
             \begin{array}{rl}
@@ -336,12 +347,15 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
         \]
     \end{itemize}
 \end{proof}
-\noindent\underline{Ex}: \((X, \normdot)\) \(\infty-\dim\) Banach space. \(\left\{ e_i \right\}_{i \in I}\) Hamel basis. 
-
-Then \(I\) is uncountable.
-\begin{theorem}[Banach Steinhaus]
+\begin{example}
+    \((X, \normdot)\) \(\infty-\dim\) Banach space. \(\left\{ e_i \right\}_{i \in I}\) Hamel basis. 
+    
+    Then \(I\) is uncountable.
+\end{example}
+\subsection{Banach-Steinhaus's theorem}
+\begin{theorem}[Banach-Steinhaus]
     \(X\) Banach space, \(Y\) normed space, \(\mathcal{F} \subseteq \mathcal{L}(X, Y)\) family.
-    Suppose that \(\mathcal{F}\) is pointwise bounded: 
+    Suppose that \(\mathcal{F}\) is point wise bounded: 
     \[
         \forall\; x \in X \quad \exists \; M_x >0 \text{ s.t. } \sup_{T \in \mathcal{F}} \norm{Tx}_Y \leq M_x \tag*{(PB)}
     \]
@@ -364,7 +378,7 @@ Then \(I\) is uncountable.
         \norm{T(x_0+rz)}_Y \leq n_0 \quad \forall \; z \in \overline{B_1(0)}
     \]
     \[
-        \norm{T(x_0 + rz)}_Y \overset{\text{\tiny{linearity}}}{=} \norm{Tx_0 + rTz}_Y \overset{\text{\tiny{triangle ineq}}}{\leq} r\norm{Tz}_Y - \norm{Tx_0}_Y \quad \forall \; T \in \mathcal{F} \; 
+        \norm{T(x_0 + rz)}_Y \overset{\text{\tiny{linearity}}}{=} \norm{Tx_0 + rTz}_Y \overset{\text{\tiny{triangle ineq.}}}{\leq} r\norm{Tz}_Y - \norm{Tx_0}_Y \quad \forall \; T \in \mathcal{F} \; 
     \]
     To sum up: \(\forall \; T \in \mathcal{F} \), \(\forall \; z \in \overline{B_1(0)}\) we have 
     \[
@@ -377,7 +391,7 @@ Then \(I\) is uncountable.
 \end{proof}
 
 \begin{corollary}
-    \(X\) Banach space, \(Y\) normed space. \(\{ T_n \} \subseteq \mathcal{L}(X, Y)\) s.t. \(\{T_n x\}\) has a limit, denoted by \(Tx\), \(\forall \; x \in X\) (pointwise convergence). 
+    \(X\) Banach space, \(Y\) normed space. \(\{ T_n \} \subseteq \mathcal{L}(X, Y)\) s.t. \(\{T_n x\}\) has a limit, denoted by \(Tx\), \(\forall \; x \in X\) (point wise convergence). 
     Then \(T \in \mathcal{L}(X, Y)\)
 \end{corollary}
 \begin{proof}
@@ -406,7 +420,10 @@ Let \(X, Y\) be normed spaces.
 \begin{remark}
     Recall that \(T\) is continuous on \(X\) if \(T^{-1}(O)\) is open on \(X\), \(\forall \; O \mbox{ open in } Y\).
 \end{remark}
-\noindent\underline{Ex}: \(f(x) : \mbox{constant}\) is continuous, but not open. \(f((a,b)) = \left\{ \mbox{const} \right\}\)
+\begin{example}
+    \(f(x) : \mbox{constant}\) is continuous, but not open. \(f((a,b)) = \left\{ \mbox{const} \right\}\)
+    
+\end{example}\subsection{Open map theorem}
 \begin{theorem}[Open map theorem]
     \(X, Y\) Banach spaces. \(T \in \mathcal{L}(X,Y)\) is surjective. Then \(T\) is an open map.
 \end{theorem}
@@ -470,24 +487,29 @@ Let \(X, Y\) be normed spaces.
     \]
 
 \end{definition}
-\noindent\underline{Ex}: \(X = Y = \mathcal{C}^0([0,1])\) with the supremum norm.
-\[
-    T = \frac{d}{dx}
-\]
-\(T\) is not continuous. But it is closed: it can be proved that if \(\left\{ f_n \right\} \subset \mathcal{C}^1([0,1])\) is s.t.
-\[
-    \begin{rcases*}
-        f_n \to f & \mbox{uniformly} \\
-        f_n' \to g & \mbox{uniformly}
-    \end{rcases*} \Rightarrow f \mbox{ is } \mathcal{C}^1([0,1]) \mbox{ and } f' = g
-\] 
-\noindent\underline{Ex}: \(T \in \mathcal{L}(X,Y) \Rightarrow T \mbox{ is closed}\)
+\begin{example}
+    \(X = Y = \mathcal{C}^0([0,1])\) with the supremum norm.
+    \[
+        T = \frac{d}{dx}
+    \]
+    \(T\) is not continuous. But it is closed: it can be proved that if \(\left\{ f_n \right\} \subset \mathcal{C}^1([0,1])\) is s.t.
+    \[
+        \begin{rcases*}
+            f_n \to f & \mbox{uniformly} \\
+            f_n' \to g & \mbox{uniformly}
+        \end{rcases*} \Rightarrow f \mbox{ is } \mathcal{C}^1([0,1]) \mbox{ and } f' = g
+    \] 
+\end{example}
+\begin{example}
+    \(T \in \mathcal{L}(X,Y) \Rightarrow T \mbox{ is closed}\)
+\end{example}
 \begin{remark}
     \(T\) is a closed operator \(\Leftrightarrow\) the graph of \(T\) is closed.
     \[
         \mbox{graph}(T) = \left\{ (x, Tx): x \in X \right\}
     \]
 \end{remark}
+\subsection{Closed graph theorem}
 \begin{theorem}[Closed graph theorem]
     \(X, Y\) Banach spaces. 
     
@@ -496,7 +518,7 @@ Let \(X, Y\) be normed spaces.
     Then \(T \in \mathcal{L}(X,Y)\).
 \end{theorem}
 \begin{remark}
-    In general it is easier to prove that an operator is closed, rather than it it continuous.
+    In general, it is easier to prove that an operator is closed, rather than it is continuous.
 \end{remark}
 \begin{proof}
     Define on \(X\) the graph-norm of \(T\)
