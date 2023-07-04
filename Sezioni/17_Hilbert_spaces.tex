@@ -280,11 +280,11 @@ Both strategies can be adopted in both contexts.
 \subsection{Convergences}
 Consequence: \(H\) Hilbert space.
 \[
-    x_n \rightharpoonup x \text{ weakly in } H \Leftrightarrow \langle x_n, y\rangle   \to \langle x, y\rangle   \quad \forall\; y \in H
+    x_n \rightharpoonup x \text{ in } H \Leftrightarrow \langle x_n, y\rangle   \to \langle x, y\rangle   \quad \forall\; y \in H
 \]
 Sometimes weak convergence + something else \(\Rightarrow\) strong convergence. For instance
 \begin{proposition}
-    \(H\) Hilbert. If \(x_n \rightharpoonup x\) weakly in \(H\), and \(\norm{x_n} \to \norm{x}\) \(\Rightarrow x_n \to x\) in \(H\), namely \(\norm{x_n - x} \to 0\)
+    \(H\) Hilbert. If \(x_n \rightharpoonup x\)  in \(H\), and \(\norm{x_n} \to \norm{x}\) \(\Rightarrow x_n \to x\) in \(H\), namely \(\norm{x_n - x} \to 0\)
 \end{proposition}
 \begin{proof}
     \[
@@ -410,7 +410,7 @@ The usefulness of Hilbert basis stays in the fact that they allow us to reason c
 \end{proof}
 
 \begin{corollary}
-    \(H\) separable Hilbert space, \(\dim H = \infty\). \(\{u_n\}_{n \in \natural}\) Hilbert basis. Then \(u_n \rightharpoonup 0\) weakly in \(H\), but \(u_n \nrightarrow 0\) in \(H\).
+    \(H\) separable Hilbert space, \(\dim H = \infty\). \(\{u_n\}_{n \in \natural}\) Hilbert basis. Then \(u_n \rightharpoonup 0\)  in \(H\), but \(u_n \nrightarrow 0\) in \(H\).
 \end{corollary}
 \begin{proof}
     \[
@@ -434,12 +434,12 @@ The usefulness of Hilbert basis stays in the fact that they allow us to reason c
     \]                
     \(\sin(nx) \rightharpoonup 0\) in \(L^2([-\pi, \pi])\) as \(n \to \infty\). Note that \(\{sin(nx)\}_{n \in \natural}\) does not converge for a.e. \(x\).
     
-    Weak convergence in \(L^2\) and point wise or a.e. convergence are not related.
+    Weak convergence in \(L^2\) and pointwise or a.e. convergence are not related.
     
     \(\{sin(nx)\}\) does not converge a.e. on \([-\pi, \pi]\), not even up to subsequences. 
     The same is true in \(L^p\), \(p \neq 2\). Even in this case
     \[
-        \sin(nx) \rightharpoonup 0 \text{ weakly in } L^p([a,b]) \quad (p \in [1, \infty),
+        \sin(nx) \rightharpoonup 0 \text{ in } L^p([a,b]) \quad (p \in [1, \infty),
     \] 
     but we don't have a.e. convergence.
 \end{example}

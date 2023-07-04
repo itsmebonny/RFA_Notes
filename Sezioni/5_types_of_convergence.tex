@@ -1,8 +1,9 @@
+\newpage
 \section{Types of convergence}
 \subsection{Various types of convergence}
 \(\left\lbrace f_n \right\rbrace\) sequence of measurable functions \(X \to \barreal\)
 \begin{itemize}
-    \item \(f_n \to f\) point wise (everywhere) on \(X\) if \(f_n(x) \overset{n \to \infty}{\to} f(x) \; \forall \; x \in X\)
+    \item \(f_n \to f\) pointwise (everywhere) on \(X\) if \(f_n(x) \overset{n \to \infty}{\to} f(x) \; \forall \; x \in X\)
     \item \(f_n \to f\) uniformly on \(X\) if \(\sup_{x \in X} \abs{f_n(x) - f(x)} \overset{n \to \infty}{\to} 0\)
     \item \(f_n \to f\) a.e. on \(X\) if 
     \[
@@ -21,7 +22,7 @@
         \lim_{n\to \infty} \mu\left(\left\{ \abs{f_n - f} \geq \alpha \right\}\right) = 0
     \]
 \end{itemize}
-\noindent\underline{Basic facts}: uniformly convergence \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) point wise \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) a.e. convergence.
+\noindent\underline{Basic facts}: uniformly convergence \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) pointwise \(\underset{\displaystyle\nLeftarrow}{\Rightarrow}\) a.e. convergence.
 
 \begin{example}
     \(f_n (x) = \exp{-nx}, x \in [0,1]\)
@@ -30,7 +31,7 @@
             0 & x \in (0, 1]\\ 1 & x = 0
         \end{cases}
     \]
-    Then \(f_n \to g\) point wise, \(g = f\) a.e. \(\Rightarrow f_n \to f\) a.e. on \([0,1]\). But \(f(0) \neq g(0) \Rightarrow f_n \to f\) point wise. 
+    Then \(f_n \to g\) pointwise, \(g = f\) a.e. \(\Rightarrow f_n \to f\) a.e. on \([0,1]\). But \(f(0) \neq g(0) \Rightarrow f_n \to f\) pointwise. 
     
     \(f_n \nrightarrow g\) uniformly on \([0,1]\) \(\bigg\lvert \begin{array}{l}
         f_n \in \mathcal{C}([0,1]) \\ f_n \to g \Rightarrow g \in \mathcal{C}([0,1])

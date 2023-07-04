@@ -33,10 +33,10 @@ What happens if \(f \in L^1([a, b])\)?
     \end{itemize}
 \end{remark}
 \begin{theorem}[Lebesgue]
-    If \(f \in L^1([a.b])\) then a.e. \(x \in [a,b]\) is a Lebesgue point for \(f\)
+    If \(f \in L^1([a,b])\) then a.e. \(x \in [a,b]\) is a Lebesgue point for \(f\)
 \end{theorem}
 \begin{remark}
-    In the definition of Lebesgue point, the point wise values of \(f\) are relevant 
+    In the definition of Lebesgue point, the pointwise values of \(f\) are relevant 
     \[
         f = g \in L^1 \Leftrightarrow f = g \text{ a.e.}
     \]
@@ -62,13 +62,10 @@ Then \(f\) is differentiable a.e. on \([a,b]\) and \(F'(x) = f(x) \text{ a.e. in
 \begin{definition}
     Given \(f : I \to \real\) is called \textbf{absolutely continuous} (AC) in \(I\), \(f \in AC(I)\), if \(\forall \; \epsilon >0 \; \exists \; \delta >0\)  
     s.t. 
-    \[
-        \bigcup_{k=1}^n [a_k, b_k] \subseteq I \text{ with disjoint interiors}
-    \] 
-    \[
-        \lambda(\bigcup_{k=1}^n [a_k, b_k]) = \sum_{k=1}^n (b_k -a_k) < \delta
-    \]
-    \[
+    \[\begin{aligned}
+            &\bigcup_{k=1}^n [a_k, b_k] \subseteq I \text{ with disjoint interiors} \\
+            &\lambda(\bigcup_{k=1}^n [a_k, b_k]) = \sum_{k=1}^n (b_k -a_k) < \delta
+    \end{aligned}
         \Rightarrow \sum_{k=1}^n \abs{f(b_k)-f(a_k)} < \epsilon
     \]
 \end{definition}
@@ -100,11 +97,7 @@ If we take \(\delta = \delta(\epsilon) = \frac{\epsilon}{L}\), then
 \[
     \mbox{Lip}([a,b]) \subsetneqq \mbox{AC}([a,b]) \subsetneqq \mbox{UC}([a,b])
 \]
-\begin{theorem}[Regularity of integral functions]
-    Given \(f \in L^1([a,b]), F(x) = \int_a^xf(t) \, dt\), then \(F \in \mbox{AC}([a,b])\)
-\end{theorem}
 \subsection{Absolute continuity of the integral}
-To prove the theorem we need the
 \begin{theorem}[Absolute continuity of the integral]
     Given \(f \in L^1(X, \mathcal{M}, \mu)\). Then \(\forall \; \epsilon >0 \) \(\exists \; \delta > 0\) s.t.     
     \[
@@ -149,7 +142,10 @@ To prove the theorem we need the
     \[
         \Rightarrow \int_E \abs{f} \, d\mu < \epsilon \]
 \end{proof}
-\begin{proof}[Proof - Regularity of integral functions]
+\begin{theorem}[Regularity of integral functions]
+    Given \(f \in L^1([a,b]), F(x) = \int_a^xf(t) \, dt\), then \(F \in \mbox{AC}([a,b])\)
+\end{theorem}
+\begin{proof}
     Let \(\epsilon > 0\), and \(\delta = \delta(\epsilon) > 0\) be the value given by the absolute continuity of \(\int \abs{f} \, d\mu\). 
     Take 
     \[
@@ -281,7 +277,7 @@ We can now come back to the proof of Lemma 1 of the last lesson.
 \]
     any open set of \(\real\) is the (at most) countable union of open disjoint intervals.
 
-\noindent\underline{Preliminary result (equivalent definition for AC)}: \(f \in \mbox{AC}([a,b]) \Leftrightarrow \forall \; \epsilon > 0 \exists \; \delta > 0\) depending on \(\epsilon\) s.t. 
+\noindent\underline{Preliminary result (equivalent definition for AC)}: \(f \in \mbox{AC}([a,b]) \Leftrightarrow \forall \; \epsilon > 0 \; \exists \; \delta > 0\) depending on \(\epsilon\) s.t. 
 \[
     \forall \; \bigcup_{n=1}^{\infty} [a_n, b_n], \quad [a_n, b_n] \mbox{ have disjoint interiors}
 \]
@@ -292,7 +288,7 @@ We can now come back to the proof of Lemma 1 of the last lesson.
     We defined \(\lambda\) starting from two properties
     \begin{itemize}
         \item invariance under translations
-        \item \(\lambda((x,y)) = y - x \quad \forall \; a \leq  y \leq b\)
+        \item \(\lambda((x,y)) = y - x \quad \forall \; a \leq x < y \leq b\)
     \end{itemize}
     Now, \(G\) is monotone, say \(G\) increasing (if \(G \searrow\), take \(-G\)). We can repeat the construction of \(\lambda\) in order to obtain a measure \(\mu\) s.t. 
     \begin{itemize}
@@ -303,12 +299,12 @@ It can be proved that we obtain a measure on \((\real, \mathcal{L}(\real))\), co
 
 On \((\real, \mathcal{L}(\real))\) we have two measures: \(\lambda \mbox{ and } \mu\).
 
-\noindent\underline{Idea}: We take these measures on \(([a,b], \mathcal{L}([a,b]))\), and we want to show that \(\exists \; \frac{d\mu}{d\Lambda}\) (Radon-Nykodym)
+\noindent\underline{Idea}: We take these measures on \(([a,b], \mathcal{L}([a,b]))\), and we want to show that \(\exists \; \frac{d\mu}{d\lambda}\) (Radon-Nikodym)
 
-We can check the hypothesis of the Radon-Nykodym theorem:
+We can check the hypothesis of the Radon-Nikodym theorem:
 \begin{itemize}
     \item \(\lambda\) is \(\sigma\)-finite: \(\lambda([a,b]) = b-a < +\infty\)
-    \item \(\mu << \lambda\): \(E \in \mathcal{L}([a,b])\), \(\lambda(E) = 0 \Rightarrow \mu(E) = 0\)
+    \item \(\mu \ll \lambda\): \(E \in \mathcal{L}([a,b])\), \(\lambda(E) = 0 \Rightarrow \mu(E) = 0\)
 \end{itemize}
 Assume \(\lambda(E) = 0\). \(G\) is \(\mbox{AC}([a,b])\): then \(\forall \; \epsilon > 0\) \(\exists \; \delta = \delta(\epsilon) > 0\) s.t. 
 \[
@@ -317,25 +313,23 @@ Assume \(\lambda(E) = 0\). \(G\) is \(\mbox{AC}([a,b])\): then \(\forall \; \eps
 \[
     \lambda\left(\bigcup_{n=1}^{\infty} [a_n, b_n]\right) < \delta \Rightarrow \sum_{n=1}^{\infty} \abs{G(b_n) - G(a_n)} < \epsilon
 \]
-Take this \(\delta\). By regularity of \(\lambda\), \(\exists \; A \) open set of \(\left[a, b\right]\)s.t. \(A \supset E\) and \(\lambda(A) < \delta\)
+Take this \(\delta\). By regularity of \(\lambda\), \(\exists \; A \) open set of \(\left[a, b\right]\) s.t. \(A \supset E\) and \(\lambda(A) < \delta\)
 \[
-    A \mbox{ is open} \Rightarrow A = \left( \bigcup_{n=1}^{\infty} I_n \symbolfootnotemark[2]{\mbox{open intervals } = (x, y)} \right), \mbox{ disjoint}
-    \symbolfootnotetext[2]{open intervals = \((x_n, y_n)\)}
-\] 
+    A \mbox{ is open} \Rightarrow A = \left( \bigcup_{n=1}^{\infty} I_n \symbolfootnotemark[2]{open intervals = \((x_n, y_n)\)} \right)\cap [a,b], \text{ disjoint}\] 
 it is a countable union of open intervals (maybe two of them contains \(a\) or \(b\))
 \[
     \lambda(A) < \delta \Leftrightarrow \sum_{n=1}^{\infty} (y_n - x_n) < \delta
 \]
 But then, since \(\mu\) is a measure it is countably additive
 \[
-    \mu (E) \leq \mu(A) = \sum_n \mu (I_n) = \sum_n G(y_n) - G(x_n) < \epsilon
+    \mu (E) \leq \mu(A) = \sum_n \mu (I_n) = \sum_n \abs{G(y_n) - G(x_n)} < \epsilon
 \]
 by the choice of \(\delta \) and the fact that \(G \in\) AC.
 We proved that 
 \[
     \lambda(E) = 0 \Rightarrow \forall \; \epsilon >0 : \, \mu(E) < \epsilon \Rightarrow \mu(E) =0
 \]
-So \(\mu << \lambda\). We can apply Radon Nykodym \(\exists \; \oldphi : \left[ a, b\right] \to \left[0, \infty\right]\) s.t. 
+So \(\mu \ll \lambda\). We can apply Radon Nikodym \(\exists \; \oldphi : \left[ a, b\right] \to \left[0, \infty\right]\) s.t. 
 \[
     G(x) - G(a) = \int_a^x \oldphi \, d\lambda
 \]
@@ -348,7 +342,7 @@ By the first fundamental theorem of calculus, this is differentiable a.e.
     \Rightarrow G'(x) = \oldphi(x) \text{ a.e. on } \left[a, b\right]
 \]
 \[
-    \Rightarrow G'(x) = G(a) + \int_a^x G'(t) \, dt
+    \Rightarrow G(x) = G(a) + \int_a^x G'(t) \, dt
 \]
 \end{proof}
 Now we want to get rid of the additional assumption (monotonicity).

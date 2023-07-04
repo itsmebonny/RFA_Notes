@@ -17,8 +17,7 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
     \[
         \begin{array}{rlc}
             x_n \to x \in X \Rightarrow & L x_n \to Lx & \forall\; L \in X^* \\
-            & x_n \rightharpoonup x \in X & \\
-            x_n \to x \in X \Rightarrow & x_n \rightharpoonup x \text{ weakly } \in X & \\
+            x_n \to x \in X \Rightarrow & x_n \rightharpoonup x  \in X & \\
              \nLeftarrow & 
         \end{array}
     \]
@@ -28,11 +27,11 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
     
     \noindent If \(p \in [1, \infty)\), then 
     \[
-        f_n \rightharpoonup f \text{ weakly in } L^p(X) \Leftrightarrow \int_X f_n g \, d\mu \to \int_X fg \, d\mu \quad \forall \; g \in L^{p'}
+        f_n \rightharpoonup f \text{ in } L^p(X) \Leftrightarrow \int_X f_n g \, d\mu \to \int_X fg \, d\mu \quad \forall \; g \in L^{{q}}
     \]
-    \noindent Similarly, in \(\ell^p = L^P(\natural, \mathcal{P}(\natural), \mu_c)\)
+    \noindent Similarly, in \(\ell^p = L^p(\natural, \mathcal{P}(\natural), \mu_c)\)
     \[
-        x_n \rightharpoonup x \text{ weakly in } \ell^p \Leftrightarrow \sum_{k=1}^\infty x_n^{(k)} y^{(k)} \to \sum_{k=1}^\infty x^{(k)} y^{(k)} \quad \forall \; y \in l^{p'}
+        x_n \rightharpoonup x \text{ in } \ell^p \Leftrightarrow \sum_{k=1}^\infty x_n^{(k)} y^{(k)} \to \sum_{k=1}^\infty x^{(k)} y^{(k)} \quad \forall \; y \in \ell^q
     \]
 \end{remark}
 
@@ -40,7 +39,7 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
     The weak limit is unique (if it exists)
 \end{proposition}
 \begin{proof}
-    By contradiction, suppose that \(\exists \{ x_n\} \subset X\) s.t. \(x_n \rightharpoonup x_1\), \(x_n \rightharpoonup x_2\) weakly in \(X\), \(x_1 \neq x_2\). Then
+    By contradiction, suppose that \(\exists \{ x_n\} \subset X\) s.t. \(x_n \rightharpoonup x_1\), \(x_n \rightharpoonup x_2\)  in \(X\), \(x_1 \neq x_2\). Then
     \[
         \begin{array}{lc}
             Lx_n \to Lx_1 & \forall\; L \in X^* \\
@@ -52,7 +51,7 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
 \end{proof}
 
 \begin{proposition}
-    If \(x_n \rightharpoonup x\) weakly in \(X\), then \(\{x_n\}\) is bounded, and 
+    If \(x_n \rightharpoonup x\)  in \(X\), then \(\{x_n\}\) is bounded, and 
     \[
         \norm{x} \leq \liminf_{n \to \infty} \norm{x_n} \tag*{weak lower semi continuity of \(\normdot\)}
     \]
@@ -61,7 +60,7 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
     \begin{itemize}
         \item \(\{x_n\}\) is bounded
         
-        \(x_n \rightharpoonup x\) weakly \(\Rightarrow \{L x_n\}\) is bounded in \(\real\), \(\forall \; L \in X^*\). Consider \(\Lambda_n \in X^{**}\) def by 
+        \(x_n \rightharpoonup x\)  \(\Rightarrow \{L x_n\}\) is bounded in \(\real\), \(\forall \; L \in X^*\). Consider \(\Lambda_n \in X^{**}\) defined by 
         \[
             \Lambda_n L = L x_n \quad \forall\; L \in X^{*}
         \]
@@ -69,7 +68,7 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
         \[
             \abs{\Lambda_n L} = \abs{L x_n } \leq M_L \qquad \forall\; n \tag*{PB}
         \]
-        (point wise boundedness of \(\{\Lambda_n \} \subset X^{**}\))
+        (pointwise boundedness of \(\{\Lambda_n \} \subset X^{**}\))
         \[
             \Lambda_n: X^{*}= \mathcal{L}(X, \real) \to \real    
         \]
@@ -81,7 +80,7 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
         \[
             \norm{x_n} = \abs{L_n x_n} = \abs{\Lambda_n L_n} \leq \norm{\Lambda_n}_\mathcal{L} \norm{L_n}_* \leq M \quad \forall n \in \natural
         \] 
-        \item \(x_n \rightharpoonup x\) weakly. 
+        \item \(x_n \rightharpoonup x\) . 
         
         By corollary 1 of Hahn Banach, \(\exists L_x \in x^*\) s.t. \(\norm{L_x}_* = 1\) and \(L_x x = \norm{x}\). Then
         \[
@@ -91,7 +90,7 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
 \end{proof}
 
 \begin{proposition}
-    \(x_n \rightharpoonup x \) in \(X\) weakly, and \(L_n \to L\) (strongly) in \(X^*\). Then
+    \(x_n \rightharpoonup x \) in \(X\) , and \(L_n \to L\) (strongly) in \(X^*\). Then
     \[
         L_n x_n \to Lx \quad \text{ in } \real
     \]
@@ -99,11 +98,11 @@ We know that \(\overline{B_1(0)}\) is never compact in \(\infty\) dimension. Thi
 \begin{proposition}
     \(X, Y\) Banach, \(T \in \mathcal{L}(X, Y)\)
     \[
-        x_n \rightharpoonup x \text{ weakly } \Rightarrow Tx_n \rightharpoonup Tx \text{ weakly }
+        x_n \rightharpoonup x  \Rightarrow Tx_n \rightharpoonup Tx 
     \]
 \end{proposition}
 
-We introduced the weak convergence. \(X\) Banach space. \({x_n} \subset X\) converges weakly to \(x\), \(x_n \rightharpoonup x\) weakly in \(X\), if 
+We introduced the weak convergence. \(X\) Banach space. \({x_n} \subset X\) converges weakly to \(x\), \(x_n \rightharpoonup x\)  in \(X\), if 
 \[
     L x_n \to Lx \text { in } \real, \quad \forall\; L \in X^* = \mathcal{L}(X, \real)
 \]
@@ -118,7 +117,7 @@ Recall that:
 \end{itemize}
 
 \begin{remark}
-    In \(\real^n\) (or any finite dimensional Banach space) \(x_n \rightharpoonup x\) weakly \(\Leftrightarrow x_n \to x\) strongly (ex.)
+    In \(\real^n\) (or any finite dimensional Banach space) \(x_n \rightharpoonup x\)  \(\Leftrightarrow x_n \to x\) strongly (ex.)
 \end{remark}
 
 With the same philosophy we introduce: 
@@ -140,15 +139,15 @@ With the same philosophy we introduce:
 \end{remark}
 We know that \(\exists \; \tau:X \to X^{**}\) canonical map s.t. 
 \[
-    \underset{X^{**}}{\langle}\tau(x), L \underset{X^*}{\rangle} = Lx \quad \forall \; L \in X^*
+    {}_{X^{**}}\langle\tau(x), L \rangle_{X^*} = Lx \quad \forall \; L \in X^*
 \]
-Thus \(L_n \rightharpoonup L\) weakly in \(X^*\) \(\rightarrow\) \(\langle \tau(x), L_n \rangle \to \langle \tau(x), L \rangle\) \(\forall x \in X:\) namely
+Thus \(L_n \rightharpoonup L\)  in \(X^*\) \(\rightarrow\) \(\langle \tau(x), L_n \rangle \to \langle \tau(x), L \rangle\) \(\forall x \in X:\) namely
 \[
     L_n x \to Lx \qquad \forall \; x \in X
 \]
-namely \(L_n\rightharpoonup^*\) weakly* in \(X^*\). In general the converse is false. However
+namely \(L_n\rightharpoonup^* L\)  in \(X^*\). In general the converse is false. However
 \begin{proposition}
-    If \(X\) is reflexive, then \(L_n \rightharpoonup L\) weakly in \(X^* \Leftrightarrow L_n \rightharpoonup^* L\) weakly* in \(X^*\)
+    If \(X\) is reflexive, then \(L_n \rightharpoonup L\)  in \(X^* \Leftrightarrow L_n \rightharpoonup^* L\)  in \(X^*\)
 \end{proposition}
 \begin{proof}
     If \(X\) is reflexive, every element \(\Lambda\) of \(X^{**}\) is of type \(\Lambda = \tau(x)\) for some \(x\)
@@ -177,12 +176,11 @@ namely \(L_n\rightharpoonup^*\) weakly* in \(X^*\). In general the converse is f
     \[
         \abs{L_n x_1} \leq \norm{L_n}_{X^*} \norm{x_1}_X \leq M \norm{x_1}_X < \infty
     \]
-    \(\Rightarrow \exists \; \{L_{n_j}\}\) s.t. \(L_{n_j} x_1 \to l_j\) in \(\real\). Now, consider \(\{L_{n_j} x_2\}\): it is bounded,
+    \(\Rightarrow \exists \; \{L_{n_j}\}\) s.t. \(L_{n_j} x_1 \to l_1\) in \(\real\). Now, consider \(\{L_{n_j} x_2\}\): it is bounded,
     \[
         \abs{L_{n_j}x_2} \leq \norm{L_{n_j}}_{X^*} \norm{x_2}_X \leq M \norm{x_2}_X < \infty
     \]
-    \(\Rightarrow \exists\; \{L_{n_{ij}}\}\) subsequence of \(\{L_{n_j}\}\) s.t. \( L_{n_{ij}} x_2 \to l_2\) in \(\real\)
-    We can iterate the process. \(\forall \; k \quad \{L_n^k\}\) is a subsequence of \(\{L_n^{k-1}\}\). \(\Rightarrow \{L_n^k\}\) is a subsequence of \(\{L_n^j\}\) \(\forall i < k\). In particular, 
+    \(\Rightarrow \exists\; \{L_{n_{ij}}\}\) subsequence of \(\{L_{n_j}\}\) s.t. \( L_{n_{ij}} x_2 \to l_2\) in \(\real\). We can iterate the process. \(\forall \; k \; \{L_n^k\}\) is a subsequence of \(\{L_n^{k-1}\}\). \(\Rightarrow \{L_n^k\}\) is a subsequence of \(\{L_n^j\}\) \(\forall j < k\). In particular, 
     \[
         L_n^k x_j \to l_j \quad \forall \; j \leq k
     \]
@@ -231,13 +229,13 @@ namely \(L_n\rightharpoonup^*\) weakly* in \(X^*\). In general the converse is f
         
     \(\Rightarrow \) by Banach Alaoglu, \(\exists \; \{x_{n_k}\}\) s.t. \(\tau(x_{n_k})\rightharpoonup^* \Lambda \) in \(X^{**}\):
     \[
-        {}_{X^{**}}\langle\tau(x_{n_k}), L \rangle_{X^*} \to {}_{X^{**}}\langle\Lambda, L \rangle_{X^*} \quad K \to \infty
+        {}_{X^{**}}\langle\tau(x_{n_k}), L \rangle_{X^*} \to {}_{X^{**}}\langle\Lambda, L \rangle_{X^*} \quad k \to \infty, \; \forall\; L \in X^*
     \]
-    \(\forall\; L \in X^*.\) Since \(X\) is reflexive, \(\forall \; \Lambda \in X^{**} \) \(\exists ! \; x \in X\) s.t. \(\Lambda = \tau (x)\). Therefore, 
+    Since \(X\) is reflexive, \(\forall \; \Lambda \in X^{**} \) \(\exists ! \; x \in X\) s.t. \(\Lambda = \tau (x)\). Therefore, 
     \[
-        L x_{n_k} = {}_{X^{**}}\langle\tau(x_{n_k}), L \rangle_{X^*} \to {}_{X^{**}}\langle \Lambda, L \rangle_{X^*} = Lx
+        L x_{n_k} = {}_{X^{**}}\langle\tau(x_{n_k}), L \rangle_{X^*} \to {}_{X^{**}}\langle \Lambda, L \rangle_{X^*} = Lx, \; \forall\; L \in X^*
     \]
-    \(\forall\; L \in X^*\). We proved that 
+    We proved that 
     \[
         \lim_{k \to \infty} L x_{n_k} = Lx \qquad \forall\; L \in X^*
     \]

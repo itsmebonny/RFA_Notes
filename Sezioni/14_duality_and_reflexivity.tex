@@ -11,55 +11,56 @@ Since \(\real\) is a Banach space, the dual space \(X^*\) is a Banach space with
 \[
     \norm{L}_* = \sup_{\norm{x}_X \leq 1} \abs{Lx}
 \]
-\noindent\underline{Ex}: 
-\begin{itemize}
-    \item In \(\real^n\), only linear functional is separated by a scalar product:
+\begin{example}
+    \begin{itemize}
+        \item In \(\real^n\), any linear functional is represented by a scalar product:
+            \[
+                L : \real^n \to \real \mbox{ is linear } \Rightarrow \exists ! \; y \in \real^n \mbox{ s.t. } Lx = \langle y,x \rangle
+            \]
+            It can be proved that 
+            \[
+                L \in (\real^n)^* \mapsto y \in \real^n
+            \]
+            is an isometric isomorphism 
+            \[
+                (\real^n)^* \approxeq \real^n
+            \]
+            Then \(X^*\) is very complicated.
+        \item Dual of \(L^p\)?
+        
+        \(\left(X, \mathcal{M}, \mu\right)\) measure space. \(p \in \left[1, \infty\right]\), \({q}\) conjugate exponent.
         \[
-            L : \real^n \to \real \mbox{ is linear } \Rightarrow \exists ! \; y \in \real^n \mbox{ s.t. } Lx = \langle y,x \rangle
+            \frac{1}{p} + \frac{1}{{q}} = 1 \Leftrightarrow 
+            \begin{cases}
+                \begin{array}{ll}
+                    {q} = \frac{p}{p-1} & p \in (1, \infty) \\
+                    {q} = \infty & p = 1 \\
+                    {q}=1 & p = \infty
+                \end{array}     
+            \end{cases}
         \]
-        It can be proved that 
+        For \(g \in L^{{q}}(X)\), define \(L_g : L^p(X) \to \real\) by
         \[
-            L \in (\real^n)^* \mapsto y \in \real^n
+            L_g f := \int_X fg \, d\mu \qquad \forall \; f \in L^p(X)
         \]
-        is an isometric isomorphism 
+        This is well-defined, by the Holder inequality:
         \[
-            (\real^n)^* \approxeq \real^n
+            \abs{\int_X fg \, d\mu } \leq \int_X \abs{fg} \, d\mu = \norm{fg}_1 \leq \norm{g}_{{q}} \norm{f}_p \tag*{*} 
         \]
-        Then \(X^*\) is very complicated.
-    \item Dual of \(L^p\)?
+        If \(g \in L^{{q}}\), this shows that \(L_g f \in \real \quad \forall \; f \in L^p\)
+    \end{itemize}
     
-    \(\left(X, \mathcal{M}, \mu\right)\) measure space. \(p \in \left[1, \infty\right]\), \(p'\) conjugate exponent.
-    \[
-        \frac{1}{p} + \frac{1}{p'} = 1 \Leftrightarrow 
-        \begin{cases}
-            \begin{array}{ll}
-                p' = \frac{p}{p-1} & p \in (1, \infty) \\
-                p' = \infty & p = 1 \\
-                p'=1 & p = \infty
-            \end{array}     
-        \end{cases}
-    \]
-    For \(g \in L^{p'}(X)\), define \(L_g : L^p(X) \to \real\) by
-    \[
-        L_g f := \int_X fg \, d\mu \qquad \forall \; f \in L^p(\Omega)
-    \]
-    This is well-defined, by the Holder inequality:
-    \[
-        \abs{\int_X fg \, d\mu } \leq \int_X \abs{fg} \, d\mu = \norm{fg}_1 \leq \norm{g}_{p'} \norm{f}_p \tag*{*} 
-    \]
-    If \(g \in L^{p'}\), this shows that \(L_g f \in \real \quad \forall \; f \in L^p\)
-\end{itemize}
-
+\end{example}
 \begin{proposition}
     If \(p \in [1, \infty]\) then \(L_g \in (L^p(X)^*)\). Moreover, 
     \begin{itemize}
-        \item if \(p > 1\), then \(\norm{L_g}_* = \norm{g}_{p'}\)
+        \item if \(p > 1\), then \(\norm{L_g}_* = \norm{g}_{{q}}\)
         \item if \(p=1\) then \(\norm{L_g}_* = \norm{g}_{\infty}\) with more assumptions (they are satisfied in \((X, \mathcal{L}(X), \lambda)\))
     \end{itemize}
 \end{proposition}
 
 \begin{remark}
-    We are saying that \(L^{p'}\) can be identified with a subspace of the dual space \((L^p)^*\) and this identification is an isometry.
+    We are saying that \(L^{{q}}\) can be identified with a subspace of the dual space \((L^p)^*\) and this identification is an isometry.
 \end{remark}
 
 Question: are there functional in \((L^p)^*\)?
@@ -79,36 +80,36 @@ Question: are there functional in \((L^p)^*\)?
         We want to show now that \(L_g \) is bounded. 
         We proved in (*) that 
         \[
-            \abs{L_g f} \leq \norm{g}_{p'} \norm{f}_p \quad \forall \; f \in L^p(\Omega)
+            \abs{L_g f} \leq \norm{g}_{{q}} \norm{f}_p \quad \forall \; f \in L^p(X)
         \]
-        This shows that \(L_g\) is bounded, with norm  \(\norm{L_g}_* \leq \norm{g}_{p'}\) (remember that \(\norm{T}_\mathcal{L} = \inf \{ M>0: \norm{Tx} _Y \leq M \norm{x}_X \quad \forall x \in X\} \))
+        This shows that \(L_g\) is bounded, with norm  \(\norm{L_g}_* \leq \norm{g}_{{q}}\) (remember that \(\norm{T}_\mathcal{L} = \inf \{ M>0: \norm{Tx} _Y \leq M \norm{x}_X \quad \forall x \in X\} \))
 
-        We want to show that \(\norm{L_g}_* = \norm{g}_{p'}\). If \(\norm{L_g}_* < \norm{g}_{p'}\), then \(\exists \; M < \norm{g}_{p'}\) s.t. 
+        We want to show that \(\norm{L_g}_* = \norm{g}_{{q}}\). If \(\norm{L_g}_* < \norm{g}_{{q}}\), then \(\exists \; M < \norm{g}_{{q}}\) s.t. 
         \[
-            \abs{L_g f } \leq M \norm{f}_p \quad \forall \; f \in L^p
+            \abs{L_g f } \leq M \norm{f}_p \quad \forall \; f \in L^p(X)
         \]
         We rule out this possibility by choosing an explicit \(\tilde{f} \in L^p \) s.t.
         \[
-            \abs{L_g \tilde{f} } = \norm{g}_{p'} \norm{\tilde{f}}_p
+            \abs{L_g \tilde{f} } = \norm{g}_{{q}} \norm{\tilde{f}}_p
         \]
         We take 
         \[
-            \tilde{f} = \frac{\abs{g}^{p'-1}}{\norm{g}_{p'}^{p'-1}} \frac{g}{\abs{g}}
+            \tilde{f} = \frac{\abs{g}^{{q}-1}}{\norm{g}_{{q}}^{{q}-1}} \frac{g}{\abs{g}}
         \]
         Now, 
         \[
-            \norm{\tilde{f}}_p^p = \int_X \abs{\tilde{f}}^p \, d\mu = \int_X \frac{\abs{g}^{p(p'-1)}}{\norm{g}_p^{p(p'-1)}} \, d\mu = (*)
+            \norm{\tilde{f}}_p^p = \int_X \abs{\tilde{f}}^p \, d\mu = \int_X \frac{\abs{g}^{p({q}-1)}}{\norm{g}_{{q}}^{p({q}-1)}} \, d\mu = (*)
         \]
-        \((p')' = p \Rightarrow p=\frac{p'}{p'-1} \Rightarrow p(p'-1) = p'\)
+        \(({q})' = p \Rightarrow p=\frac{{q}}{{q}-1} \Rightarrow p({q}-1) = {q}\)
         \[
-            (*) = \frac{1}{\norm{g}_{p'}^{p'}} \int_X \abs{g}^{p'} \, d\mu = \frac{\norm{g}_{p'}^{p'}}{\norm{g}_{p'}^{p'}} = 1
+            (*) = \frac{1}{\norm{g}_{{q}}^{{q}}} \int_X \abs{g}^{{q}} \, d\mu = \frac{\norm{g}_{{q}}^{{q}}}{\norm{g}_{{q}}^{{q}}} = 1
         \]    
         \[
             \begin{array}{l}
-            \abs{L_g \tilde{f}} = \abs{\int_X \frac{\abs{g}^{p'-1}}{\norm{g}_{p'}^{p'-1}} \abs{g} \, d\mu}
-            = \abs{\int_X \frac{\abs{g}^{p'}}{\norm{g}_{p'}^{p'-1}} \, d\mu }
-            = \frac{1}{\norm{g}_{p'-1}^{p'}} \norm{g}_{p'}^{p'} 
-            = \norm{g}_{p'} = \norm{g}_{p'}\norm{\tilde{f}}_p
+            \abs{L_g \tilde{f}} = \abs{\int_X \frac{\abs{g}^{{q}-1}}{\norm{g}_{{q}}^{{q}-1}} \abs{g} \, d\mu}
+            = \abs{\int_X \frac{\abs{g}^{{q}}}{\norm{g}_{{q}}^{{q}-1}} \, d\mu }
+            = \frac{1}{\norm{g}^{{q}-1}_{{q}}} \norm{g}_{{q}}^{{q}} 
+            = \norm{g}_{{q}} = \norm{g}_{{q}}\norm{\tilde{f}}_p
         \end{array}
             \]
     \end{itemize}
@@ -196,7 +197,7 @@ For simplicity, we consider \((X, \mathcal{M}, \mu) = ([-1, 1], \mathcal{L}([-1,
 \[
     \Lambda f = f(0) \quad \forall \; f \in Y
 \]
-We can do it since \(f \in \mathcal{C}^0([-1,1])\) (for elements in \(L^\infty\) we cannot speak about point wise values!). 
+We can do it since \(f \in \mathcal{C}^0([-1,1])\) (for elements in \(L^\infty\) we cannot speak about pointwise values!). 
 
 \(\Lambda\) is linear:
 \[
@@ -272,11 +273,11 @@ In conclusion, there is no \(g \in L^!([-1,1])\) s.t.
 
     This is linear and continuous on \(Y\) \(\Rightarrow\) by Hahn-Banach (continuous extension) \(\exists \; \tilde{L}_0 \in X^*\) s.t. \(\tilde{L}_0\) extends \(L_0\) and 
     \[
-        \norm{\tilde{L}_0}_{X^*} = \norm{L_0}_{Y^*} = \sup_{\begin{array}{c}\lambda x_0 \in Y \\ \norm{\lambda x_0} = 1\end{array}}\abs{L_0(\lambda x_0)}= \sup \abs{\lambda \norm{x_0}_X} = 1
+        \norm{\tilde{L}_0}_{X^*} = \norm{L_0}_{Y^*} = \sup_{\substack{\lambda x_0 \in Y \\ \norm{\lambda x_0} = 1}}\abs{L_0(\lambda x_0)}= \sup \abs{\lambda \norm{x_0}_X} = 1
     \]
     Thus \(\tilde{L}_0\) is precisely the desired functional.
     \[
-        \tilde{L}_0 (x_0) = L_0 = \norm{x_0}_X
+        \tilde{L}_0 (x_0) = L_0(x_0) = \norm{x_0}_X
     \]
     and 
     \[
@@ -448,7 +449,7 @@ We formally mentioned that
     \begin{proof}
         Is it true that if \(x, y \in \overline{B_1(0)}\), then \(\frac{x+y}{2} \in B_1(0)\)? Since \((X, \normdot)\) is uniformly convex, we know that \((\norm{x-y}=: \overline{\epsilon}>0)\)
         \[
-            \forall \; \overline{\epsilon}>0 \quad \exists \; \overline{\delta} >0 \text{ s.t. } \norm{x} \leq 1 \; \norm{y} \leq \; \norm{x-y} > \frac{\overline{\epsilon}}{2} \Rightarrow \norm{\frac{x+y}{2}} < 1-\overline{delta} 
+            \forall \; \overline{\epsilon}>0 \quad \exists \; \overline{\delta} >0 \text{ s.t. } \norm{x} \leq 1 \; \norm{y} \leq \; \norm{x-y} > \frac{\overline{\epsilon}}{2} \Rightarrow \norm{\frac{x+y}{2}} < 1-\overline{\delta} 
         \]
         In particular, 
         \[
@@ -462,10 +463,10 @@ We formally mentioned that
 \begin{proof}
     Suppose by contradiction that this is false:
     \( \exists \; \overline{\epsilon} >0 \) and \( \{x_n\}, \{y_n\} \subset \overline{B_1(0)} \) s.t. 
-    \[
-        \norm{x_n - y_n} > \overline{\epsilon} \text{, but } \norm{\frac{x_n + y_n}{2}} \geq 1 \tag{*}
-    \]
-    \(\overline{B_1(0)}\) is compact (since we are in \(\real^2\)) \(\Rightarrow\) UTS \(x_n \to \overline{x} \), \(y_n \to \overline{y}\) as \(n \to\infty\). Taking the limit in (*), we deduce that \(\overline{x}\), \(\overline{y} \in \overline{B_1(0)}\)
+    \begin{equation}\label{prova}
+            \norm{x_n - y_n} > \overline{\epsilon} \text{, but } \norm{\frac{x_n + y_n}{2}} \geq 1 \tag{*}
+    \end{equation}
+    \(\overline{B_1(0)}\) is compact (since we are in \(\real^2\)) \(\Rightarrow\) UTS\footnote{Up To a Subsequence} \(x_n \to \overline{x} \), \(y_n \to \overline{y}\) as \(n \to\infty\). Taking the limit in \eqref{prova}, we deduce that \(\overline{x}\), \(\overline{y} \in \overline{B_1(0)}\)
     \[
         \norm{\overline{x}- \overline{y}} \geq \overline{\epsilon} \text{ , and } \norm{\frac{\overline{x}+\overline{y}}{2}} \geq 1
     \]
@@ -485,36 +486,36 @@ We formally mentioned that
 \begin{theorem}[Riesz representation theorem]
     \((X, \mathcal{M}, \mu)\) complete measure space, \(p \in (1, \infty)\). Then 
     \[
-        \forall\; L \in (L^p(X))^* \quad \exists! \; g \in L^{p'}(X)
+        \forall\; L \in (L^p(X))^* \quad \exists! \; g \in L^{{q}}(X)
     \]
-    with \(p' \) conjugate exponent s.t. \(L=L_g\), namely
+    with \({q} \) conjugate exponent s.t. \(L=L_g\), namely
     \[
         Lf = \int_X fg \, d\mu \qquad \forall\; f \in L^p(X)
     \]
-    Moreover \(\norm{L_g}_{(L^p)^*} = \norm{g}_{p'}\)
+    Moreover \(\norm{L_g}_{(L^p)^*} = \norm{g}_{{q}}\)
     
-    Thus: \(T: g \in L^{p'} \mapsto L_g \in (L^p)^*\) is an isometric isomorphism.
+    Thus: \(T: g \in L^{{q}} \mapsto L_g \in (L^p)^*\) is an isometric isomorphism.
 \end{theorem}
 \begin{proof}
-    \(1 < p < \infty\). Consider \(T: L^{p'} \to (L^p)^*\) with \(g \mapsto Tg: \langle Tg, f \rangle = \int_X fg \, d\mu\) (namely \(Tg = L_g\)). We already know that
+    \(1 < p < \infty\). Consider \(T: L^{{q}} \to (L^p)^*\) with \(g \mapsto Tg: \langle Tg, f \rangle = \int_X fg \, d\mu\) (namely \(Tg = L_g\)). We already know that
     \[
-        \norm{Tg}_* = \norm{L_g}_* = \norm{g}_{p'}
+        \norm{Tg}_* = \norm{L_g}_* = \norm{g}_{{q}}
     \]
     \(T\) is injective: for exercise.
 
-    \(T\) is surjective. Indeed, let \(F:= T(L^{p'}) \subseteq (L^p)^*\) subspace. Since \(T\) is an isometry and \(L^{p'}\) is complete, it can be shown that \(T(L^{p'})\) is also complete \(\Rightarrow T(L^{p'})\) is closed.
+    \(T\) is surjective. Indeed, let \(F:= T(L^{{q}}) \subseteq (L^p)^*\) subspace. Since \(T\) is an isometry and \(L^{{q}}\) is complete, it can be shown that \(T(L^{{q}})\) is also complete \(\Rightarrow T(L^{{q}})\) is closed.
 
-    If by contradiction \(F \neq (L^p)^*\), then we can apply corollary 3 to Hahn Banach \((X = (L^p)^*), Y=F, x_0 = \lambda\):
-    \[
-        \exists h \in (L^p)^{**} \text{ s.t. } \langle h, \lambda \rangle \neq 0 \text{ and } h|_F = 0: \langle h, Tg \rangle =0 \quad \forall g \in L^{p'} \tag*{1} 
-    \]
+    If by contradiction \(F \neq (L^p)^*\), then we can apply corollary 3 to Hahn Banach \((X = (L^p)^*, Y=F, x_0 = \lambda)\):
+        \begin{equation}\label{riesz_repr_14}
+            \exists h \in (L^p)^{**} \text{ s.t. } \langle h, \lambda \rangle \neq 0 \text{ and } h|_F = 0: \langle h, Tg \rangle =0 \quad \forall g \in L^{{q}} \tag{1}
+        \end{equation} 
     But \(L^p \) is reflexive \((1 <p < \infty)\), then \(h \in L^p \setminus \{0\}\):
     \[
         \langle h, Tg \rangle = (Tg)h = \int_X hg \, d\mu
     \]
-    Therefore, (1) tells us that
+    Therefore, \eqref{riesz_repr_14} tells us that
     \[
-        \int_X hg \, d\mu =0 \quad \forall \; g \in L^{p'}(X)
+        \int_X hg \, d\mu =0 \quad \forall \; g \in L^{{q}}(X)
     \]
     Take \(g = \abs{h}^{p-2}h\). Therefore,
     \[
@@ -526,7 +527,7 @@ We formally mentioned that
 \end{proof}
 
 \[
-    (L^p)^* = L^{p'}
+    (L^p)^* = L^{{q}}
 \]
 
 \begin{remark}

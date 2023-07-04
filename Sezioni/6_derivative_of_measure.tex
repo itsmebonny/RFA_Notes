@@ -1,5 +1,6 @@
+\newpage
 \section{Derivative of a measure}
-\subsection{Radon-Nykodym derivative}
+\subsection{Radon-Nikodym derivative}
 \(\left(X, \mathcal{M}, \mu \right)\) measure space,
 \(\oldphi : X \to \left[0, \infty \right]\) measurable.  
 
@@ -8,13 +9,13 @@ We learned that \(\nu: \mathcal{M} \to \left[0, \infty \right]\) by
     \nu(E)= \int_E \oldphi \, d\mu \mbox{ is a measure on }(X, \mathcal{M})
 \] 
 
-If the equation above holds, then we say that \(\oldphi\) is the \textbf{Radon Nykodym derivative} of \(\nu\) with respect to \(\mu\), and we write 
+If the equation above holds, then we say that \(\oldphi\) is the \textbf{Radon Nikodym derivative} of \(\nu\) with respect to \(\mu\), and we write 
 \[
     \oldphi = \frac{d\nu}{d\mu}
 \]
 \begin{definition}
     \(\mu, \nu  \) measures on \(\left(X, \mathcal{M}\right)\). 
-    We say that \(\nu\) is absolutely continuous with respect to \(\mu\), \(\nu << \mu \) if 
+    We say that \(\nu\) is absolutely continuous with respect to \(\mu\), \(\nu \ll \mu \) if 
     \[
         \mu(E) = 0 \Rightarrow \nu(E)=0
     \]
@@ -23,7 +24,7 @@ If the equation above holds, then we say that \(\oldphi\) is the \textbf{Radon N
 \begin{lemma}
     There is a necessary condition:
     \[ 
-        \exists \; \frac{d \nu}{d \mu} \Rightarrow \nu << \mu 
+        \exists \; \frac{d \nu}{d \mu} \Rightarrow \nu \ll \mu 
     \]
 \end{lemma}
 
@@ -33,10 +34,10 @@ If the equation above holds, then we say that \(\oldphi\) is the \textbf{Radon N
     \] 
     if \(\mu(E)=0\) by basic properties of \(\int\)
 \end{proof}
-\subsection{Radon-Nykodym theorem}
-\begin{theorem}[Radon Nykodym Theorem]
+\subsection{Radon-Nikodym theorem}
+\begin{theorem}[Radon Nikodym Theorem]
     \(\left(X, \mathcal{M}\right) \) measurable space, \(\mu, \nu\) measures. \\
-    If \(\nu << \mu \) and moreover \(\mu \) is \(\sigma\)-finite, then \(\oldphi : X \to \left[0, \infty\right]\) measurable s.t.
+    If \(\nu \ll \mu \) and moreover \(\mu \) is \(\sigma\)-finite, then \(\oldphi : X \to \left[0, \infty\right]\) measurable s.t.
     \[
         \oldphi = \frac{d \nu}{d \mu} \quad  \text{ namely } \nu(E)= \int_E \oldphi \, d\mu \quad \forall \; E \in \mathcal{M}
     \]
@@ -45,7 +46,7 @@ If the equation above holds, then we say that \(\oldphi\) is the \textbf{Radon N
 \begin{remark}
     If \(\mu\) is not sigma finite the theorem may fail. \\
     In \(\left(\left[0, 1\right], \mathcal{L}\left(\left[0, 1\right]\right)\right)\) consider the counting measure \(\mu = \mu_C\) and the Lebesgue measure \(\nu= \lambda\)
-    \(\nu << \mu\) since \(\mu(E)= 0 \Leftrightarrow E= \emptyset \Rightarrow \lambda(E) = \nu(E)=0\) \\
+    \(\nu \ll \mu\) since \(\mu(E)= 0 \Leftrightarrow E= \emptyset \Rightarrow \lambda(E) = \nu(E)=0\) \\
     But we can check that \( \nexists \; \oldphi : \left[0, 1\right] \rightarrow \left[0, \infty \right]\) measurable s.t. \(\lambda(E)= \int_E \oldphi \, d\mu_C\)
 \end{remark}
 

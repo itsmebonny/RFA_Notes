@@ -44,9 +44,9 @@ Given a family of sets \(\left\lbrace E_i \right\rbrace_{i \in I} \subseteq \mat
     \begin{definition}
         \(\left\lbrace E_n \right\rbrace \subseteq \mathcal{P}(X)\). We define 
         \[
-            \limsup_{n} E_n := \bigcap_{k = 1}^{\infty} \left(\bigcup_{n = k}^{\infty} E_n\right)
+            \limsup_{n} E_n := \bigcap_{n = 1}^{\infty} \left(\bigcup_{k = n}^{\infty} E_k\right)
         \qquad
-            \liminf_{n} E_n := \bigcup_{k = 1}^{\infty} \left(\bigcap_{n = k}^{\infty} E_n\right)
+            \liminf_{n} E_n := \bigcup_{n = 1}^{\infty} \left(\bigcap_{k = n}^{\infty} E_k\right)
         \]
         If these two sets are equal, then 
         \[
@@ -68,8 +68,8 @@ Given a family of sets \(\left\lbrace E_i \right\rbrace_{i \in I} \subseteq \mat
     We can define:
     \[
     \begin{array}{ccl}
-        x \in \limsup_n E_n & \Leftrightarrow & x \in \bigcap_{k = 1}^{\infty} \left(\bigcup_{n = k}^{\infty} E_n\right) \\
-        & \Leftrightarrow & \forall k \in \mathbb{N} \, : \; \bigcup_{n = k}^{\infty} E_n \\
+        x \in \limsup_n E_n & \Leftrightarrow & x \in \bigcap_{k = 1}^{\infty} \left(\bigcup_{k = n}^{\infty} E_k\right) \\
+        & \Leftrightarrow & \forall k \in \mathbb{N} \, : x \in  \bigcup_{k = n}^{\infty} E_k \\
         & \Leftrightarrow &  \forall k \in \mathbb{N} \; \exists n_k \geq k \, \text{ s.t. } \, x \in E_{n_k}
         
     \end{array}

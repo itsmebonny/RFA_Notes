@@ -1,8 +1,8 @@
 monotonicity
 Radon-Nikodym
-Radon-Nykodym
+Radon-Nikodym
 Nikodym
-Nykodym
+Nikodym
 Ilaria
 Bonfanti
 Borel
@@ -27,7 +27,7 @@ Riesz
 infimum
 equicontinuous
 equibounded
-Ascolì-Arzela
+Ascoli-Arzelà
 Lusin
 functionals
 Hamel

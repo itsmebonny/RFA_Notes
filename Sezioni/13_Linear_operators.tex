@@ -116,17 +116,17 @@ For linear operators, boundedness and continuity are equivalent.
         \[
             z_n := \frac{x_n}{n \norm{x_n}_X}
         \]
-        Then \(\norm{z_n }_X = \frac{1}{n \norm{x_n}} \norm{x_n}_X \to 0\),
+        Then \(\norm{z_n }_X = \frac{1}{n \norm{x_n}_X} \norm{x_n}_X \to 0\),
         namely \(z_n \to 0 \) in \( X \Rightarrow (T \text{ is continuous in }0)\) \(T z_n \to T0 =0\).
         However, 
         \[
-            \norm{T z_n}_Y = \norm{T\left(\frac{x_n}{n \norm{x_n}_X}\right)} = \frac{1}{n \norm{x_n}_X} \norm{T x_n}_Y \geq 1 \ \forall\; n
+            \norm{T z_n}_Y = \norm{T\left(\frac{x_n}{n \norm{x_n}_X}\right)}_X = \frac{1}{n \norm{x_n}_X} \norm{T x_n}_Y \geq 1 \ \forall\; n
         \]
         Contradiction.
         \item \((3) \Rightarrow (2)\) 
         We observe that 
         \[
-            \norm{Tx_1 - Tx_2}_Y = \norm{T(x_1 - x_2)}_Y \leq M \norm{x_1 - x_2}_X  \quad \forall \; x_1 \, x_2 \in X
+            \norm{Tx_1 - Tx_2}_Y = \norm{T(x_1 - x_2)}_Y \leq M \norm{x_1 - x_2}_X  \quad \forall \; x_1 , x_2 \in X
         \]
         Then, let \(x \in X \) and let \(x_n \to x\) in \(X\): \(\norm{x_n - x}_X \to 0\). But then
         \[
@@ -167,7 +167,7 @@ Also,
     \]
     Consider then \(\{ T_n x \}\), \(x \in X\)
     \[
-        \norm{T_n x - T_m x }_Y = \norm{(T_n - T_m)x}_Y \leq \norm{T_n - T_m}_Y \norm{x}_X \leq \epsilon \norm{x}_X \tag{*}
+        \norm{T_n x - T_m x }_Y = \norm{(T_n - T_m)x}_Y \leq \norm{T_n - T_m}_{\mathcal{L}} \norm{x}_X \leq \epsilon \norm{x}_X \tag{*}
     \]
     This means that \(\{ T_n x \}\) is a Cauchy sequence in \(Y\), which is complete: then \(\forall \; x \in X\) \(\exists \) a vector \(y_x \in Y\) s.t. \(T_n x \to y_x\) in \(Y\).
 
@@ -312,8 +312,8 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
             U_n \cap B_{r_{n-1}}(x_{n-1}) \neq \emptyset 
         \tag*{(\(1^{st}\) prel. \(+ \, U_n\) is dense)}\]
         \[
-            \Rightarrow \overline{B_{r_n}(x_n)} \subset \underset{\begin{array}{l}\text{\small{all these balls}} \\ \text{\small{are included in}} \\
-            \displaystyle{B_{r_0}(x_0)}\end{array}}{(U_n \cap B_{r_{n-1}}(x_{n-1}))}
+            \Rightarrow \overline{B_{r_n}(x_n)} \subset \underset{\substack{\text{\tiny{all these balls }} \text{\tiny{are included in}} \\
+            {B_{r_0}(x_0)}}}{(U_n \cap B_{r_{n-1}}(x_{n-1}))}
         \]
         with \(x_n \in X\) and \(0 < r_n < \frac{1}{2^n}\)
 
@@ -325,12 +325,13 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
         \[
             d(x_n, x_m) \leq \frac{1}{2^N} \quad \forall \; n,m > N
         \]
-        \(X\) is complete: \(x_n \overset{d}{\rightarrow} x \in X\)
+        \(X\) is complete: \(x_n \overset{d}{\rightarrow} x \in X\).
+
         Since 
         \[
             \begin{array}{lr}
                 x_n \in B_{r_N}(x_N) & \forall \; n > N \\
-                \Rightarrow x = \lim_n x_n \in \overline{B_{r_N}(x_N)} \subset (U_n \cap B_{r_0}(x_0)) \subset (U_N \cap W) & \forall \; n \in \mathbb{N} \\
+                \Rightarrow x = \lim_n x_n \in \overline{B_{r_N}(x_N)} \subset (U_N \cap B_{r_0}(x_0)) \subset (U_N \cap W) & \forall \; n \in \mathbb{N} \\
                 \Rightarrow x_n \in \bigcap_n (U_n \cap W) = \left(\bigcap_n U_n\right) \cap W
             \end{array}
         \]
@@ -355,7 +356,7 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
 \subsection{Banach-Steinhaus's theorem}
 \begin{theorem}[Banach-Steinhaus]
     \(X\) Banach space, \(Y\) normed space, \(\mathcal{F} \subseteq \mathcal{L}(X, Y)\) family.
-    Suppose that \(\mathcal{F}\) is point wise bounded: 
+    Suppose that \(\mathcal{F}\) is pointwise bounded: 
     \[
         \forall\; x \in X \quad \exists \; M_x >0 \text{ s.t. } \sup_{T \in \mathcal{F}} \norm{Tx}_Y \leq M_x \tag*{(PB)}
     \]
@@ -373,7 +374,7 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
     \(C_n\) is a closed set \(\forall \; n\), since \(T\) is continuous. (also \(\phi: X \to \real \) \(\phi(x)=\norm{Tx}_Y\) is continuous)
 
     By (PB), every \(x \in X\) stays in some \(C_n\): \(X = \cup_{n=1}^\infty C_n\). 
-    Since \(X\) is Banach, by the Baire theorem it is necessary that \(\exists \; n_0 \in \natural\) s.t. \(\interior{C_{n_0}} \neq \emptyset \Rightarrow\) a ball \(\overline{B_r(x_0)} \subset C_{n_0}\): then
+    Since \(X\) is Banach, by the Baire theorem it is necessary that \(\exists \; n_0 \in \natural\) s.t. \(\interior{C}_{n_0} \neq \emptyset \Rightarrow\) a ball \(\overline{B_r(x_0)} \subset C_{n_0}\): then
     \[
         \norm{T(x_0+rz)}_Y \leq n_0 \quad \forall \; z \in \overline{B_1(0)}
     \]
@@ -391,7 +392,7 @@ Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere
 \end{proof}
 
 \begin{corollary}
-    \(X\) Banach space, \(Y\) normed space. \(\{ T_n \} \subseteq \mathcal{L}(X, Y)\) s.t. \(\{T_n x\}\) has a limit, denoted by \(Tx\), \(\forall \; x \in X\) (point wise convergence). 
+    \(X\) Banach space, \(Y\) normed space. \(\{ T_n \} \subseteq \mathcal{L}(X, Y)\) s.t. \(\{T_n x\}\) has a limit, denoted by \(Tx\), \(\forall \; x \in X\) (pointwise convergence). 
     Then \(T \in \mathcal{L}(X, Y)\)
 \end{corollary}
 \begin{proof}

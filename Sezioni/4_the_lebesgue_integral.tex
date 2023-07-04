@@ -1,4 +1,4 @@
-
+\newpage
 \section{The Lebesgue integral}
 \begin{notation}
     \[
@@ -64,7 +64,7 @@
 \begin{enumerate}
     \item If \(f \) is simple, the definitions are consistent
     \item Also for \(f\) measurable: \( \int_E f \, d\mu = \int_X f \chi_E \, d\mu\)
-    \item \( \left( \mathbb{N}, \mathcal{\mathbb{N}}, \mu_C \right)\). \(f: \mathbb{N} \to \mathbb{R}\) is a sequence \( \left\{ a_n \right\}_{n \in \mathbb{N}}\) \[ \int_\mathbb{N} \{a_n\} \, d\mu_C = \sum_{n=0}^\infty a_n\]
+    \item \( \left( \mathbb{N}, \mathcal{P}(\mathbb{N}), \mu_C \right)\). \(f: \mathbb{N} \to \mathbb{R}\) is a sequence \( \left\{ a_n \right\}_{n \in \mathbb{N}}\) \[ \int_\mathbb{N} \{a_n\} \, d\mu_C = \sum_{n=0}^\infty a_n\]
 \end{enumerate}
 
 \subsection{Basic properties of Lebesgue integral}
@@ -94,19 +94,19 @@ Let \(f, g : X \to \left[0, \infty\right]\) measurable. \(E, F \in \mathcal{M}, 
 \end{proof}
 \subsection{Measure defined by the integral}
 \begin{theorem}
-    \(s : X \to \left[0, \infty\right]\) simple. Define \(\phi : \mathcal{M} \to \left[0, \infty\right] \\ \phi(E) = \int_E s \, d\mu \\ \Rightarrow \phi \) is a measure. 
+    \(s : X \to \left[0, \infty\right]\) simple. Define \(\phi : \mathcal{M} \to \left[0, \infty\right], \phi(E) = \int_E s \, d\mu \Rightarrow \phi \) is a measure. 
 \end{theorem}
-\begin{definition}[sigma additivity]
+\begin{definition}\label{sigma additivity}
     \(\{E_n \subset \mathcal{M}\}\) disjoint, and let \(E = \bigcup_{n=1}^\infty E_n \Rightarrow s = \sum_{k=1}^m a_k \chi_{D_k} \; D_k \in \mathcal{M}
     \)
 \end{definition}
 \begin{proof}
-    \(\mu(\emptyset) =0 \Rightarrow \phi(\emptyset)=0 \) by definition. 
+    \(\mu(\emptyset) =0 \Rightarrow \phi(\emptyset)=0 \) by definition of the integral.
 
-    Then, by definition and since \(\mu\) is a measure and \(E \cap D_k = \bigcup_n (E_n \cap D_k)  \) 
+    Then, by definition \ref{sigma additivity} and since \(\mu\) is a measure and \(E \cap D_k = \bigcup_n (E_n \cap D_k)  \) 
     \[
         \phi(E) = \sum_{k=1}^m a_k \mu(D_k \cap E) = 
-        \sum_{k=1}^\infty a_k \sum_{n=1}^\infty \mu(E_n \cap D_k)= 
+        \sum_{k=1}^m a_k \sum_{n=1}^\infty \mu(E_n \cap D_k)= 
     \]
     \[    
         \sum_{n=1}^\infty \left( \sum_{k=1}^m a_k \mu (E_n \cap D_k) \right) = 
@@ -126,7 +126,7 @@ Let \(f, g : X \to \left[0, \infty\right]\) measurable. \(E, F \in \mathcal{M}, 
     
     Then \(\{E_n\}\) is an increasing sequence. By Chebychev 
     \[
-        \mu (E_n) \leq \frac{1}{\frac{1}{n}} \int_E f \, d\mu =0 \quad \forall \; n \Rightarrow \mu(E_n)=0 \quad \forall \; n 
+        \mu (E_n) \leq \frac{1}{\frac{1}{n}} \int_{E_n} f \, d\mu =0 \quad \forall \; n \Rightarrow \mu(E_n)=0 \quad \forall \; n 
     \]
     \(\mu(E \cup \{f>0\}) \overset{\text{continuity}}{=} \lim_n \mu (E_n)=0\), namely \(f=0\) a.e. on \(E\)
 \end{proof}
@@ -197,7 +197,7 @@ The \(\int\) does not see sets with 0 measure.
 \begin{theorem}[Approximation with simple functions]
     Given \((X, \mathcal{M})\) measure space, \(f: X \to [0, +\infty]\) measurable, then \(\exists\) a sequence \(\left\{ s_n \right\}\) of simple functions s.t. 
     \[
-        0 \leq s_1 \leq \ldots \leq s_n \leq \ldots \leq f \qquad \text{point wise } \forall \; x \in X
+        0 \leq s_1 \leq \ldots \leq s_n \leq \ldots \leq f \qquad \text{pointwise } \forall \; x \in X
     \]
     and 
     \[
@@ -540,7 +540,7 @@ If \(f\) is essentially bounded, it is well-defined the \textbf{essential suprem
 \]
 It can also be defined an essential inf.
 \begin{remark}
-    Note that, by def of inf, \(\forall \; \epsilon > 0\) we have 
+    Note that, by definition of inf, \(\forall \; \epsilon > 0\) we have 
     \[
         f \leq (\underset{X}{\esssup} f) + \epsilon \qquad \text{a.e. on }X
     \]

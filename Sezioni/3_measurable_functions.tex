@@ -1,3 +1,4 @@
+\newpage
 \section{Measurable functions}
 \subsection{Definition of measurable functions}
 \begin{definition}
@@ -12,12 +13,12 @@
 \begin{definition}
     \((X, \mathcal{M}), (Y, \mathcal{N})\) measurable spaces. \(f:X \to Y\) is called \textbf{measurable} or \((\mathcal{M}, \mathcal{N})\)-measurable if 
     \[
-        f^{-1}(E) \in \mathcal{M} \mbox{ for every } E \in \mathcal{M}
+        f^{-1}(E) \in \mathcal{M} \mbox{ for every } E \in \mathcal{N}
     \]
     so, the counterimage of measurable sets in \(Y\) is a measurable set on \(X\).
 \end{definition}
 To check if a function is measurable or not, it is often used the following proposition
-\begin{proposition}
+\begin{proposition}\label{prop_1_meas}
     \((X, \mathcal{M}), (Y, \mathcal{N})\) measurable spaces. Let \(\mathcal{F} \subseteq \mathcal{P}(Y)\) be s.t. \(\mathcal{N} = \sigma_0(\mathcal{F})\). Then
     \[
         f: X \to Y \mbox{ is } (\mathcal{M}, \mathcal{N})-\mbox{measurable} \Leftrightarrow f^{-1}(E) \in \mathcal{M} \mbox{ for every } E \in \mathcal{F}
@@ -42,24 +43,24 @@ We will mainly focus on 2 situations:
     There are two parts:
     \begin{enumerate}
         \item \((X, d_X), (Y, d_Y)\) metric spaces. If \(f:X \to Y\) is continuous, then is Borel measurable
-        \item \((Y, d_Y)\) metric space. If \(f:\mathbb{R}^n \to Y\) is continuous, then it is a Lebesgue measure.
+        \item \((Y, d_Y)\) metric space. If \(f:\mathbb{R}^n \to Y\) is continuous, then it is Lebesgue measurable.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
     The proof is divided in:
     \begin{enumerate}
-        \item \(f\) is continuous \(\Leftrightarrow f^{-1}(A)\) is open \(\forall \; A \subset Y\)
-        open \(\Rightarrow\) \(f^{-1}(A) \in \mathcal{B}(Y) \; \forall \; A \subset Y\) open.
-        Since \(\mathcal{B}(Y) = \sigma_0 \; (\mbox{open sets})\) by proposition \((1)\) this implies that \(f\) is Borel measurable
+        \item This holds true: \[f \text{ is continuous }  \Leftrightarrow f^{-1}(A) \text{ is open } \forall \; A \text{ open } \subset Y \Rightarrow f^{-1}(A) \in \mathcal{B}(Y) \; \forall \; A \text{ open } \subset Y.
+        \]
+        Since \(\mathcal{B}(Y) = \sigma_0 \; (\mbox{open sets})\) by proposition \ref{prop_1_meas} this implies that \(f\) is Borel measurable
         \item \(f\) is continuous \(\overset{(1)}{\Rightarrow}\) \(f\) is Borel measurable.
-        \(f^{-1}(A) \in \mathcal{B}(\real^n) \subseteq \mathcal{L}(\real^n) \forall \; A \in \mathcal{B}(Y)\). Namely, \(f\) is Lebesgue measurable
+        \[f^{-1}(A) \in \mathcal{B}(\real^n) \subseteq \mathcal{L}(\real^n)\; \forall \; A \in \mathcal{B}(Y).\] Namely, \(f\) is Lebesgue measurable
     \end{enumerate}
 \end{proof}
-\begin{proposition}
+\begin{proposition}\label{prop_3_meas}
     \((X, \mathcal{M})\) measurable space, \((X, d_Y), (Y, d_Y)\) metric spaces. 
     If \(f: X \to Y\) is \((\mathcal{M}, \mathcal{B}(Y))\)-measurable and \(g : Y \to Z\) is continuous \(\Rightarrow\) \(g \circ f : x \to Z\) is \((\mathcal{M}, \mathcal{B}(Y))\)-measurable
 \end{proposition}
-\begin{proposition}
+\begin{proposition}\label{prop_4_meas}
     \((X, \mathcal{M})\) measurable space, \(u,v : X \to  \real\) measurable functions.
     Let \(\Phi : \mathbb{R}^2 \to Y\) be continuous where \((Y, d_Y)\) is a metric space. Then \(h: X\to Y\) defined by \(h(x) = \Phi(u(x), v(x))\) is \((\mathcal{M}, \mathcal{B}(Y))\)-measurable.
 \end{proposition}
@@ -68,13 +69,13 @@ We will mainly focus on 2 situations:
     \(u, v\) measurable \(\Rightarrow\) \(u+v\) is measurable.
 \end{definition}
 \begin{proof}
-    Define \(f: X \to \mathbb{R}^2\), \(f(x) = u(x), v(x)\). By definition \(h = \Phi \circ f\) by proposition (3) if we show that \(f\) is \((\mathcal{M},\mathcal{B}(\real^2))\)-measurable, then \(h\) is measurable. It can be proved that \[\mathcal{B}(\mathbb{R}^2) = \sigma_0 (\lbrace \underbrace{(a_1, b_1) \times (a_2, b_2)}_{\mbox{open rectangle}}: a,b \in \mathbb{R}\rbrace)\]
-    Thanks to proposition (1), to check that \(f\) is measurable. We can simply check that
-    \(f^{-1}(\real) \in \mathcal{M} \quad \forall \mbox{ open rectangle in }\real^2\) and
+    Define \(f: X \to \mathbb{R}^2\), \(f(x) = (u(x), v(x))\). By definition \(h = \Phi \circ f\) by proposition \ref{prop_3_meas}. If we show that \(f\) is \((\mathcal{M},\mathcal{B}(\real^2))\)-measurable, then \(h\) is measurable. It can be proved that \[\mathcal{B}(\mathbb{R}^2) = \sigma_0 (\lbrace \underbrace{(a_1, b_1) \times (a_2, b_2)}_{\mbox{open rectangle}}: a,b \in \mathbb{R}\rbrace)\]
+    Thanks to proposition \ref{prop_1_meas}, to check that \(f\) is measurable we can simply check that
+    \(f^{-1}(R) \in \mathcal{M} \; \forall \mbox{ open rectangle in }\real^2\) and
     \(R = I \times J\), with \(I\) and \(J\) open intervals:
     \[
         \begin{array}{c}
-            F^{-1}(\real) = \left\lbrace x \in X : (u(x), v(x)) \in \real \right\rbrace \\
+            f^{-1}(R) = \left\lbrace x \in X : (u(x), v(x)) \in R \right\rbrace \\
             \Updownarrow \\
             u(x) \in I \mbox{ and } v(x) \in J \\
             = \left\{ x \in X : u(x) \in I \right\} \cap \left\{ x \in X : v(x) \in J \right\} \\
@@ -84,7 +85,7 @@ We will mainly focus on 2 situations:
     \]
     This completes the proof
 \end{proof}
-\noindent\underline{Consequences}: by proposition 3 and 4, if \(u\) and \(v\) are measurable, then also \(u+v\), \(u \cdot v\). Other measurable functions include \(u^+ = \max\left\{ u, 0 \right\}, u^- =- \min\left\{u,0\right\}, \abs{u} = u^+ + u^-, u^2, \ldots\)
+\noindent\underline{Consequences}: by proposition \ref{prop_3_meas} and \ref{prop_4_meas}, if \(u\) and \(v\) are measurable, then also \(u+v\), \(u \cdot v\). Other measurable functions include \(u^+ = \max\left\{ u, 0 \right\}, u^- =- \min\left\{u,0\right\}, \abs{u} = u^+ + u^-, u^2, \ldots\)
 
 Recall that \(u = u^+ - u^-\)
 \begin{remark}
@@ -127,10 +128,10 @@ Let now \(\left\lbrace f_n \right\rbrace\) be a sequence of measurable functions
     \[\sup_n f_n \; \inf_n f_n \; \liminf_n f_n \; \limsup_n f_n\] are measurable, in particular if \(\lim_n f_n\) is well-defined, then \(f\) is measurable
 \end{proposition}
 \begin{proof}
-    \((\sup f_n)^{-1} ((a, \infty]) = \lbrace x \in X : \underset{\begin{array}{c}
+    \((\sup f_n)^{-1} ((a, \infty]) = \lbrace x \in X : \underset{\mathclap{\substack{
         \Updownarrow \\
-        \exists \mbox{ some indexes }n\mbox{ s.t. } f_n(x) > a
-    \end{array}}{\sup f_n(x) > a} \rbrace\) 
+        \exists \text{ some indexes }n\text{ s.t. } f_n(x) > a
+    }}}{\sup f_n(x) > a} \rbrace\) 
     \[
         \bigcup_n \left\lbrace x \in X : f_n(x) > a \right\rbrace = \bigcup_n \underbrace{f_n^{-1}((a, +\infty])}_{\in \mathcal{M}}
     \]
@@ -152,7 +153,7 @@ If we write \(g_n(x) = \sup_{k \geq n} f_k(x)\), then
     \]
     Then 
     \[
-        s(x) = \sum_{n = 1} a_n \chi_{E_n}(x)
+        s(x) = \sum_{n = 1}^N a_n \chi_{E_n}(x)
     \]
     where \(E_n\) is a measurable set, \(E_n = \left\{ x \in X : s(X) = a_n \right\}\), and \(E_i \cap E_j = \emptyset\) for \(i \not = j\), and \(\bigcup_{n = 1}^N E_n = X\).
 \end{definition}
@@ -188,13 +189,13 @@ Moreover, if f is bounded then \(s_n \to f\) uniformly on \(X\) as \(n \to \inft
     \[
     s_n (x) = n\chi_{E_0}(X) + \sum_{j =1}^{n \cdot 2^n} a_j \chi_{E_j}(x)    
     \]
-    Then \(s_n \leq s_{n+1}\) by contradiction, and, since \(f\) is bounded, \(E_0 = \emptyset\) for \(n\) sufficiently large (\(n > \sup f\)).
+    Then \(s_n \leq s_{n+1}\) by construction, and, since \(f\) is bounded, \(E_0 = \emptyset\) for \(n\) sufficiently large (\(n > \sup f\)).
 
     Then any \(x \in X\) stays in \(f^{-1}([a_j, b_j))\) for some \(j\) 
     \[
         \begin{array}{l}
             \Rightarrow \stackbelow{a_j}{s_n(x)} \leq f(x) < b_j \\
-            \Rightarrow 0 \leq f(x)-s_n(x) < b_j - a_j = \frac{1}{2^n} \\
+            \Rightarrow 0 \leq f(x)-s_n(x) < \underbrace{b_j - a_j}_{ = \frac{1}{2^n}} \\
             \Rightarrow \sup_{x \in X} \abs{f(x)- s_n({x})} < \frac{1}{2^n} \to 0 \mbox{ as } n \to \infty
         \end{array}
     \]
@@ -205,7 +206,7 @@ Moreover, if f is bounded then \(s_n \to f\) uniformly on \(X\) as \(n \to \inft
 
     \((\real, \boreal, \lambda)\) is not complete. In fact, \((\real, \mathcal{L}(\real), \lambda)\) is the completion of \((\real, \boreal, \lambda)\).
 
-    Note that, \(\forall \; E \in \mathcal{L}(\real) \; \exists \, \mbox{ a } G_{\delta}-\mbox{set } A\) and an \(F_{\delta}-\mbox{set } B\) s.t.
+    Note that, \(\forall \; E \in \mathcal{L}(\real) \; \exists \, \mbox{ a } G_{\delta}-\mbox{set } A\) and an \(F_{\sigma}-\mbox{set } B\) s.t.
     \[
         \begin{array}{l}
             A \supset E \mbox{ and } \lambda(A \setminus E) = 0 \\

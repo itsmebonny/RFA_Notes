@@ -81,7 +81,7 @@ It can be proved that if two norms are equivalent they lead to different metric 
     \]
     then 
     \[
-        \abs{\phi(x_n) - \phi(x)} = \abs{\norm{x_n}_* -\norm{x}} \leq \norm{x_n - x}_* 
+        \abs{\phi(x_n) - \phi(x)} = \abs{\norm{x_n}_* -\norm{x}_*} \leq \norm{x_n - x}_* 
         \overset{(1)}{\leq} M\norm{x_n - x}_1 \to 0
     \]
     Therefore, by the Weierstrass theorem, \(\exists\) a minimum point \(x_0 \in S_1\) s.t. 
@@ -105,9 +105,8 @@ It can be proved that if two norms are equivalent they lead to different metric 
 If \(\dim X = +\infty\), then there are many non-equivalent norms.
 
 \begin{example}
-    In \(\mathcal{C}^0([a,b])\), we can define \(\normdot_{\infty}\) and \(\norm{f}_1 = \int_a^b\abs{f(t)} \, dt\).
+    In \(\mathcal{C}^0([a,b])\), we can define \(\normdot_{\infty}\) and \(\norm{f}_1 = \int_a^b\abs{f(t)} \, dt\). This is a norm in \(\mathcal{C}^0\), but these norms are not equivalent. 
 \end{example}
-This is a norm in \(\mathcal{C}^0\), but these norms are not equivalent. 
 
 \subsection{Separable spaces}
 \((X, d)\) metric space. 
@@ -126,13 +125,6 @@ If \(\dim X = \infty\), then only `\(\Rightarrow\)' is true. In finite dimension
 \]
 \subsection{Riesz's theorem and quasi-orthogonality lemma}
 What happens now if \((X, \normdot)\) is on \(\infty-\dim\) normed space?
-\begin{theorem}[Riesz's theorem]
-    \(X\) normed space, \(\dim X = +\infty\) \(\Rightarrow \overline{B_1(0)}\) is not compact
-\end{theorem}
-\begin{remark}
-    It is well known that if \(E \in \real^n\) is compact, then \(\forall \; \left\{ x_n \right\} \in E \) \(\exists \; \left\{ x_{n_k} \right\}\) subsequence s.t. \(x_{n_k} \to x \in E\).  
-    This proposition is much harder to prove in \(\infty-\dim\).
-\end{remark}
 The proof of the Riesz's theorem is based on the Riesz's \textbf{quasi-orthogonality lemma}.
 \begin{lemma}[Riesz Quasi-Orthogonality Lemma]
     Let \(X\) be a normed space, \(E \subsetneq X\) a closed subspace. 
@@ -142,7 +134,39 @@ The proof of the Riesz's theorem is based on the Riesz's \textbf{quasi-orthogona
     \]
 \end{lemma}
 \begin{proof}
-    Of the Riesz's theorem. Assume that \(\overline{B_1(0)}\) is compact, and \(X \) has infinite dimension. 
+    Let \(y \in X \setminus E\), and \(d := \) dist\((y, E) >0\), since \(E\) is closed. 
+    
+    \(\forall \; \rho > 0 \ \exists \; z \in E \) s.t.
+    \[
+        \norm{y-z} \leq (1+\rho)d = \frac{d}{1-\epsilon} \tag{1}
+    \]
+    since we choose \(\rho\) s.t. \(1+\rho = \frac{1}{1-\epsilon}\). Now we set \(x = \frac{y-z}{\norm{y-z}}\).
+
+    Clearly \(\norm{x}=1\). Moreover, \(\forall \; u \in E\), we have that
+    \[
+        \norm{x-u} = \norm{ \frac{y-z}{\norm{y-z}} - u }
+        = \norm{ \frac{y-z -\norm{y-z}u }{\norm{y-z}} }
+        = \frac{1}{\norm{y-z}} \norm{y-(z + \norm{y-z}u)} =
+    \]
+    \[
+        = \frac{1}{\norm{y-z}} \norm{y-w}
+        \geq \frac{1}{\norm{y-z}} \text{dist}(y, E)
+        \overset{(1)}{\geq} \frac{1-\epsilon}{d} d = 1 - \epsilon
+    \]
+    Since this is true \(\forall \; u \in E\), we deduce that
+    \[
+        \text{dist}(x, E) \geq 1-\epsilon
+    \]
+\end{proof}
+\begin{theorem}[Riesz's theorem]
+    \(X\) normed space, \(\dim X = +\infty\) \(\Rightarrow \overline{B_1(0)}\) is not compact
+\end{theorem}
+\begin{remark}
+    It is well known that if \(E \in \real^n\) is compact, then \(\forall \; \left\{ x_n \right\} \in E \) \(\exists \; \left\{ x_{n_k} \right\}\) subsequence s.t. \(x_{n_k} \to x \in E\).  
+    This proposition is much harder to prove in \(\infty-\dim\).
+\end{remark}
+\begin{proof}
+    Assume that \(\overline{B_1(0)}\) is compact, and \(X \) has infinite dimension. 
 
     \(\exists\) a sequence \(\{E_n\}\) of finite dimensional subspaces (hence closed) of \(X\) s.t. 
     \[
@@ -170,7 +194,7 @@ The proof of the Riesz's theorem is based on the Riesz's \textbf{quasi-orthogona
 
 \(\left(X, d\right)\) metric space.
 \begin{definition}
-    \(E \subset X\) is compact if for any open covering \(\{A_i\}_{i \in I}\) has a finite subcover.
+    \(E \subset X\) is compact if, for any open covering \(\{A_i\}_{i \in I}\), has a finite subcover.
 \end{definition}
 
 \begin{definition}
@@ -179,17 +203,6 @@ The proof of the Riesz's theorem is based on the Riesz's \textbf{quasi-orthogona
 \end{definition}
 
 Well known fact: if \(\left(X, d\right)\) is a metric space, then \(E\) is compact \(\Leftrightarrow E \) is sequentially compact.
-
-\begin{theorem}[Riesz Theorem]
-    \(X\) normed space, dim\(X = \infty\) \(\Leftrightarrow \overline{B_1(0)}\) is not compact. 
-\end{theorem}
-
-\begin{lemma}[Riesz quasi orthogonality Lemma]
-    \(X\) normed space, \(E \subsetneq X\) closed subspace. Then \(\forall \; \epsilon \in \left(0, 1\right) \ \exists \; x \in X \) s.t. 
-    \[
-        \norm{x}=1 \text{ and } \text{dist}(x, E) = \inf_{y \in E} \norm{x-y} \geq 1- \epsilon\]
-\end{lemma}
-
 \begin{remark}
     Also:
     \begin{itemize}
@@ -201,31 +214,6 @@ Well known fact: if \(\left(X, d\right)\) is a metric space, then \(E\) is compa
     \end{itemize}
 \end{remark}
 
-\begin{proof}
-    Let \(y \in X \setminus E\), and \(d := \) dist\((y, E) >0\), since \(E\) is closed. 
-    
-    \(\forall \; \rho > 0 \ \exists \; z \in E \) s.t.
-    \[
-        \norm{y-z} \leq (1+\rho)d = \frac{d}{1-\epsilon} \tag{1}
-    \]
-    since we choose \(\rho\) s.t. \(1+\rho = \frac{1}{1-\epsilon}\). Now we set \(x = \frac{y-z}{\norm{y-z}}\).
-
-    Clearly \(\norm{x}=1\). Moreover, \(\forall \; u \in E\), we have that
-    \[
-        \norm{x-u} = \norm{ \frac{y-z}{\norm{y-z}} - u }
-        = \norm{ \frac{y-z -\norm{y-z}u }{\norm{y-z}} }
-        = \frac{1}{\norm{y-z}} \norm{y-(z + \norm{y-z}u)} =
-    \]
-    \[
-        = \frac{1}{\norm{y-z}} \norm{y-w}
-        \geq \frac{1}{\norm{y-z}} \text{dist}(y, E)
-        \overset{(1)}{\geq} \frac{1-\epsilon}{d} d = 1 - \epsilon
-    \]
-    Since this is true \(\forall \; u \in E\), we deduce that
-    \[
-        \text{dist}(x, E) \geq 1-\epsilon
-    \]
-\end{proof}
 
 
 

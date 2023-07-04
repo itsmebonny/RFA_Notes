@@ -32,24 +32,25 @@ This comes directly from the
         \left(a+b\right)^p \leq 2^{p-1} \left(a^p+b^p\right) 
     \]
 \end{lemma}
-
-\(f, g \in L^p, \ p \in [1, \infty)\)
-\[
-    \int_X |f+g|^p \, d\mu \leq \int_X (|f|+|g|)^p \, d\mu 
-    \leq 2^{p-1} \int_X (|f|^p+|g|^p) \, d\mu
-\]
-\[
-    = 2^{p-1} \int_X |f|^p \, d\mu + 2^{p-1} \int_X |g|^p \, d\mu < \infty
-\]
-\(L^p\) is a vector space, \(\forall \; p \in [1, \infty)\).
-
-
-\(f, g \in L^\infty\). Then a.e. 
-\[
-    \Rightarrow |f+g| \leq |f|+|g| \leq \norm{f}_\infty + \norm{g}_\infty < \infty
-    \Rightarrow f+g \in L^\infty
-\]
-\(L^\infty\) is a vector space. 
+\begin{proof}
+    \(f, g \in L^p, \ p \in [1, \infty)\)
+    \[
+        \int_X |f+g|^p \, d\mu \leq \int_X (|f|+|g|)^p \, d\mu 
+        \leq 2^{p-1} \int_X (|f|^p+|g|^p) \, d\mu
+    \]
+    \[
+        = 2^{p-1} \int_X |f|^p \, d\mu + 2^{p-1} \int_X |g|^p \, d\mu < \infty
+    \]
+    \(L^p\) is a vector space, \(\forall \; p \in [1, \infty)\).
+    
+    
+    \(f, g \in L^\infty\). Then a.e. 
+    \[
+        \Rightarrow |f+g| \leq |f|+|g| \leq \norm{f}_\infty + \norm{g}_\infty < \infty
+        \Rightarrow f+g \in L^\infty
+    \]
+    \(L^\infty\) is a vector space. 
+\end{proof}
 \subsection{\texorpdfstring{\(\ell^p\)}{Lp} spaces}
 \begin{remark}
     \(\ell^p := L^p (\mathbb{N}, \mathcal{P}(\mathbb{N}), \mu_c )\). \(\ell^p\) is a particular case of \(L^p\)
@@ -196,7 +197,7 @@ We introduced \(L^p(X, \mathcal{M}, \mu)\), and we proved that this is a normed 
 
     Then \(\frac{q}{p} > 1\), and we can use Hölder\(\left(\frac{q}{p},\left( \frac{q}{p} \right)' \right)\), where \(\left( \frac{q}{p} \right)' = \frac{\frac{q}{p}}{\frac{q}{p}-1} = \frac{q}{q-p}\)
     \[
-        \norm{f}_p^p = \int_X \abs{f}^p \, d\mu \overset{\text{\tiny{Hölder}}}{\leq} \left( \int_X \left( \abs{f}^{\not p} \right)^{\frac{q}{\not p}} \, d\mu\right)^{\frac{p}{q}}\cdot \left( \int_X 1 \, d\mu \right)^{\frac{q-p}{p}} = \left( \int_X \abs{f}^{q} \, d\mu\right)^{\frac{p}{q}}\cdot \left( \mu(X)\right)^{\frac{q-p}{p}}
+        \norm{f}_p^p = \int_X \abs{f}^p \, d\mu \overset{\text{\tiny{Hölder}}}{\leq} \left( \int_X \left( \abs{f}^{\not p} \right)^{\frac{q}{\not p}} \, d\mu\right)^{\frac{p}{q}}\cdot \left( \int_X 1 \, d\mu \right)^{\frac{q-p}{q}} = \left( \int_X \abs{f}^{q} \, d\mu\right)^{\frac{p}{q}}\cdot \left( \mu(X)\right)^{\frac{q-p}{q}}
     \]
     \[
         \Rightarrow \norm{f}_p \leq \mu(X)^{\frac{q-p}{qp}} \norm{f}_q
@@ -216,7 +217,7 @@ In particular, the previous theorem is false for \(\ell^p\)-spaces
     \ell^p = L^p(\natural, \mathcal{P}(\natural), \mu_C)
 \]
 \[
-    1 \leq p \leq q \leq \infty \Rightarrow \ell^p \subseteq l^q \text{, and } \exists \; C>0 \text{ s.t. } \norm{x}_q \leq C \norm{x}_p \quad \forall\; x \in \ell^p
+    1 \leq p \leq q \leq \infty \Rightarrow \ell^p \subseteq \ell^q \text{, and } \exists \; C>0 \text{ s.t. } \norm{x}_q \leq C \norm{x}_p \quad \forall\; x \in \ell^p
 \]
 \subsection{Interpolation inequality}
 Without assumptions on \(\mu(X)\), in general one has the interpolation inequality.
@@ -296,7 +297,7 @@ To speak about separability, we give a
 \end{definition}
 \subsection{Lusin's theorem}
 \begin{theorem}[Lusin Theorem]
-    \(\Omega \in \mathcal{L}(\real), \lambda(\real) < +\infty\). Let also \(f : \real \to \real\) measurable, s.t. \(f\equiv 0\) in \(\Omega^C\).
+    \(\Omega \in \mathcal{L}(\real), \lambda(\Omega) < +\infty\). Let also \(f : \real \to \real\) measurable, s.t. \(f\equiv 0\) in \(\Omega^C\).
 
     Then \(\forall \; \epsilon > 0 \; \exists \; g \in \mathcal{C}^0_C(\real)\) s.t.
     \[
@@ -324,7 +325,7 @@ To speak about separability, we give a
 
     \(\tilde{\mathcal{S}}(\real)\) is the set of integrable simple functions.
 \end{definition}
-\subsection{\texorpdfstring{\(\mathcal{S}(\real)\)}{Sr} is dense in \texorpdfstring{\(L^p\)}{Lp}}
+\subsection{\texorpdfstring{\(\tilde{\mathcal{S}}(\real)\)}{Sr} is dense in \texorpdfstring{\(L^p\)}{Lp}}
 \begin{theorem}
     \(\tilde{\mathcal{S}}(\real)\) is dense in \(L^p\), \(\forall \; p \in (1, +\infty)\)
 \end{theorem}
@@ -334,7 +335,7 @@ To speak about separability, we give a
 
     We want to show that \(\exists \; \left\{ s_n \right\} \subseteq \tilde{\mathcal{S}}(\real)\) s.t. \(\norm{s_n - f}_p \to 0\).
 
-    By the simple approximation theorem, \(\exists \; \left\{ s_n \right\}\) of simple functions s.t. \(\left\{ s_n(x) \right\}\) is increasing, for every \(x\), and \(s_n \to f\) point wise in \(\real\).
+    By the simple approximation theorem, \(\exists \; \left\{ s_n \right\}\) of simple functions s.t. \(\left\{ s_n(x) \right\}\) is increasing, for every \(x\), and \(s_n \to f\) pointwise in \(\real\).
 
     Since \(\abs{s_n}^p \leq f^p \Rightarrow s_n \in L^p\) for every n \(\Rightarrow \left\{ s_n \right\} \subseteq \tilde{\mathcal{S}}(\real)\). Moreover,
     \[
