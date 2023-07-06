@@ -135,7 +135,7 @@ In general, we cannot say much more.
 \end{example}
 We focus in what follows on the following case: \(H\) separable Hilbert space, \(T \in \mathcal{K}(H)\) and symmetric.
 
-\begin{proposition}
+\begin{proposition}\label{prop_1_spect}
     Let \(d = \norm{T}_{\mathcal{L}(H)}\). Then either \(d\) or \(-d\) is an eigenvalue of \(T\)
 \end{proposition}
 Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\)  \(\Rightarrow T u_n \to Tu\) strongly in \(H\)
@@ -153,7 +153,7 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\)  \(\Rightarrow T u_n
 
     By weak strong continuity, \(T u_{n_k} \to Tu\) strongly in \(H\). From this, we deduce that 
     \[
-        \abs{ \langle T u_{n_k}, u_{n_k}\rangle - \langle Tu, u\rangle \to 0} \qquad \text{ as } K \to \infty    
+        \abs{ \langle T u_{n_k}, u_{n_k}\rangle - \langle Tu, u\rangle} \to 0 \qquad \text{ as } k \to \infty    
     \]
     We know
     \[
@@ -178,7 +178,7 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\)  \(\Rightarrow T u_n
     \end{itemize}
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop_2_spect}
     \(\lambda \neq 0\) is an eigenvalue of a compact operator \(T \in \mathcal{K}(E)\), \(E \) Banach. Let \(V_\lambda\) be the eigenspace of \(\lambda\). Then \(\dim V_\lambda < \infty\)
 \end{proposition}
 \begin{proof}
@@ -225,7 +225,7 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\)  \(\Rightarrow T u_n
 \begin{remark}
     Given:
     \begin{itemize}
-        \item \(\forall\) symmetric matrix \(A\), \(n x n \), \(\exists\) an orthonormal basis of \(\real^n\) of eigenvectors
+        \item \(\forall\) symmetric matrix \(A\), \(n \times n \), \(\exists\) an orthonormal basis of \(\real^n\) of eigenvectors
         \item If \(T \in \mathcal{K}(E)\), \(E\) Banach, we can still say that \(0 \in \sigma(T)\) (if \(E\) has \(\infty\) dimension), that \(EV(T) \setminus \{0\} = \sigma(T) \setminus \{0\}\) and that either there are finitely many distinct eigenvectors, or \(EV(T) \setminus \{0\}\) is a sequence tending to \(0\)
     \end{itemize}
 \end{remark}
@@ -236,7 +236,7 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\)  \(\Rightarrow T u_n
         \[
             T = T - 0 I \text{ is not bijective: } 0 \notin \rho(T)
         \]
-        \item From proposition 1, \(\exists \) an eigenvalue \(\lambda\) with \(\abs{\lambda_0} = \norm{T}_{\mathcal{L}(H)}\). Let \(V_0\) be the associated eigenspace. By proposition \(2\), \(\dim V_0 = N_0 \langle \infty\).
+        \item From proposition \eqref{prop_1_spect}, \(\exists \) an eigenvalue \(\lambda\) with \(\abs{\lambda_0} = \norm{T}_{\mathcal{L}(H)}\). Let \(V_0\) be the associated eigenspace. By proposition \eqref{prop_2_spect}, \(\dim V_0 = N_0 < \infty\).
         
         Let \(\{w_1^0, ..., w_{N_0}^0\}\) be an orthonormal basis for \(V_0\). Consider now \(H_1 = V_0^\perp\), so that \(H = V_0 \oplus H_1\). We claim that \(T|_{H_1} \in \mathcal{K}(H_1)\) symmetric. 
 
@@ -255,20 +255,18 @@ Recall: \(T \in \mathcal{K}(H)\), \(u_n \rightharpoonup u\)  \(\Rightarrow T u_n
         \(T|_{H_1}\) is a compact symmetric operator on a separable Hilbert space. Therefore, arguing as before, we have an eigenvalue for \(T\) given by \(\lambda_1\) s.t. 
         \[
             \abs{\lambda_1} = \sup_{
-            \begin{array}{l}
+            \substack{
                 \norm{u} = 1 \\
-                u \in H_1    
-            \end{array}}
+                u \in H_1}}
             \abs{\langle Tu, u\rangle}
         \]
         Clearly, \(\abs{\lambda_1} \leq \abs{\lambda_0} = \sup \abs{\langle Tu, u\rangle}\).
         We have an eigenspace \(V_1 \) for \(\lambda_1\), with dimension \(N_1\), and an orthonormal basis \(\{w_1^1, ..., w_{N_1}^1\}\) for \(V_1\). We iterate the process. 
         Either after a finite number of steps we have
         \[
-            \lambda_N = \sup{\begin{array}{l}
+            \lambda_N = \sup_{\substack{
                 \norm{u} = 1 \\
-                u \in H_1    
-            \end{array}} \abs{\langle Tu, u\rangle} = 0
+                u \in H_1}} \abs{\langle Tu, u\rangle} = 0
         \]
         Or \(\{\lambda_n\}\) forms a sequence, s.t. \(\abs{\lambda_n}\) is decreasing.
 

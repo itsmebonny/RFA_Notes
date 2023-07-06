@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1688485072 "/home/bonni/Documents/ARF/Appunti/ARF.tex" "ARF.pdf" "ARF" 1688485081
+["pdflatex"] 1688565428 "/home/bonni/Documents/ARF/Appunti/ARF.tex" "ARF.pdf" "ARF" 1688565435
   "/etc/texmf/web2c/texmf.cnf" 1663235487 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/bonni/Documents/ARF/Appunti/ARF.tex" 1688477341 5357 50086d49e6d693e192531d945bcab38d ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -232,8 +232,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1683288490 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1685694486 2798404 f3ec2215737410dfdf7ff0ab7626857a ""
-  "ARF.aux" 1688485080 18833 cab0dab6b9215ec01309c66aa09df2cb "pdflatex"
-  "ARF.out" 1688485080 23832 729bb9b43ee67f95c1e77ded2b409308 "pdflatex"
+  "ARF.aux" 1688565435 19156 cf4ed8a440bdfdfa94eccf2ab74f458d "pdflatex"
+  "ARF.out" 1688565435 23832 729bb9b43ee67f95c1e77ded2b409308 "pdflatex"
   "ARF.tex" 1688477341 5357 50086d49e6d693e192531d945bcab38d ""
   "Sezioni/10_banach_spaces.tex" 1688373047 9488 25b5bd63d11de325fa5c30df13472367 ""
   "Sezioni/11_the_space_C0.tex" 1688373171 1936 449eefd77d5ecd5df054bc9567300cb6 ""
@@ -242,8 +242,8 @@
   "Sezioni/14_duality_and_reflexivity.tex" 1688476601 22653 6264ada631eb204d77a6fb12a169f352 ""
   "Sezioni/15_weak_convergence.tex" 1688482758 10948 6c893aa455e7682f83a63c367a865e8c ""
   "Sezioni/16_compact_operators.tex" 1688485072 3502 c3ea5308a075fa2f22eff02e222219dc ""
-  "Sezioni/17_Hilbert_spaces.tex" 1688478419 17649 db07d2ee1f46cbe3873c68f7f3ad7721 ""
-  "Sezioni/18_linear_operator_on_h_spaces.tex" 1688478419 15748 490fefc467ae9bcc80c4e7f54fdf5381 ""
+  "Sezioni/17_Hilbert_spaces.tex" 1688550237 17914 f4b82c4b88cb7080ac63786a230105d8 ""
+  "Sezioni/18_linear_operator_on_h_spaces.tex" 1688565419 15756 fd47a20b8fb800a4a11ce4ff772ffb2c ""
   "Sezioni/1_set_theory.tex" 1688199516 7803 fcf29e269fd08e55ea92b963af95072f ""
   "Sezioni/2_measure_space.tex" 1688477341 32477 bf1e583e9aa5ad26de59c5241ddbbdbf ""
   "Sezioni/3_measurable_functions.tex" 1688218830 12277 86fd253c89bad4a488ebbbb34864c5b9 ""

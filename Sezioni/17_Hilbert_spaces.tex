@@ -47,19 +47,19 @@ Notation: \(p(x, y) = \langle x, y \rangle = (x, y) = x \cdot y\)
 \subsection{Parallelogram identity}
 \begin{remark}
     Hilbert spaces are particular cases of Banach spaces. The converse is not true. In any Hilbert space, the norm induced by \(\scalardot\) must satisfy the parallelogram rule
-    \[
-        \norm{x+y}^2 + \norm{x-y}^2 = 2\norm{x}^2 + 2\norm{y}^2 \quad \forall \; x, y \in H \tag*{PR}
-    \]
+        \begin{equation}\label{parallelogram_rule}
+            \norm{x+y}^2 + \norm{x-y}^2 = 2\norm{x}^2 + 2\norm{y}^2 \quad \forall \; x, y \in H \tag*{PR}
+        \end{equation}
 \end{remark}
 
 \begin{proposition}
-    \(H\) Banach space with respect to \(\normdot\). If \(\normdot\) satisfies (PR), then \(H\) is a Hilbert space with scalar product 
+    \(H\) Banach space with respect to \(\normdot\). If \(\normdot\) satisfies \eqref{parallelogram_rule}, then \(H\) is a Hilbert space with scalar product 
     \[
         \langle x, y \rangle := \frac{1}{2} [\norm{x+y}^2 - \norm{x}^2 - \norm{y}^2], \quad \langle x,x \rangle = \norm{x}^2
     \]
 \end{proposition}
 
-Consequence: we can check that a Banach space is not a Hilbert space by showing that (PR) does not hold.
+Consequence: we can check that a Banach space is not a Hilbert space by showing that \eqref{parallelogram_rule} does not hold.
 Ex: \((L^p, \normdot_p)\) is not a Hilbert space \(\forall\; p \neq 2\). The same for \((\mathcal{C}^0([a, b]), \normdot_\infty )\)
 
 \subsection{Orthogonal projections}
@@ -74,14 +74,14 @@ Recall:
 
 \begin{theorem}[projection on closed convex sets]
     \(H\) Hilbert space. Let \(S \subseteq H\) non-empty, closed, convex. Then \(\forall \; f \in H \quad \exists! \; h \in S\) s.t. 
-    \[
-        \norm{f-h} = dist (f, S) = \min_{g \in S} \norm{f-g} \tag*{1}
-    \]
+        \begin{equation}\label{pj_closed_sets}
+            \norm{f-h} = dist (f, S) = \min_{g \in S} \norm{f-g} \tag{1}
+        \end{equation}
     Moreover, \(h\) is characterized by the variational inequality:
-    \[
-        \langle f-h, g-h \rangle \leq 0 \quad \forall \; g \in S \tag*{*}
-    \]
-    namely \(h\) is the projection of \(f \) on \(S\) (\(f\) satisfies (1)) \(\Leftrightarrow (*) \) holds
+        \begin{equation}\label{pj_dist}
+            \langle f-h, g-h \rangle \leq 0 \quad \forall \; g \in S \tag*{*}
+        \end{equation}
+    namely \(h\) is the projection of \(f \) on \(S\) (\(f\) satisfies \eqref{pj_closed_sets} \(\Leftrightarrow\) \eqref{pj_dist} holds)
 \end{theorem}
 \begin{remark}
     \(h\) satisfies 1: \(h\) is the projection of \(f\) on \(S\), \(h = P_S f\)
@@ -206,7 +206,7 @@ Moreover,
     \Lambda_y \left(\frac{y}{\norm{y}}\right) = \langle y, \frac{y}{\norm{y}}\rangle   = \norm{y}
 \]
 \[
-    \Rightarrow \norm{\Lambda_y}_* = \sup_{\norm{x} \leq 1} \abs{\Lambda_y x} \geq \abs{\Lambda_y (\frac{y}{\norm{y}})} = \norm{y}
+    \Rightarrow \norm{\Lambda_y}_* = \sup_{\norm{x} \leq 1} \abs{\Lambda_y x} \geq \abs{\Lambda_y \left(\frac{y}{\norm{y}}\right)} = \norm{y}
 \]
 Thus \( \norm{\Lambda_y}_* = \norm{y}\), and the map 
 \[
@@ -404,7 +404,7 @@ The usefulness of Hilbert basis stays in the fact that they allow us to reason c
     \[
         \begin{array}{rl}
             \phi: & H \to l^2 \\
-            & x \to \sum_{n=1}^\infty \langle x, u_n\rangle   e_n
+            & x \mapsto \sum_{n=1}^\infty \langle x, u_n\rangle   e_n
         \end{array}
     \]
 \end{proof}
