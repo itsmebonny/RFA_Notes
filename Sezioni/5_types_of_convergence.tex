@@ -47,8 +47,10 @@
     \]
     and \(f_n \to f\) uniformly on \(X_{\epsilon}\)
 \end{theorem}
-\noindent\underline{Ex}: in an example \(f_n \to 0\) a.e., \(f_n \to 0\) uniformly on \([0,1]\), but \(f_n \to 0\) uniformly on \([\epsilon, 1]\).
-
+\begin{example}
+    \(f_n \to 0\) a.e., \(f_n \nrightarrow 0\) uniformly on \([0,1]\), but \(f_n \to 0\) uniformly on \([\epsilon, 1]\).
+    
+\end{example}
 Regarding a.e. convergence and in measure convergence there is the following theorem
 \begin{theorem}
     If \(\mu(X) < +\infty\) and \(f_n \to f\) a.e. on \(X\) \(\Rightarrow f_n \to f\) in measure on \(X\)
@@ -164,33 +166,42 @@ Now we analyze the relation between convergence in \(L^1(X)\) and the other conv
 \end{proof}
 
 \begin{remark}
-    The convergence in measure doesn't imply the convergence in \(L^1\). \\ For example, consider 
-    \[ 
-        f_n (x) = n \chi_{\left[0, \frac{1}{n} \right]}(x) 
-    \]
-    \( \underbrace{\mu \left( \left\{ |f_n| \geq \alpha \right\}\right)}_{= \frac{1}{n}} \to 0 \) for every \(\alpha\) \\
-    On the other hand 
-    \[ 
-        \int _{\left[0, 1\right]} n \chi_{\left[0, \frac{1}{n} \right]} \, d\lambda 
-        = \int_{\left[0, \frac{1}{n}\right]} n \, d\lambda 
-        = n \frac{1}{n} = 1
-    \]
-    \( f_n \nrightarrow 0\) in \(L^1\) 
+    The convergence in measure doesn't imply the convergence in \(L^1\).
 \end{remark}
 
-Convergence a.e. \(\nRightarrow\) convergence in \(L^1\): \\
-Use the same example above, \(f_n \rightarrow 0\) a.e. on \([0, 1] \nRightarrow f_n \rightarrow 0\) in \(L^1\)
+\begin{example}
+        For example, consider 
+        \[ 
+            f_n (x) = n \chi_{\left[0, \frac{1}{n} \right]}(x) 
+        \]
+        \( \underbrace{\mu \left( \left\{ |f_n| \geq \alpha \right\}\right)}_{= \frac{1}{n}} \to 0 \) for every \(\alpha\) \\
+        On the other hand 
+        \[ 
+            \int _{\left[0, 1\right]} n \chi_{\left[0, \frac{1}{n} \right]} \, d\lambda 
+            = \int_{\left[0, \frac{1}{n}\right]} n \, d\lambda 
+            = n \frac{1}{n} = 1
+        \]
+        \( f_n \nrightarrow 0\) in \(L^1\) 
+    
+\end{example}
+\begin{remark}
+    Convergence a.e. \(\nRightarrow\) convergence in \(L^1\).
+\end{remark}
+\begin{example}    
+    Use the same example above, \(f_n \rightarrow 0\) a.e. on \([0, 1] \nRightarrow f_n \rightarrow 0\) in \(L^1\)
+\end{example}\begin{remark}
+    Convergence in \(L^1\) \(\nRightarrow\) convergence a.e.
+\end{remark} \begin{example}
+    Consider the typewriter sequence: \( d_1(f_{p(n, k)}, 0) \to 0\) when \( p \to\infty\) \\
+    But we don't have a.e. convergence. 
 
-Convergence in \(L^1\) \(\nRightarrow\) convergence a.e.: \\
-Consider the typewriter sequence: \( d_1(f_{p(n, k)}, 0) \to 0\) when \( p \to\infty\) \\
-But we don't have a.e. convergence. \\
-However, recall the dominated convergence theorem: (DOM)
-\[ 
-    f_n \rightarrow f \text{ a.e. } + \exists \text{ of a dominating function } \Rightarrow d(f_n, f)\rightarrow 0 
-\]
-It is also possible to show a reverse DOM: \\
-If \(f_n \to f \) in \(L^1(X)\), then \(\exists\) a subsequence \(\left\{f_{n_k}\right\}\) and \(w \in L^1(X)\) s.t. 
-\begin{enumerate}
-    \item \(f_{n_k} \rightarrow f\) a.e. on X
-    \item \( \abs{f_{n_k}(x)} \leq w(x) \) for a.e. \(x \in X\)
-\end{enumerate}
+    However, recall the dominated convergence theorem: (DOM)
+    \[ 
+        f_n \rightarrow f \text{ a.e. } + \exists \text{ of a dominating function } \Rightarrow d(f_n, f)\rightarrow 0 
+    \]
+    It is also possible to show a reverse DOM: if \(f_n \to f \) in \(L^1(X)\), then \(\exists\) a subsequence \(\left\{f_{n_k}\right\}\) and \(w \in L^1(X)\) s.t. 
+    \begin{enumerate}
+        \item \(f_{n_k} \rightarrow f\) a.e. on X
+        \item \( \abs{f_{n_k}(x)} \leq w(x) \) for a.e. \(x \in X\)
+    \end{enumerate}
+\end{example}

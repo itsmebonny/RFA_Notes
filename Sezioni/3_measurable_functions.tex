@@ -27,9 +27,11 @@ To check if a function is measurable or not, it is often used the following prop
 
 We will mainly focus on 2 situations:
 \begin{enumerate}
-    \item  \((X, \mathcal{M})\) is a measurable space obtained by means of an outer measure. \\
-    Ex: \((\mathbb{R}^n, \mathcal{L}(\mathbb{R}^n))\), \((Y, d_y)\) metric space \(\to (Y, \mathcal{B}(Y))\). 
-
+    \item  \((X, \mathcal{M})\) is a measurable space obtained by means of an outer measure.
+    \begin{example}
+        \((\mathbb{R}^n, \mathcal{L}(\mathbb{R}^n))\), \((Y, d_y)\) metric space \(\to (Y, \mathcal{B}(Y))\). 
+    
+    \end{example}
     If \(X \to Y\) is (Lebesgue) measurable \(\Leftrightarrow\) \((\mathcal{M}, \mathcal{B}(Y))\) is measurable
 
     \item \((X, d_X), (Y, d_Y)\) are metric spaces \(\longrightarrow (X, \mathcal{B}(X)), (Y, \mathcal{B}(Y))\) \\
@@ -69,7 +71,7 @@ We will mainly focus on 2 situations:
     \(u, v\) measurable \(\Rightarrow\) \(u+v\) is measurable.
 \end{definition}
 \begin{proof}
-    Define \(f: X \to \mathbb{R}^2\), \(f(x) = (u(x), v(x))\). By definition \(h = \Phi \circ f\) by proposition \ref{prop_3_meas}. If we show that \(f\) is \((\mathcal{M},\mathcal{B}(\real^2))\)-measurable, then \(h\) is measurable. It can be proved that \[\mathcal{B}(\mathbb{R}^2) = \sigma_0 (\lbrace \underbrace{(a_1, b_1) \times (a_2, b_2)}_{\mbox{open rectangle}}: a,b \in \mathbb{R}\rbrace)\]
+    Define \(f: X \to \mathbb{R}^2\), \(f(x) = (u(x), v(x))\). By definition \(h = \Phi \circ f\) by proposition \ref{prop_3_meas}. If we show that \(f\) is \((\mathcal{M},\mathcal{B}(\real^2))\)-measurable, then \(h\) is measurable. It can be proved that \[\mathcal{B}(\mathbb{R}^2) = \sigma_0 (\lbrace \underbrace{(a_1, b_1) \times (a_2, b_2)}_{\text{open rectangle}}: a,b \in \mathbb{R}\rbrace)\]
     Thanks to proposition \ref{prop_1_meas}, to check that \(f\) is measurable we can simply check that
     \(f^{-1}(R) \in \mathcal{M} \; \forall \mbox{ open rectangle in }\real^2\) and
     \(R = I \times J\), with \(I\) and \(J\) open intervals:
@@ -80,7 +82,7 @@ We will mainly focus on 2 situations:
             u(x) \in I \mbox{ and } v(x) \in J \\
             = \left\{ x \in X : u(x) \in I \right\} \cap \left\{ x \in X : v(x) \in J \right\} \\
             = \underbrace{u^{-1}(I)}_{\in \mathcal{M}} \cap \underbrace{v^{-1}(J)}_{\in \mathcal{M}} \in \mathcal{M} \\
-            \mbox{ since both }u,v \mbox{ are measurable}
+            \text{ since both }u,v \text{ are measurable}
         \end{array}
     \]
     This completes the proof

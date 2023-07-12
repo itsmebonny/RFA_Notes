@@ -49,7 +49,7 @@ To speak about Lebesgue points, one has to choose a specific representative \(f 
 \subsection{First fundamental theorem of calculus}
 \begin{theorem}[First fundamental theorem of calculus]
 Given \(f \in L^1([a,b]),\ F(x) = \int_a^xf(t) \, dt\) \\
-Then \(f\) is differentiable a.e. on \([a,b]\) and \(F'(x) = f(x) \text{ a.e. in } [a,b]\)    
+Then \(F\) is differentiable a.e. on \([a,b]\) and \(F'(x) = f(x) \text{ a.e. in } [a,b]\)    
 \end{theorem}
 \begin{proof}
     Let \(x \in [a,b]\) for any Lebesgue point for \(f\) (a.e. \(x \in [a,b]\) is fine). Consider
@@ -185,7 +185,7 @@ What can we say about \(G\)?
     If FC holds, then \(G' \in L^1(\left[a, b\right]) \) (necessary condition).
     \noindent
     Is the necessary condition also sufficient? In general not. 
-    Take \(v(x)\), the Vital Cantor function: \(v \in \mathcal{C}([0,1]), v(0)=0, v(1)=1\). \(v\) is differentiable a.e. on \([0,1]\), but the calculus formula doesn't hold!
+    Take \(v(x)\), the Vitali Cantor function: \(v \in \mathcal{C}([0,1]), v(0)=0, v(1)=1\). \(v\) is differentiable a.e. on \([0,1]\), but the calculus formula doesn't hold!
 \end{remark}
 \begin{remark}
     A function which is differentiable a.e. on an interval can behave very badly
@@ -233,45 +233,45 @@ If \(V_a^b(f) < \infty\), we say that \(f\) is a function with \textbf{bounded v
 \begin{theorem}[The \(2^{nd}\) fundamental theorem of calculus.]
     \(G \in \mbox{AC}([a,b]) \Leftrightarrow\) \(G\) is differentiable a.e. on \([a,b]\), \(G' \in L^1([a,b])\), and (FC) holds.
 \end{theorem}
-
-Example and comments:
-\begin{itemize}
-    \item If \(f\) is bounded and monotone \(\Rightarrow\) \(f \in \mbox{BV}\)
-    \[
-        V_a^b (f) = \abs{f(b) - f(a)}
-    \]
-    Note that \(f\) may not be continuous
-    \[
-        f(x) = \begin{cases}
-            1 & x \geq 0 \\
-            0 & x < 0
-        \end{cases}
-        \Rightarrow f \in \mbox{BV}([-1,1])
-    \]
-    \item \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is bounded. Indeed,
-    \[
-        \sup_{x \in [a,b]} \abs{f(x)} \leq \abs{f(x)} + V_a^b(f) \overset{f \in \text{BV}}{<} +\infty
-    \]
-    \item \(f\) is continuous on \([a,b]\), or even if  \(f\) is differentiable everywhere in \([a,b]\) \(\nRightarrow f \in \mbox{BV}([a,b])\)
-    \[
-        f(x) = \begin{cases}
-            x^2\cos{\frac{2\pi}{x^2}} & x \in (0,1] \\
-            0 & x = 0
-        \end{cases}
-    \]
-    It is continuous in \([0,1]\), but \(f \notin \mbox{BV}([0,1])\)
-    \item \(f \in \mbox{BV}([a,b]) \cap \mbox{UC}([a,b])  \nRightarrow f \in \mbox{AC}([a,b])\)
-    \[\begin{array}{l}
-        v \mbox{ a Vitali-Cantor function} \\ v \mbox{ is bounded and monotone} \\ 
-        v \in \mbox{UC}([0,1]) \\ 
-        
-    \end{array}
-    \Rightarrow v \in \mbox{BV}([0,1]) 
-    \]
-    But \(v \not \in \mbox{AC}([0,1])\)
-    \item If \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is differentiable a.e. on \([a,b]\), and \(f' \in L^1([a,b])\)
-\end{itemize}
-We can now come back to the proof of Lemma 1 of the last lesson.
+\begin{example}
+    \begin{itemize}
+        \item If \(f\) is bounded and monotone \(\Rightarrow\) \(f \in \mbox{BV}\)
+        \[
+            V_a^b (f) = \abs{f(b) - f(a)}
+        \]
+        Note that \(f\) may not be continuous
+        \[
+            f(x) = \begin{cases}
+                1 & x \geq 0 \\
+                0 & x < 0
+            \end{cases}
+            \Rightarrow f \in \mbox{BV}([-1,1])
+        \]
+        \item \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is bounded. Indeed,
+        \[
+            \sup_{x \in [a,b]} \abs{f(x)} \leq \abs{f(x)} + V_a^b(f) \overset{f \in \text{BV}}{<} +\infty
+        \]
+        \item \(f\) is continuous on \([a,b]\), or even if  \(f\) is differentiable everywhere in \([a,b]\) \(\nRightarrow f \in \mbox{BV}([a,b])\)
+        \[
+            f(x) = \begin{cases}
+                x^2\cos{\frac{2\pi}{x^2}} & x \in (0,1] \\
+                0 & x = 0
+            \end{cases}
+        \]
+        It is continuous in \([0,1]\), but \(f \notin \mbox{BV}([0,1])\)
+        \item \(f \in \mbox{BV}([a,b]) \cap \mbox{UC}([a,b])  \nRightarrow f \in \mbox{AC}([a,b])\)
+        \[\begin{array}{l}
+            v \mbox{ a Vitali-Cantor function} \\ v \mbox{ is bounded and monotone} \\ 
+            v \in \mbox{UC}([0,1]) \\ 
+            
+        \end{array}
+        \Rightarrow v \in \mbox{BV}([0,1]) 
+        \]
+        But \(v \not \in \mbox{AC}([0,1])\)
+        \item If \(f \in \mbox{BV}([a,b]) \Rightarrow f\) is differentiable a.e. on \([a,b]\), and \(f' \in L^1([a,b])\)
+    \end{itemize}
+    
+\end{example}We can now come back to the proof of Lemma 1 of the last lesson.
 
 \noindent\underline{Preliminary result}: \(A \in \real\) open. Then 
 \[

@@ -44,19 +44,17 @@ If the equation above holds, then we say that \(\oldphi\) is the \textbf{Radon N
 \end{theorem}
 
 \begin{remark}
-    If \(\mu\) is not sigma finite the theorem may fail. \\
+    If \(\mu\) is not sigma finite the theorem may fail.
+\end{remark}
+\begin{example}
     In \(\left(\left[0, 1\right], \mathcal{L}\left(\left[0, 1\right]\right)\right)\) consider the counting measure \(\mu = \mu_C\) and the Lebesgue measure \(\nu= \lambda\)
     \(\nu \ll \mu\) since \(\mu(E)= 0 \Leftrightarrow E= \emptyset \Rightarrow \lambda(E) = \nu(E)=0\) \\
     But we can check that \( \nexists \; \oldphi : \left[0, 1\right] \rightarrow \left[0, \infty \right]\) measurable s.t. \(\lambda(E)= \int_E \oldphi \, d\mu_C\)
-\end{remark}
 
-Check by contradiction: assume that \(\oldphi \) does exist, and take \(x_0 \in \left[0, 1\right]\)
-\[ 
-    0 = \lambda (\left\{x_0\right\}) = \int_{\left\{x_0\right\}} \oldphi \, d\mu_C = \oldphi (x_0) \; \overbrace{\mu_C (\left\{x_0\right\})}^{=1}= \oldphi (x_0)
-\]
-\(\Rightarrow \oldphi (x_0) = 0 \; \forall \; x_0 \in \left[0, 1\right]\).
-
-But then \(1 = \lambda(\left[0, 1\right]) = \int_{\left[0, 1\right]} 0 \, d\mu_C = 0\). Contradiction \\
-Note that \(\mu_C (\left[0, 1\right]) = \infty \) and \(\left( \left[0,1\right], \mathcal{L}(\left[0, 1\right]), \mu_C\right)\) is not \(\sigma\)-finite (\(\left[0,1\right]\) is uncountable)
-
-
+    Check by contradiction: assume that \(\oldphi \) does exist, and take \(x_0 \in \left[0, 1\right]\)
+    \[ 
+        0 = \lambda (\left\{x_0\right\}) = \int_{\left\{x_0\right\}} \oldphi \, d\mu_C = \oldphi (x_0) \; \overbrace{\mu_C (\left\{x_0\right\})}^{=1}= \oldphi (x_0) \Rightarrow \oldphi (x_0) = 0 \; \forall \; x_0 \in \left[0, 1\right]\]
+    
+    But then \(1 = \lambda(\left[0, 1\right]) = \int_{\left[0, 1\right]} 0 \, d\mu_C = 0\). Contradiction.
+    Note that \(\mu_C (\left[0, 1\right]) = \infty \) and \(\left( \left[0,1\right], \mathcal{L}(\left[0, 1\right]), \mu_C\right)\) is not \(\sigma\)-finite (\(\left[0,1\right]\) is uncountable)
+\end{example}
