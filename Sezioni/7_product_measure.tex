@@ -1,0 +1,151 @@
+\newpage
+\section{Product measures space}
+\subsection{Construction of product measure spaces}
+\( (X, \mathcal{M}, \mu), (Y, \mathcal{N}, \nu) \) measure spaces.
+The goal is to define a measure space on \(X \times Y\)
+\begin{definition}
+    We call \textbf{measurable rectangle} in \(X \times Y\) a set of type \(A \times B\) where \(A \in \mathcal{M}, B \in \mathcal{N}\)
+    \[  R = \{ A \times B \subset X\times Y \text{ s.t. } A \in \mathcal{M}, B \in \mathcal{N}\}\]
+    We define the product \(\sigma\)-algebra \(\mathcal{M} \otimes \mathcal{N}\) as \(\sigma_0(R)\). \\
+    This is a \(\sigma\)-algebra in \(X \times Y\)
+\end{definition}
+
+\begin{definition}
+    Let \(E \subset X \times Y \). For \( \bar{x} \in X \) and \(\bar{y} \in Y \) we define 
+\[ 
+    \begin{array}{ll}
+        E_{\bar{x}} = \{ y \in Y: \left( \bar{x}, y \right) \in E \} \subseteq Y & \qquad \bar{x} \text{-section of } E \\
+        E_{\bar{y}} = \{ x \in X: \left( x, \bar{y} \right) \in E \} \subseteq X & \qquad \bar{y} \mbox{-section of } E \\
+    \end{array}
+\]
+\end{definition}
+
+\begin{proposition}
+    \(\left( X, \mathcal{M} \right), \left( Y, \mathcal{N} \right)\) measurable spaces. \(E \in \mathcal{M} \otimes \mathcal{N}\) \\
+    Then \(E_x \in \mathcal{M} \) and \(E_y \in \mathcal{N} \) 
+    \(\Rightarrow \) we can define 
+    \[
+    \begin{array}{rlrl}
+        \phi : & X \rightarrow \left[ 0, \infty \right] & \qquad  \psi : &Y \rightarrow \left[ 0, \infty \right] \\
+                & x \mapsto \nu(E_x) & & y \mapsto \mu(E_y) 
+        
+    \end{array}    
+    \]
+\end{proposition}
+
+
+\begin{theorem}
+    If \(\left(X, \mathcal{M}, \mu \right)\) and \(\left(Y, \mathcal{N}, \nu \right)\) are \(\sigma\) finite spaces, then:
+    \begin{enumerate}
+        \item \(\phi\) is \(\mathcal{M}\)-measurable and \(\psi\) is \( \mathcal{N}\)-measurable
+        \item we have that \(\int_X \nu(E_x) \, d\mu = \int_Y \mu(E_y) \, d\nu \)
+    \end{enumerate}
+\end{theorem}
+
+Using the fact that \(\mu \) and \(\nu\) are measures, and that \(\int\) of non-negative function is a measure, we deduce the following
+
+\begin{theorem}[Iterated integrals for characteristic functions]
+    \(\mu \otimes \nu : \mathcal{M} \otimes \mathcal{N} \rightarrow \mathbb{R} \) defined by
+    \[ \left(\mu \otimes \nu \right)(E) = \int_X \nu(E_x) \, d\mu = \int_Y \mu(E_y) \, d\nu\]
+    is a measure, the product measure.
+\end{theorem}
+
+\begin{remark}[On the complection of product measure spaces] 
+    \(\left(X, \mathcal{M}, \mu \right), \left(Y, \mathcal{N}, \nu \right)\) complete measures spaces. 
+    
+    In general, it is not true that \((X \times Y, \mathcal{M} \otimes \mathcal{N}, \mu \otimes \nu)\) is complete.
+\end{remark}
+\begin{example}
+    \(X = Y = \real\), \(\mathcal{M} = \mathcal{N} = \mathcal{L}(\real), \mu = \nu = \lambda\).
+    
+\end{example}
+Given \(A \mbox{ non meas. set }, A \subseteq [0,1], B = \left\{ y_0 \right\}, E = A \times B\). 
+If \(E\) were measurable, then its sections must be measurable. But \(E_{y_0} = A\) which is not measurable.
+
+However, \(E\) is negligible:
+\[
+    E \subseteq [0,1] \times \left\{ y_0 \right\}, \mbox{ and } \left(\lambda \otimes \lambda\right)\left([0,1] \times \left\{ y_0 \right\}\right) = 0
+\]
+Then \((\lambda \otimes \lambda)\) is not complete 
+\[
+    \Rightarrow (\real^2, \mathcal{L}(\real) \otimes \mathcal{L}(\real), \lambda \otimes \lambda) \neq (\real^2, \mathcal{L}(\real^2), \lambda_2)
+\]
+\begin{theorem}
+    Let \(\lambda_n\) be the Lebesgue measure in \(\mathbb{R}^n\). 
+    If \(n= K+m\), then \(\left(\mathbb{R}^n, \mathcal{L}(\mathbb{R}^n), \lambda_n \right)\) is the completion of \( ( \real^k \times \real^m, \mathcal{L}(\real^k) \otimes \mathcal{L}(\real^m),\lambda_k \otimes \lambda_m )\)
+\end{theorem}
+\subsection{Integration on product spaces}
+\((X, \mathcal{M}, \mu), (Y, \mathcal{N},\nu)\) measure spaces. \(f : X \times Y \to \barreal\) measurable.
+
+If \(f \geq 0\), then 
+\[
+    \iint_{X \times Y} f d\mu\otimes d\nu
+\]
+Goal: obtain a formula of iterated integral like the one in Analysis 2.
+
+\(\forall \; \bar{x} \in X\) and \(\bar{y} \in Y\), we define
+\[
+    \begin{array}{llll}
+        f_{\bar{x}} :& Y \to \barreal & f_{\bar{y}}:& X \to \barreal  \\
+        & y \mapsto f(\bar{x}, y) & & x \mapsto f(x, \bar{y})
+
+    \end{array}
+\]
+\begin{proposition}
+    If \(f\) is measurable \(\Rightarrow\) \(f_{\bar{x}}\) is \((\mathcal{N}, \boreal)\)-measurable and \(f_{\bar{y}}\) is \((\mathcal{M}, \mathcal{B}(\barreal))\)-measurable.
+    Then we can consider
+    \[
+        \begin{array}{ll}    
+        \phi : X \to \barreal & 
+        \phi(x) = \int_Y f_x d\nu = \int_Y f(x,y) \underbrace{d\nu(y)}_{dy} \\
+        \psi : Y \to \barreal &
+        \psi(y) = \int_X f_y d\mu = \int_X f(x,y) d\mu(x)
+    \end{array}
+    \]
+\end{proposition}
+\subsection{Tonelli and Fubini's theorem}
+\noindent\underline{Questions:} what is the solution of \(\iint_{X \times Y}\), \(\phi\) and \(\psi\)?
+
+\begin{theorem}[Tonelli's theorem]
+    \((X, \mathcal{M}, \mu)\) and \((Y, \mathcal{N}, \nu)\) complete measure spaces and \(\sigma\)-finite. \\
+    Suppose that \(f\) is \((\mathcal{M} \otimes \mathcal{N}, \mathcal{B}(\barreal))\)-measurable and that \(f > 0\) a.e. on \(X \times Y\). Then \(\psi\) and \(\phi\) are measurable and
+    \[
+        \iint_{X \times Y} f d\mu \otimes d\nu = \int_X \phi(x) \, d\mu(x) = \int_Y \psi(y) \, d\nu(y) \tag*{Integration formula}
+    \]
+    Equally holds also if one of the integrals is \(\infty\).
+    \[
+        \begin{array}{l}
+            \int_X \phi(x) \, d\mu(x) = \int_X \left(\int_Y f(x, y) \, d\nu(y) \right) \, d\mu(x) \\
+            \int_Y \psi(y) \, d\nu(y) = \int_Y \left(\int_X f(x, y) \, d\mu(x) \right) \, d\nu(y)      
+    \end{array}  
+    \]
+\end{theorem}
+\begin{remark}
+    The double integral can be reduced to single integrals, iterated. Moreover, we can always change the order of the integrals.
+    For sign changing functions the situation is more involved.
+\end{remark}
+\begin{theorem}[Fubini's theorem]
+    \((X, \mathcal{M}, \mu)\) and \((Y, \mathcal{N}, \nu)\) complete measure spaces and \(\sigma\)-finite.
+    If \(f \in L^1(X \times Y)\), then \(\psi\) and \(\phi\) defined above are measurable, the integration formula holds, and all the integrals are finite.
+\end{theorem}
+\noindent\underline{Question}: how to check if \(f\in L^1(X \times Y)\)? Typically, to check that \(f \in L^1(X \times Y)\) one uses Tonelli: 
+\[
+    f \in L^1(X \times Y) \Leftrightarrow \iint_{X \times Y} \abs{f} \, d\mu \otimes d\nu
+\]
+We use Tonelli to check that this is finite. 
+If \(\iint_{X \times Y} \vert f \vert d\mu \otimes d\nu < \infty\) then we can apply Fubini for \(\iint_{X \times Y} f d\mu \otimes d\nu\)
+\begin{remark}
+    the proof of Fubini's and Tonelli's theorems is based for the iterated integrals for characteristic functions.
+    Note that 
+    \[(\mu \otimes \nu)(E) = \begin{array}{l}
+        \int_X \phi(x) \, d\mu(x) = \int_X \left(\int_Y f(x, y) \, d\nu(y) \right) \, d\mu(x) \\
+        \int_Y \psi(y) \, d\nu(y) = \int_Y \left(\int_X f(x, y) \, d\mu(x) \right) \, d\nu(y)
+    \end{array}
+    \]
+\end{remark}
+\begin{remark}
+    Sometimes double integrals are very useful to compute single integrals.
+\end{remark}
+\begin{example}    
+    \[\int_{-\infty}^{+\infty}e^{-x^2} = \sqrt{\pi}\]
+\end{example}

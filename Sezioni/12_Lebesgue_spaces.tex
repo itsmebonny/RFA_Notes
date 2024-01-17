@@ -1,0 +1,456 @@
+\newpage
+\section{Lebesgue spaces} 
+\subsection{The sets \texorpdfstring{\(\mathcal{L}^p\)}{Lp} and \texorpdfstring{\(L^p\)}{Lp}}
+\((X, \mathcal{M}, \mu)\) measure space, \(p \in \left[1, \infty\right]\). We defined \(L^1(X)\) and \(L^\infty(X)\). 
+Similarly, we define \(L^p(X)\) \(\forall \; p \in \left[1, \infty\right]\)
+\[
+    \mathcal{L}^p (X, \mathcal{M}, \mu) := \{ f: X \rightarrow \barreal \text{ measurable s.t. } \int_X |f|^p \, d\mu < \infty\}
+\]
+On \(\mathcal{L}^p\) we introduce the equivalent relation
+\[
+    f \sim g \text{ in } \mathcal{L}^p \Leftrightarrow f=g \text{ a.e. on } X 
+\]
+and define 
+\[
+    {L}^p (X, \mathcal{M}, \mu) := \frac{\mathcal{L}^p (X, \mathcal{M}, \mu)}{\sim}
+\]
+We want to show that this is a normed space with
+\[
+    \norm{f}_p := 
+    \begin{cases}
+        \left( \int_X |f|^p \, d\mu \right)^{\frac{1}{p}}  & p \in [1, \infty) \\
+        \underset{X}{\esssup} |f| & p = \infty
+    \end{cases}
+\]
+
+The fact that \(L^p\) is a vector space is easy to prove. The only non-trivial part is that \(f, g \in L^p \Rightarrow f+g \in L^p\).
+\subsection{\texorpdfstring{\(L^p\)}{Lp} is a vector space}
+This comes directly from the 
+\begin{lemma}
+    \(p \in [1, \infty), \ a, b \geq 0\). Then 
+    \[
+        \left(a+b\right)^p \leq 2^{p-1} \left(a^p+b^p\right) 
+    \]
+\end{lemma}
+\begin{proof}
+    \(f, g \in L^p, \ p \in [1, \infty)\)
+    \[
+        \int_X |f+g|^p \, d\mu \leq \int_X (|f|+|g|)^p \, d\mu 
+        \leq 2^{p-1} \int_X (|f|^p+|g|^p) \, d\mu
+    \]
+    \[
+        = 2^{p-1} \int_X |f|^p \, d\mu + 2^{p-1} \int_X |g|^p \, d\mu < \infty
+    \]
+    \(L^p\) is a vector space, \(\forall \; p \in [1, \infty)\).
+    
+    
+    \(f, g \in L^\infty\). Then a.e. 
+    \[
+        \Rightarrow |f+g| \leq |f|+|g| \leq \norm{f}_\infty + \norm{g}_\infty < \infty
+        \Rightarrow f+g \in L^\infty
+    \]
+    \(L^\infty\) is a vector space. 
+\end{proof}
+\subsection{\texorpdfstring{\(\ell^p\)}{Lp} spaces}
+\begin{remark}
+    \(\ell^p := L^p (\mathbb{N}, \mathcal{P}(\mathbb{N}), \mu_c )\). \(\ell^p\) is a particular case of \(L^p\)
+    \[
+    \begin{array}{ll}
+        \ell^p = \{ x = \left(x^{(k)}\right)_{k \in \mathbb{N}} : \sum_{k=1}^\infty |x^{(k)}|^p < \infty \} 
+        & \norm{x}_p = \left( \sum_{k=1}^\infty |x^{(k)}|^p \right)^{\frac{1}{p}} \quad p \in [1, \infty)
+        \\ l^\infty = \{ x = \left(x^{(k)}\right)_{k \in \mathbb{N}} : \sup_{k \in \mathbb{N}} |x^{(k)}| < \infty \} 
+        & \norm{x}_\infty = \sup_{k \in \mathbb{N}} |x^{(k)}|
+    \end{array}
+    \]
+\end{remark}
+
+Now we prove that \(\norm{.}_p\) is actually a norm in \(L^p\). 
+We will concentrate on \(p < \infty\) (\(p = \infty\) is the easy case) 
+
+Properties 1 and 2 of the norm are immediate to check:
+\begin{enumerate}
+    \item \(\norm{f}_p = 0 \Leftrightarrow \int_X |f|^p \, d\mu =0 \Leftrightarrow f=0 \text{ a.e. on } X \Leftrightarrow f=0 \in L^p\)
+    \item Obvious, by linearity
+    \item About triangle inequality? We need some preliminaries
+\end{enumerate}
+\subsection{Young's inequality}
+\begin{theorem}[Young's Inequality]
+    Let \(p \in (1, \infty)\), \(a, b \geq 0\). We say that \(q\) is the conjugate exponent of p if 
+    \[
+        \frac{1}{p} + \frac{1}{q} = 1 \Leftrightarrow q = \frac{p}{p-1}
+    \]
+    Then 
+    \[
+        ab \leq \frac{a^p}{p} + \frac{b^q}{q}
+    \]
+\end{theorem}
+\begin{remark}
+    \(p \in (1, \infty) \Rightarrow q \in (1, \infty)\). Moreover, we say that \(1\) and \(\infty\) are conjugate
+\end{remark}
+\begin{proof}
+    \(\phi(x)= e^{x}\) is convex: 
+    \[
+        \phi((1-t)x + ty) \leq (1-t)\phi(x) + t \phi(y) \qquad \forall x, y \in \real \quad \forall \; t \in [0, 1]
+    \]
+
+    If \(a=0\) or \(b=0\), then the thesis holds. \\
+    If \(a, b >0\)
+    \[
+        ab = e^{\log{a}} e^{\log{b}}
+        = e^{\log{a}^{\frac{p}{p}}} e^{\log{b}^{\frac{q}{q}}}
+        = e^{\frac{1}{p}\log{a}^p} e^{\frac{1}{q}\log{b}^q}
+    \]
+    Since \(\phi \) is convex
+    \[
+        \frac{1}{p} e^{\log{a}^p} + \frac{1}{q} e^{\log{b}^q} = \frac{1}{p} a^p + \frac{1}{q} b^q
+    \]
+    \(x = \log{a^p}\), \(y= \log{b^q}\) \(\qquad 1-t = \frac{1}{p}\), \(t=\frac{1}{q}\)
+\end{proof}
+\subsection{Holders's inequality}
+\begin{theorem}[Holder's Inequality]
+    \(\left(X, \mathcal{M}, \mu \right)\) measure space. \(f, g\) measurable functions. \(p, q \in [1, \infty]\) conjugate exponents.
+
+    Then 
+    \[
+        \norm{fg}_1 \leq \norm{f}_p \norm{g}_q
+    \]
+\end{theorem}
+\begin{proof}
+    Case \(p, q \in (1, \infty)\). Obvious if \(\norm{f}_p \norm{g}_q = \infty\). \\
+    If \(\norm{f}_p \norm{g}_q = 0 \Rightarrow\)  either \(f=0\) a.e. on \(X\) or \(g=0\) a.e. on X
+    \(\Rightarrow fg=0\) a.e. on \(X\) \(\Rightarrow \norm{fg}_1 =0\). Let then \(\norm{f}_p\), \(\norm{g}_p \in (0, \infty)\). \\
+    For \(x \in X\), we set 
+    \[
+        a := \frac{|f(x)|}{\norm{f}_p} \text{, } b := \frac{|g(x)|}{\norm{g}_q} 
+    \]
+    and use Young:
+    \[
+        \frac{|f(x)g(x)|}{\norm{f}_p \norm{g}_q} 
+        \leq \frac{1}{p} \frac{|f(x)|^p}{\norm{f}_p^p} + \frac{1}{q} \frac{|g(x)|^q}{\norm{g}_q^q}
+    \]
+    \(\forall \; x \in X \). By integrating, we obtain
+    \[
+        \frac{1}{\norm{f}_p \norm{g}_q} \int_X |fg| \, d\mu \leq 
+        \frac{1}{p \norm{f}_p^p} \int_X |f|^p \, d\mu + \frac{1}{q \norm{g}_q^q} \int_X |g|^q \, d\mu 
+        = \frac{1}{p} + \frac{1}{q} = 1
+    \]
+    \[
+        \Rightarrow \norm{fg} \leq \norm{f}_p \norm{g}_q
+    \]
+    Case \(p=1\), \(q= \infty\). Exercise 
+\end{proof}
+\subsection{Minkowski's inequality}
+\begin{theorem}[Minkowski Inequality]
+    \(f, g \in L^p(X, \mathcal{M}, \mu)\), \(p \in [1, \infty]\). Then 
+    \[
+        \norm{f+g}_p \leq \norm{f}_p + \norm{g}_p
+    \] 
+\end{theorem}
+\begin{proof}
+    \(p \in (1, \infty)\)
+    \[
+        \norm{f+g}_p^p = \int_X |f+g|^p \, d\mu = \int_X |f+g| |f+g|^{p-1} \, d\mu
+    \]
+    \[    
+        \leq \int_X \left( |f|+|g| \right) |f+g|^{p-1} \, d\mu
+        = \int_X |f| |f+g|^{p-1} \, d\mu + \int_X |g| |f+g|^{p-1} \, d\mu 
+    \]
+    Using Holder with \(p\), \(q = \frac{p}{p-1}\)
+    \[
+        \leq \norm{f}_p \left( \int_X \left( |f+g|^{p-1} \right)^{\frac{p}{p-1}} \, d\mu \right) ^ {\frac{p-1}{p}}
+        + \norm{g}_p \left( \int_X \left( |f+g|^{p-1} \right)^{\frac{p}{p-1}} \, d\mu \right) ^ {\frac{p-1}{p}}
+    \]
+    \[
+        = \norm{f}_p \norm{f+g}^{p-1}_p + \norm{g}_p \norm{f+g}_p^{p-1}
+    \]
+    We divide left-hand side and right-hand side by \(\norm{f+g}_p^{p-1}\):
+    \[
+        \norm{f+g}_p \leq \norm{f}_p + \norm{g}_p
+    \]
+\end{proof}
+We introduced \(L^p(X, \mathcal{M}, \mu)\), and we proved that this is a normed space with 
+\[
+    \norm{f}_p := \begin{cases}
+        \left( \int_X \abs{f}^p \; d\mu \right)^{\frac{1}{p}} & \text{if } p\in [1, +\infty) \\
+        \underset{X}{\esssup}\abs{f} & \text{if } p = +\infty
+    \end{cases}
+\]
+\subsection{Inclusion of \texorpdfstring{\(L^p\)}{Lp} spaces}
+\begin{theorem}
+    Suppose that \(\mu(X) < +\infty\). Then 
+    \[
+        1 \leq p \leq q \leq \infty \Rightarrow L^q(X) \subseteq L^p(X)
+    \]
+    Meaning that any \(f \in L^q\) is also in \(L^p\). More precisely, \(\exists \; C > 0\) depending on \(\mu(X), p, q\) s.t.
+    \[
+        \norm{f}_p \leq C \norm{f}_q \quad f \in L^q(X)
+    \]
+\end{theorem}
+\begin{proof}
+    If \(q = +\infty\)
+    
+    \(f \in L^\infty(X)\): then \(\abs{f(x)} \leq \underset{X}{\esssup}\abs{f} = \norm{f}_\infty\) for a.e. \(x \in X\), say \(\forall \; x \in X \setminus A\), with \(\mu(A) = 0\). Then 
+    \[
+        \int_X \abs{f}^p \, d\mu = \int_{X\setminus A} \abs{f}^p \, d\mu \leq \norm{f}_{\infty}^p \int_{X\setminus A} 1 \,d\mu = \norm{f}_\infty^p \underbrace{\mu(X)}_{= \mu(X\setminus A)}
+    \]
+    If \(q < +\infty\)
+
+    Then \(\frac{q}{p} > 1\), and we can use Hölder\(\left(\frac{q}{p},\left( \frac{q}{p} \right)' \right)\), where \(\left( \frac{q}{p} \right)' = \frac{\frac{q}{p}}{\frac{q}{p}-1} = \frac{q}{q-p}\)
+    \[
+        \norm{f}_p^p = \int_X \abs{f}^p \, d\mu \overset{\text{\tiny{Hölder}}}{\leq} \left( \int_X \left( \abs{f}^{\not p} \right)^{\frac{q}{\not p}} \, d\mu\right)^{\frac{p}{q}}\cdot \left( \int_X 1 \, d\mu \right)^{\frac{q-p}{q}} = \left( \int_X \abs{f}^{q} \, d\mu\right)^{\frac{p}{q}}\cdot \left( \mu(X)\right)^{\frac{q-p}{q}}
+    \]
+    \[
+        \Rightarrow \norm{f}_p \leq \mu(X)^{\frac{q-p}{qp}} \norm{f}_q
+    \]
+\end{proof}
+
+The assumption \(\mu(X)< \infty\) is essential. For example, in \(X = [1, \infty]\)
+\[
+    \frac{1}{x} \in L^2([1, \infty]) \Leftrightarrow \int_1^\infty \frac{dx}{x^2} < \infty
+\]
+\[
+    \frac{1}{x} \notin L^1 ([1, \infty]) \Leftrightarrow \int_1^\infty \frac{dx}{x} = \infty
+\]
+
+In particular, the previous theorem is false for \(\ell^p\)-spaces
+\[
+    \ell^p = L^p(\natural, \mathcal{P}(\natural), \mu_C)
+\]
+\[
+    1 \leq p \leq q \leq \infty \Rightarrow \ell^p \subseteq \ell^q \text{, and } \exists \; C>0 \text{ s.t. } \norm{x}_q \leq C \norm{x}_p \quad \forall\; x \in \ell^p
+\]
+\subsection{Interpolation inequality}
+Without assumptions on \(\mu(X)\), in general one has the interpolation inequality.
+\begin{theorem}
+    \((X, \mathcal{M}, \mu)\) measure space. 
+    Let \(1 \leq p \leq q \leq \infty\). If \(f \in L^p(X) \cap L^q(X)\), then 
+    \[
+        f \in L^r(X) \quad \forall \; r \in (p, q)
+    \]
+    and moreover 
+    \[
+        \norm{f}_r \leq \norm{f}_p^\alpha \norm{f}_q^{1-\alpha}
+    \]
+    where \(\alpha\) is such that \(\frac{1}{r}=\frac{\alpha}{p} + \frac{1-\alpha}{q}\)
+\end{theorem}
+\begin{proof}
+    For exercise. Use Holder
+\end{proof}
+
+\subsection{\texorpdfstring{\(L^p\)}{Lp} is a Banach space}
+\begin{theorem}
+    For \(1 \leq p \leq \infty\), \(L^p(X, \mathcal{M}, \mu)\) is a Banach space (with reference to \(\normdot_p\))
+\end{theorem}
+\begin{proof}
+    \item \(p < \infty\).
+    
+    By using the characterization of completeness with the series, we want to show that 
+    if \(\{f_n\} \subseteq L^p(X)\), and \(\sum_{k=1}^\infty\norm{f_k}_p < \infty \Rightarrow \sum_{k=1}^\infty f_k \) is convergent in \(L^p\), 
+    namely \(s_n = \sum_{k=1}^n f_k\) has a limit in \(L^p\): \(\norm{s_n -s}_p \to 0 \) as \(n \to \infty\). 
+
+    Let then \(\{f_n\} \subseteq L^p(X)\) s.t. 
+    \[
+        \sum_{k=1}^\infty \norm{f_k}_p = M < \infty 
+    \]
+    Define 
+    \[
+        g_n(x) = \sum_{k=1}^n \abs{f_k(x)}
+    \]
+    By Minkowski, \(\norm{g_n}_p \leq \sum_{k=1}^n \norm{f_k}_p \leq M < \infty\). 
+    Moreover, for every \(x \in X\) fixed, \(\{g_n(x)\}\) is increasing \(\Rightarrow g_n(x) \to g(x)\) as \(n \to \infty\), \(\forall\; x \in X\)
+    \[
+        \int_X \abs{g}^p \, d\mu \overset{\text{\tiny{Monot. conv.}}}{=} \lim_n \int_X \abs{g_n}^p \leq M^p < \infty \Rightarrow g \in L^p(X)
+    \]
+    \(\Rightarrow \abs{g}^p \) is finite a.e.:
+    \[
+        \sum_{k=1}^\infty \abs{f_k(x)} < \infty \text{  for a.e. } x \in X
+    \]
+    \[
+        \Rightarrow \sum_{k=1}^\infty f_k(x) \text{ is convergent a.e. to a limit } s(x)
+    \]
+    Thus, we proved that \(s_n(x) = \sum_{k=1}^n f_k(x) \to s(x)\) a.e. in \(X\). Namely, \(\abs{s_n - s }^p \to 0\) a.e. in \(X\). To find a dominating function for \(\abs{s_n -s}^p\), we start by observing that
+    \[
+        \abs{s_n(x)} = \abs{\sum_{k=1}^n f_k(x)} \leq \sum_{k=1}^n \abs{f_k(x)} = g_n(x) \leq g(x) \text{ for a.e. } x \in X
+    \]
+    Therefore
+    \[
+        \abs{s_n -s }^p \leq 2^{p-1}(\abs{s_n}^p + \abs{s}^p) \leq 2^{p-1} (g^p + g^p ) = 2^p g^p \in L^1(X)
+    \]
+    By the dominated convergence theorem
+    \[
+        \int_X \abs{s_n -s }^p \, d\mu \to 0 \Leftrightarrow \norm{s_n -s}_p \to 0
+    \]
+    Thus \(L^p\) is complete.
+    \item \(p=\infty\) exercise
+\end{proof}
+
+To speak about separability, we give a 
+\begin{definition}
+    \(g: \Omega \subset \real^n \to \real\). The support of \(g\) is
+    \[
+      \mbox{supp}\, g = \overline{\left\{ x \in \Omega : g(x) \neq 0 \right\}}
+    \]
+    Also 
+    \[
+        \mathcal{C}^0_C = \left\{ f \in \mathcal{C}^0\left( \Omega \right) : \mbox{supp} \, f \mbox{ is compact in } \Omega\right\} = \mathcal{C}^0_O(\Omega) = \mathcal{C}_C(\Omega)
+    \]
+\end{definition}
+\subsection{Lusin's theorem}
+\begin{theorem}[Lusin Theorem]
+    \(\Omega \in \mathcal{L}(\real), \lambda(\Omega) < +\infty\). Let also \(f : \real \to \real\) measurable, s.t. \(f\equiv 0\) in \(\Omega^C\).
+
+    Then \(\forall \; \epsilon > 0 \; \exists \; g \in \mathcal{C}^0_C(\real)\) s.t.
+    \[
+        \lambda \left( \left\{ x \in \real : g(x) \neq f(x) \right\} \right) < \epsilon
+    \]
+    and
+    \[
+        \sup_{\real} \abs{g} \leq \sup_\real \abs{f}
+    \]
+\end{theorem}
+\begin{definition}
+    Given \(s \mbox{ simple function } = \sum_{k=1}^n a_k \chi_{E_k}\), where \(E_1, \ldots, E_n\) are \(\mathcal{L}\)-measurable sets, \(a_1, \ldots, a_n \in \real\). 
+    \[
+        E_1 \cup E_2 \cup \ldots \cup E_n = \real
+    \]
+    We consider
+    \[
+        \tilde{\mathcal{S}}(\real) = \left\{ s \mbox{ simple in } \real \mbox{ s.t. } \lambda\left( \left\{ s \neq 0 \right\} \right) < +\infty \right\}
+    \]
+    What does it mean for a simple function to be in \(L^p(\real)\)? 
+    \[
+        \int_{\real} \abs{s}^p \, d\mu = \sum_{k=1}^n a_k^p \lambda(E_k) < +\infty
+    \tag*{\(1 \leq p \leq +\infty\)}\]
+    iff \(s \equiv 0\) outside a set of finite measure \(\Leftrightarrow s \in \tilde{\mathcal{S}}(\real)\).
+
+    \(\tilde{\mathcal{S}}(\real)\) is the set of integrable simple functions.
+\end{definition}
+\subsection{\texorpdfstring{\(\tilde{\mathcal{S}}(\real)\)}{Sr} is dense in \texorpdfstring{\(L^p\)}{Lp}}
+\begin{theorem}
+    \(\tilde{\mathcal{S}}(\real)\) is dense in \(L^p\), \(\forall \; p \in (1, +\infty)\)
+\end{theorem}
+
+\begin{proof}
+    \(f \in L^p(\real), f \geq 0\) a.e. in \(\real\).
+
+    We want to show that \(\exists \; \left\{ s_n \right\} \subseteq \tilde{\mathcal{S}}(\real)\) s.t. \(\norm{s_n - f}_p \to 0\).
+
+    By the simple approximation theorem, \(\exists \; \left\{ s_n \right\}\) of simple functions s.t. \(\left\{ s_n(x) \right\}\) is increasing, for every \(x\), and \(s_n \to f\) pointwise in \(\real\).
+
+    Since \(\abs{s_n}^p \leq f^p \Rightarrow s_n \in L^p\) for every n \(\Rightarrow \left\{ s_n \right\} \subseteq \tilde{\mathcal{S}}(\real)\). Moreover,
+    \[
+        \abs{s_n -f}^p \to 0 \qquad \text{a.e. in } \real
+    \]
+    \[
+        \abs{s_n -f }^p \leq 2^{p-1} (\abs{s_n}^p + \abs{f}^p) \leq 2^p \abs{f}^p \in L^1
+    \]
+    \(\Rightarrow \) by dominated convergence
+    \[
+        \int_\real \abs{s_n - f }^p \, d\lambda \to 0 \text{ , namely } \norm{s_n -f}_p \to 0
+    \]
+    If \(f\) is sign changing, then \(f = f^+ - f^-\)  and argue as before on \(f^+\) and \(f^-\)
+\end{proof}
+\subsection{Separability of \texorpdfstring{\(L^p\)}{Lp}}
+\begin{theorem}
+    \( \forall p \in [1, \infty)\), the space \(L^p(\real)\) is separable. 
+\end{theorem}
+\begin{proof}[Sketch of the proof]
+    Here we'll outline a sketch of the proof:
+    \begin{itemize}
+        \item Step 1: \(\mathcal{C}_C^0(\real) \) is dense in \(L^p(\real )\), \(\forall \; \leq p \leq \infty\).
+        
+        Take \(s \in \tilde{\mathcal{S}}(\real)\). Then, by Lusin theorem, \(\exists \; \{f_n\} \subseteq \mathcal{C}_C^0(\real)\) s.t. \(\norm{f_n -s }_p \to 0\).
+        Then, since any \(f \in L^p\) can be approximated by simple integrable functions, we have that \(f\) can be approximated by functions in \(\mathcal{C}_C^0(\real)\).
+
+        \item Step 2: 
+        
+        By Stone Weierstrass, the set of polynomials \(\mathcal{P}(\real)\) is dense in \(\mathcal{C}_C^0(\real)\) with the \(\normdot_\infty\) norm. 
+        Since we work with functions with compact support, this implies that \(\mathcal{P}(\real)\) is dense in \(\mathcal{C}_C^0(\real)\) also with respect to \(\normdot_p\)
+        \[
+            \int_{-M}^M \abs{f - p_n }^p \, d\lambda \leq \norm{f - p_n }^p_\infty 2M \to 0
+        \] 
+        if \(\norm{f - p_n}_\infty \to 0\), \(\Rightarrow \mathcal{P}(\real)\) is dense in \(L^p(\real)\).
+
+        \(\tilde{\mathcal{P}}(\real) = \{\)polynomials with rational coefficients\(\}\). 
+        This is countable, and is dense in \((\mathcal{P}(\real), \normdot_p)\). \(\Rightarrow \) is dense in \(L^p\) 
+    \end{itemize}
+\end{proof}
+
+What about \(L^\infty(\real)\)? In this case \(\mathcal{C}(\real)\) are not dense in \(L^\infty(\real)\).
+For example, consider 
+\[
+    f(x) =
+    \begin{cases}
+        1 \quad x \geq 0
+        \\ 0 \quad x<0
+    \end{cases}
+\] 
+If \(g \in L^\infty\) s.t. \(\norm{g-f}_\infty < \frac{1}{3}\), then \(g\) cannot be continuous. Assume by contradiction that \(\exists \; g \in \mathcal{C}(\real)\) s.t. \(\norm{g-f}_\infty < \frac{1}{3}\). Then
+\[
+    \esssup _\real \abs{g(x)- f(x)} < \frac{1}{3}
+\]
+In particular, \(g(x) < \frac{1}{3}\) \(\forall \; x<0\)
+\[
+    \Rightarrow \lim_{x \to 0^-} g(x) \leq \frac{1}{3}
+\]
+On the other hand, \(g(x) > \frac{2}{3} \quad \forall \; x >0\)
+\[
+    \Rightarrow g(0)=\lim_{x \to 0^+} g(x) \geq \frac{2}{3}
+\]
+\noindent\underline{Quick recap about the `delirium' on the separability}
+
+The thing that you need to know, in \(\to L^p(\real, \mathcal{L}(\real), \lambda)\), are:
+\begin{enumerate}
+    \item \(L^p\) is separable \(\forall\; p \in [1, \infty)\)
+    \item \(\tilde{S}(\real)\) is dense in \(L^p(\real)\) \(\forall \; p \in [1, \infty)\), 
+    namely \(\forall p \in L^p (\real)\) and \(\forall \; \epsilon >0 \) \(\exists \; s \in \tilde{S}(\real)\) s.t. 
+    \[
+        \norm{f-s}_p < \epsilon
+    \]
+    \item \(\mathcal{C}_C^0 (\real)\) is dense in \(L^p\), namely \(\forall p \in L^p (\real)\) and \(\forall \; \epsilon >0 \) \(\exists \; g \in \mathcal{C}_C^0(\real)\) s.t. 
+    \[
+        \norm{f-g}_p < \epsilon
+    \]
+\end{enumerate}
+Everything remains true if you replace \(\real\) with \(X\) open or closed, or with \(X \in L(\real^n)\), and consider \((X, L(X), \lambda)\).
+
+What happens for \(L^{\infty}(\real, \mathcal{L}(\real), \lambda)\)? 
+
+\(\mathcal{C}(\real)\) is not dense in \(L^\infty\).
+
+By the simple approximation theorem, we have that simple functions are dense in \(L^\infty\).
+\begin{theorem}
+    \(L^{\infty}(\real, \mathcal{L}(\real), \lambda)\) is not separable.
+\end{theorem}
+\begin{proof}
+    \(\{\chi_{[-\alpha, \alpha]}: \alpha >0\} \subseteq L^{\infty}(\real, \mathcal{L}(\real), \lambda)\)
+    \(\chi_\alpha = \chi_{[-\alpha, \alpha]}\)
+
+    This is an uncountable family of functions. \(\norm{\chi_\alpha - \chi_{\alpha'}}_{\infty}=1\) \(\forall \; \alpha \neq \alpha'\), indeed
+
+    \[
+        \abs{\chi_\alpha(x) - \chi_{\alpha'}(x)} =
+        \begin{cases}
+            0 & \text{if } x \in [-\alpha, \alpha] \cup (\alpha', \infty) \cup (-\infty, -\alpha')\\
+            1 & \text{if } x \in (\alpha, \alpha'] \cup [-\alpha', \alpha)    
+        \end{cases}
+    \]
+
+    In particular, \(B_{\frac{1}{2}}(\chi_\alpha) \cap B_{\frac{1}{2}}(\chi_{\alpha '}) = \emptyset \) \(\forall \; \alpha \neq \alpha'\)
+
+    Assume by contradiction that \(L^\infty(\real)\) is separable: \(\exists \; Z \subset L^\infty\) which is countable and dense. In particular, \(\forall \; f \subset L^\infty\) \(\exists \; g \in Z\) s.t. 
+    \[
+        \norm{g-f }_\infty < \frac{1}{2}
+    \]
+    Therefore, \(\forall \; \alpha\), \(\exists \;g_\alpha \in B_{\frac{1}{2}}(\chi_\alpha) \cap Z\). 
+    But \( B_{\frac{1}{2}}(\chi_\alpha) \cap B_{\frac{1}{2}}(\chi_{\alpha'}) = \emptyset \)
+
+    \[
+        \Rightarrow \alpha \neq \alpha' \text{, we have } g_\alpha \neq g_{\alpha'}
+    \]
+    \(Z \supseteq \{ g_\alpha : \alpha >0 \}\), which is uncountable. This is not possible, since \(Z\) is countable.
+\end{proof}
+
+\begin{remark}
+    The same is true if \((\real, \mathcal{L}(\real), \lambda)\) is swapped with \((X, \mathcal{L}(X), \lambda)\), \(X\) is open or closed on \(\real\) or \(\real^n\)
+\end{remark}

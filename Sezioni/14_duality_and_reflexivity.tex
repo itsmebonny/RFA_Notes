@@ -1,0 +1,549 @@
+\newpage
+\section{Duality and reflexivity}
+\subsection{Dual space of a normed space}
+\(X\) normed space: 
+\[
+    X^* = \mathcal{L}(X, \real) \mbox{ is called \textbf{dual space of} }X
+\]
+\(X\) normed space, \(Y\) Banach space \(\Rightarrow \mathcal{L}(X, Y)\) is a Banach space with \(\normdot_{\mathcal{L}}\).
+
+Since \(\real\) is a Banach space, the dual space \(X^*\) is a Banach space with 
+\[
+    \norm{L}_* = \sup_{\norm{x}_X \leq 1} \abs{Lx}
+\]
+\begin{example}
+    \begin{itemize}
+        \item In \(\real^n\), any linear functional is represented by a scalar product:
+            \[
+                L : \real^n \to \real \mbox{ is linear } \Rightarrow \exists ! \; y \in \real^n \mbox{ s.t. } Lx = \langle y,x \rangle
+            \]
+            It can be proved that 
+            \[
+                L \in (\real^n)^* \mapsto y \in \real^n
+            \]
+            is an isometric isomorphism 
+            \[
+                (\real^n)^* \approxeq \real^n
+            \]
+            Then \(X^*\) is very complicated.
+        \item Dual of \(L^p\)?
+        
+        \(\left(X, \mathcal{M}, \mu\right)\) measure space. \(p \in \left[1, \infty\right]\), \({q}\) conjugate exponent.
+        \[
+            \frac{1}{p} + \frac{1}{{q}} = 1 \Leftrightarrow 
+            \begin{cases}
+                \begin{array}{ll}
+                    {q} = \frac{p}{p-1} & p \in (1, \infty) \\
+                    {q} = \infty & p = 1 \\
+                    {q}=1 & p = \infty
+                \end{array}     
+            \end{cases}
+        \]
+        For \(g \in L^{{q}}(X)\), define \(L_g : L^p(X) \to \real\) by
+        \[
+            L_g f := \int_X fg \, d\mu \qquad \forall \; f \in L^p(X)
+        \]
+        This is well-defined, by the Holder inequality:
+        \[
+            \abs{\int_X fg \, d\mu } \leq \int_X \abs{fg} \, d\mu = \norm{fg}_1 \leq \norm{g}_{{q}} \norm{f}_p \tag*{*} 
+        \]
+        If \(g \in L^{{q}}\), this shows that \(L_g f \in \real \quad \forall \; f \in L^p\)
+    \end{itemize}
+    
+\end{example}
+\begin{proposition}
+    If \(p \in [1, \infty]\) then \(L_g \in (L^p(X)^*)\). Moreover, 
+    \begin{itemize}
+        \item if \(p > 1\), then \(\norm{L_g}_* = \norm{g}_{{q}}\)
+        \item if \(p=1\) then \(\norm{L_g}_* = \norm{g}_{\infty}\) with more assumptions (they are satisfied in \((X, \mathcal{L}(X), \lambda)\))
+    \end{itemize}
+\end{proposition}
+
+\begin{remark}
+    We are saying that \(L^{{q}}\) can be identified with a subspace of the dual space \((L^p)^*\) and this identification is an isometry.
+\end{remark}
+
+Question: are there functional in \((L^p)^*\)?
+
+\begin{proof}
+    (of the proposition)
+    \begin{itemize}
+        \item Case \(p=\infty\) ex
+        \item Case \(p=1\) but difficult it's ok if you don't do it
+        \item Case \(p \in (1, \infty)\)
+        
+        \(L_g\) is clearly linear, by linearity of \(\int\), indeed:
+        \(\forall \; \alpha \; \beta \in \real\), \(f_1 \; f_2 \in L^p(X)\). Then
+        \[
+            L_g(\alpha f_1 + \beta f_2) = \int_X g (\alpha f_1 + \beta f_2) \, d\mu = \alpha \int_X g f_1 \, d\mu + \beta \int_X g f_2 \, d\mu = \alpha L_g f_1 + \beta L_g f_2
+        \]
+        We want to show now that \(L_g \) is bounded. 
+        We proved in (*) that 
+        \[
+            \abs{L_g f} \leq \norm{g}_{{q}} \norm{f}_p \quad \forall \; f \in L^p(X)
+        \]
+        This shows that \(L_g\) is bounded, with norm  \(\norm{L_g}_* \leq \norm{g}_{{q}}\) (remember that \(\norm{T}_\mathcal{L} = \inf \{ M>0: \norm{Tx} _Y \leq M \norm{x}_X \quad \forall x \in X\} \))
+
+        We want to show that \(\norm{L_g}_* = \norm{g}_{{q}}\). If \(\norm{L_g}_* < \norm{g}_{{q}}\), then \(\exists \; M < \norm{g}_{{q}}\) s.t. 
+        \[
+            \abs{L_g f } \leq M \norm{f}_p \quad \forall \; f \in L^p(X)
+        \]
+        We rule out this possibility by choosing an explicit \(\tilde{f} \in L^p \) s.t.
+        \[
+            \abs{L_g \tilde{f} } = \norm{g}_{{q}} \norm{\tilde{f}}_p
+        \]
+        We take 
+        \[
+            \tilde{f} = \frac{\abs{g}^{{q}-1}}{\norm{g}_{{q}}^{{q}-1}} \frac{g}{\abs{g}}
+        \]
+        Now, 
+        \[
+            \norm{\tilde{f}}_p^p = \int_X \abs{\tilde{f}}^p \, d\mu = \int_X \frac{\abs{g}^{p({q}-1)}}{\norm{g}_{{q}}^{p({q}-1)}} \, d\mu = (*)
+        \]
+        \(({q})' = p \Rightarrow p=\frac{{q}}{{q}-1} \Rightarrow p({q}-1) = {q}\)
+        \[
+            (*) = \frac{1}{\norm{g}_{{q}}^{{q}}} \int_X \abs{g}^{{q}} \, d\mu = \frac{\norm{g}_{{q}}^{{q}}}{\norm{g}_{{q}}^{{q}}} = 1
+        \]    
+        \[
+            \begin{array}{l}
+            \abs{L_g \tilde{f}} = \abs{\int_X \frac{\abs{g}^{{q}-1}}{\norm{g}_{{q}}^{{q}-1}} \abs{g} \, d\mu}
+            = \abs{\int_X \frac{\abs{g}^{{q}}}{\norm{g}_{{q}}^{{q}-1}} \, d\mu }
+            = \frac{1}{\norm{g}^{{q}-1}_{{q}}} \norm{g}_{{q}}^{{q}} 
+            = \norm{g}_{{q}} = \norm{g}_{{q}}\norm{\tilde{f}}_p
+        \end{array}
+            \]
+    \end{itemize}
+\end{proof}
+
+\subsubsection{Hahn-Banach theorem}
+
+\begin{definition}
+    \(X\) vector space. A map \(p: X \to \real\) is called \textbf{sublinear functional} if 
+    \begin{itemize}
+        \item \(p(\alpha x) = \alpha p(x) \qquad \forall \; x \in X\), \(\alpha >0\)
+        \item \(p(x+y) \leq p(x) + p(y) \qquad \forall x, y \in X\)  
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[Hahn Banach]
+    \(X\) real vector space, \(p: X \to \real\) sublinear functional. 
+    \(Y\) subspace of \(X\) and suppose that \(\exists \; f: Y \to \real \) linear on \(Y\) s.t. 
+    \[
+        f(y) \leq p(y) \quad \forall \, y \in Y
+    \]
+    Then \(\exists\) a linear functional \(F: X \to \real \) s.t. 
+    \[
+        F(y) = f(y) \quad \forall \; y \in Y \tag*{\(F\) is an extension of \(f\)}
+    \]
+    Moreover,
+    \[
+        F(x) \leq p(x) \quad \forall \; x \in X
+    \] 
+\end{theorem}
+
+\begin{theorem}[Hahn-Banach regarding continuous extension]
+    \(X\) (real) normed space. \(Y\) subspace of \(X\), \(f \in Y^* = \mathcal{L}(Y, \real)\)
+
+    Then \(\exists \; F \in X^* = \mathcal{L}(X, \real)\) s.t. 
+    \[
+        \begin{array}{lr}
+            
+            F(y) = f(y) & \forall \; y \in Y \\
+
+            \norm{F}_{X^*} = \norm{f}_{Y^*}   & \\
+        \end{array}
+    \]
+\end{theorem}
+\begin{proof}
+    Define \(p:X \to \real\), \(p(x) = \norm{f}_{Y^*} \norm{x}_X\) \(\forall \; x \in X\). Then \(p\) is sublinear (from the properties of \(\normdot_X\)).
+
+    Moreover, \(f(y) \leq \abs{f(y)} \leq \norm{f}_{Y^*}\norm{y}_X = p(y)\) \(\forall \; y \in Y\). Then, by Hahn-Banach theorem (general version), \(\exists \; F : X \to \real\) s.t. \(F\) is an extension of \(f\) and \(F(x) \leq p(x) \; \forall \; x \in X\).
+
+    Now, if \(F(x) \geq 0\)
+    \[
+        \abs{F(x)} = F(x) \leq p(x) = \norm{f}_{Y^*}\norm{x}_X
+    \]
+    If \(F(x) < 0\)
+    \[
+        \abs{F(x)} = -F(x) = F(-x) \leq p(-x) = \norm{f}_{Y^*}\norm{-x}_X = \norm{f}_{Y^*}\norm{x}_X
+    \]
+    \(\forall \; x \in X\)
+    \[
+        \abs{F(x)} \leq \norm{f}_{Y^*}\norm{x}_X
+    \]
+    namely, \(F \in X^*\) (it is bounded), and 
+    \[
+        \norm{F}_{X^*} \leq \norm{f}_{Y^*}
+    \]
+
+    Also, \(\norm{F}_{X^*} \geq \norm{f}_{Y^*}\) since \(F\) extends \(f\):
+    \[
+        \norm{F}_{X^*} = \sup_{\norm{x}_X \leq 1} \abs{F(x)} \geq \sup_{\norm{y}_Y \leq 1}\abs{F(y)} 
+        = \sup_{\substack{\norm{y}_X \leq 1, \\ y \in Y}} \abs{f(y)} = \norm{f}_{Y^*}
+    \]
+\end{proof}
+\noindent\underline{Consequence 1}
+\begin{theorem}
+    \((L^\infty (X))^*\) `strictly contains' \(L^1(X)\)
+\end{theorem}
+
+\begin{proof}
+    We must show that \(\exists \; L \in (L^\infty(X))^*\) s.t. \(\nexists \; g \in L^1(X)\) s.t. 
+    \[
+        Lf = \int_X fg \, d\mu \quad \forall f \in L^\infty(X)
+    \]
+
+For simplicity, we consider \((X, \mathcal{M}, \mu) = ([-1, 1], \mathcal{L}([-1,1]), \lambda)\). Let \(Y\) be the subspace of \(L^\infty([-1,1])\) of the bounded continuous functions \(\mathcal{C}^0([-1,1])\). On \(Y\) we define 
+\[
+    \Lambda f = f(0) \quad \forall \; f \in Y
+\]
+We can do it since \(f \in \mathcal{C}^0([-1,1])\) (for elements in \(L^\infty\) we cannot speak about pointwise values!). 
+
+\(\Lambda\) is linear:
+\[
+    \Lambda(\alpha f + \beta g) = \alpha \Lambda f + \beta \Lambda g
+\]
+Moreover, \(\Lambda\) is in \(Y^*\):
+\[
+    \abs{\Lambda f} = \abs{f(0)} < \max_{[-1,1]} \abs{f} = \norm{f}_{\infty}
+\]
+This proves that \(\Lambda \in Y^*\), \(\norm{\Lambda}_{Y^*} \leq 1\). By Hahn-Banach, \(\exists \; L \in (L^\infty(X))^*\) which is an extension of \(\Lambda\), and is s.t. 
+\[
+    \norm{L}_{(L^\infty)^*}
+\]
+Can we have 
+\[
+    Lf=\int_{-1}^1 fg \, d\mu \quad \mbox{for some } g \in L^1(X)\mbox{?}
+\]
+Suppose by contradiction that this is true, take 
+\[
+    f_n \in \mathcal{C}^0([-1,1])
+\]
+defined in this way:
+\[
+    f_n(x) = \phi(nx)
+\]
+where \(\phi\) is continuous, \(\mbox{supp}\, \phi \subseteq \left[ \frac{-1}{2} \frac{1}{2} \right]\) 
+\[
+    \phi(0) = 1, \phi(nx) = 0 \quad \forall \; x \mbox{ s.t. } \abs{nx} > \frac{1}{2} \Leftrightarrow \abs{x} > \frac{1}{2n}  
+\]
+By contradiction, 
+\[
+    \sup f_n \subseteq \left[-\frac{1}{2n}, \frac{1}{2n}\right] \Rightarrow f_n(x) \to 0
+\]
+Therefore, if \(g \in L^1([-1,1])\) is s.t. 
+\[
+    \int_{-1}^1 f_n g \, d\lambda = L f_n
+\]
+Then, on one side 
+\[
+    \int_{-1}^1 f_n g \, d\mu = L f_n = f_n (0) = 1 \quad \forall \; n
+\tag*{(1)}\]
+But on the other side 
+\begin{itemize}
+    \item \(f_n(x)g(x) \to 0\) a.e. in \([-1,1]\)
+    \item \(\abs{f_n(x) g(x)} \leq g(x) \in L^1([-1,1])\)
+    \[
+        \overset{\mbox{DOM}}{\Rightarrow} \int_{-1}^1 f_n g \, d\lambda \to 0
+    \tag*{(2)}\]
+\end{itemize}
+But \((1)\) and \((2)\) are in contradiction.
+In conclusion, there is no \(g \in L^!([-1,1])\) s.t. 
+\[
+    \int_{-1}^1 f g \, d\lambda = L f \quad \forall \; f \in L^\infty ([-1,1])
+\]
+\end{proof}
+\noindent\underline{Other consequences of the Hahn-Banach theorem}
+\begin{corollary}
+    \(X\) (real) normed space, \(x_0 \in X \setminus \left\{ 0 \right\}\).
+    Then \(\exists \; L_{x_0} \in X^*\) s.t. 
+    \[
+        \norm{L_{x_0}}_{X^*} = 1 \mbox{ and } L_{x_0}(x_0) = \norm{x_0}_X
+    \]
+\end{corollary}
+\begin{proof}
+    Take \(Y = \left\{ \lambda x_0 : \lambda \in \real \right\}\) (1-d vector space generated by \(x_0\))  
+    
+    \[
+        \begin{array}{rl}
+            L_0: & Y \to \real \\
+            & \lambda x_0 \mapsto \lambda \norm{x_0}_X
+        \end{array}    
+    \]
+
+    This is linear and continuous on \(Y\) \(\Rightarrow\) by Hahn-Banach (continuous extension) \(\exists \; \tilde{L}_0 \in X^*\) s.t. \(\tilde{L}_0\) extends \(L_0\) and 
+    \[
+        \norm{\tilde{L}_0}_{X^*} = \norm{L_0}_{Y^*} = \sup_{\substack{\lambda x_0 \in Y \\ \norm{\lambda x_0} = 1}}\abs{L_0(\lambda x_0)}= \sup \abs{\lambda \norm{x_0}_X} = 1
+    \]
+    Thus \(\tilde{L}_0\) is precisely the desired functional.
+    \[
+        \tilde{L}_0 (x_0) = L_0(x_0) = \norm{x_0}_X
+    \]
+    and 
+    \[
+        \norm{\tilde{L}_0}_{X^*} = 1
+    \]
+\end{proof}
+\begin{corollary}[The bounded linear functionals separate points]
+    If \(x,y \in X\) and \(Lx = Ly\) \(\forall \; L \in X^* \Rightarrow x = y\) (if \(x \neq y, \exists \; L \in X^*\) s.t. \(Lx \neq Ly\))
+\end{corollary}
+\begin{proof}
+    Assume \(x-y \neq 0\). Then, by the previous corollary, \(\exists \; L \in X^*\) s.t. 
+    \[
+        \norm{L}_{X^*} \mbox{ and } L(x-y) = \norm{x-y}_X \Rightarrow Lx -Ly = L(x-y) = \norm{x-y}_X \neq 0
+    \]
+\end{proof}
+\begin{corollary}
+    \(X\) normed space, \(Y\) closed subspace of \(X\), \(x_0 \in X \setminus Y\). 
+
+    Then \(\exists \; L \in X^*\) s.t. \(L\vert_Y = 0\) and \(L{x_0} \neq 0\)
+\end{corollary}
+\subsection{Bidual spaces}
+\(X\) Banach space, \(X^*\) dual space.
+\begin{notation}
+\[L \in X^*: Lx = L(x) = \langle L,x \rangle = {}_{X^*}\langle L,x\rangle_X\]
+\end{notation}
+\((X^*)^*\) dual space of \(X^*\) is called the \textbf{bidual} of \(X\), denoted by \(X^*\)
+\[
+    X^{**} = \mathcal{L}(X^*, \real)
+\]
+We can describe many elements of \(X^{**}\) in the following way: for \(x \in X\), define 
+\[
+    \begin{array}{ll}
+        \Lambda: & X^* \to \real \\
+        & L \mapsto Lx = {}_{X^*}\langle L,x \rangle_{X}
+    \end{array}
+\]
+(\(\Lambda_x\) evaluates functionals in \(X^*\) in the point \(x\)).
+
+\(\Lambda_x\) is linear:
+\[
+    \Lambda_x (\alpha L_1 + \beta L_2) = (\alpha L_1 + \beta L_2)(x) = \alpha L_1 x + \beta L_2 x = \alpha \Lambda_x L_1 + \beta \Lambda_x L_2
+\]
+Moreover, it is bounded 
+\[
+    \abs{\Lambda_x(L)} = \abs{Lx} \underset{L \in X^*}{\leq} \norm{L}_{X^*}\norm{x}_X \quad \forall \; L \in X^*
+\]
+Moreover, 
+\[
+    \norm{\Lambda_x}_{\mathcal{L}(X^*, \real)} = \sup_{L \neq 0} \frac{\abs{\Lambda_x L}}{\norm{L}_X^*}
+\]
+We claim that \(\norm{\Lambda_x}_{\mathcal{L}} = \norm{x}_X\). Indeed, by the first corollary of Hahn-Banach, given any \(x \in X\setminus \left\{ 0 \right\} \exists \; Lx \in X^*\) 
+\[
+    \exists \; L_x \in X^* \mbox{ s.t } \abs{L_x x} = \norm{x}_X, \mbox{ and } \norm{L_x}_{X^*} = 1 
+\]
+\[
+    \Rightarrow \sup_{L \neq 0} \frac{\abs{\Lambda_x L}}{\norm{L}_{X^*}} = \sup_{L \neq 0} \frac{\abs{Lx}}{\norm{L}_{X^*}} \geq \frac{\abs{L_x x}}{\norm{L_x}_{X^*}} = \norm{x}_X 
+\]
+\[
+    \Rightarrow \norm{\Lambda_x}_{X^{**}} = \norm{x}_X
+\]
+\subsection{Canonical Map}
+\begin{theorem}
+    \(\exists\) a map 
+    \[
+        \begin{array}{lc}
+            \tau : & X \to X^{**} \\
+            & x \mapsto \Lambda_x
+        \end{array}
+    \tag*{(Canonical Map)}\]
+    which is linear, continuous and an isometry. Namely, the canonical map is an isometric isomorphism from \(X\) into \(\tau(X) \subseteq X^{**}\)
+\end{theorem}
+\subsection{Reflexive spaces}
+\noindent\underline{Question}: are there other elements in \(X^{**}\)?
+\begin{definition}
+    If the canonical map is surjective, then we say that \(X\) is \textbf{reflexive}, \(X \approxeq X^{**}\). Otherwise, \(\tau(X)\) will be a strict close subspace of \(X\).
+\end{definition}
+\begin{remark}
+    \(X\) reflexive \({\displaystyle\nLeftarrow}{\Rightarrow}\) \(X\) and \(X^{**}\) are isometrically isomorphic.
+\end{remark}
+\begin{theorem}
+    \(X\) reflexive space. Then every closed subspace of \(X\) is reflexive.
+\end{theorem}
+\begin{theorem}
+    \(X\) Banach. 
+    \[
+        X \mbox{ reflexive } \Leftrightarrow X^* \mbox{ reflexive }
+    \]
+\end{theorem}
+\begin{theorem}
+    \(X\) Banach.
+    \begin{itemize}
+        \item If \(X^*\) is separable \(\Rightarrow X\) is separable
+        \item If \(X\) is separable and reflexive \(\Rightarrow X^*\) is separable
+    \end{itemize}
+\end{theorem}
+To show that a space is reflexive, it is convenient to introduce the following notion.
+\begin{definition}
+    \(X\) Banach space. \(X\) is called \textbf{uniformly convex} if \(\forall \; \epsilon > 0 \; \exists \; \delta > 0 \) s.t. 
+    \[
+        \forall \; x, y \in X \mbox{ with } \norm{x} \leq 1, \norm{y} \leq 1, \norm{x-y} > \epsilon
+    \]
+    then we have 
+    \[
+        \norm{\frac{x+y}{2}} < 1-\delta
+    \]
+    This is a quantitative version of the strict convexity.
+\end{definition}
+\begin{definition}
+    \(C \subset X\) is convex  \(\Leftrightarrow \forall \; x,y \in C : \frac{x+y}{2} \in C\)
+
+    \noindent \(C \subset X\) is \textbf{strictly convex} \(\Leftrightarrow \forall \; x,y \in C : \frac{x+y}{2} \in \interior{C}\)
+\end{definition}
+Roughly speaking, \(X\) is uniformly convex if \(\overline{B_1(0)}\) is strictly convex in a quantitative way.
+\begin{theorem}[Milman-Pettis]
+    Every uniformly convex Banach space is reflexive.
+\end{theorem}
+\noindent\underline{Recap on reflexivity}:
+
+\noindent\(X\) Banach space. \(X^{**} = (X^*)^*\) is the \textbf{bidual space}, \(\mathcal{L}(X^*, \real)\)
+\[
+    \forall \; x \in X \; \exists \; \Lambda_x : X^* \to \real \mbox{ defined by } \Lambda_x(L) = Lx \quad \forall \; L \in X^*
+\]
+We proved that \(\Lambda_x \in X^{**}\). Thus, we can define the \textbf{canonical map}:
+\[
+        \begin{array}{lc}
+            \tau : & X \to X^{**} \\
+            & x \mapsto \Lambda_x
+        \end{array}
+    \tag*{(Canonical Map)}
+\]
+We stated that \(\tau\) is an isometric isomorphism from \(X\) into \(\tau(X)\). This is true but for our purpose it's even too much, and it's difficult to prove in details. However, we can prove a slightly weaker result 
+\begin{theorem}
+    \(\tau\) is linear, continuous, and is an isometry
+    \[
+        \norm{\tau(x)}_{X^{**}} = \norm{x}_X \quad \forall \; x \in X
+    \]
+    Moreover, \(\tau\) is injective. If \(\tau\) is also surjective, it is an isometric isomorphism between \(X\) and \(X^{**}\)
+\end{theorem}
+\begin{proof}
+    There are two parts:
+    \begin{itemize}
+        \item \(\tau\) is linear and continuous: exercise. 
+        
+        \noindent \(\tau\) is an isometry: \(\norm{\tau(x)}_{X^{**}} = \norm{\Lambda_x}_{X^{**}} = \norm{x}_X\)
+
+        \noindent \(\tau\) is injective: \(x\neq y \Rightarrow \tau(x) \neq \tau(y)\)? 
+
+        \noindent \(x \neq y \Rightarrow\) by the second corollary to Hahn-Banach \(\exists\; L \in X^*\) s.t. \(Lx \neq Ly\).
+        \[
+            {}_{X^{**}}\langle \tau(x), L \rangle_{X^*} = \Lambda_x(L) = Lx \neq Ly = \Lambda_y(L) = {}_{X^{**}}\langle\tau(x), L\rangle_{X^*}
+        \]
+        Then, \(\tau(x) \neq \tau(y)\) and \(\tau\) is injective.
+        \item Let now \(\tau\) be surjective. Then \(\tau \in \mathcal{L}(x, X^{**})\) and is bijective \(\Rightarrow\) by a corollary of the open map theorem, \(\tau^{-1} \in \mathcal{L}(X^{**}, X)\)
+    \end{itemize}
+\end{proof}
+\begin{definition}
+    \(X\) is reflexive if \(\tau\) is surjective. In this case, \(\tau\) is an isometric isomorphism between \(X\) and \(X^{**}\)
+\end{definition}
+
+We formally mentioned that
+\begin{theorem}
+    If \((X, \normdot)\) is uniformly convex \(\Rightarrow\) \((X, \normdot)\) is reflexive.
+\end{theorem}
+
+\noindent\textbf{\underline{Remarks}:}
+    \begin{proposition}
+        If \((X, \normdot)\) is uniformly convex \(\Rightarrow\) \(\overline{B_1(0)}\) is strictly convex.
+    \end{proposition}
+    \begin{proof}
+        Is it true that if \(x, y \in \overline{B_1(0)}\), then \(\frac{x+y}{2} \in B_1(0)\)? Since \((X, \normdot)\) is uniformly convex, we know that \((\norm{x-y}=: \overline{\epsilon}>0)\)
+        \[
+            \forall \; \overline{\epsilon}>0 \quad \exists \; \overline{\delta} >0 \text{ s.t. } \norm{x} \leq 1 \; \norm{y} \leq \; \norm{x-y} > \frac{\overline{\epsilon}}{2} \Rightarrow \norm{\frac{x+y}{2}} < 1-\overline{\delta} 
+        \]
+        In particular, 
+        \[
+            \frac{x+y}{2} < 1-\overline{\delta} < 1 \Rightarrow \frac{x+y}{2} \in B_1(0)
+        \] 
+    \end{proof}
+    Consequence: \((\real^2, \normdot_1)\) and \((\real^2, \normdot_\infty)\) are not uniformly convex.
+\begin{proposition}
+    \((\real^2, \normdot_2)\) is uniformly convex
+\end{proposition}
+\begin{proof}
+    Suppose by contradiction that this is false:
+    \( \exists \; \overline{\epsilon} >0 \) and \( \{x_n\}, \{y_n\} \subset \overline{B_1(0)} \) s.t. 
+    \begin{equation}\label{prova}
+            \norm{x_n - y_n} > \overline{\epsilon} \text{, but } \norm{\frac{x_n + y_n}{2}} \geq 1 \tag{*}
+    \end{equation}
+    \(\overline{B_1(0)}\) is compact (since we are in \(\real^2\)) \(\Rightarrow\) UTS\footnote{Up To a Subsequence} \(x_n \to \overline{x} \), \(y_n \to \overline{y}\) as \(n \to\infty\). Taking the limit in \eqref{prova}, we deduce that \(\overline{x}\), \(\overline{y} \in \overline{B_1(0)}\)
+    \[
+        \norm{\overline{x}- \overline{y}} \geq \overline{\epsilon} \text{ , and } \norm{\frac{\overline{x}+\overline{y}}{2}} \geq 1
+    \]
+    This is not possible, since \(\overline{B_1(0)}\) is strictly convex.
+\end{proof}
+
+\begin{theorem}
+    \((X, \mathcal{M}, \mu)\) complete measure space. Then \(L^{p}(X)\) is reflexive \(\forall \; p \in (1, \infty)\)
+\end{theorem}
+\begin{proof}
+    \((L^p(X), \normdot_p)\) is uniformly convex \(\forall \; p \in (1, \infty)\) (Clarkson inequalities)
+\end{proof}
+\(L^1(X) \text{ and } L^\infty(X)\) are not uniformly convex, and not reflexive.
+
+\subsection{Riesz representation theorem}
+
+\begin{theorem}[Riesz representation theorem]
+    \((X, \mathcal{M}, \mu)\) complete measure space, \(p \in (1, \infty)\). Then 
+    \[
+        \forall\; L \in (L^p(X))^* \quad \exists! \; g \in L^{{q}}(X)
+    \]
+    with \({q} \) conjugate exponent s.t. \(L=L_g\), namely
+    \[
+        Lf = \int_X fg \, d\mu \qquad \forall\; f \in L^p(X)
+    \]
+    Moreover \(\norm{L_g}_{(L^p)^*} = \norm{g}_{{q}}\)
+    
+    Thus: \(T: g \in L^{{q}} \mapsto L_g \in (L^p)^*\) is an isometric isomorphism.
+\end{theorem}
+\begin{proof}
+    \(1 < p < \infty\). Consider \(T: L^{{q}} \to (L^p)^*\) with \(g \mapsto Tg: \langle Tg, f \rangle = \int_X fg \, d\mu\) (namely \(Tg = L_g\)). We already know that
+    \[
+        \norm{Tg}_* = \norm{L_g}_* = \norm{g}_{{q}}
+    \]
+    \(T\) is injective: for exercise.
+
+    \(T\) is surjective. Indeed, let \(F:= T(L^{{q}}) \subseteq (L^p)^*\) subspace. Since \(T\) is an isometry and \(L^{{q}}\) is complete, it can be shown that \(T(L^{{q}})\) is also complete \(\Rightarrow T(L^{{q}})\) is closed.
+
+    If by contradiction \(F \neq (L^p)^*\), then we can apply corollary 3 to Hahn Banach \((X = (L^p)^*, Y=F, x_0 = \lambda)\):
+        \begin{equation}\label{riesz_repr_14}
+            \exists h \in (L^p)^{**} \text{ s.t. } \langle h, \lambda \rangle \neq 0 \text{ and } h|_F = 0: \langle h, Tg \rangle =0 \quad \forall g \in L^{{q}} \tag{1}
+        \end{equation} 
+    But \(L^p \) is reflexive \((1 <p < \infty)\), then \(h \in L^p \setminus \{0\}\):
+    \[
+        \langle h, Tg \rangle = (Tg)h = \int_X hg \, d\mu
+    \]
+    Therefore, \eqref{riesz_repr_14} tells us that
+    \[
+        \int_X hg \, d\mu =0 \quad \forall \; g \in L^{{q}}(X)
+    \]
+    Take \(g = \abs{h}^{p-2}h\). Therefore,
+    \[
+        0 = \int_X hg \, d\mu = \int_X h \abs{h}^{p-2} h \, d\mu = \int_X \abs{h}^p \, d\mu \Rightarrow h=0 \in L^p
+    \]
+    which is the desired contradiction.
+
+    \(T\) is an isomorphism: for exercise.
+\end{proof}
+
+\[
+    (L^p)^* = L^{{q}}
+\]
+
+\begin{remark}
+    \(p=1\). One can prove the:
+\end{remark}
+\begin{theorem}
+    \((X; \mathcal{M}, \mu)\) complete measure space, \(\sigma\)-finite.
+    Then \(\forall\; L \in (L^1(X))^* \quad \exists! \; g \in L^\infty(X)\) s.t. \(L=L_g\):
+    \[
+        Lf = \int_X fg \, d\mu \quad \forall f \in L^1(X)
+    \]
+    Moreover, the map \(L \in (L^1)^* \mapsto g \in L^\infty\) is an isometric isomorphism.
+\end{theorem}
+
+Recall that \((X, \mathcal{M}, \mu)\) is finite if \(\mu(X) < \infty\).
+
+\begin{definition}
+    \((X, \mathcal{M}, \mu)\) is \(\sigma\)-finite if either \(\mu(X) < \infty\), or \(X = \sum_{n=1}^\infty X_n\), where \(\mu(X_n) < \infty\)
+\end{definition}

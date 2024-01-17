@@ -1,0 +1,38 @@
+\newpage
+\section*{Functional Analysis}
+\section{Review on metric spaces}
+\subsection{Distance function}
+\begin{proposition}
+    \((X, \normdot)\) normed space. Then \((X, d)\) is a metric space for 
+    \[
+        d(x,y) = \norm{x - y}
+    \]
+\end{proposition}
+\begin{remark}
+    Normed space \(\underset{\displaystyle\nleftarrow}{\rightarrow}\) metric space
+\end{remark}
+\begin{example}
+    \begin{itemize}
+        \item \(\real^N\)
+        \[
+            \norm{x}_p := (\sum_{i = 1}^N \abs{x_i}^p)^{\frac{1}{p}} \; \; \forall p \in [1, +\infty) \quad
+            \norm{x}_{\infty} := \max_{i = 1, \ldots, N} \abs{x_i}
+        \]
+        \item \(\mathcal{C}^0([a,b])\) \[\norm{f}_{\infty} := \max_{x \in [a,b]} \abs{f(x)}\]
+        \item \(L^1(X, \mathcal{M}, \mu)\) \[\norm{f}_1 := \int_X \abs{f} \, d\mu\] This is a norm in \(L^1\), but not on \(\mathcal{L}^1\) \((\int_x \abs{f} \, d\mu = 0 \Rightarrow f = 0 \mbox{ a.e.})\)
+        \item \(L^{\infty}(X, \mathcal{M}, \mu)\) \[\norm{f}_{\infty} := \underset{[a,b]}{\esssup} \abs{f}\]
+    \end{itemize}
+\end{example}
+\((X, \normdot)\) normed space \(\to\) \((X, d)\) metric space \(\to\) convergent sequences on \(X\): \(\left\{ x_n \right\} \subset X\) is convergent in \(X\) iff 
+\[
+    d(x_n, x) \to 0 \Leftrightarrow \norm{x_n -x} \to 0 \mbox{ as } n \to \infty
+\]
+\begin{example}
+    \(x_n \to x\) in \(X\), then \(\norm{x_n} \to \norm{x}\) (the norm is a continuous function on \(X\))
+\end{example}\subsection{Cauchy sequences}
+\begin{definition}
+    \(\left\{ x_n \right\}\) is a \textbf{Cauchy sequence} in \((X, \normdot)\) if \(\forall \; \epsilon > 0\) \(\exists \; \bar{n} \in \mathbb{N}\) s.t. 
+    \[
+        n,m > \bar{n} \Rightarrow \norm{x_n-x_m} < \epsilon
+    \]
+\end{definition}

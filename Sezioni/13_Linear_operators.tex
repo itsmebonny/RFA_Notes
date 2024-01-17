@@ -1,0 +1,552 @@
+\newpage
+\section{Linear operators}
+\subsection{Linear and bounded operator}
+\((X, \normdot_X)\), \((Y, \normdot_Y)\) normed spaces.
+\begin{definition}
+    \(T : D(T) \subseteq X \to Y\) is a \textbf{linear operator} (or map) if 
+    \[
+        T(\alpha_1 x_1 + \alpha_2 x_2) = \alpha_1 T(x_1) + \alpha_2 T(x_2) \quad \forall \; x_1, x_2, \in D(T) \quad \forall \; \alpha_1, \alpha_2 \in \real
+    \]
+    \(D(T)\) is a linear subspace of \(X\), and is called the domain of T. When \(D(T) = X\) and \(Y = \real\), \(T\) is called linear functional.
+\end{definition}
+\begin{definition}
+    A linear operator \(T : D(T) \subseteq X \to Y\) is bounded if \(D(T) = X\) and \(\exists \; M >0\) s.t. 
+    \[
+        \norm{T_X}_Y \leq M \abs{x}_X \forall \; x \in X
+    \]
+    Recall that \(T\) is continuous in \(x_0 \in X\) iff 
+    \[
+        \forall \; \left\{ x_n \right\} \subset X, x_n \overset{X}{\to} x_0 \Rightarrow Tx_n \overset{Y}{\to} Tx_0
+    \]
+\end{definition}
+\begin{example}
+    \begin{itemize}
+        \item \(L: \real^n \to \real\)  is a linear functional. Then \(\exists \; y \in \real^n\) s.t. 
+        \[
+            Lx = \langle y, x \rangle = (y, x) = y \cdot x
+        \]
+        In particular, then \(L\) is continuous on \(\real^n\) and bounded:
+        \[
+            \abs{L_X} < \abs{\langle y,x \rangle} \overset{\text{\tiny{Cauchy-Schwarz}}}{\leq} \norm{y} \norm{x} \qquad \forall\; x \in \real^n
+        \]
+        So \(L\) is bounded with \(M=\norm{y}\).
+    
+        \item Linear operators in \(\infty\)-dim may not be defined everywhere, and many may not be continuous:
+        \((X, \normdot_X) = (Y, \normdot_Y) = (\mathcal{C}([0, 1]), \normdot_\infty)\).
+        
+        Consider 
+        \[
+            \begin{array}{cc}
+                \frac{d}{dx}: \mathcal{C}'([0,1]) \subseteq X \to Y & \frac{d}{dx}(\alpha f + \beta g) = \alpha \frac{d}{dx}f + \beta \frac{d}{dx} g \\
+                f \mapsto f'
+            \end{array}
+        \]
+        This is not continuous or bounded. For example, take \(f_n(x) = \frac{1}{n} \sin{2\pi n x}\). \(\norm{f_n}_\infty \to 0\) but \(\norm{f_n'}_\infty =1\)
+    
+        In this case \(f_n \to 0 \nRightarrow \frac{d}{dx} f_n \to 0\), then \(\frac{d}{dx} \) is not bounded as well.
+        \item Let \((X, \normdot_X)\) be a normed space. If \(\dim X = 0\), is it possible to find linear functionals which are not bounded? Yes.
+    \end{itemize}
+    
+\end{example}\subsection{Hamel basis}
+\begin{definition}
+    A subset \(\left\{ e_i \right\}_{i \in I}\) is called \textbf{Hamel basis} of \(X\) if 
+    \[
+        \norm{e_i}_X = 1 \quad \forall  \; i
+    \]
+    and if every \(x \in X\) can be written in a unique way as 
+    \[
+        x = \sum_{k=1}^n x_k e_{i_k}, \quad x_k \in \real, \ n \in \mathbb{N}
+    \]
+\end{definition}
+Every \(x\) can be written uniquely as a finite linear combination of element of the basis.
+If \(\dim X = \infty\) is not immediate that the Hamel basis exists. This can be proved using the axiom of choice. (Zorn's lemma). 
+
+Any normed space has a Hamel basis \(\dim X = \infty \Rightarrow \{e_i\}_{i \in I}\) has \(\infty\) many elements.
+
+\noindent Let then \((X, \normdot_X)\) be \(\infty -\dim\), with Hamel basis \(\{e_i \}_{i \in I}\). \(I\) is infinite \(\Rightarrow I \supseteq \mathbb{N}\).
+
+\noindent We define \(L:X \to \real\) in the following way 
+\[
+    \begin{array}{ccccc}
+        L e_0 = 0 & L e_1 = 1 & \dots & L e_n = n & \dots \\
+        L e_i = 0 \quad \forall \; i \in I \setminus \mathbb{N} &&&&
+    \end{array}
+\]
+Then, for \(x \in X\) we set
+\[
+    Lx = L \left( \sum_{k=1}^n x_k e_{i_k} \right) = \sum_{k=1}^n x_k L e_{i_k}
+\]
+\(L\) is linear by contradiction, and it is not bounded:
+\[
+    \begin{array}{c}
+        \abs{L e_n} = n \to \infty \quad \norm{e_n }_X = 1 \; \forall\, n \\
+        \frac{\abs{L e_n}}{\norm{e_n}_X} \to \infty \Rightarrow L \text{ is not bounded}
+    \end{array}
+\]
+\begin{remark}
+    In practice, Hamel basis are hard to use. They differ from Hilbertian basis.
+\end{remark}
+
+For linear operators, boundedness and continuity are equivalent.
+\begin{theorem}
+    \(T:X \to Y\) linear map. Then the following are equivalent
+    \begin{enumerate}
+        \item \(T\) is continuous in \(0 \in X\)
+        \item \(T\) is continuous everywhere in \(X\)
+        \item \(T\) is bounded
+    \end{enumerate}
+\end{theorem}
+\begin{remark}
+    \(T\) linear \(\Rightarrow T0 = 0\). Indeed,
+    \[
+        T0 = T(0x) =  0 Tx = 0
+    \]
+\end{remark}
+\begin{proof}
+    
+    \begin{itemize}
+        \item \((2) \Rightarrow (1)\) obvious.
+        \item \((1) \Rightarrow (3)\) Suppose by contradiction that \(T\) is not bounded. 
+        
+        Then \(\exists \; \{ x_n \} \subset X \), \(x_n \neq 0\), s.t. 
+        \[
+            \frac{\norm{T x_n}_Y}{\norm{x_n}_X} \geq n \quad \forall\; n
+        \]
+        Define
+        \[
+            z_n := \frac{x_n}{n \norm{x_n}_X}
+        \]
+        Then \(\norm{z_n }_X = \frac{1}{n \norm{x_n}_X} \norm{x_n}_X \to 0\),
+        namely \(z_n \to 0 \) in \( X \Rightarrow (T \text{ is continuous in }0)\) \(T z_n \to T0 =0\).
+        However, 
+        \[
+            \norm{T z_n}_Y = \norm{T\left(\frac{x_n}{n \norm{x_n}_X}\right)}_X = \frac{1}{n \norm{x_n}_X} \norm{T x_n}_Y \geq 1 \ \forall\; n
+        \]
+        Contradiction.
+        \item \((3) \Rightarrow (2)\) 
+        We observe that 
+        \[
+            \norm{Tx_1 - Tx_2}_Y = \norm{T(x_1 - x_2)}_Y \leq M \norm{x_1 - x_2}_X  \quad \forall \; x_1 , x_2 \in X
+        \]
+        Then, let \(x \in X \) and let \(x_n \to x\) in \(X\): \(\norm{x_n - x}_X \to 0\). But then
+        \[
+            \norm{T x_n - Tx}_Y \leq M \norm{x_n - x}_X \to 0
+        \]
+        namely \(Tx_n \to Tx \) in \(Y\). This is the continuity.
+    \end{itemize}
+\end{proof}
+\subsection{\texorpdfstring{\(\mathcal{L}(X,Y)\)}{L(X,Y)}}
+\begin{definition}
+    The set of linear operators \(T : X \to Y\) which are also bounded (continuous) is denoted by \(\mathcal{L}(X, Y)\).    If \(Y=X\), one simply writes \(\mathcal{L}(X)\)
+\end{definition}
+This is a vector space. \( \forall\; T,\, S \in \mathcal{L}(X, Y) \), \(\forall\; \alpha, \beta \in \real:\)
+\[
+     (\alpha T + \beta S)(x) = \alpha Tx + \beta Sx \qquad \in \mathcal{L}(X, Y)
+\]
+We can also introduce a norm:
+\[
+    \norm{T}_{\mathcal{L}(X, Y)} = \norm{T}_\mathcal{L} := \sup_{\norm{x}_X \leq 1} \norm{Tx}_Y
+\]
+
+Also, 
+\[
+    \norm{T}_{\mathcal{L}(X, Y)} = \sup_{\norm{x}_X = 1} \norm{Tx}_Y = \sup_{x \neq 0} \frac{\norm{Tx}_Y}{\norm{x}_X} = \inf{M >0 \text{ s.t. } \norm{Tx}_Y \leq M \norm{x}_X \quad \forall \; x \in X}
+\]
+\subsection{When \texorpdfstring{\(\mathcal{L}(X,Y)\)}{L(X,Y)} is a Banach space}
+\begin{theorem}
+    \(X\) normed space, \(Y\) Banach space. Then \((\mathcal{L}(X, Y), \normdot_{\mathcal{L}(X, Y)})\) is a Banach space.
+\end{theorem}
+\begin{proof}
+    Let \(\{T_n\}\) be a Cauchy sequence in \(\mathcal{L}(X, Y)\). We want to show that \(\exists \; T \in \mathcal{L}(X, Y) \) s.t.
+    \[
+        \norm{T_n - T}_\mathcal{L} \to 0
+    \]
+    \(\{T_n\}\) Cauchy: \(\forall \; \epsilon >0 \) \(\exists \; \bar{n} \in \mathbb{N}\) s.t. 
+    \[
+        n, m > \bar{n} \Rightarrow \norm{T_n - T_m }_\mathcal{L} < \epsilon
+    \]
+    Consider then \(\{ T_n x \}\), \(x \in X\)
+    \[
+        \norm{T_n x - T_m x }_Y = \norm{(T_n - T_m)x}_Y \leq \norm{T_n - T_m}_{\mathcal{L}} \norm{x}_X \leq \epsilon \norm{x}_X \tag{*}
+    \]
+    This means that \(\{ T_n x \}\) is a Cauchy sequence in \(Y\), which is complete: then \(\forall \; x \in X\) \(\exists \) a vector \(y_x \in Y\) s.t. \(T_n x \to y_x\) in \(Y\).
+
+    Define 
+    \[
+        T: X \to Y \qquad x \mapsto y_x = Tx
+    \]
+    \(T\) is linear: indeed, \(\forall \; x_1\), \(x_2 \in X\) and \(\alpha_1\), \(\alpha_2 \in \real\):
+    \[
+        T(\alpha_1 x_1 + \alpha_2 x_2) = \lim_{n \to \infty} T_n (\alpha_1 x_1 + \alpha_2 x_2) = \lim_{n \to \infty} (\alpha_1 T_n x_1 + \alpha_2 T_n x_2) = \alpha_1 Tx_1 + \alpha_2 Tx_2
+    \]
+    So \(T \) is linear. It remains to show that \(T\) is bounded, and that \(\norm{T_n - T}_{\mathcal{L}} \to 0\).
+    To show that \(T\) is bounded, note that, by (*), \(\forall \; \epsilon >0 \; \exists \; \bar{n}\) s.t.
+    \[
+        n, m > \bar{n} \Rightarrow \norm{T_n x - T_m x}_Y \leq \epsilon \norm{x}_X \quad \forall \; x 
+    \]
+    Take the limit for \(m \to \infty\): 
+    \[
+        \norm{T_n x - Tx}_Y \leq \epsilon \norm{x}_X
+    \]
+    But then, since \(T_n\) is bounded, 
+    \[
+        \norm{Tx}_Y = \norm{Tx \pm T_n x}_Y \leq \norm{T_n x}_Y + \norm{Tx - T_n x}_Y \leq M_n \norm{x}_X + \epsilon \norm{x}_X = (M_n + \epsilon) \norm{x}_X
+    \]
+    and \(T\) is bounded. To show that \(\norm{T_n - T}_\mathcal{L} \to 0\), observe that \(\forall \; \epsilon >0 \; \exists \; \bar{n} \) s.t. \(n > \bar{n}\)
+    \[
+        \norm{T_n x - Tx}_Y \leq \epsilon \norm{x}_X 
+        \Leftrightarrow \frac{\norm{(T_n - T)x}_Y}{\norm{x}_X} \leq \epsilon \quad \forall \; x \in X \setminus {0}
+        \overset{\mathclap{\substack{\text{\tiny{take sup over }} \\x \neq 0 }}\\}{\Rightarrow} \norm{T_n - T}_\mathcal{L} < \epsilon
+    \]
+    namely, \(T_n \to T\) in \(\mathcal{L}\)
+\end{proof}
+Let \(T\) be a linear operator from \(X\) to \(Y\).
+\begin{definition}
+    The \textbf{kernel} of \(T\) is the set 
+    \[
+        \ker(T) = \{ x \in X: Tx =0\} \subset X
+    \]
+
+\end{definition}
+This is a vector subspace of \(X\). 
+
+\noindent \(T\) is injective \(\Leftrightarrow \ker (T) = \{0\}\). If \(T\) is continuous, \(\ker(T)\) is closed 
+\[
+    \ker(T) = T^{-1} (\{0\})
+\]
+\begin{definition}
+    \(X\), \(Y\) normed spaces. \(X\) and \(Y\) are isomorphic if \(\exists \; T \in \mathcal{L}(X, Y)\) bijective, and such that \(T^{-1} \in \mathcal{L}(X, Y)\)
+\end{definition}
+\begin{definition}
+    \(T \in \mathcal{L}(X, Y)\) is an isometry if
+    \[
+        \norm{Tx}_Y = \norm{x}_X \quad \forall \; x \in X
+    \]
+\end{definition}
+\begin{definition}
+    If \(X \subseteq Y\) is a vector subspace, and \(\left(X, \normdot_X\right)\) and \(\left(Y, \normdot_Y\right)\) are normed space, then we can consider 
+    \[
+        \begin{array}{rcr}
+            J: & X \to Y & \text{(inclusion map)}
+            \\ & x \mapsto x
+        \end{array}
+    \] 
+    If \(J \in \mathcal{L}(X, Y)\) (namely, if \(\exists \; M>0 \) s.t. \(\norm{x}_Y \leq M \norm{x}_X\) \(\forall \; x \in X\)), 
+    then we say that \(J\) is an embedding of \(X\) into \(Y\), and we write \(X \hookrightarrow Y\)
+\end{definition}
+
+\begin{example}
+    \(\mu(X) < \infty \), \(1 \leq p < q \leq \infty\)
+    \[
+        L^q(X) \hookrightarrow L^p(X) \tag*{(inclusion of \(L^p\) spaces)}
+    \]
+\end{example}
+
+\begin{definition}
+    \((X, d)\) metric space. \(A \subset X\). \(x \in X \) is an \textbf{adherence point} of \(A\) if \(\forall \; r>0: B_r(x) \cap A \neq \emptyset\)
+    \[
+        \bar{A} = \{ x \in X: x \text{ is an adherence point of } A \} = A \cup \partial A
+    \]
+\end{definition}
+\begin{definition}
+    \(A \subset X\) is \textbf{dense} in \(X\) if \(\bar{A} = X\).
+\end{definition}
+For example, \(\mathbb{Q}\) is dense in \(\real\), and \((a, b)\) is dense in \([a, b]\).
+\subsection{Nowhere dense sets}
+\begin{definition}
+    \(A \subset X\) is \textbf{nowhere dense} if the interior of the closure of \(A\) is empty, namely
+    \[
+       \text{int} (\bar{A}) = \interior{\bar{A}} = \emptyset  
+    \]
+\end{definition}
+\begin{example}
+    \begin{itemize}
+        \item \(\interior{\bar{\{x\}}} = \interior{\{x\}} = \emptyset\)
+        
+        \item \(\mathbb{Z} \subset \real\): \(\interior{\bar{\mathbb{Z}}}=\interior{\mathbb{Z}} = \emptyset\)
+        
+        \item \(\mathbb{Q} \) is not nowhere dense: \(\interior{(\bar{\mathbb{Q}})} = \interior{(\mathbb{R})} = \real \)
+        
+    \end{itemize}
+\end{example}
+\begin{definition}
+    \(A \subset X\) is called \textbf{of first category} (or \textbf{meager set}) in \(X\) if \(A\) is the (at most) countable union of nowhere dense sets. 
+\end{definition}
+
+Ex: \(\mathbb{Q}\) is of first category in \(\real\): countable union of nowhere dense sets
+\[
+    \mathbb{Q} = \bigcup_{q \in \mathbb{Q}} \{q\}
+\]
+\begin{definition}
+    \(A \subset X\) is of second category if it is not of first category.
+\end{definition}
+\subsection{Baire's category theorem}
+\begin{theorem}[Baire's category theory]
+    \((X, d)\) complete metric space. Then 
+    \begin{itemize}
+        \item \(\{U_n\}_{n=0}^\infty\) is a sequence of open and dense sets in \(X\) \(\Rightarrow \cap_{n=0}^\infty U_n\) is dense in \(X\).
+        \item \(X\) is of second category in itself: \(X\) cannot be the countable union of nowhere dense sets. 
+    \end{itemize}
+\end{theorem}
+
+
+\noindent\underline{Preliminaries}:
+\begin{itemize}
+    \item \(A \subset X\) is dense \(\Leftrightarrow \forall \; W \subset X\), \(W\) open, \(W \neq \emptyset\), we have that \(A \cap W \neq \emptyset\)
+    \item \(A\) is nowhere dense \(\Leftrightarrow \left(\bar{A}\right)^C\) is open and dense
+\end{itemize}
+
+\begin{proof} Here's the proof of the two parts of the theorem:
+    \begin{itemize}
+        \item[(a)] Thanks to the first preliminary, we show that \(\forall \; W \subset X\) open and non-empty we have \((\cap_n U_n) \cap W \neq \emptyset\)
+        
+        \[
+            \begin{array}{rl}
+                U_0 \text{ is open and dense:} & \overset{1^{st}\text{\tiny{prel.}}}{\Rightarrow} \underbrace{U_0 \cap W}_{\text{is open}} \neq \emptyset \\
+                & \Rightarrow \text{it contains an open ball} \\
+                & \Rightarrow (U_0 \cap W) \supset B_{r_0}(x_0) \mbox{ for some } x_0 \in X \mbox{ and } r_0 > 0
+        \end{array}
+        \] 
+        For \(n>0\), we choose \(x_n \in X\) and \(r_n > 0\) inductively in the following way: we have 
+        \[
+            U_n \cap B_{r_{n-1}}(x_{n-1}) \neq \emptyset 
+        \tag*{(\(1^{st}\) prel. \(+ \, U_n\) is dense)}\]
+        \[
+            \Rightarrow \overline{B_{r_n}(x_n)} \subset \underset{\substack{\text{\tiny{all these balls }} \text{\tiny{are included in}} \\
+            {B_{r_0}(x_0)}}}{(U_n \cap B_{r_{n-1}}(x_{n-1}))}
+        \]
+        with \(x_n \in X\) and \(0 < r_n < \frac{1}{2^n}\)
+
+        By the condition on \(r_n\), we see that 
+        \[
+            x_n, x_m \in B_{r_N}(x_N) \quad \forall \; n,m > N
+        \]
+        \(\Rightarrow \left\{ x_n \right\}\) is a Cauchy sequence in \(X\)
+        \[
+            d(x_n, x_m) \leq \frac{1}{2^N} \quad \forall \; n,m > N
+        \]
+        \(X\) is complete: \(x_n \overset{d}{\rightarrow} x \in X\).
+
+        Since 
+        \[
+            \begin{array}{lr}
+                x_n \in B_{r_N}(x_N) & \forall \; n > N \\
+                \Rightarrow x = \lim_n x_n \in \overline{B_{r_N}(x_N)} \subset (U_N \cap B_{r_0}(x_0)) \subset (U_N \cap W) & \forall \; n \in \mathbb{N} \\
+                \Rightarrow x_n \in \bigcap_n (U_n \cap W) = \left(\bigcap_n U_n\right) \cap W
+            \end{array}
+        \]
+        This means that \(\bigcap_n U_n\) is dense.
+        \item[(b)] It follows from (a):
+        
+        If \(\left\{ E_n \right\}\) is a sequence of nowhere dense sets in \(X\), then, by the second preliminary \(\left\{ (E_n)^C \right\}\) is a sequence of open and dense sets. By (a) 
+        \[
+            \begin{array}{l}
+                \bigcap_n (\overline{E_n})^C \neq \emptyset \\
+                \Rightarrow \bigcup_n E_n \subset \bigcup_n \overline{E_n} = X \setminus \overset{= \emptyset}{\left(\bigcap_n (\overline{E_n})^C\right)} \neq X \\
+
+            \end{array} 
+        \]
+    \end{itemize}
+\end{proof}
+\begin{example}
+    \((X, \normdot)\) \(\infty-\dim\) Banach space. \(\left\{ e_i \right\}_{i \in I}\) Hamel basis. 
+    
+    Then \(I\) is uncountable.
+\end{example}
+\subsection{Banach-Steinhaus's theorem}
+\begin{theorem}[Banach-Steinhaus]
+    \(X\) Banach space, \(Y\) normed space, \(\mathcal{F} \subseteq \mathcal{L}(X, Y)\) family.
+    Suppose that \(\mathcal{F}\) is pointwise bounded: 
+    \[
+        \forall\; x \in X \quad \exists \; M_x >0 \text{ s.t. } \sup_{T \in \mathcal{F}} \norm{Tx}_Y \leq M_x \tag*{(PB)}
+    \]
+    Then \(\mathcal{F} \) is uniformly bounded: 
+    \[
+        \exists \; M \geq 0 \text{ s.t. } \sup_{T \in \mathcal{F}} \norm{T}_{\mathcal{L}(X, Y)} \leq M \tag*{(UB)}
+    \]
+\end{theorem}
+\begin{proof}
+    \(\forall \; n \in \natural\), let 
+    \[
+        C_n := \{ x \in X: \norm{Tx}_Y \leq n \quad \forall \; T \in \mathcal{F} \} 
+        = \cap_{T \in \mathcal{F}} \{ x \in X: \norm{Tx}_Y \leq n \}
+    \]
+    \(C_n\) is a closed set \(\forall \; n\), since \(T\) is continuous. (also \(\phi: X \to \real \) \(\phi(x)=\norm{Tx}_Y\) is continuous)
+
+    By (PB), every \(x \in X\) stays in some \(C_n\): \(X = \cup_{n=1}^\infty C_n\). 
+    Since \(X\) is Banach, by the Baire theorem it is necessary that \(\exists \; n_0 \in \natural\) s.t. \(\interior{C}_{n_0} \neq \emptyset \Rightarrow\) a ball \(\overline{B_r(x_0)} \subset C_{n_0}\): then
+    \[
+        \norm{T(x_0+rz)}_Y \leq n_0 \quad \forall \; z \in \overline{B_1(0)}
+    \]
+    \[
+        \norm{T(x_0 + rz)}_Y \overset{\text{\tiny{linearity}}}{=} \norm{Tx_0 + rTz}_Y \overset{\text{\tiny{triangle ineq.}}}{\leq} r\norm{Tz}_Y - \norm{Tx_0}_Y \quad \forall \; T \in \mathcal{F} \; 
+    \]
+    To sum up: \(\forall \; T \in \mathcal{F} \), \(\forall \; z \in \overline{B_1(0)}\) we have 
+    \[
+        r \norm{Tz}_Y - \norm{Tx_0}_Y \leq n_0 \Rightarrow \norm{Tz}_Y \leq \frac{1}{r}(n_0 + M_{x_0})
+    \]
+    We take sup over \(T \in \mathcal{F}\):
+    \[
+        \sup_{T \in \mathcal{F}} \norm{T}_{\mathcal{L}(X, Y)} \leq \frac{1}{r} \left(n_0 + M_{x_0}\right) =: M
+    \]
+\end{proof}
+
+\begin{corollary}
+    \(X\) Banach space, \(Y\) normed space. \(\{ T_n \} \subseteq \mathcal{L}(X, Y)\) s.t. \(\{T_n x\}\) has a limit, denoted by \(Tx\), \(\forall \; x \in X\) (pointwise convergence). 
+    Then \(T \in \mathcal{L}(X, Y)\)
+\end{corollary}
+\begin{proof}
+    \(T\) is linear: 
+    \[
+        \begin{array}{ccc}
+            T_n(\alpha_1 x_1 + \alpha_2 x_2 ) & = & \alpha_1 T_n x_1 + \alpha_2 T_n x_2 \\
+            \downarrow && \downarrow \\
+            T(\alpha_1 x_1 + \alpha_2 x_2) & = & \alpha_1 Tx_1 + \alpha_2 Tx_2
+        \end{array}
+    \]
+    Now we observe that we have (PB): if \(\{ T_n x \}\) is convergent \(\Rightarrow \{T_n x\} \) is bounded \(\Rightarrow \) by Banach Steinhaus, \(\{ T_n \}\) is uniformly bounded: 
+    \[
+        \exists M>0 \text{ s.t. } \sup_n \norm{T_n}_{\mathcal{L}(X, Y)} \leq M 
+    \]
+    Therefore, \(\forall \; x \in X\):
+    \[
+        \norm{Tx}_Y = \norm{\lim_n (T_n x)}_Y = \lim_n \norm{T_n x}_Y \leq \lim_n \norm{T_n}_\mathcal{L} \norm{x}_X \leq \lim_n M \norm{x}_X  = M \norm{x}_X
+    \]
+    Thus, \(T\) is bounded: \(T \in \mathcal{L}(X, Y)\)
+\end{proof}
+Let \(X, Y\) be normed spaces.
+\begin{definition}
+    \(T: X \to Y\) is called \textbf{open map} if, \(\forall \; A \subset X \mbox{ open}\), the set \(T(A)\subset Y\) is open.
+\end{definition}
+\begin{remark}
+    Recall that \(T\) is continuous on \(X\) if \(T^{-1}(O)\) is open on \(X\), \(\forall \; O \mbox{ open in } Y\).
+\end{remark}
+\begin{example}
+    \(f(x) : \mbox{constant}\) is continuous, but not open. \(f((a,b)) = \left\{ \mbox{const} \right\}\)
+    
+\end{example}\subsection{Open map theorem}
+\begin{theorem}[Open map theorem]
+    \(X, Y\) Banach spaces. \(T \in \mathcal{L}(X,Y)\) is surjective. Then \(T\) is an open map.
+\end{theorem}
+\begin{corollary}
+    \(X,Y\) Banach spaces, \(T \in \mathcal{L}(X,Y)\) is bijective. Then \(T\) is an isomorphism: \(T^{-1} \in \mathcal{L}(X,Y)\)
+\end{corollary}
+\begin{proof}
+    \begin{itemize}
+        \item \(T : Y \to X\) is linear. (Exercise. Hint: Use \(T^{-1} \circ T = \text{Id} + \) linearity of \(T\))
+        \item We want now to check that \(T^{-1}\) is continuous on \(Y\): \((T^{-1})^{-1}(O)\) is open in \(Y\), \(\forall \; O\) open in \(X\). We know that \(T\) is an open map thanks to the open map theorem.
+        \[
+            (T^{-1})^{-1}(O) = \left\{ y \in Y, T^{-1}(y) \in O \right\} = \left\{ y \in Y, T^{-1}(y) = x, \mbox{ for some } x \in O \right\} =
+        \]
+        \[
+            = \left\{ y \in Y, y = Tx, \mbox{ for some } x \in O\right\} = T(O) \mbox{ is open}
+        \]
+    Since \(T\) is an open map, \(\forall \; O \subset X\), open.
+    \end{itemize}
+\end{proof}
+\begin{corollary}
+    \(X\) vector space, \(\normdot, \normdot_*\) norms on \(X\). Assume \((X, \normdot), (X, \normdot_*)\) are Banach spaces. 
+    Assume that \(\exists \; C_1 > 0\) s.t. 
+    \[
+        \norm{x}_* \leq C_1\norm{x} \quad \forall \; x \in X
+    \]
+    Then \(\normdot\) and \(\normdot_*\) are equivalent, namely \(\exists \; C_2 > 0\) s.t. 
+    \[
+        \norm{x} \leq C_2 \norm{x}_*
+    \]
+\end{corollary}
+\begin{proof}
+    Consider
+    \[
+        \begin{array}{lrl}
+            I :& (X, \normdot) & \to (X, \normdot_*) \\
+            &x & \mapsto x
+        \end{array}
+    \]
+    By assumption, \(I\) is bounded: \(\exists \; C_1 > 0\) s.t. 
+    \[
+        \norm{Ix}_* = \norm{x}_* \leq C_2 \norm{x}
+    \]
+    \(I\) is bijective.
+
+    Thus, by the corollary before
+    \[
+        I^{-1} = I \in \mathcal{L}((X, \normdot_*), (X, \normdot))
+    \]
+    namely \(\exists \; C_2 > 0\) s.t. 
+    \[
+        \stackbelow{\norm{Ix}}{\norm{x}} \leq C_2 \norm{x}_*
+    \]
+\end{proof}
+\begin{definition}
+    \(T : D(T) \subset X \to Y\) linear operator. We say that \(T\) is \textbf{closed} if \(\forall \; \left\{ x_n \right\} \subset D(T)\). 
+    \[
+        \begin{rcases*}
+            x_n \to x & \mbox{in } X \\
+            Tx_n \to y & \mbox{in } Y
+        \end{rcases*} \Rightarrow x \in D(T) \mbox{ and } Tx = y
+    \]
+
+\end{definition}
+\begin{example}
+    \(X = Y = \mathcal{C}^0([0,1])\) with the supremum norm.
+    \[
+        T = \frac{d}{dx}
+    \]
+    \(T\) is not continuous. But it is closed: it can be proved that if \(\left\{ f_n \right\} \subset \mathcal{C}^1([0,1])\) is s.t.
+    \[
+        \begin{rcases*}
+            f_n \to f & \mbox{uniformly} \\
+            f_n' \to g & \mbox{uniformly}
+        \end{rcases*} \Rightarrow f \mbox{ is } \mathcal{C}^1([0,1]) \mbox{ and } f' = g
+    \] 
+\end{example}
+\begin{example}
+    \(T \in \mathcal{L}(X,Y) \Rightarrow T \mbox{ is closed}\)
+\end{example}
+\begin{remark}
+    \(T\) is a closed operator \(\Leftrightarrow\) the graph of \(T\) is closed.
+    \[
+        \mbox{graph}(T) = \left\{ (x, Tx): x \in X \right\}
+    \]
+\end{remark}
+\subsection{Closed graph theorem}
+\begin{theorem}[Closed graph theorem]
+    \(X, Y\) Banach spaces. 
+    
+    \(T : X \to Y\) linear closed operator (\(D(T) = X\)). 
+    
+    Then \(T \in \mathcal{L}(X,Y)\).
+\end{theorem}
+\begin{remark}
+    In general, it is easier to prove that an operator is closed, rather than it is continuous.
+\end{remark}
+\begin{proof}
+    Define on \(X\) the graph-norm of \(T\)
+    \[
+        \norm{x}_* = \norm{x}_X + \norm{Tx}_Y
+    \]
+    Then is a norm on \(X\). If \(\left\{ x_n \right\} \in X\) is a Cauchy sequence for \(\normdot_*\), then \(\left\{ x_n \right\}\) is a Cauchy sequence in \((X, \normdot_X)\) and \(\left\{ Tx_n \right\}\) is a Cauchy sequence on \((Y, \normdot_Y)\)
+    \[
+        \Rightarrow \begin{rcases*}
+            x_n \to x & \mbox{in } X \\
+            Tx_n \to y & \mbox{in } Y
+        \end{rcases*} \mbox{ since } T \mbox{ is closed, we deduce that } y = Tx
+    \]
+    Thus 
+    \[
+        \norm{x_n - x}_X + \norm{Tx_n - Tx}_Y \to 0
+    \]
+    This proves that \((X, \normdot_*)\) is a Banach space. Also, we know that 
+    \[
+        \norm{x}_X \leq \norm{x}_X + \norm{Tx}_Y = \norm{x}_*
+    \]
+    By the last corollary of the open map theorem, \(\exists \; C_2\) s.t. 
+    \[
+        \norm{x}_* \leq C_2 \norm{x_X}
+    \]
+    \[
+        \norm{Tx}_Y \leq \norm{x}_* \leq C_2 \norm{x}_X \quad \forall \; x \in X
+    \]
+    This means that \(T\) is bounded.
+\end{proof}

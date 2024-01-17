@@ -1,0 +1,219 @@
+\newpage
+\section{Banach Spaces}
+\subsection{Normed spaces}
+\begin{definition}
+    Given \(X\) vector space, a norm on \(X\) is a function \(\norm{\cdot} : X \to [0, \infty)\) s.t.
+    \begin{itemize}
+        \item \(\norm{x} = 0 \Leftrightarrow x = 0\)
+        \item \(\forall \; \alpha \in \real, \forall \; x \in X\) : 
+        \[
+            \norm{\alpha x} = \abs{\alpha}\norm{x}  \tag*{(positive homogeneity)}
+        \]
+        \item \(\forall \; x,y \in X\): 
+        \[
+            \norm{x+y} \leq \norm{x} + \norm{y} \tag*{(triangle inequality)}
+        \]
+    \end{itemize}
+    Then, \((X, \normdot)\) is called a \textbf{normed space}
+\end{definition}
+\begin{example}
+    \(\abs{\norm{x} - \norm{y}} \leq \norm{x - y}\) \(\forall \; x,y \in X\)
+    
+\end{example}
+\subsection{Banach spaces}
+\begin{definition}
+    \((X, \normdot)\) is called a \textbf{Banach space} if \((X, d)\) is complete, namely if any Cauchy sequence in \((X, d)\) is convergent.
+\end{definition}
+If \((X, \normdot)\) is a normed space, we can speak about series in \(X\). Let \(\left\{ x_n \right\} \subset X\) and \(s_n = x_0 + x_1 + \ldots + x_n\), then \(\sum_{n=0}^{+\infty} x_n = \left\{ s_n \right\}\). 
+
+Then \(\sum x_n\) is convergent if \(\left\{ s_n \right\}\) is convergent. If \(\sum x_n\) is convergent, we write 
+\[
+    s = \sum_{n = 0}^{+\infty} x_n \Leftrightarrow s_n \to s
+\]
+For numerical series
+\[
+    \sum_{n=1}^{\infty} \abs{a_n} < +\infty \Rightarrow \sum a_n \mbox{ is convergent}
+\]
+In general, in normed spaces 
+\[
+    \sum_{n=1}^{\infty} \norm{x_n} < +\infty \nRightarrow \sum_{n=1}^{\infty} x_n \mbox{ is convergent}
+\]
+\subsection{Equivalent norms}
+\((X, \normdot)\) is a Banach space \(\Leftrightarrow\) every series s.t. \(\sum \norm{x_n} < +\infty\) is also s.t. \(\sum x_n\) is convergent.
+
+
+\((X, \norm{\cdot}) \to (X, d) \to \) open sets, closed sets, bounded sets....
+
+In \(\real^n\) we are used to working with \(\norm{\cdot}_2\), but we could have many norms.
+\begin{definition}
+    Let \(\normdot\) and \(\normdot_2\) be two norms on the same vector space \(X\). We say that these norms are \textbf{equivalent} if \(\exists \; m, M >0\) s.t. 
+    \[
+        m\norm{x} \leq \norm{x}_2 \leq M\norm{x} \quad \forall\; x \in X
+    \]
+\end{definition}
+It can be proved that if two norms are equivalent they lead to different metric spaces, but to the same open sets, closed sets, convergent sequences, compact sets \dots
+\begin{theorem}
+    If \(X\) is any finite dimension vector space, then all the norms on \(X\) are equivalent.
+\end{theorem}
+\begin{remark}
+    This is why in \(\real^n\) usually one does not specify the choice of the norm. One choose the Euclidean norm, since it comes from a scalar product. (ref. Hilbert spaces)
+\end{remark}
+\noindent\underline{Preliminary fact}: The set \(S_1 = \left\{ s \in \real^n : \norm{s}_1  = 1\right\}\) is compact in \((\real^n, d)\)
+\begin{proof}
+    We show that any norm is equivalent to \(\normdot_1 = \sum_{i=1}^n \abs{x_i}\)
+    \[
+        x = \sum_{i=1}^n x_i e_i \qquad \left\{ e_i \right\}_{i= 1,\ldots, n} \mbox{ canonical basis}
+    \]
+    Let's introduce the norm star 
+    \[
+        \norm{x}_* = \norm{\sum_{i=1}^n x_i e_i}_* 
+        \leq \sum_{i=1}^n \norm{x_i e_i}_* = \sum_{i=1}^n \abs{x_i} \norm{e_i}_* 
+        \leq \left(\max_{1 \leq i \leq n} \norm{e_i}_*\right) \sum_{i=1}^n \abs{x_i}
+        = M \norm{x}_1
+    \]
+    We proved that \(\exists \; M> 0\) s.t.
+    \[
+        \norm{x}_* \leq M \norm{x}_1 \quad \forall \; x \in X \tag{1}
+    \]
+    Note that this proves that \(\phi(x) = \norm{x}_*\) is continuous in (\(X, d\)). Indeed, 
+    \[
+        x_n \to x \Leftrightarrow d_1(x_n, x) \to 0
+    \]
+    then 
+    \[
+        \abs{\phi(x_n) - \phi(x)} = \abs{\norm{x_n}_* -\norm{x}_*} \leq \norm{x_n - x}_* 
+        \overset{(1)}{\leq} M\norm{x_n - x}_1 \to 0
+    \]
+    Therefore, by the Weierstrass theorem, \(\exists\) a minimum point \(x_0 \in S_1\) s.t. 
+    \[
+        \phi(x) \geq \phi(x_0) = m \quad \forall\; x \in S_1
+    \]
+    (recall that \(S_1\) is compact)
+    \[
+        \norm{x}_* \geq m \quad \forall \; x \in S_1
+    \]
+    We claim that \(m>0\). If \(m=0\) then \(\norm{x_0}_* = 0 \Rightarrow x_0  = 0\) that is impossible, since \(x_0 \in S_1\).
+
+    Thus, \(m>0\). Let now \(y \in \real^n, y \neq 0\). Then 
+    \[
+        \frac{y}{\norm{y}_1} \in S_1 
+        \Rightarrow \norm{\frac{y}{\norm{y}_1}}_* \geq m 
+        \Rightarrow \frac{1}{\norm{y}_1} \norm{y}_* \geq m 
+        \Rightarrow \norm{y}_* \geq m \norm{y}_1 \quad \forall \; y \in \real^n 
+    \]
+\end{proof}
+If \(\dim X = +\infty\), then there are many non-equivalent norms.
+
+\begin{example}
+    In \(\mathcal{C}^0([a,b])\), we can define \(\normdot_{\infty}\) and \(\norm{f}_1 = \int_a^b\abs{f(t)} \, dt\). This is a norm in \(\mathcal{C}^0\), but these norms are not equivalent. 
+\end{example}
+
+\subsection{Separable spaces}
+\((X, d)\) metric space. 
+\begin{definition}
+    We say that \(X\) is separable if \(\exists \; A \subset X\) which is dense (\(\bar{A} = X\)) and countable 
+\end{definition}
+In \(\real^n\), \(\mathbb{Q}^n\) is dense and countable, while in \(\infty-\dim\) we can have separable spaces or not. 
+\subsection{Compactness}
+In finite dimension (in \(\real^n\)), one has that
+\[
+    E \subset X \mbox{ is compact } \Leftrightarrow E \mbox{ is closed and bounded}
+\]
+If \(\dim X = \infty\), then only `\(\Rightarrow\)' is true. In finite dimension, we know that the closed unit ball is compact
+\[
+    \bar{B}_1(0) = \left\{ x \in \real^n : \norm{x} \leq 1\right\}
+\]
+\subsection{Riesz's theorem and quasi-orthogonality lemma}
+What happens now if \((X, \normdot)\) is on \(\infty-\dim\) normed space?
+The proof of the Riesz's theorem is based on the Riesz's \textbf{quasi-orthogonality lemma}.
+\begin{lemma}[Riesz Quasi-Orthogonality Lemma]
+    Let \(X\) be a normed space, \(E \subsetneq X\) a closed subspace. 
+    Then \(\forall \; \epsilon \in (0,1)\) \(\exists \; x \in X\) s.t.
+    \[
+        \norm{x}=1 \text{ and dist}(x, E) = \inf_{y \in E} \norm{x-y} \geq 1- \epsilon
+    \]
+\end{lemma}
+\begin{proof}
+    Let \(y \in X \setminus E\), and \(d := \) dist\((y, E) >0\), since \(E\) is closed. 
+    
+    \(\forall \; \rho > 0 \ \exists \; z \in E \) s.t.
+    \[
+        \norm{y-z} \leq (1+\rho)d = \frac{d}{1-\epsilon} \tag{1}
+    \]
+    since we choose \(\rho\) s.t. \(1+\rho = \frac{1}{1-\epsilon}\). Now we set \(x = \frac{y-z}{\norm{y-z}}\).
+
+    Clearly \(\norm{x}=1\). Moreover, \(\forall \; u \in E\), we have that
+    \[
+        \norm{x-u} = \norm{ \frac{y-z}{\norm{y-z}} - u }
+        = \norm{ \frac{y-z -\norm{y-z}u }{\norm{y-z}} }
+        = \frac{1}{\norm{y-z}} \norm{y-(z + \norm{y-z}u)} =
+    \]
+    \[
+        = \frac{1}{\norm{y-z}} \norm{y-w}
+        \geq \frac{1}{\norm{y-z}} \text{dist}(y, E)
+        \overset{(1)}{\geq} \frac{1-\epsilon}{d} d = 1 - \epsilon
+    \]
+    Since this is true \(\forall \; u \in E\), we deduce that
+    \[
+        \text{dist}(x, E) \geq 1-\epsilon
+    \]
+\end{proof}
+\begin{theorem}[Riesz's theorem]
+    \(X\) normed space, \(\dim X = +\infty\) \(\Rightarrow \overline{B_1(0)}\) is not compact
+\end{theorem}
+\begin{remark}
+    It is well known that if \(E \in \real^n\) is compact, then \(\forall \; \left\{ x_n \right\} \in E \) \(\exists \; \left\{ x_{n_k} \right\}\) subsequence s.t. \(x_{n_k} \to x \in E\).  
+    This proposition is much harder to prove in \(\infty-\dim\).
+\end{remark}
+\begin{proof}
+    Assume that \(\overline{B_1(0)}\) is compact, and \(X \) has infinite dimension. 
+
+    \(\exists\) a sequence \(\{E_n\}\) of finite dimensional subspaces (hence closed) of \(X\) s.t. 
+    \[
+        E_{n-1} \subset E_n \text{ and } E_{n-1} \neq E_n
+    \]
+    \(E_{n-1}\) is a proper closed subspace of \(E_n\) \(\forall\; n\)
+
+    We can apply the Riesz Lemma with \(X = E_n\), \(E=E_{n-1}\), \(\epsilon=\frac{1}{2}\). 
+    Then \(\forall \; n\) \(\exists \; u_n \in E_n  \) s.t. \(\norm{u_n}=1\) and dist\((u_n, E_{n-1}) \geq \frac{1}{2} \quad \forall\; n\)
+    
+    Therefore, we have a sequence \(\{u_n\}\) with the following properties 
+    \[
+        \norm{u_n}=1 \qquad \forall\; n
+    \]
+    \[
+        \norm{u_n-u_m} \geq \frac{1}{2} \qquad \forall\; n \neq m
+    \]
+    \(\Rightarrow\) this sequence cannot have any convergent subsequence. 
+    But then \(\overline{B_1(0)} \supseteq \{u_n\}\), this implies that \(\overline{B_1(0)}\) is not compact.
+    Contradiction.
+
+    (In any \(\left(X, \normdot\right)\) normed space, if \(E\) is compact, 
+    then \(\forall\; \{x_n\} \subset E \) \(\exists \; \{x_{n_k}\}\) s.t. \(x_{n_k} \rightarrow x \in E\))
+\end{proof}
+
+\(\left(X, d\right)\) metric space.
+\begin{definition}
+    \(E \subset X\) is compact if, for any open covering \(\{A_i\}_{i \in I}\), has a finite subcover.
+\end{definition}
+
+\begin{definition}
+    \(E \subset X\) is sequentially compact if \(\forall \; \{x_n\} \subset E \) 
+    there exists \(\{x_{n_k}\}\) subsequence convergent to some limit \(x \in E\)
+\end{definition}
+
+Well known fact: if \(\left(X, d\right)\) is a metric space, then \(E\) is compact \(\Leftrightarrow E \) is sequentially compact.
+\begin{remark}
+    Also:
+    \begin{itemize}
+        \item \(E \in X\) closed. Then dist\((x, E)=0 \Leftrightarrow x \in E\)
+        \item By definition of infimum, if \(d =\) dist\((x, E)\), then \(\forall \; \rho >0 \ \exists \; z \in E\) s.t. 
+        \[
+            \norm{x-z} < (1+\rho) d
+        \]
+    \end{itemize}
+\end{remark}
+
+
+
+
